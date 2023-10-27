@@ -1,1 +1,400 @@
+body {
+    background-color: #e2e2e2;
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+    padding-bottom: .5rem;
+}
 
+body, h1, h2, h3, h4, h4, h5, h6, p, a, li {
+	font-family: 'Alfa Slab One', cursive;
+}
+
+input[type=text], input[type=tel], input[type=email], textarea {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.padding-left-0 {
+    padding-left: 0;
+}
+
+.row {
+    max-width: 100%;
+}
+
+.row .row {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+}
+
+header .sticky {
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+    font-size: 2.8vw;
+    width: 100%;
+}
+
+header .sticky .row {
+    align-items: baseline;
+    padding-bottom: 1rem;
+}
+
+header .sticky .row > div {
+    text-align: center;
+}
+
+#logo {
+    width: 100%;
+    height: auto;
+}
+
+#adobe {
+    vertical-align: unset;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+#tag-list {
+    font-size: 1.5rem;
+    font-size: 1.8vw;
+    padding-left: 2%;
+    padding-right: 1%;
+}
+
+#sidebar {
+    padding-top: 60px;
+}
+
+#sidebar > div {
+    margin-bottom: 1.5rem;
+}
+
+#sidebar > div:last-of-type {
+    margin-bottom: 0;
+}
+
+.small-9 {
+    padding: 0;
+}
+
+.video-container {
+    margin-bottom: 30px;
+}
+
+.video-row {
+    margin-bottom: 0;
+}
+
+.video-title {
+    font-size: .8em;
+}
+
+#links {
+    font-size: 1.4rem;
+    font-size: 2vw;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.no-break {
+    white-space: nowrap;
+}
+
+
+/****************************************************/
+/******************** INDEX PAGE ********************/
+/****************************************************/
+
+video {
+    width: 95%;
+    height: auto;
+}
+
+#content-section-header {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-size: 2.4vw;
+}
+
+#content-section-header p {
+    font-size: .8rem;
+    font-size: .8vw;
+}
+
+/*********************************************************/
+/******************** EVENT INFO PAGE ********************/
+/*********************************************************/
+
+#contact-content > div:nth-of-type(2) {
+    max-width: 62.5rem;
+    margin: 0 auto 30px;
+}
+
+#contact-content > div:nth-of-type(2) ul {
+    margin-bottom: 0;
+}
+
+#contact-content > div:nth-of-type(4) > div.columns {
+    padding: 0;
+}
+
+#form-title {
+    font-size: 1.5rem;
+    font-size: 1.4vw;
+}
+
+#form-title p {
+    font-size: .7rem;
+    font-size: .8vw;
+}
+
+fieldset.columns {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+fieldset.columns label {
+    margin-right: .5rem;
+}
+
+
+/*****************************************************/
+/******************** PHOTOS PAGE ********************/
+/*****************************************************/
+
+.photo {
+    margin: 2rem 2rem 2rem 0;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+}
+
+/* fix for recaptcha's lack of responsiveness */
+@media screen and (max-width: 23.5em) {
+    #captcha {
+        position: relative;
+        left: -60px;
+    }
+}
+
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+    .sticky > div {
+        padding: 0;
+    }
+
+    .header-text {
+        font-size: 1rem;
+        font-size: 5vw;
+        padding-bottom:  .8rem;
+    }
+
+    #adobe {
+        max-width: 35%;
+    }
+
+    #tag-list {
+        font-size: 1.2rem;
+        font-size: 2.8vw;
+    }
+
+    #sidebar > div {
+        padding-left: 0;
+        margin-bottom: 1.2rem;
+    }
+
+    #content-section-header {
+        font-size: 1.2rem;
+        font-size: 5.5vw;
+    }
+
+    #links {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        font-size: 5vw;
+    }
+
+    /* index page */
+
+    .video-row > div {
+        padding: 0;
+    }
+
+    /* contact page */
+
+    #contact-content > div:nth-of-type(2) {
+        padding: 0 5px;
+        font-size: .6rem;
+        font-size: 3vw;
+        line-height: 2;
+    }
+
+    #form-title {
+        font-size: 1rem;
+        font-size: 4.5vw;
+    }
+
+    #form-title p {
+        font-size: .4rem;
+        font-size: 2.2vw;
+    }
+
+    form label {
+        font-size: .7rem;
+        font-size: 3vw;
+    }
+
+    fieldset.columns {
+        padding-left: .6rem;
+    }
+
+    fieldset.columns label {
+        margin-right: 0;
+        margin-left: .4rem;
+    }
+
+    #contact-content > div:nth-of-type(4) div.columns {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #captcha {
+        margin-bottom: 15px;
+    }
+
+    #captcha, #submit-button {
+        text-align: center;
+    }
+
+    /* photos page */
+
+    .photo {
+        margin: 1rem 1rem 1rem .5rem;
+    }
+
+    /* gear page */
+
+    #gear-content {
+        font-size: .7rem;
+        font-size: 3vw;
+    }
+}
+
+/* Medium and larger */
+@media screen and (min-width: 40em) {
+    /* #sidebar {
+        padding-top: 3%;
+    } */
+}
+
+/* up to 767 */
+@media screen and (max-width: 47.9375em) {
+    .video-row .small-12 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+
+    .header-text {
+        font-size: 1.1rem;
+        font-size: 2.5vw;
+    }
+
+    #tag-list {
+        font-size: 1.2rem;
+        font-size: 3vw;
+    }
+
+    #content-section-header {
+        font-size: 1.4rem;
+        font-size: 3.5vw;
+    }
+
+    #links {
+        font-size: .7rem;
+        font-size: 1.4vw;
+    }
+
+    /* contact page */
+
+    #contact-content > div:nth-of-type(2) {
+        padding: 0 5px;
+        font-size: .7rem;
+        font-size: 1.5vw;
+        line-height: 2;
+    }
+
+    #form-title {
+        font-size: 1.2rem;
+        font-size: 2.5vw;
+    }
+
+    #form-title p {
+        font-size: .4rem;
+        font-size: 1.2vw;
+    }
+
+    form label {
+        font-size: .7rem;
+        font-size: 1.5vw;
+    }
+
+    fieldset.columns {
+        padding-left: .6rem;
+    }
+
+
+    #captcha, #submit-button {
+        text-align: center;
+    }
+
+    /*  photos page */
+
+    .photo {
+        margin: 2rem 2rem 2rem 1rem;
+    }
+}
+
+/* Large only */
+@media screen and (min-width: 64em) {
+    #tag-list {
+        padding-left: 4%;
+    }
+}
+
+/* 1400px and up */
+@media screen and (min-width: 87.5em) {
+    
+    .xlarge-2 {
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+
+    .xlarge-3 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    
+    .xlarge-10 {
+        -ms-flex: 0 0 80%;
+        flex: 0 0 80%;
+        max-width: 80%;
+    }
+}

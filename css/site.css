@@ -39,12 +39,16 @@ header .sticky {
 }
 
 header .sticky .row {
-    align-items: baseline;
+    align-items: center;
     padding-bottom: 1rem;
 }
 
 header .sticky .row > div {
     text-align: center;
+}
+
+header .sticky .row > div:last-of-type {
+    line-height: normal;
 }
 
 #logo {
@@ -368,12 +372,25 @@ fieldset.columns label {
     .photo {
         margin: 2rem 2rem 2rem 1rem;
     }
+
+    .sticky .row div:last-of-type {
+        font-size: 2vw;
+    }
 }
 
 /* Large only */
 @media screen and (min-width: 64em) {
     #tag-list {
+/*        font-size: 1.5vw;*/
         padding-left: 4%;
+    }
+
+    #sidebar > div {
+        margin-bottom: 1.2rem;
+    }
+
+    .sticky .row div:last-of-type {
+        font-size: 1.5vw;
     }
 }
 
@@ -396,5 +413,9 @@ fieldset.columns label {
         -ms-flex: 0 0 80%;
         flex: 0 0 80%;
         max-width: 80%;
+    }
+
+    #tag-list {
+        font-size: 1.5vw;
     }
 }

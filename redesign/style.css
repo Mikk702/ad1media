@@ -9,7 +9,7 @@ body {
 }
 
 .top-banner {
-    width: 80%; /* Set width to 80% of the viewport */
+    width: 100%; /* Set width to 100% of the viewport */
     margin: 0 auto; /* Center the banner horizontally */
     display: flex;
     justify-content: center;

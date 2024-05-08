@@ -10,7 +10,7 @@ body {
 
 .top-banner {
     width: 100%; /* Set width to 100% of the viewport */
-    margin: 0 auto; /* Center the banner horizontally */
+    min-height: 40vh; /* Set minimum height to 40% of the viewport height */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,8 @@ body {
 
 .top-banner img {
     width: 100%; /* Make the image expand to fill the container */
-    height: auto; /* Maintain aspect ratio */
+    height: 100%; /* Adjust the height to fill the container */
+    object-fit: cover; /* Ensure the image covers the banner area without distorting */
 }
 
 .image-container {

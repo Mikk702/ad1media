@@ -17,9 +17,10 @@ body {
 }
 
 .top-banner img {
-    width: 100%; /* Make the image expand to fill the container */
-    height: 100%; /* Adjust the height to fill the container */
-    object-fit: cover; /* Ensure the image covers the banner area without distorting */
+    width: 100%; /* Make the image expand to fill the container width */
+    min-height: 100%; /* Minimum height is 100% of the container's current height */
+    height: auto; /* Allows the height to scale dynamically */
+    object-fit: cover; /* Ensure the image covers the area, cropping as necessary */
 }
 
 .image-container {

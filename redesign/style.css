@@ -14,13 +14,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden; /* Ensures no part of the image spills out */
 }
 
 .top-banner img {
-    width: 100%; /* Make the image expand to fill the container width */
-    min-height: 100%; /* Minimum height is 100% of the container's current height */
-    height: auto; /* Allows the height to scale dynamically */
-    object-fit: cover; /* Ensure the image covers the area, cropping as necessary */
+    width: 100%; /* Ensures the image matches the width of the container */
+    height: 100%; /* Ensures the image matches the height of the container */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
 }
 
 .image-container {

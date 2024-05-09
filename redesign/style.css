@@ -47,9 +47,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two columns */
     text-align: center; /* Centering icons */
-    padding: 20px; /* Padding around the section */
-    background-color: #222; /* Dark background for the contact section */
-    margin-bottom: 20px; /* Margin below the contact section for spacing */
+    /* No padding, margin, or background color */
 }
 
 .contact-item {

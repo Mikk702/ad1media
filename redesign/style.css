@@ -60,9 +60,9 @@ body {
 }
 
 .contact-item img {
-    width: 100%; /* Ensures the image fills the container width */
-    max-width: 100px; /* Restricts the maximum width to 100px */
+    width: 10vw; /* Uses viewport width for responsive sizing */
     height: auto; /* Maintain aspect ratio */
+    max-width: 100px; /* Restricts the maximum width to 100px */
 }
 
 /* Styling for the video section within the vertical section */

@@ -18,13 +18,13 @@ body {
     overflow: hidden; /* Hides any overflow, ensuring the image does not spill out */
 }
 
-.top-banner img {
+.top-banner img, .top-banner source {
     position: absolute; /* Absolute positioning to break out of the normal flow */
     top: 0; /* Aligns the image to the top of the container */
     left: 0; /* Aligns the image to the left of the container */
     width: 100%; /* Forces the image to stretch to cover the full width of the banner */
-    height: 100%; /* Forces the image to stretch to cover the full height of the banner, which can be controlled independently */
-    object-fit: fill; /* Ensures the image covers the area completely and stretches as needed */
+    height: 100%; /* Forces the image to stretch to cover the full height of the banner */
+    object-fit: cover; /* Ensures the image covers the area completely, cropping where necessary without distortion */
 }
 
 .image-container {

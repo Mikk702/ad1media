@@ -45,15 +45,20 @@ body {
 /* Styling for the video section within the vertical section */
 .video-section {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Creates 2 columns */
+    grid-template-columns: 1fr; /* Sets to 1 column */
     grid-gap: 10px; /* Space between thumbnails */
+    width: 100%; /* Ensures the section uses full available width */
 }
 
 /* Styling for each video thumbnail */
 .video-thumbnail {
-    background-color: #ccc; /* Light gray background for visibility */
+    background-color: black; /* Black background for thumbnails */
     padding: 20px; /* Padding inside each thumbnail */
-    text-align: center; /* Center-align the embed code or link */
+    display: flex; /* Uses flexbox to align children i.e., iframe and p */
+    flex-direction: column; /* Stacks children vertically */
+    align-items: center; /* Aligns children (iframe and text) in the center horizontally */
+    justify-content: center; /* Centers children vertically within the thumbnail */
+    border: 1px solid #333; /* Subtle border to define each thumbnail */
 }
 
 .video-thumbnail iframe {
@@ -63,8 +68,9 @@ body {
 }
 
 .video-thumbnail p {
-    color: #fff; /* White text color for readability */
+    color: #fff; /* White text color for readability against the black background */
     text-align: center; /* Center align the text */
+    width: 100%; /* Ensures the p tag uses full width of its container */
     margin-top: 10px; /* Space between the iframe and the text */
     font-size: 14px; /* Adjust font size as needed */
     padding: 0 5px; /* Padding on the sides for better text wrapping */

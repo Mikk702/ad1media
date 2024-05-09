@@ -1,100 +1,73 @@
-/* Set the entire website background to black */
-body {
-    background-color: black;
-    color: white;  /* Ensure text is readable on dark background */
+/* General styles */
+body, html {
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('img/bgvert.jpg'); /* Set background image */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background */
+    height: 100%; /* Ensure full height */
 }
 
-/* Responsive image section, visible only in landscape orientation */
-.responsive-image {
+/* Ensures that the content sections take up full width and images scale properly */
+.content-section {
     width: 100%;
-    height: 300px;
-    background-size: cover;
-    background-position: center;
-    background-image: none; /* No image for vertical orientation by default */
-}
-
-/* Show mainhoriz.jpg only in horizontal orientation and hide vertical section */
-@media screen and (orientation: landscape) {
-    .responsive-image {
-        background-image: url('img/mainhoriz.jpg'); /* Ensures the horizontal image is shown */
-    }
-    #vertical {
-        display: none; /* Hide the vertical section in landscape orientation */
-    }
-}
-
-/* Vertical section styling */
-#vertical {
-    width: 100%;
-    height: auto; /* Height adjusted to fit content */
-    background-image: url('img/bgvert.jpg');
-    background-size: cover;
-    background-position: center;
-    display: none; /* Initially hidden */
-}
-
-/* Display the vertical section only in portrait orientation */
-@media screen and (orientation: portrait) {
-    #vertical {
-        display: block;
-    }
+    overflow: hidden;
 }
 
 /* Contact section styles */
 .contact-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    text-align: center; /* Centering icons */
-    padding: 20px; /* Padding around the section */
-    background-color: #222; /* Dark background for the contact section */
-    margin-bottom: 20px; /* Margin below the contact section for spacing */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-item {
-    display: flex; /* Ensures flexbox is used for centering */
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    height: 100px; /* Adjust height as needed for better spacing */
+    margin: 0 10px;
 }
 
-.contact-item img {
-    width: 10vw; /* Uses viewport width for responsive sizing */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 100px; /* Restricts the maximum width to 100px */
-}
-
-/* Styling for the video section within the vertical section */
+/* Video section styles */
 .video-section {
-    display: grid;
-    grid-template-columns: 1fr; /* Sets to 1 column */
-    grid-gap: 10px; /* Space between thumbnails */
-    width: 100%; /* Ensures the section uses full available width */
+    padding: 20px;
 }
 
-/* Styling for each video thumbnail */
 .video-thumbnail {
-    background-color: black; /* Black background for thumbnails */
-    padding: 20px; /* Padding inside each thumbnail */
-    display: flex; /* Uses flexbox to align children i.e., iframe and p */
-    flex-direction: column; /* Stacks children vertically */
-    align-items: center; /* Aligns children (iframe and text) in the center horizontally */
-    justify-content: center; /* Centers children vertically within the thumbnail */
-    border: 1px solid #333; /* Subtle border to define each thumbnail */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.video-thumbnail iframe {
-    width: 100%; /* Ensures the iframe fits the container width */
-    height: 200px; /* Static height for all iframes */
-    border: none; /* Removes the border around the iframe */
+iframe {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 200px; /* Adjusted for consistency */
 }
 
-.video-thumbnail p {
-    color: #fff; /* White text color for readability */
-    text-align: center; /* Center align the text */
-    width: 100%; /* Ensures the p tag uses full width of its container */
-    margin-top: 10px; /* Space between the iframe and the text */
-    font-size: 14px; /* Adjust font size as needed */
-    padding: 0 5px; /* Padding on the sides for better text wrapping */
+/* Orientation-specific styles */
+
+/* Hide the horizontal container by default */
+#horizontal {
+    display: none;
+}
+
+/* Landscape Orientation: Display horizontal and hide vertical content */
+@media (orientation: landscape) {
+    #horizontal {
+        display: block;  /* Show horizontal content */
+    }
+    #vertical {
+        display: none;  /* Hide vertical content */
+    }
+}
+
+/* Portrait Orientation: Display vertical and hide horizontal content */
+@media (orientation: portrait) {
+    #vertical {
+        display: block;  /* Show vertical content */
+    }
+    #horizontal {
+        display: none;  /* Hide horizontal content */
+    }
 }

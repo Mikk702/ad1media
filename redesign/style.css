@@ -42,6 +42,29 @@ body {
     }
 }
 
+/* Contact section styles */
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    text-align: center; /* Centering icons */
+    padding: 20px; /* Padding around the section */
+    background-color: #222; /* Dark background for the contact section */
+    margin-bottom: 20px; /* Margin below the contact section for spacing */
+}
+
+.contact-item {
+    display: flex; /* Ensures flexbox is used for centering */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100px; /* Adjust height as needed for better spacing */
+}
+
+.contact-item img {
+    width: 100%; /* Ensures the image fills the container width */
+    max-width: 100px; /* Restricts the maximum width to 100px */
+    height: auto; /* Maintain aspect ratio */
+}
+
 /* Styling for the video section within the vertical section */
 .video-section {
     display: grid;
@@ -68,7 +91,7 @@ body {
 }
 
 .video-thumbnail p {
-    color: #fff; /* White text color for readability against the black background */
+    color: #fff; /* White text color for readability */
     text-align: center; /* Center align the text */
     width: 100%; /* Ensures the p tag uses full width of its container */
     margin-top: 10px; /* Space between the iframe and the text */

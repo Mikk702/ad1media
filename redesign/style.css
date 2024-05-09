@@ -1,5 +1,9 @@
 /* General styles */
-body, html {
+html {
+    height: 100%; /* Ensure the html element takes full viewport height */
+}
+
+body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -7,7 +11,9 @@ body, html {
     background-size: cover; /* Cover the entire page */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Do not repeat the background */
-    height: 100%; /* Ensure full height */
+    min-height: 100%; /* Ensure the body is at least as tall as the viewport */
+    height: auto; /* Allow the body height to expand as needed */
+    position: relative; /* Set position context */
 }
 
 /* Ensures that the content sections take up full width and images scale properly */
@@ -16,7 +22,7 @@ body, html {
     overflow: hidden;
 }
 
-/* Contact section styles */
+/* Padding and margins for structured layout within contact and video sections */
 .contact-section {
     padding: 20px;
     display: flex;
@@ -43,6 +49,12 @@ iframe {
     margin: auto;
     width: 100%;
     height: 200px; /* Adjusted for consistency */
+}
+
+/* Default styles for images to ensure they fit their containers */
+img {
+    width: 100%;
+    height: auto;
 }
 
 /* Orientation-specific styles */

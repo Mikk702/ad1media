@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Display Page</title>
+    <title>Responsive Image Header</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="top-banner">
-        <img src="img/topbanner.jpg" alt="Top Banner">
+    <div class="top-section">
+        <picture>
+            <source srcset="img/mainvert.jpg" media="(orientation: portrait)">
+            <img src="img/mainhoriz.jpg" alt="Main Image" style="width: 100%; height: auto;">
+        </picture>
     </div>
     <div class="image-container">
-        <img src="img/main.jpg" alt="Main Image" class="main-image">
-        <img src="img/1vert.jpg" alt="Vertical Image" class="vertical-image">
+        <img src="img/main.jpg" alt="Main Image" class="responsive-image">
+        <img src="img/1vert.jpg" alt="Vertical Image" class="responsive-image">
     </div>
 </body>
 </html>

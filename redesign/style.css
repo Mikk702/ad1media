@@ -2,41 +2,36 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #000; /* Sets the background color of the entire page to black */
-    color: white; /* Sets the text color to white for high contrast */
-    font-family: Arial, sans-serif; /* Sets a clean, modern font for all text */
-    overflow-x: hidden; /* Prevents any horizontal scroll bar from appearing */
-}
-
-.top-banner {
-    position: relative; /* Establishes a positioning context for absolute positioning of the image */
-    width: 100%; /* Ensures the banner spans the full width of the viewport */
-    min-height: 40vh; /* Sets the minimum height to 40% of the viewport height */
     display: flex;
-    justify-content: center; /* Horizontally centers any content within the banner */
-    align-items: center; /* Vertically centers any content within the banner */
-    overflow: hidden; /* Hides any overflow, ensuring the image does not spill out */
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
 }
 
-.top-banner img, .top-banner source {
-    position: absolute; /* Absolute positioning to break out of the normal flow */
-    top: 0; /* Aligns the image to the top of the container */
-    left: 0; /* Aligns the image to the left of the container */
-    width: 100%; /* Forces the image to stretch to cover the full width of the banner */
-    height: 100%; /* Forces the image to stretch to cover the full height of the banner */
-    object-fit: cover; /* Ensures the image covers the area completely, cropping where necessary without distortion */
+.top-section {
+    width: 100%;
+    height: auto; /* Adjusted to auto to ensure the complete image is visible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Adjust as needed based on design preference */
+}
+
+.top-section img {
+    width: 100%; /* Ensures the width is fully responsive */
+    height: auto; /* Maintains the aspect ratio and ensures complete visibility */
+    object-fit: contain; /* Ensures the image is fully contained within its element */
 }
 
 .image-container {
-    text-align: center; /* Centers the images inside this container */
-    display: flex;
-    flex-direction: column; /* Stacks images vertically */
-    align-items: center; /* Centers the images horizontally */
-    width: 100%; /* Ensures the image container takes up the full width of its parent */
+    text-align: center;
+    width: 90%;
 }
 
-.main-image, .vertical-image {
-    max-width: 100%; /* Ensures images do not exceed the width of their container */
-    height: auto; /* Keeps the original aspect ratio of the images */
-    margin-bottom: 20px; /* Adds space between the main and vertical images */
+.responsive-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin-bottom: 20px;
 }

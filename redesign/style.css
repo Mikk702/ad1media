@@ -28,8 +28,8 @@ body {
 /* Vertical section styling */
 #vertical {
     width: 100%;
-    height: 400px;
-    background-image: url('img/bgvert.jpg'); /* Background image for the vertical section */
+    height: auto; /* Height adjusted to fit content */
+    background-image: url('img/bgvert.jpg');
     background-size: cover;
     background-position: center;
     display: none; /* Initially hidden */
@@ -42,9 +42,30 @@ body {
     }
 }
 
-/* Style for all images inside the vertical section */
-#vertical img {
-    width: 100%; /* Image takes full width of the container */
-    height: auto; /* Maintains the aspect ratio of the image */
-    display: block; /* Removes any default inline spacing */
+/* Styling for the video section within the vertical section */
+.video-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates 2 columns */
+    grid-gap: 10px; /* Space between thumbnails */
+}
+
+/* Styling for each video thumbnail */
+.video-thumbnail {
+    background-color: #ccc; /* Light gray background for visibility */
+    padding: 20px; /* Padding inside each thumbnail */
+    text-align: center; /* Center-align the embed code or link */
+}
+
+.video-thumbnail iframe {
+    width: 100%; /* Ensures the iframe fits the container width */
+    height: 200px; /* Static height for all iframes */
+    border: none; /* Removes the border around the iframe */
+}
+
+.video-thumbnail p {
+    color: #fff; /* White text color for readability */
+    text-align: center; /* Center align the text */
+    margin-top: 10px; /* Space between the iframe and the text */
+    font-size: 14px; /* Adjust font size as needed */
+    padding: 0 5px; /* Padding on the sides for better text wrapping */
 }

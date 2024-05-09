@@ -1,37 +1,50 @@
-/* style.css */
+/* Set the entire website background to black */
 body {
+    background-color: black;
+    color: white;  /* Ensure text is readable on dark background */
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
 }
 
-.top-section {
-    width: 100%;
-    height: auto; /* Adjusted to auto to ensure the complete image is visible */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Adjust as needed based on design preference */
-}
-
-.top-section img {
-    width: 100%; /* Ensures the width is fully responsive */
-    height: auto; /* Maintains the aspect ratio and ensures complete visibility */
-    object-fit: contain; /* Ensures the image is fully contained within its element */
-}
-
-.image-container {
-    text-align: center;
-    width: 90%;
-}
-
+/* Responsive image section, visible only in landscape orientation */
 .responsive-image {
     width: 100%;
-    max-width: 600px;
-    height: auto;
-    margin-bottom: 20px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-image: none; /* No image for vertical orientation by default */
+}
+
+/* Show mainhoriz.jpg only in horizontal orientation */
+@media screen and (orientation: landscape) {
+    .responsive-image {
+        background-image: url('img/mainhoriz.jpg');
+    }
+    #vertical {
+        display: none;  /* Hide the vertical section in landscape orientation */
+    }
+}
+
+/* Vertical section styling */
+#vertical {
+    width: 100%;
+    height: 400px;
+    background-image: url('img/bgvert.jpg'); /* Background image for the vertical section */
+    background-size: cover;
+    background-position: center;
+    display: none; /* Initially hidden */
+}
+
+/* Display the vertical section only in portrait orientation */
+@media screen and (orientation: portrait) {
+    #vertical {
+        display: block;
+    }
+}
+
+/* Style for all images inside the vertical section */
+#vertical img {
+    width: 100%; /* Image takes full width of the container */
+    height: auto; /* Maintains the aspect ratio of the image */
+    display: block; /* Removes any default inline spacing */
 }

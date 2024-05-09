@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Image Header</title>
+    <title>Responsive Image Display</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="top-section">
-        <picture>
-            <source srcset="img/mainvert.jpg" media="(orientation: portrait)">
-            <img src="img/mainhoriz.jpg" alt="Main Image" style="width: 100%; height: auto;">
-        </picture>
-    </div>
-    <div class="image-container">
-        <img src="img/main.jpg" alt="Main Image" class="responsive-image">
-        <img src="img/1vert.jpg" alt="Vertical Image" class="responsive-image">
-    </div>
+    <section id="vertical" class="content-section">
+        <img src="img/mainvert.png" alt="Main Vertical Image" style="width: 100%;">
+        <!-- Video section with thumbnails -->
+        <div class="video-section">
+            <div class="video-thumbnail">
+                <iframe src="https://drive.google.com/file/d/1zqAPAk_FeRKqpFrjuItsR4eGjRg0gV4m/preview" width="100%" height="200" allow="autoplay"></iframe>
+            </div>
+            <div class="video-thumbnail">
+                <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" width="100%" height="200" allow="autoplay"></iframe>
+            </div>
+            <div class="video-thumbnail">Embed Code 3 Here</div>
+            <div class="video-thumbnail">Embed Code 4 Here</div>
+        </div>
+    </section>
+    <div class="responsive-image"></div>
+    <!-- Additional content can follow here -->
 </body>
 </html>

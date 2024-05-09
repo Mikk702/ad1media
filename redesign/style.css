@@ -44,6 +44,10 @@ body {
     margin-bottom: 20px;
 }
 
+.video-thumbnail p {
+    color: white; /* Set text color to white */
+}
+
 iframe {
     display: block;
     margin: auto;

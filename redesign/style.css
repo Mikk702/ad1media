@@ -44,7 +44,7 @@ body {
 }
 
 .video-thumbnail p {
-    color: white; /* Set text color to white */
+    color: transparent; /* Set text color to transparent */
 }
 
 iframe {

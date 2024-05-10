@@ -11,14 +11,13 @@
     <div id="vertical" class="content-section">
         <img src="img/mainvert.png" alt="Main Vertical Image" style="width: 100%;">
 
-        <!-- Contact section with phone icon only -->
+        <!-- Contact section with icons only -->
         <div class="contact-section">
             <div class="contact-item">
-                <!-- Phone link with JavaScript control for double-tap interaction -->
-                <div class="phone-link" id="phone-link">
-                    <img src="img/phone white.png" alt="Phone Icon" id="phone-icon">
-                    <img src="img/phone green.png" alt="Phone Icon Active" id="phone-icon-active" style="display: none;">
-                </div>
+                <img src="img/phone white.png" alt="Phone Icon">
+            </div>
+            <div class="contact-item">
+                <img src="img/email white.png" alt="Email Icon">
             </div>
         </div>
 
@@ -51,15 +50,3 @@
     <!-- Additional content can follow here -->
 </body>
 </html>
-<script>
-document.getElementById('phone-link').addEventListener('click', function() {
-    var phoneIcon = document.getElementById('phone-icon');
-    var phoneIconActive = document.getElementById('phone-icon-active');
-    if (phoneIconActive.style.display === 'none') {
-        phoneIcon.style.display = 'none';
-        phoneIconActive.style.display = 'block';
-    } else {
-        window.location.href = 'tel:+12134440024'; // Initiates the call
-    }
-});
-</script>

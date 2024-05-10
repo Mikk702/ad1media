@@ -7,10 +7,10 @@ html, body {
 }
 
 body {
-    background-image: url('img/bgvert.jpg'); /* Set background image */
+    background-image: url('img/bgvert.jpg'); /* Correcting the filename here */
     background-size: cover; /* Cover the entire page */
     background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Do not repeat the background */
+    background-repeat: repeat; /* repeat the background */
     min-height: 100vh; /* Ensure the body is at least as tall as the viewport */
     position: relative; /* Set position context */
 }

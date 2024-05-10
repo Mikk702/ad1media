@@ -7,10 +7,10 @@ html, body {
 }
 
 body {
-    background-image: url('img/bgvert.jpg'); /* Correcting the filename here */
+    background-image: url('img/bgvert.jpg'); /* Set background image */
     background-size: cover; /* Cover the entire page */
     background-position: center; /* Center the background image */
-    background-repeat: repeat; /* repeat the background */
+    background-repeat: no-repeat; /* Do not repeat the background */
     min-height: 100vh; /* Ensure the body is at least as tall as the viewport */
     position: relative; /* Set position context */
 }
@@ -33,6 +33,22 @@ body {
     margin: 0 10px;
 }
 
+/* Contact item link styles for interactive icons */
+.contact-item div img {
+    cursor: pointer; /* Changes the cursor to indicate it's clickable */
+    transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.contact-item div:hover img:first-of-type,
+.contact-item div:active img:first-of-type {
+    display: none; /* Hide the white icon on hover/click */
+}
+
+.contact-item div:hover img:last-of-type,
+.contact-item div:active img:last-of-type {
+    display: block; /* Show the green icon on hover/click */
+}
+
 /* Video section styles */
 .video-section {
     padding: 20px;
@@ -41,14 +57,15 @@ body {
 .video-thumbnail {
     text-align: center;
     margin-bottom: 20px;
+    background-color: transparent; /* Set background color to transparent */
 }
 
 .video-thumbnail p {
-    color: transparent; /* Set text color to transparent */
+    color: white; /* Set text color to white for visibility */
 }
 
 iframe {
-    display: block;
+    display:block;
     margin: auto;
     width: 100%;
     height: 200px; /* Adjusted for consistency */

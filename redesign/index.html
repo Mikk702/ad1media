@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Image Display</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .original-size-image {
+            display: block;
+            width: auto; /* Ensure the width is not scaled */
+            height: auto; /* Ensure the height maintains aspect ratio */
+            margin: 0 auto 20px; /* Center the image and add margin-bottom */
+        }
+    </style>
 </head>
 <body>
     <!-- Vertical section for vertical-only content -->
@@ -52,8 +60,35 @@
     <!-- Horizontal section for horizontal-only content -->
     <div id="horizontal" class="content-section">
         <img src="img/mainhoriz.jpg" alt="Main Horizontal Image" style="width: 100%;">
-        <!-- Temporary placeholder image -->
-        <img src="img/mainhorizplaceholder.jpg" alt="Temporary Placeholder Image" style="width: 100%;">
+
+        <!-- New Video Container Section -->
+        <div id="video_container" style="width: 100%; min-height: 600px; margin-top: 0px; background-color: transparent; display: flex; justify-content: flex-end; background-image: url('img/1.png'); background-size: cover; background-position: center;">
+            <!-- Video Thumbnails in 2x2 grid aligned to the right with top padding, no borders, and column gaps -->
+            <div style="width: 60%; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 200px auto; grid-row-gap: 40px; grid-column-gap: 40px; padding-top: 70px; padding-right: 50px; border: none;">
+                <div style="text-align: center; border: none;">
+                    <iframe src="https://drive.google.com/file/d/11Z-92DGZkWj7JXn1pmRWAWGdJIXPIXyV/preview" width="50%" height="200" allow="autoplay" style="border: none;"></iframe>
+                    <p style="margin-top: 5px;">Corporate Motivation & Awards Event</p>
+                </div>
+                <div style="text-align: center; border: none;">
+                    <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" width="50%" height="200" allow="autoplay" style="border: none;"></iframe>
+                    <p style="margin-top: 5px;">Corporate Event Speakers Showcase</p>
+                </div>
+                <div style="text-align: center; border: none;">
+                    <iframe src="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/preview" width="50%" height="200" allow="autoplay" style="border: none;"></iframe>
+                    <p style="margin-top: 5px;">Real Estate Property Promo</p>
+                </div>
+                <div style="text-align: center; border: none;">
+                    <iframe src="https://drive.google.com/file/d/1_jcLm_IJMSzktGplmdoHHez46769x00v/preview" width="50%" height="200" allow="autoplay" style="border: none;"></iframe>
+                    <p style="margin-top: 5px;">Stucco Business Showcase</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Image Container Section for horizontal orientation -->
+        <div id="images_horiz_container" style="width: 100%; display: flex; flex-direction: column; align-items: center; margin-top: 40px;">
+            <img src="img/imghoriz1.png" alt="Horizontal Image 1" class="original-size-image">
+            <img src="img/aiimagery1.jpg" alt="AI Imagery 1" class="original-size-image">
+        </div>
     </div>
 
     <!-- Additional content can follow here -->

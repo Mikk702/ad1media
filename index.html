@@ -16,7 +16,49 @@
             width: 100%;
             height: auto;
         }
+        body {
+            background-color: #2f2f2f;
+        }
+        .grid {
+            margin: 0 auto;
+        }
+        .grid-item {
+            margin-bottom: 20px;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 30px;
+        }
+        @media (min-width: 1200px) {
+            .grid-item {
+                width: 23.5%; /* Four items per row with slight spacing */
+            }
+        }
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .grid-item {
+                width: 30.5%; /* Three items per row */
+            }
+        }
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .grid-item {
+                width: 47%; /* Two items per row */
+            }
+        }
+        @media (max-width: 767.98px) {
+            .grid-item {
+                width: 100%; /* One item per row */
+            }
+        }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </head>
 <body style="background-image: url('img/bgmain.jpg'); background-size: cover; background-position: center;">
     <!-- Vertical section for vertical-only content -->
@@ -59,11 +101,24 @@
 
         <!-- New Image Section specifically for vertical orientation -->
         <div id="images_vert" class="image-section">
-            <img src="img/seahorse.png" alt="" style="width: 100%;">
-            <img src="img/nightscene.png" alt="" style="width: 100%;">
+            <img src="img/1.jpg" alt="" style="width: 100%;">
+            <img src="img/2.jpg" alt="" style="width: 100%;">
+            <img src="img/3.jpg" alt="" style="width: 100%;">
             <img src="img/mainhoriz_vert.jpg" alt="" style="width: 100%;">
-            <img src="img/aiimagery1.jpg" alt="" style="width: 100%;">
-            <img src="img/img2.jpg" alt="" style="width: 100%;">
+            <img src="img/4.jpg" alt="" style="width: 100%;">
+            <img src="img/5.jpg" alt="" style="width: 100%;">
+            <img src="img/6.jpg" alt="" style="width: 100%;">
+            <img src="img/7.jpg" alt="" style="width: 100%;">
+            <img src="img/8.jpg" alt="" style="width: 100%;">
+            <img src="img/mainhoriz_vert.jpg" alt="" style="width: 100%;">
+            <img src="img/9.jpg" alt="" style="width: 100%;">
+            <img src="img/10.jpg" alt="" style="width: 100%;">
+            <img src="img/11.jpg" alt="" style="width: 100%;">
+            <img src="img/12.jpg" alt="" style="width: 100%;">
+            <img src="img/13.jpg" alt="" style="width: 100%;">
+            <img src="img/mainhoriz_vert.jpg" alt="" style="width: 100%;">
+            <img src="img/14.jpg" alt="" style="width: 100%;">
+            <img src="img/15.jpg" alt="" style="width: 100%;">
         </div>
     </div>
 
@@ -99,15 +154,42 @@
         </div>
 
         <!-- New Image Container Section for horizontal orientation -->
-        <div id="images_horiz_container" style="width: 100%; display: flex; flex-direction: column; align-items: center; margin-top: 40px;">
-            <img src="img/imghoriz1.png" alt="Horizontal Image 1" class="original-size-image">
-            <img src="img/aiimagery1.jpg" alt="AI Imagery 1" class="original-size-image">
-            <img src="img/img2.jpg" alt="AI Imagery 1" class="original-size-image">
-            <img src="img/seahorse.png" alt="AI Imagery 1" class="original-size-image">
-            <img src="img/nightscene.png" alt="AI Imagery 1" class="original-size-image">
+        <div id="images_horiz_container" style="width: 100%; margin-top: 40px;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="grid">
+                        <div class="grid-item"><img src="img/1.jpg" alt="Image 1"></div>
+                        <div class="grid-item"><img src="img/2.jpg" alt="Image 2"></div>
+                        <div class="grid-item"><img src="img/3.jpg" alt="Image 3"></div>
+                        <div class="grid-item"><img src="img/4.jpg" alt="Image 4"></div>
+                        <div class="grid-item"><img src="img/5.jpg" alt="Image 5"></div>
+                        <div class="grid-item"><img src="img/6.jpg" alt="Image 6"></div>
+                        <div class="grid-item"><img src="img/7.jpg" alt="Image 7"></div>
+                        <div class="grid-item"><img src="img/8.jpg" alt="Image 8"></div>
+                        <div class="grid-item"><img src="img/9.jpg" alt="Image 9"></div>
+                        <div class="grid-item"><img src="img/10.jpg" alt="Image 10"></div>
+                        <div class="grid-item"><img src="img/11.jpg" alt="Image 11"></div>
+                        <div class="grid-item"><img src="img/12.jpg" alt="Image 12"></div>
+                        <div class="grid-item"><img src="img/13.jpg" alt="Image 13"></div>
+                        <div class="grid-item"><img src="img/14.jpg" alt="Image 14"></div>
+                        <div class="grid-item"><img src="img/15.jpg" alt="Image 15"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Additional content can follow here -->
+    <script>
+        $(window).on('load', function() {
+            var $grid = $('.grid').imagesLoaded(function() {
+                $grid.masonry({
+                    itemSelector: '.grid-item',
+                    percentPosition: true,
+                    columnWidth: '.grid-item'
+                });
+            });
+        });
+    </script>
 </body>
 </html>

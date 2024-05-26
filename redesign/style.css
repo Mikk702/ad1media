@@ -4,7 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('img/bgvert.jpg'); /* Ensure the path is correct */
+    background-image: url('img/bgmain.jpg'); /* Ensure the path is correct */
     background-size: cover; /* Cover the entire area of the page, can be adjusted if repeat is needed */
     background-position: center; /* Center the background image */
     background-repeat: repeat; /* Force the background to repeat */

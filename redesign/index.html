@@ -97,30 +97,77 @@
                     <img src="img/tn4.png" alt="Stucco Business Showcase" class="original-size-image">
                 </a>
             </div>
-        </div>
+</div>
 
-        <!-- New Image Section specifically for vertical orientation -->
-        <div id="images_vert" class="image-section">
-            <img src="img/1.jpg" alt="" style="width: 100%;">
-            <img src="img/2.jpg" alt="" style="width: 100%;">
-            <img src="img/3.jpg" alt="" style="width: 100%;">
-            <img src="img/mainhoriz_vert.jpg" alt="" style="width: 100%;">
-            <img src="img/4.jpg" alt="" style="width: 100%;">
-            <img src="img/5.jpg" alt="" style="width: 100%;">
-            <img src="img/6.jpg" alt="" style="width: 100%;">
-            <img src="img/7.jpg" alt="" style="width: 100%;">
-            <img src="img/8.jpg" alt="" style="width: 100%;">
-            <img src="img/mainhoriz_vert.jpg" alt="" style="width: 100%;">
-            <img src="img/9.jpg" alt="" style="width: 100%;">
-            <img src="img/10.jpg" alt="" style="width: 100%;">
-            <img src="img/11.jpg" alt="" style="width: 100%;">
-            <img src="img/12.jpg" alt="" style="width: 100%;">
-            <img src="img/13.jpg" alt="" style="width: 100%;">
-            <img src="img/mainhoriz_vert.jpg" alt="" style="width: 100%;">
-            <img src="img/14.jpg" alt="" style="width: 100%;">
-            <img src="img/15.jpg" alt="" style="width: 100%;">
-        </div>
-    </div>
+<!-- New Image Section specifically for vertical orientation -->
+<div id="images_vert" class="image-section">
+    <img src="img/1.jpg" alt="" style="width: 100%;">
+    <img src="img/2.jpg" alt="" style="width: 100%;">
+    <img src="img/3.jpg" alt="" style="width: 100%;">
+    <img src="img/mainhoriz_vert.jpg" alt="" style="width: 100%;">
+    <img src="img/4.jpg" alt="" style="width: 100%;">
+    <img src="img/5.jpg" alt="" style="width: 100%;">
+    <img src="img/6.jpg" alt="" style="width: 100%;">
+    <img src="img/7.jpg" alt="" style="width: 100%;">
+    <img src="img/8.jpg" alt="" style="width: 100%;">
+    <img src="img/mainhoriz_vert.jpg" alt="" style="width: 100%;">
+    <img src="img/9.jpg" alt="" style="width: 100%;">
+    <img src="img/10.jpg" alt="" style="width: 100%;">
+    <img src="img/11.jpg" alt="" style="width: 100%;">
+    <img src="img/12.jpg" alt="" style="width: 100%;">
+    <img src="img/13.jpg" alt="" style="width: 100%;">
+    <img src="img/mainhoriz_vert.jpg" alt="" style="width: 100%;">
+    <img src="img/14.jpg" alt="" style="width: 100%;">
+    <img src="img/15.jpg" alt="" style="width: 100%;">
+
+    <!-- MP4 Videos -->
+    <video id="video1" style="width: 100%;">
+        <source src="img/vid1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <video id="video2" style="width: 100%;">
+        <source src="img/vid2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <video id="video3" style="width: 100%;">
+        <source src="img/vid3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <video id="video4" style="width: 100%;">
+        <source src="img/vid4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var videos = [
+        document.getElementById('video1'),
+        document.getElementById('video2'),
+        document.getElementById('video3'),
+        document.getElementById('video4')
+    ];
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            var video = entry.target;
+            if (entry.isIntersecting) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    }, { threshold: 0.5 });
+
+    videos.forEach(function(video) {
+        observer.observe(video);
+    });
+});
+</script>
+
+
+
 
     <!-- Horizontal section for horizontal-only content -->
     <div id="horizontal" class="content-section">

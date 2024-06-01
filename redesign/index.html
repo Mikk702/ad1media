@@ -121,33 +121,40 @@
     <img src="img/15.jpg" alt="" style="width: 100%;">
 
     <!-- MP4 Videos -->
-    <video id="video1" style="width: 100%;">
-        <source src="img/vid1.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <video id="video2" style="width: 100%;">
-        <source src="img/vid2.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <video id="video3" style="width: 100%;">
-        <source src="img/vid3.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <video id="video4" style="width: 100%;">
-        <source src="img/vid4.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <div class="video-container">
+        <video id="video1" class="autoplay-video" style="width: 100%;">
+            <source src="img/vid1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="play-button" onclick="playVideo('video1')" style="display: none;">Play Again</button>
+    </div>
+    <div class="video-container">
+        <video id="video2" class="autoplay-video" style="width: 100%;">
+            <source src="img/vid2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="play-button" onclick="playVideo('video2')" style="display: none;">Play Again</button>
+    </div>
+    <div class="video-container">
+        <video id="video3" class="autoplay-video" style="width: 100%;">
+            <source src="img/vid3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="play-button" onclick="playVideo('video3')" style="display: none;">Play Again</button>
+    </div>
+    <div class="video-container">
+        <video id="video4" class="autoplay-video" style="width: 100%;">
+            <source src="img/vid4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="play-button" onclick="playVideo('video4')" style="display: none;">Play Again</button>
+    </div>
 </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    var videos = [
-        document.getElementById('video1'),
-        document.getElementById('video2'),
-        document.getElementById('video3'),
-        document.getElementById('video4')
-    ];
+    var videos = document.querySelectorAll('.autoplay-video');
 
     var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
@@ -162,9 +169,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
     videos.forEach(function(video) {
         observer.observe(video);
+
+        video.addEventListener('ended', function() {
+            var playButton = video.nextElementSibling;
+            playButton.style.display = 'block';
+        });
+
+        video.addEventListener('play', function() {
+            var playButton = video.nextElementSibling;
+            playButton.style.display = 'none';
+        });
     });
 });
+
+function playVideo(videoId) {
+    var video = document.getElementById(videoId);
+    video.play();
+}
 </script>
+
+<style>
+.video-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+</style>
+
 
 
 

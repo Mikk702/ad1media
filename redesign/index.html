@@ -122,62 +122,55 @@
 
     <!-- MP4 Videos -->
     <div class="video-container">
-        <video id="video1" class="autoplay-video" style="width: 100%;">
+        <video id="video1" class="video" style="width: 100%;">
             <source src="img/vid1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <button class="play-button" onclick="playVideo('video1')" style="display: none;">Play Again</button>
+        <button class="play-button" onclick="playVideo('video1')">Play</button>
     </div>
     <div class="video-container">
-        <video id="video2" class="autoplay-video" style="width: 100%;">
+        <video id="video2" class="video" style="width: 100%;">
             <source src="img/vid2.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <button class="play-button" onclick="playVideo('video2')" style="display: none;">Play Again</button>
+        <button class="play-button" onclick="playVideo('video2')">Play</button>
     </div>
     <div class="video-container">
-        <video id="video3" class="autoplay-video" style="width: 100%;">
+        <video id="video3" class="video" style="width: 100%;">
             <source src="img/vid3.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <button class="play-button" onclick="playVideo('video3')" style="display: none;">Play Again</button>
+        <button class="play-button" onclick="playVideo('video3')">Play</button>
     </div>
     <div class="video-container">
-        <video id="video4" class="autoplay-video" style="width: 100%;">
+        <video id="video4" class="video" style="width: 100%;">
             <source src="img/vid4.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <button class="play-button" onclick="playVideo('video4')" style="display: none;">Play Again</button>
+        <button class="play-button" onclick="playVideo('video4')">Play</button>
     </div>
 </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    var videos = document.querySelectorAll('.autoplay-video');
-
-    var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            var video = entry.target;
-            if (entry.isIntersecting) {
-                video.play();
-            } else {
-                video.pause();
-            }
-        });
-    }, { threshold: 0.5 });
+    var videos = document.querySelectorAll('.video');
 
     videos.forEach(function(video) {
-        observer.observe(video);
+        video.addEventListener('play', function() {
+            var playButton = video.nextElementSibling;
+            playButton.style.display = 'none';
+        });
 
-        video.addEventListener('ended', function() {
+        video.addEventListener('pause', function() {
             var playButton = video.nextElementSibling;
             playButton.style.display = 'block';
         });
 
-        video.addEventListener('play', function() {
+        video.addEventListener('ended', function() {
             var playButton = video.nextElementSibling;
-            playButton.style.display = 'none';
+            playButton.style.display = 'block';
+            playButton.textContent = 'Play Again';
         });
     });
 });
@@ -208,6 +201,8 @@ function playVideo(videoId) {
     font-size: 16px;
 }
 </style>
+
+
 
 
 

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad1 Media - Video & Photo Editing - Content Creator Tutoring</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .disclaimer {
+            background-color: #ffcc00;
+            color: #000;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .content {
+            margin-top: 50px; /* Adjust based on disclaimer height */
+        }
+        .original-size-image {
+            display: block;
+            width: auto;
+            height: auto;
+            margin: 0 auto 20px;
+        }
+        .video-thumbnail img {
+            width: 100%;
+            height: auto;
+        }
+        body {
+            background-color: #2f2f2f;
+        }
+        .grid {
+            margin: 0 auto;
+        }
+        .grid-item {
+            margin-bottom: 20px;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 30px;
+        }
+        @media (min-width: 1200px) {
+            .grid-item {
+                width: 23.5%;
+            }
+        }
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .grid-item {
+                width: 30.5%;
+            }
+        }
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .grid-item {
+                width: 47%;
+            }
+        }
+        @media (max-width: 767.98px) {
+            .grid-item {
+                width: 100%;
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+</head>
+<body style="background-image: url('img/bgmain.jpg'); background-size: cover; background-position: center;">
+    <div class="disclaimer" id="disclaimer">
+        There are no ads on this site. To view the page HTML as intended, please disable any adblockers.
+    </div>
+    <div class="content">
+        <!-- Vertical section for vertical-only content -->
+        <div id="vertical" class="content-section">
+            <img src="img/mainvert.png" alt="Main Vertical Image" style="width: 100%;">
+
+            <!-- Contact section with icons only -->
+            <div class="contact-section">
+                <div class="contact-item">
+                    <img src="img/phone_white.png" alt="Phone Icon">
+                </div>
+                <div class="contact-item">
+                    <img src="img/email_white.png" alt="Email Icon">
+                </div>
+            </div>
+
+            <!-- Video section with thumbnails -->
+            <div class="video-section">
+                <div class="video-thumbnail">
+                    <a href="https://drive.google.com/file/d/11Z-92DGZkWj7JXn1pmRWAWGdJIXPIXyV/view" target="_blank">
+                        <img src="img/tn1.png" alt="Corporate Motivation & Awards Event" class="original-size-image">
+                    </a>
+                </div>
+                <div class="video-thumbnail">
+                    <a href="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/view" target="_blank">
+                        <img src="img/tn2.png" alt="Corporate Event Speakers Showcase" class="original-size-image">
+                    </a>
+                </div>
+                <div class="video-thumbnail">
+                    <a href="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/view" target="_blank">
+                        <img src="img/tn3.png" alt="Real Estate Property Promo" class="original-size-image">
+                    </a>
+                </div>
+                <div class="video-thumbnail">
+                    <a href="https://drive.google.com/file/d/1eDiJ_3qya-KkeP5_c3he070iHXvOFF76/view" target="_blank">
+                        <img src="img/tn4.png" alt="Stucco Business Showcase" class="original-size-image">
+                    </a>
+                </div>
+            </div>
+
+            <!-- New Image Section specifically for vertical orientation -->
+            <div id="images_vert" class="image-section">
+                <img src="img/1.jpg" alt="Image 1" style="width: 100%;">
+                <img src="img/2.jpg" alt="Image 2" style="width: 100%;">
+                <img src="img/3.jpg" alt="Image 3" style="width: 100%;">
+                <img src="img/mainhoriz_vert.jpg" alt="Main Horizontal Image Vertical" style="width: 100%;">
+                <img src="img/4.jpg" alt="Image 4" style="width: 100%;">
+                <img src="img/5.jpg" alt="Image 5" style="width: 100%;">
+                <img src="img/6.jpg" alt="Image 6" style="width: 100%;">
+                <img src="img/7.jpg" alt="Image 7" style="width: 100%;">
+                <img src="img/8.jpg" alt="Image 8" style="width: 100%;">
+                <img src="img/mainhoriz_vert.jpg" alt="Main Horizontal Image Vertical" style="width: 100%;">
+                <img src="img/9.jpg" alt="Image 9" style="width: 100%;">
+                <img src="img/10.jpg" alt="Image 10" style="width: 100%;">
+                <img src="img/11.jpg" alt="Image 11" style="width: 100%;">
+                <img src="img/12.jpg" alt="Image 12" style="width: 100%;">
+                <img src="img/13.jpg" alt="Image 13" style="width: 100%;">
+                <img src="img/mainhoriz_vert.jpg" alt="Main Horizontal Image Vertical" style="width: 100%;">
+                <img src="img/14.jpg" alt="Image 14" style="width: 100%;">
+                <img src="img/15.jpg" alt="Image 15" style="width: 100%;">
+            </div>
+        </div>
+
+        <!-- Horizontal section for horizontal-only content -->
+        <div id="horizontal" class="content-section">
+            <img src="img/mainhoriz.jpg" alt="Main Horizontal Image" style="width: 100%;">
+
+            <!-- New Video Container Section -->
+            <div id="video_container" style="width: 100%; min-height: 600px; margin-top: 0px; background-color: transparent; display: flex; justify-content: flex-end; background-image: url('img/1.png'); background-size: cover; background-position: center;">
+                <!-- Video Thumbnails in 2x2 grid aligned to the right with top padding, no borders, and column gaps -->
+                <div style="width: 60%; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto; grid-row-gap: 0px; grid-column-gap: 40px; padding-top: 30px; padding-right: 50px; border: none;">
+                    <div style="text-align: center; border: none;">
+                        <a href="https://drive.google.com/file/d/11Z-92DGZkWj7JXn1pmRWAWGdJIXPIXyV/view" target="_blank">
+                            <img src="img/tn1.png" alt="Corporate Motivation & Awards Event" class="original-size-image">
+                        </a>
+                    </div>
+                    <div style="text-align: center; border: none;">
+                        <a href="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/view" target="_blank">
+                            <img src="img/tn2.png" alt="Corporate Event Speakers Showcase" class="original-size-image">
+                        </a>
+                    </div>
+                    <div style="text-align: center; border: none;">
+                        <a href="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/view" target="_blank">
+                            <img src="img/tn3.png" alt="Real Estate Property Promo" class="original-size-image">
+                        </a>
+                    </div>
+                    <div style="text-align: center; border: none;">
+                        <a href="https://drive.google.com/file/d/1_jcLm_IJMSzktGplmdoHHez46769x00v/view" target="_blank">
+                            <img src="img/tn4.png" alt="Stucco Business Showcase" class="original-size-image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Image Container Section for horizontal orientation -->
+            <div id="images_horiz_container" style="width: 100%; margin-top: 40px;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="grid">
+                            <div class="grid-item"><img src="img/1.jpg" alt="Image 1"></div>
+                            <div class="grid-item"><img src="img/2.jpg" alt="Image 2"></div>
+                            <div class="grid-item"><img src="img/3.jpg" alt="Image 3"></div>
+                            <div class="grid-item"><img src="img/4.jpg" alt="Image 4"></div>
+                            <div class="grid-item"><img src="img/5.jpg" alt="Image 5"></div>
+                            <div class="grid-item"><img src="img/6.jpg" alt="Image 6"></div>
+                            <div class="grid-item"><img src="img/7.jpg" alt="Image 7"></div>
+                            <div class="grid-item"><img src="img/8.jpg" alt="Image 8"></div>
+                            <div class="grid-item"><img src="img/9.jpg" alt="Image 9"></div>
+                            <div class="grid-item"><img src="img/10.jpg" alt="Image 10"></div>
+                            <div class="grid-item"><img src="img/11.jpg" alt="Image 11"></div>
+                            <div class="grid-item"><img src="img/12.jpg" alt="Image 12"></div>
+                            <div class="grid-item"><img src="img/13.jpg" alt="Image 13"></div>
+                            <div class="grid-item"><img src="img/14.jpg" alt="Image 14"></div>
+                            <div class="grid-item"><img src="img/15.jpg" alt="Image 15"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advertisement element to detect adblockers -->
+    <div id="adblock-detect" style="display: none;"></div>
+
+    <!-- Additional content can follow here -->
+    <script>
+        $(window).on('load', function() {
+            var $grid = $('.grid').imagesLoaded(function() {
+                $grid.masonry({
+                    itemSelector: '.grid-item',
+                    percentPosition: true,
+                    columnWidth: '.grid-item'
+                });
+            });
+
+            // Detect adblocker
+            if (document.getElementById('adblock-detect').offsetHeight === 0) {
+                document.getElementById('disclaimer').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

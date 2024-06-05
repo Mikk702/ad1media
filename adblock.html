@@ -200,8 +200,8 @@
         </div>
     </div>
 
-    <!-- Advertisement element to detect adblockers -->
-    <div id="adblock-detect" style="display: none;"></div>
+    <!-- Advertisement image to detect adblockers -->
+    <img src="https://via.placeholder.com/1x1.png?text=ad" style="display:none;" onerror="document.getElementById('disclaimer').style.display = 'block';">
 
     <!-- Additional content can follow here -->
     <script>
@@ -213,11 +213,6 @@
                     columnWidth: '.grid-item'
                 });
             });
-
-            // Detect adblocker
-            if (document.getElementById('adblock-detect').offsetHeight === 0) {
-                document.getElementById('disclaimer').style.display = 'block';
-            }
         });
     </script>
 </body>

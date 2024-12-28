@@ -18,11 +18,13 @@
       width: 100%;
     }
 
-    .video-player {
-      margin: 20px; /* Adjust margin as needed */
-      width: 48%; /* Set width for two videos in a row */
-      max-width: 640px; /* Ensure max width */
+    @media (max-width: 768px) { /* Adjust breakpoint as needed */
+      .video-player {
+        width: 100%; /* Make each video take up full width on smaller screens */
+        margin: 10px 0; /* Adjust margin if needed */
+      }
     }
+
   </style>
 </head>
 <body>
@@ -44,3 +46,5 @@
 
 </body>
 </html>
+
+

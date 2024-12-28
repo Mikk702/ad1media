@@ -7,7 +7,7 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
+            padding: 20px; /* Add some padding for responsiveness */
             background-image: url('img/bgmain.jpg');
             background-size: cover;
             background-position: center;
@@ -15,7 +15,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
         }
         
         div.container {
@@ -27,12 +26,12 @@
         .iframe-row {
             display: flex;
             justify-content: space-around;
-            margin-bottom: 20px;
+            margin-bottom: 40px; /* Increase the margin bottom for better spacing */
         }
 
         iframe {
             border: none;
-            width: 45vw; /* Half the width of the viewport for two per row, with some margin */
+            width: 60vw; /* Increased thumbnail size */
             height: auto;
         }
 
@@ -47,9 +46,9 @@
             }
 
             iframe {
-                width: 100%;
+                width: 80%; /* Increase thumbnail size on smaller screens */
                 height: auto;
-                margin-bottom: 10px;
+                margin-bottom: 20px;
             }
         }
     </style>

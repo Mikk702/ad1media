@@ -26,13 +26,17 @@
     }
 
     .video-player {
-      width: calc(50% - 30px); /* Make the players half width minus some padding */
-      display: inline-block;
+      display: block;
       vertical-align: top; /* Keep the players aligned to the top */
-      margin-right: 15px; /* Add some space between players */
+      width: 100%; /* Make the player full width on small screens */
+      padding-bottom: calc(56.25%); /* Maintain aspect ratio */
     }
 
     @media (min-width: 769px) {
+      .container {
+        height: auto;
+      }
+      
       .video-player-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -40,19 +44,37 @@
       }
       
       .video-player {
-        width: 100%;
+        width: calc(50% - 30px); /* Make the players half width minus some padding */
         margin-right: 0;
+        display: inline-block;
       }
     }
 
     @media (max-width: 768px) { 
+      .container {
+        height: auto;
+      }
+      
       .video-player-container {
         display: block;
       }
       
       .video-player {
-        width: calc(50% - 30px);
+        width: calc(50% - 30px); /* Make the players half width minus some padding */
+        margin-right: 15px; /* Add some space between players */
         display: inline-block;
+      }
+    }
+
+    @media (max-width: 480px) { 
+      .video-player-container {
+        display: block;
+      }
+      
+      .video-player {
+        width: calc(100% - 30px); /* Make the player full width minus some padding */
+        margin-right: 0; /* Remove space between players on small screens */
+        display: block;
       }
     }  
   </style>

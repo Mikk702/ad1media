@@ -18,14 +18,20 @@
             min-height: 100vh;
         }
         
-        div {
-            text-align: center;
+        div.container {
+            width: 80%;
+            max-width: 1200px; /* Adjust as needed */
+        }
+
+        .iframe-row {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
         }
 
         iframe {
-            margin: 20px auto;
             border: none;
-            max-width: 90%;
+            max-width: 45%; /* Half the width for two per row, adjusting based on screen size */
             height: auto;
         }
 
@@ -34,24 +40,27 @@
                 padding: 20px;
             }
             
-            div {
-                display: flex;
+            .iframe-row {
                 flex-direction: column;
             }
 
             iframe {
-                width: 100%;
-                margin-bottom: 20px;
+                max-width: 100%;
+                margin-bottom: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div>
-        <iframe src="https://drive.google.com/file/d/1Wyl2sBhZu_no6I7ej_6rzDVOyyY3WHUk/preview" allow="autoplay"></iframe>
-        <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" allow="autoplay"></iframe>
-        <iframe src="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/preview" allow="autoplay"></iframe>
-        <iframe src="https://drive.google.com/file/d/1PyknQPcjYOpV3wrKhmPQwIlIYzAdX8AO/preview" allow="autoplay"></iframe>
+    <div class="container">
+        <div class="iframe-row">
+            <iframe src="https://drive.google.com/file/d/1Wyl2sBhZu_no6I7ej_6rzDVOyyY3WHUk/preview" allow="autoplay"></iframe>
+            <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" allow="autoplay"></iframe>
+        </div>
+        <div class="iframe-row">
+            <iframe src="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/preview" allow="autoplay"></iframe>
+            <iframe src="https://drive.google.com/file/d/1PyknQPcjYOpV3wrKhmPQwIlIYzAdX8AO/preview" allow="autoplay"></iframe>
+        </div>
     </div>
 </body>
 </html>

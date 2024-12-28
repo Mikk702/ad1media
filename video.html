@@ -17,12 +17,15 @@
       flex-wrap: wrap;
       width: 100%;
     }
+   
+    .video-player {
+      margin: 15px; /* Added some space around each player */
+    }
 
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
       .video-player {
-        width: 100%;
-        margin: 15px 0; 
-      }
+        width: 100%; /* Make the players full width on smaller screens */
+      }  
       iframe {
         position: relative; /* Position the iframe so we can add a layer */
         padding-bottom: 56.25%; /* Aspect ratio adjustment */
@@ -37,7 +40,7 @@
         width: 100%;
         height: 100%;
       }
-    } 
+    }  
   </style>
 </head>
 <body>

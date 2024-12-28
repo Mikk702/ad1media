@@ -1,69 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ad1.tv Video and Photo Editing</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px; /* Add some padding for responsiveness */
-            background-image: url('img/bgmain.jpg');
-            background-size: cover;
-            background-position: center;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        div.container {
-            width: 80%;
-            max-width: 1200px; /* Adjust as needed */
-            margin: 0 auto; /* Center the container horizontally */
-        }
+  <title>Video Player Grid</title>
+  <style>
+    body {
+      margin: 0;
+      background-image: url("img/bgmain.jpg"); /* Change "img/bgmain.jpg" to your actual background image */
+      background-size: cover;
+      background-position: center;
+    }
 
-        .iframe-row {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 40px; /* Increase the margin bottom for better spacing */
-        }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
 
-        iframe {
-            border: none;
-            width: 60vw; /* Increased thumbnail size */
-            height: auto;
-            max-height: calc(100vh - 20px); /* Make sure thumbnails are tall enough */
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 20px;
-            }
-            
-            .iframe-row {
-                flex-direction: column;
-                align-items: center; /* Center the rows vertically in mobile view */
-            }
-
-            iframe {
-                width: 80%; /* Increase thumbnail size on smaller screens */
-                height: auto;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
+    .video-player {
+      margin: 20px; /* Adjust margin as needed */
+      width: 48%; /* Set width for two videos in a row */
+      max-width: 640px; /* Ensure max width */
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="iframe-row">
-            <iframe src="https://drive.google.com/file/d/1Wyl2sBhZu_no6I7ej_6rzDVOyyY3WHUk/preview" allow="autoplay"></iframe>
-            <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" allow="autoplay"></iframe>
-        </div>
-        <div class="iframe-row">
-            <iframe src="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/preview" allow="autoplay"></iframe>
-            <iframe src="https://drive.google.com/file/d/1PyknQPcjYOpV3wrKhmPQwIlIYzAdX8AO/preview" allow="autoplay"></iframe>
-        </div>
+
+  <div class="container">
+    <div class="video-player">
+      <iframe src="https://drive.google.com/file/d/1Wyl2sBhZu_no6I7ej_6rzDVOyyY3WHUk/preview" width="640" height="480" allow="autoplay"></iframe>
     </div>
+    <div class="video-player">
+      <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" width="640" height="480" allow="autoplay"></iframe>
+    </div>
+    <div class="video-player">
+      <iframe src="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/preview" width="640" height="480" allow="autoplay"></iframe>
+    </div>
+    <div class="video-player">
+      <iframe src="https://drive.google.com/file/d/1PyknQPcjYOpV3wrKhmPQwIlIYzAdX8AO/preview" width="640" height="480" allow="autoplay"></iframe>
+    </div>
+  </div>
+
 </body>
 </html>

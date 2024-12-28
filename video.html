@@ -18,9 +18,15 @@
             min-height: 100vh;
         }
         
+        div {
+            text-align: center;
+        }
+
         iframe {
             margin: 20px auto;
             border: none;
+            max-width: 90%;
+            height: auto;
         }
 
         @media (max-width: 768px) {
@@ -28,19 +34,24 @@
                 padding: 20px;
             }
             
+            div {
+                display: flex;
+                flex-direction: column;
+            }
+
             iframe {
                 width: 100%;
-                height: auto;
+                margin-bottom: 20px;
             }
         }
     </style>
 </head>
 <body>
     <div>
-        <iframe src="https://drive.google.com/file/d/1Wyl2sBhZu_no6I7ej_6rzDVOyyY3WHUk/preview" width="640" height="480" allow="autoplay"></iframe>
-        <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" width="640" height="480" allow="autoplay"></iframe>
-        <iframe src="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/preview" width="640" height="480" allow="autoplay"></iframe>
-        <iframe src="https://drive.google.com/file/d/1PyknQPcjYOpV3wrKhmPQwIlIYzAdX8AO/preview" width="640" height="480" allow="autoplay"></iframe>
+        <iframe src="https://drive.google.com/file/d/1Wyl2sBhZu_no6I7ej_6rzDVOyyY3WHUk/preview" allow="autoplay"></iframe>
+        <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" allow="autoplay"></iframe>
+        <iframe src="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/preview" allow="autoplay"></iframe>
+        <iframe src="https://drive.google.com/file/d/1PyknQPcjYOpV3wrKhmPQwIlIYzAdX8AO/preview" allow="autoplay"></iframe>
     </div>
 </body>
 </html>

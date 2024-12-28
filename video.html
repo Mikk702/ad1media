@@ -57,24 +57,27 @@
       
       .video-player-container {
         display: block;
+        flex-direction: column; /* Make the video players stack vertically */
       }
       
       .video-player {
         width: calc(50% - 30px); /* Make the players half width minus some padding */
         margin-right: 15px; /* Add some space between players */
         display: inline-block;
+        margin-bottom: 15px;
       }
     }
 
     @media (max-width: 480px) { 
       .video-player-container {
-        display: block;
+        flex-direction: column; /* Make the video players stack vertically */
       }
       
       .video-player {
         width: calc(100% - 30px); /* Make the player full width minus some padding */
         margin-right: 0; /* Remove space between players on small screens */
         display: block;
+        margin-bottom: 15px;
       }
     }  
   </style>

@@ -15,21 +15,20 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
       width: 100%;
       height: calc(100vh - 30px); /* Make the container full height minus some padding */
     }
    
     .video-player-container {
-      text-align: center; /* Center the video players horizontally */
-      margin-bottom: 15px; /* Add some space between rows */
+      text-align: center; 
     }
 
     .video-player {
       display: block;
-      vertical-align: top; /* Keep the players aligned to the top */
-      width: 100%; /* Make the player full width on small screens */
-      padding-bottom: calc(56.25%); /* Maintain aspect ratio */
+      vertical-align: top;
+      margin-bottom: 15px;
+      width: 100%;
+      padding-bottom: calc(56.25%);
     }
 
     @media (min-width: 769px) {
@@ -40,44 +39,25 @@
       .video-player-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px; /* Add some space between columns */
+        gap: 15px; 
       }
       
       .video-player {
-        width: calc(50% - 30px); /* Make the players half width minus some padding */
-        margin-right: 0;
-        display: inline-block;
-      }
-    }
-
-    @media (max-width: 768px) { 
-      .container {
-        height: auto;
-      }
-      
-      .video-player-container {
-        display: block;
-        flex-direction: column; /* Make the video players stack vertically */
-      }
-      
-      .video-player {
-        width: calc(50% - 30px); /* Make the players half width minus some padding */
-        margin-right: 15px; /* Add some space between players */
-        display: inline-block;
-        margin-bottom: 15px;
+        width: calc(50% - 30px);
       }
     }
 
     @media (max-width: 480px) { 
+      .container {
+        flex-direction: column;
+      }
+      
       .video-player-container {
-        flex-direction: column; /* Make the video players stack vertically */
+        display: block;
       }
       
       .video-player {
-        width: calc(100% - 30px); /* Make the player full width minus some padding */
-        margin-right: 0; /* Remove space between players on small screens */
-        display: block;
-        margin-bottom: 15px;
+        width: 100%;
       }
     }  
   </style>
@@ -92,9 +72,6 @@
       <div class="video-player">
         <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" width="640" height="480" allow="autoplay"></iframe>
       </div>
-    </div>
-
-    <div class="video-player-container">
       <div class="video-player">
         <iframe src="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/preview" width="640" height="480" allow="autoplay"></iframe>
       </div>

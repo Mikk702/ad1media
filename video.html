@@ -15,33 +15,44 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
+      flex-direction: column;
       width: 100%;
+      height: calc(100vh - 30px); /* Make the container full height minus some padding */
     }
    
-    .video-player {
-      margin: 15px; /* Added some space around each player */
-      padding-bottom: 56.25%; /* Maintain aspect ratio on smaller screens */
+    .video-player-container {
+      text-align: center; /* Center the video players horizontally */
+      margin-bottom: 15px; /* Add some space between rows */
     }
 
-    @media (min-width: 769px) { /* Large screen layout */
-      .container {
+    .video-player {
+      width: calc(50% - 30px); /* Make the players half width minus some padding */
+      display: inline-block;
+      vertical-align: top; /* Keep the players aligned to the top */
+      margin-right: 15px; /* Add some space between players */
+    }
+
+    @media (min-width: 769px) {
+      .video-player-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px; /* Add some space between rows and columns */
+        gap: 15px; /* Add some space between columns */
       }
       
       .video-player {
-        width: calc(50% - 30px); /* Make the players half width minus some padding */
-        margin: 0;
-        padding-bottom: 56.25%; /* Maintain aspect ratio on smaller screens */
+        width: 100%;
+        margin-right: 0;
       }
     }
 
-    @media (max-width: 768px) { /* Small screen layout */
+    @media (max-width: 768px) { 
+      .video-player-container {
+        display: block;
+      }
+      
       .video-player {
-        width: 100%; /* Make the players full width on smaller screens */
-        padding-bottom: 56.25%; /* Maintain aspect ratio on smaller screens */
+        width: calc(50% - 30px);
+        display: inline-block;
       }
     }  
   </style>
@@ -49,18 +60,24 @@
 <body>
 
   <div class="container">
-    <div class="video-player">
-      <iframe src="https://drive.google.com/file/d/1Wyl2sBhZu_no6I7ej_6rzDVOyyY3WHUk/preview" width="640" height="480" allow="autoplay"></iframe>
+    <div class="video-player-container">
+      <div class="video-player">
+        <iframe src="https://drive.google.com/file/d/1Wyl2sBhZu_no6I7ej_6rzDVOyyY3WHUk/preview" width="640" height="480" allow="autoplay"></iframe>
+      </div>
+      <div class="video-player">
+        <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" width="640" height="480" allow="autoplay"></iframe>
+      </div>
     </div>
-    <div class="video-player">
-      <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" width="640" height="480" allow="autoplay"></iframe>
+
+    <div class="video-player-container">
+      <div class="video-player">
+        <iframe src="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/preview" width="640" height="480" allow="autoplay"></iframe>
+      </div>
+      <div class="video-player">
+        <iframe src="https://drive.google.com/file/d/1PyknQPcjYOpV3wrKhmPQwIlIYzAdX8AO/preview" width="640" height="480" allow="autoplay"></iframe>
+      </div>
     </div>
-    <div class="video-player">
-      <iframe src="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/preview" width="640" height="480" allow="autoplay"></iframe>
-    </div>
-    <div class="video-player">
-      <iframe src="https://drive.google.com/file/d/1PyknQPcjYOpV3wrKhmPQwIlIYzAdX8AO/preview" width="640" height="480" allow="autoplay"></iframe>
-    </div>
+
   </div>
 
 </body>

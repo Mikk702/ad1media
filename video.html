@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Video Player Grid</title>
+  <title>Ad1.tv Video and Photo Editing</title> 
   <style>
     body {
       margin: 0;
@@ -18,12 +18,17 @@
       width: 100%;
     }
 
-    @media (max-width: 768px) { /* Adjust breakpoint as needed */
+    @media (max-width: 768px) {
       .video-player {
-        width: 100%; /* Make each video take up full width on smaller screens */
-        margin: 10px 0; /* Adjust margin if needed */
+        width: 100%;
+        margin: 15px 0; /* Increased margin */ 
+        /* Adjust height as needed to ensure button visibility*/
       }
-    }
+
+      iframe {
+        height: 320px;  /* Increase iframe height for better play button space */
+      } 
+    } 
 
   </style>
 </head>
@@ -46,5 +51,6 @@
 
 </body>
 </html>
+
 
 

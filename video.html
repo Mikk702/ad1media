@@ -8,16 +8,30 @@
         body {
             margin: 0;
             padding: 0;
-            background-image: url('img/bgmain.jpg');
+            background-image: url('img/bgmain.png');
             background-size: cover;
             background-position: center;
             font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         
         iframe {
-            display: block;
             margin: 20px auto;
             border: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            iframe {
+                width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>

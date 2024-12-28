@@ -18,17 +18,26 @@
       width: 100%;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 768px) { 
       .video-player {
         width: 100%;
-        margin: 15px 0;  
+        margin: 15px 0; 
+      }
+      iframe {
+        position: relative; /* Position the iframe so we can add a layer */
+        padding-bottom: 56.25%; /* Aspect ratio adjustment */
+        height: 0; /* Height will be calculated based on padding */
+        overflow: hidden;
       }
 
-      iframe {
-        height: 320px !important; /* Set height with !important for overrides */
-      } 
+      iframe iframe { /* Target the nested iframes inside each player */ 
+        position: absolute; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
     } 
-
   </style>
 </head>
 <body>

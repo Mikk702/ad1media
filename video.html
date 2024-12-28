@@ -12,10 +12,17 @@
             background: url('img/bgmain.jpg') no-repeat center center fixed;
             background-size: cover;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
             min-height: 100vh;
             box-sizing: border-box;
+        }
+
+        .banner {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px 0;
         }
 
         .video-container {
@@ -43,6 +50,7 @@
     </style>
 </head>
 <body>
+    <img src="img/vidbannersmall.png" alt="Video Banner" class="banner">
     <div class="video-container">
         <iframe src="https://drive.google.com/file/d/1Wyl2sBhZu_no6I7ej_6rzDVOyyY3WHUk/preview" allow="autoplay"></iframe>
         <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" allow="autoplay"></iframe>

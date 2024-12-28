@@ -4,60 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ad1.tv Video and Photo Editing</title>
-    <link rel="stylesheet" href="style.css">
     <style>
-        .original-size-image {
-            display: block;
-            width: auto; /* Ensure the width is not scaled */
-            height: auto; /* Ensure the height maintains aspect ratio */
-            margin: 0 auto 20px; /* Center the image and add margin-bottom */
-        }
-        .video-thumbnail img {
-            width: 100%;
-            height: auto;
-        }
         body {
-            background-color: #000; /* Black background */
+            margin: 0;
+            padding: 0;
+            background-image: url('img/bgmain.png');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
         }
-        .grid {
-            margin: 0 auto;
-        }
-        .grid-item {
-            margin-bottom: 20px;
-            padding-left: 5px;
-            padding-right: 5px;
-            border-radius: 30px;
-            overflow: hidden;
-        }
-        .grid-item img {
-            width: 100%;
-            height: auto;
+        
+        iframe {
             display: block;
-            border-radius: 30px;
-        }
-        @media (min-width: 1200px) {
-            .grid-item {
-                width: 23.5%; /* Four items per row with slight spacing */
-            }
-        }
-        @media (min-width: 992px) and (max-width: 1199.98px) {
-            .grid-item {
-                width: 30.5%; /* Three items per row */
-            }
-        }
-        @media (min-width: 768px) and (max-width: 991.98px) {
-            .grid-item {
-                width: 47%; /* Two items per row */
-            }
-        }
-        @media (max-width: 767.98px) {
-            .grid-item {
-                width: 100%; /* One item per row */
-            }
+            margin: 20px auto;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <!-- Existing content goes here -->
+    <div>
+        <iframe src="https://drive.google.com/file/d/1Wyl2sBhZu_no6I7ej_6rzDVOyyY3WHUk/preview" width="640" height="480" allow="autoplay"></iframe>
+        <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" width="640" height="480" allow="autoplay"></iframe>
+        <iframe src="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/preview" width="640" height="480" allow="autoplay"></iframe>
+        <iframe src="https://drive.google.com/file/d/1PyknQPcjYOpV3wrKhmPQwIlIYzAdX8AO/preview" width="640" height="480" allow="autoplay"></iframe>
+    </div>
 </body>
 </html>

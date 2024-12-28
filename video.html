@@ -1,29 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://meyerweb.com/eric/tools/css/reset/2.0/reset.min.css" rel="stylesheet"> 
   <title>Ad1.tv Video and Photo Editing</title> 
+  <style>
+    body {
+      margin: 0;
+      background-image: url("img/bgmain.jpg"); /* Change "img/bgmain.jpg" to your actual background image */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+   
+    .video-player {
+      margin: 15px; /* Added some space around each player */
+      padding-bottom: 56.25%; /* Maintain aspect ratio on smaller screens */
+    }
+
+    @media (min-width: 769px) { /* Large screen layout */
+      .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px; /* Add some space between rows and columns */
+      }
+      
+      .video-player {
+        width: calc(50% - 30px); /* Make the players half width minus some padding */
+        margin: 0;
+        padding-bottom: 56.25%; /* Maintain aspect ratio on smaller screens */
+      }
+    }
+
+    @media (max-width: 768px) { /* Small screen layout */
+      .video-player {
+        width: 100%; /* Make the players full width on smaller screens */
+        padding-bottom: 56.25%; /* Maintain aspect ratio on smaller screens */
+      }
+    }  
+  </style>
 </head>
 <body>
-  <div style="width: 100%; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;"> 
 
-    <div style="margin: 15px; width: 300px;">
+  <div class="container">
+    <div class="video-player">
       <iframe src="https://drive.google.com/file/d/1Wyl2sBhZu_no6I7ej_6rzDVOyyY3WHUk/preview" width="640" height="480" allow="autoplay"></iframe>
     </div>
-
-    <div style="margin: 15px; width: 300px;">
+    <div class="video-player">
       <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" width="640" height="480" allow="autoplay"></iframe>
     </div>
-
-    <div style="margin: 15px; width: 300px;">
+    <div class="video-player">
       <iframe src="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/preview" width="640" height="480" allow="autoplay"></iframe>
     </div>
-
-    <div style="margin: 15px; width: 300px;">
+    <div class="video-player">
       <iframe src="https://drive.google.com/file/d/1PyknQPcjYOpV3wrKhmPQwIlIYzAdX8AO/preview" width="640" height="480" allow="autoplay"></iframe>
-    </div> 
-
+    </div>
   </div>
+
 </body>
 </html>
-
-

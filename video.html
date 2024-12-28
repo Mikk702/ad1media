@@ -16,7 +16,6 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      height: calc(100vh - 30px); /* Make the container full height minus some padding */
     }
    
     .video-player-container {
@@ -24,27 +23,9 @@
     }
 
     .video-player {
-      display: block;
-      vertical-align: top;
       margin-bottom: 15px;
-      width: 100%;
+      width: calc(25% - 30px);
       padding-bottom: calc(56.25%);
-    }
-
-    @media (min-width: 769px) {
-      .container {
-        height: auto;
-      }
-      
-      .video-player-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px; 
-      }
-      
-      .video-player {
-        width: calc(50% - 30px);
-      }
     }
 
     @media (max-width: 480px) { 
@@ -52,12 +33,9 @@
         flex-direction: column;
       }
       
-      .video-player-container {
-        display: block;
-      }
-      
       .video-player {
         width: 100%;
+        margin-bottom: 15px;
       }
     }  
   </style>

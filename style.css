@@ -1,22 +1,22 @@
 /* General styles */
 html, body {
-    height: 100%; /* Ensure the html and body elements take full viewport height */
+    height: 100%;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('img/bgmain.jpg'); /* Ensure the path is correct */
-    background-size: cover; /* Cover the entire area of the page, can be adjusted if repeat is needed */
-    background-position: center; /* Center the background image */
-    background-repeat: repeat; /* Force the background to repeat */
-    min-height: 100vh; /* Ensure the body is at least as tall as the viewport */
-    position: relative; /* Relative positioning for positioning context */
-    color: white; /* Set all text color to white */
+    background-image: url('img/bgmain.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    min-height: 100vh;
+    position: relative;
+    color: white;
 }
 
 /* Content section styles */
 .content-section {
     width: 100%;
-    overflow: hidden; /* Prevents content from spilling out */
+    overflow: hidden;
 }
 
 .contact-section {
@@ -27,7 +27,7 @@ html, body {
 }
 
 .contact-item {
-    margin: 10px; /* Provides spacing around contact items */
+    margin: 10px;
 }
 
 .video-section {
@@ -35,34 +35,139 @@ html, body {
 }
 
 .video-thumbnail {
-    margin-bottom: 20px; /* Space below each video thumbnail */
-    text-align: center; /* Center align text */
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 iframe {
     display: block;
-    width: 100%; /* Full width iframes adjust to container size */
-    height: 200px; /* Fixed height for consistency */
+    width: 100%;
+    height: 200px;
 }
 
 /* Styles for images and icons */
 img {
-    width: 100%; /* Images expand to full width of their container */
-    height: auto; /* Maintain image aspect ratio */
+    width: 100%;
+    height: auto;
 }
 
 /* Ensure vertical only content doesn't show in landscape orientation */
 @media (orientation: portrait) {
     #horizontal {
-        display: none; /* Hide horizontal content in portrait mode */
+        display: none;
     }
 }
 
 @media (orientation: landscape) {
     #vertical {
-        display: none; /* Hide vertical content in landscape mode */
+        display: none;
     }
     #horizontal {
-        display: block; /* Show horizontal content only in landscape mode */
+        display: block;
+    }
+}
+
+/* Wrapper for the video section */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Thumbnail grid layout */
+.thumbnail-grid {
+    position: absolute;
+    top: 50%;
+    right: 5%; /* Position to the right */
+    transform: translateY(-50%); /* Center vertically */
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(2, 1fr); /* 2 rows */
+    column-gap: 50px; 
+    row-gap: 10px; !important; /*  */
+    padding: 90px; /*  */
+}
+
+/* Thumbnail styles */
+.thumbnail-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0; 
+    padding: 0; 
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 767.98px) {
+    /* Small breakpoint */
+    .thumbnail-grid {
+        width: 80%;
+        column-gap: 90px !important; /* Narrow horizontal gap by 50px */
+        row-gap: 40px !important; /* Widen vertical gap by 50px */
+        padding: 90px; /* Match ad1.tv container padding */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    /* Medium breakpoint (expanded range) */
+    .thumbnail-grid {
+        width: 58%; /* Adjusted width for medium screens */
+        column-gap: 50px !important; /* Narrow horizontal gap by 50px */
+        row-gap: 5px !important; /* Widen vertical gap by 50px */
+        padding: 5px; /* Match ad1.tv container padding */
+    }
+}
+
+@media (min-width: 1200px) {
+    /* Large breakpoint */
+    .thumbnail-grid {
+        width: 58%;
+        column-gap: 90px !important; /*  */
+        row-gap: 5px !important; /* */
+        padding: 5px; /*  */
+    }
+}
+
+/* Masonry gallery styles */
+.grid {
+    margin: 0 auto;
+}
+
+.grid-item {
+    margin-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px;
+}
+
+@media (min-width: 1200px) {
+    .grid-item {
+        width: 23.5%; /* Four items per row with slight spacing */
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .grid-item {
+        width: 30.5%; /* Three items per row */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .grid-item {
+        width: 47%; /* Two items per row */
+    }
+}
+
+@media (max-width: 767.98px) {
+    .grid-item {
+        width: 100%; /* One item per row */
     }
 }

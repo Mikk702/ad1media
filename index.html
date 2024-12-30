@@ -77,27 +77,27 @@
 
         <!-- Video section with thumbnails -->
         <div class="video-section">
-    <div class="video-thumbnail">
-        <a href="video.html?video=corporate-motivation-awards">
-            <img src="img/tn/horiztn/tn1.png" alt="Corporate Motivation & Awards Event" class="original-size-image">
-        </a>
-    </div>
-    <div class="video-thumbnail">
-        <a href="video.html?video=corporate-event-speakers">
-            <img src="img/tn/horiztn/tn2.png" alt="Corporate Event Speakers Showcase" class="original-size-image">
-        </a>
-    </div>
-    <div class="video-thumbnail">
-        <a href="video.html?video=real-estate-promo">
-            <img src="img/tn/horiztn/tn3.png" alt="Real Estate Property Promo" class="original-size-image">
-        </a>
-    </div>
-    <div class="video-thumbnail">
-        <a href="video.html?video=medical-surgery-promo">
-            <img src="img/tn/horiztn/tn4.png" alt="Medical Surgery Device Promo" class="original-size-image">
-        </a>
-    </div>
-</div>
+            <div class="video-thumbnail">
+                <a href="video.html?video=corporate-motivation-awards">
+                    <img src="img/tn/horiztn/tn1.png" alt="Corporate Motivation & Awards Event" class="original-size-image">
+                </a>
+            </div>
+            <div class="video-thumbnail">
+                <a href="video.html?video=corporate-event-speakers">
+                    <img src="img/tn/horiztn/tn2.png" alt="Corporate Event Speakers Showcase" class="original-size-image">
+                </a>
+            </div>
+            <div class="video-thumbnail">
+                <a href="video.html?video=real-estate-promo">
+                    <img src="img/tn/horiztn/tn3.png" alt="Real Estate Property Promo" class="original-size-image">
+                </a>
+            </div>
+            <div class="video-thumbnail">
+                <a href="video.html?video=medical-surgery-promo">
+                    <img src="img/tn/horiztn/tn4.png" alt="Medical Surgery Device Promo" class="original-size-image">
+                </a>
+            </div>
+        </div>
 
         <!-- New Image Section specifically for vertical orientation -->
         <div id="images_vert" class="image-section">
@@ -125,35 +125,35 @@
 
     <!-- Horizontal section for horizontal-only content -->
     <div id="horizontal" class="content-section">
+        <!-- Top Section: Main Horizontal Image -->
         <img src="img/mainhoriz.jpg" alt="Main Horizontal Image" style="width: 100%;">
 
-        <!-- New Video Container Section -->
-        <div id="video_container" style="width: 100%; min-height: 600px; margin-top: 0px; background-color: transparent; display: flex; justify-content: flex-end; background-image: url('img/1.png'); background-size: cover; background-position: center;">
-    <!-- Video Thumbnails in 2x2 grid aligned to the right with top padding, no borders, and column gaps -->
-    <div style="width: 60%; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto; grid-row-gap: 0px; grid-column-gap: 40px; padding-top: 30px; padding-right: 50px; border: none;">
-        <div style="text-align: center; border: none;">
-            <a href="video.html?video=corporate-motivation-awards" target="_blank">
-                <img src="img/tn/horiztn/tn1.png" alt="Corporate Motivation & Awards Event" class="original-size-image">
-            </a>
+        <!-- Wrapper Section: Image and Thumbnails -->
+        <div class="video-wrapper">
+            <img src="img/1.png" alt="Background Image" style="width: 100%;">
+            <div class="thumbnail-grid">
+                <div class="thumbnail-item">
+                    <a href="video.html?video=corporate-motivation-awards" target="_blank">
+                        <img src="img/tn/horiztn/tn1.png" alt="Corporate Motivation & Awards Event" class="original-size-image">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="video.html?video=corporate-event-speakers" target="_blank">
+                        <img src="img/tn/horiztn/tn2.png" alt="Corporate Event Speakers Showcase" class="original-size-image">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="video.html?video=real-estate-promo" target="_blank">
+                        <img src="img/tn/horiztn/tn3.png" alt="Real Estate Property Promo" class="original-size-image">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="video.html?video=stucco-business-showcase" target="_blank">
+                        <img src="img/tn/horiztn/tn4.png" alt="Stucco Business Showcase" class="original-size-image">
+                    </a>
+                </div>
+            </div>
         </div>
-        <div style="text-align: center; border: none;">
-            <a href="video.html?video=corporate-event-speakers" target="_blank">
-                <img src="img/tn/horiztn/tn2.png" alt="Corporate Event Speakers Showcase" class="original-size-image">
-            </a>
-        </div>
-        <div style="text-align: center; border: none;">
-            <a href="video.html?video=real-estate-promo" target="_blank">
-                <img src="img/tn/horiztn/tn3.png" alt="Real Estate Property Promo" class="original-size-image">
-            </a>
-        </div>
-        <div style="text-align: center; border: none;">
-            <a href="video.html?video=stucco-business-showcase" target="_blank">
-                <img src="img/tn/horiztn/tn4.png" alt="Stucco Business Showcase" class="original-size-image">
-            </a>
-        </div>
-    </div>
-</div>
-
 
         <!-- New Image Container Section for horizontal orientation -->
         <div id="images_horiz_container" style="width: 100%; margin-top: 40px;">
@@ -193,54 +193,6 @@
                 });
             });
         });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var videos = document.querySelectorAll('.video');
-
-            videos.forEach(function(video) {
-                video.addEventListener('play', function() {
-                    var playButton = video.nextElementSibling;
-                    playButton.style.display = 'none';
-                });
-
-                video.addEventListener('pause', function() {
-                    var playButton = video.nextElementSibling;
-                    playButton.style.display = 'block';
-                });
-
-                video.addEventListener('ended', function() {
-                    var playButton = video.nextElementSibling;
-                    playButton.style.display = 'block';
-                    playButton.textContent = 'Play Again';
-                });
-            });
-        });
-
-        function playVideo(videoId) {
-            var video = document.getElementById(videoId);
-            video.play();
-        }
     </script>
-
-    <style>
-        .video-container {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-        }
-
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-    </style>
 </body>
 </html>

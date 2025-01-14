@@ -1,134 +1,84 @@
-/* General styles */
+/* General reset */
 html, body {
-    height: 100%;
     margin: 0;
     padding: 0;
+    height: 100%;
     font-family: Arial, sans-serif;
-    background-image: url('img/bgmain.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
-    min-height: 100vh;
-    position: relative;
-    color: white;
 }
 
-/* Content section styles */
+/* Whole Page Background */
+body {
+    background-image: url('img/bgmain.jpg');
+    background-size: cover; /* Ensures the background image covers the entire page */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+}
+
+/* Top Section: Main Horizontal/Vertical Image */
+.top-section {
+    width: 100%;
+    overflow: hidden; /* Ensures the image doesn't overflow the container */
+}
+
+.responsive-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below the image */
+}
+
+/* Content Sections */
 .content-section {
     width: 100%;
     overflow: hidden;
 }
 
-.contact-section {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Horizontal Content (Desktop/Tablet) */
+#horizontal {
+    display: block; /* Show by default */
 }
 
-.contact-item {
-    margin: 10px;
+/* Vertical Content (Mobile) */
+#vertical {
+    display: none; /* Hide by default */
 }
 
-.video-section {
-    padding: 20px;
-}
-
-.video-thumbnail {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-iframe {
-    display: block;
-    width: 100%;
-    height: 200px;
-}
-
-/* Styles for images and icons */
-img {
-    width: 100%;
-    height: auto;
-}
-
-/* Ensure vertical only content doesn't show in landscape orientation */
-@media (orientation: portrait) {
-    #horizontal {
-        display: none;
-    }
-}
-
-@media (orientation: landscape) {
-    #vertical {
-        display: none;
-    }
-    #horizontal {
-        display: block;
-    }
-}
-
-/* Wrapper for the video section */
-.video-wrapper {
+/* Video Container */
+.image-video-container {
     position: relative;
     width: 100%;
+    max-width: 1920px; /* Match the width of the background image */
+    height: 0; /* Height will be controlled by padding-top */
+    padding-top: 31.25%; /* 600px / 1920px = 31.25% (maintains aspect ratio of 1920x600) */
+    margin: 0 auto;
+    background-image: url('img/1.png');
+    background-size: cover; /* Ensures the background image scales proportionally */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
 }
 
-/* Thumbnail grid layout */
-.thumbnail-grid {
+/* Video Wrapper */
+.video-wrapper {
     position: absolute;
-    top: 50%;
-    right: 5%; /* Position to the right */
-    transform: translateY(-50%); /* Center vertically */
-    width: 60%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    grid-template-rows: repeat(2, 1fr); /* 2 rows */
-    column-gap: 50px; 
-    row-gap: 10px; !important; /*  */
-    padding: 90px; /*  */
+    top: 5%; /* 5% padding from the top */
+    right: 5%; /* Position on the right with 5% padding */
+    bottom: 5%; /* 5% padding from the bottom */
+    width: 50%; /* Slightly increase width to ensure edges are visible */
+    height: auto; /* Maintain aspect ratio */
+    aspect-ratio: 16 / 9; /* Ensures the video maintains a 16:9 aspect ratio */
+    border-radius: 15px; /* Rounded corners for the video player */
+    overflow: hidden; /* Ensures the video respects the rounded corners */
 }
 
-/* Thumbnail styles */
-.thumbnail-item img {
+/* Video Element */
+.video-wrapper video {
     width: 100%;
-    height: auto;
-    display: block;
-    margin: 0; 
-    padding: 0; 
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the container without distortion */
+    border-radius: 15px; /* Rounded corners for the video element */
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 767.98px) {
-    /* Small breakpoint */
-    .thumbnail-grid {
-        width: 80%;
-        column-gap: 90px !important; /* Narrow horizontal gap by 50px */
-        row-gap: 40px !important; /* Widen vertical gap by 50px */
-        padding: 90px; /* Match ad1.tv container padding */
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1199.98px) {
-    /* Medium breakpoint (expanded range) */
-    .thumbnail-grid {
-        width: 58%; /* Adjusted width for medium screens */
-        column-gap: 50px !important; /* Narrow horizontal gap by 50px */
-        row-gap: 5px !important; /* Widen vertical gap by 50px */
-        padding: 5px; /* Match ad1.tv container padding */
-    }
-}
-
-@media (min-width: 1200px) {
-    /* Large breakpoint */
-    .thumbnail-grid {
-        width: 58%;
-        column-gap: 90px !important; /*  */
-        row-gap: 5px !important; /* */
-        padding: 5px; /*  */
-    }
-}
-
-/* Masonry gallery styles */
+/* Masonry Gallery Styles */
 .grid {
     margin: 0 auto;
 }
@@ -150,7 +100,7 @@ img {
 
 @media (min-width: 1200px) {
     .grid-item {
-        width: 23.5%; /* Four items per row with slight spacing */
+        width: 23.5%; /* Four items per row */
     }
 }
 
@@ -169,5 +119,55 @@ img {
 @media (max-width: 767.98px) {
     .grid-item {
         width: 100%; /* One item per row */
+    }
+}
+
+/* Simple Image Grid (Mobile) */
+.simple-image-grid {
+    width: 100%; /* Takes up the full width of its container */
+    margin: 20px auto; /* Center the grid */
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 1 column for mobile */
+    gap: 10px; /* Spacing between images */
+}
+
+.simple-image-grid .grid-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for images */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 767.98px) {
+    /* Small breakpoint (mobile) */
+    #horizontal {
+        display: none; /* Hide horizontal content on mobile */
+    }
+
+    #vertical {
+        display: block; /* Show vertical content on mobile */
+    }
+
+    .video-wrapper {
+        position: relative; /* Reset positioning for mobile */
+        top: auto;
+        right: auto;
+        bottom: auto;
+        width: 90%; /* Slightly less than full width for better spacing */
+        max-width: none; /* Remove max-width restriction */
+        margin: 0 auto; /* Center the video player */
+        padding: 5% 0; /* 5% padding on top and bottom */
+        border-radius: 15px; /* Rounded corners for the video player on mobile */
+    }
+}
+
+/* Adjust Video Player Size in Horizontal Mode */
+@media (orientation: landscape) {
+    .video-wrapper {
+        width: 50%; /* Maintain slightly larger width for horizontal mode */
+        right: 5%; /* Position on the right with 5% padding */
+        top: 5%; /* 5% padding from the top */
+        bottom: 5%; /* 5% padding from the bottom */
+        border-radius: 15px; /* Rounded corners for the video player in landscape mode */
     }
 }

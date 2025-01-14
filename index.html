@@ -5,184 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ad1 Media - Video & Photo Editing - Content Creator Tutoring</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .original-size-image {
-            display: block;
-            width: auto; /* Ensure the width is not scaled */
-            height: auto; /* Ensure the height maintains aspect ratio */
-            margin: 0 auto 20px; /* Center the image and add margin-bottom */
-        }
-        .video-thumbnail img {
-            width: 100%;
-            height: auto;
-        }
-        body {
-            background-color: #2f2f2f;
-        }
-        .grid {
-            margin: 0 auto;
-        }
-        .grid-item {
-            margin-bottom: 20px;
-            padding-left: 5px;
-            padding-right: 5px;
-            border-radius: 30px;
-            overflow: hidden;
-        }
-        .grid-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 30px;
-        }
-        @media (min-width: 1200px) {
-            .grid-item {
-                width: 23.5%; /* Four items per row with slight spacing */
-            }
-        }
-        @media (min-width: 992px) and (max-width: 1199.98px) {
-            .grid-item {
-                width: 30.5%; /* Three items per row */
-            }
-        }
-        @media (min-width: 768px) and (max-width: 991.98px) {
-            .grid-item {
-                width: 47%; /* Two items per row */
-            }
-        }
-        @media (max-width: 767.98px) {
-            .grid-item {
-                width: 100%; /* One item per row */
-            }
-        }
-    </style>
+</head>
+<body>
+    <!-- Horizontal Content (Desktop/Tablet) -->
+    <div id="horizontal" class="content-section">
+        <!-- Top Section: Main Horizontal Image -->
+        <div class="top-section">
+            <img src="img/mainhoriz.jpg" alt="Main Horizontal Image" class="responsive-image">
+        </div>
+
+        <!-- Video Container -->
+        <div class="image-video-container">
+            <div class="video-wrapper">
+                <video controls poster="img/tn/horiztn/customtn.png">
+                    <source src="https://ad1server.s3.us-east-2.amazonaws.com/video/demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- Masonry Gallery -->
+        <div class="grid">
+            <div class="grid-item"><img src="img/1.jpg" alt="Image 1"></div>
+            <div class="grid-item"><img src="img/2.jpg" alt="Image 2"></div>
+            <div class="grid-item"><img src="img/3.jpg" alt="Image 3"></div>
+            <div class="grid-item"><img src="img/4.jpg" alt="Image 4"></div>
+            <div class="grid-item"><img src="img/5.jpg" alt="Image 5"></div>
+            <div class="grid-item"><img src="img/6.jpg" alt="Image 6"></div>
+            <div class="grid-item"><img src="img/7.jpg" alt="Image 7"></div>
+            <div class="grid-item"><img src="img/8.jpg" alt="Image 8"></div>
+        </div>
+    </div>
+
+    <!-- Vertical Content (Mobile) -->
+    <div id="vertical" class="content-section">
+        <!-- Top Section: Main Vertical Image -->
+        <div class="top-section">
+            <img src="img/mainvert.png" alt="Main Vertical Image" class="responsive-image">
+        </div>
+
+        <!-- Video Player Only -->
+        <div class="video-wrapper">
+            <video controls poster="img/tn/horiztn/customtn.png">
+                <source src="https://ad1server.s3.us-east-2.amazonaws.com/video/demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Simple Image Grid for Mobile -->
+        <div class="simple-image-grid">
+            <div class="grid-item"><img src="img/1.jpg" alt="Image 1"></div>
+            <div class="grid-item"><img src="img/2.jpg" alt="Image 2"></div>
+            <div class="grid-item"><img src="img/3.jpg" alt="Image 3"></div>
+            <div class="grid-item"><img src="img/4.jpg" alt="Image 4"></div>
+            <div class="grid-item"><img src="img/5.jpg" alt="Image 5"></div>
+            <div class="grid-item"><img src="img/6.jpg" alt="Image 6"></div>
+            <div class="grid-item"><img src="img/7.jpg" alt="Image 7"></div>
+            <div class="grid-item"><img src="img/8.jpg" alt="Image 8"></div>
+        </div>
+    </div>
+
+    <!-- Masonry and ImagesLoaded Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-</head>
-<body style="background-image: url('img/bgmain.jpg'); background-size: cover; background-position: center;">
-    <!-- Vertical section for vertical-only content -->
-    <div id="vertical" class="content-section">
-        <img src="img/mainvert.png" alt="Main Vertical Image" style="width: 100%;">
-
-        <!-- Contact section with icons only -->
-        <div class="contact-section">
-            <div class="contact-item">
-                <img src="img/phone white.png" alt="Phone Icon">
-            </div>
-            <div class="contact-item">
-                <img src="img/email white.png" alt="Email Icon">
-            </div>
-        </div>
-
-        <!-- Video section with thumbnails -->
-        <div class="video-section">
-            <div class="video-thumbnail">
-                <a href="video.html?video=corporate-motivation-awards">
-                    <img src="img/tn/horiztn/tn1.png" alt="Corporate Motivation & Awards Event" class="original-size-image">
-                </a>
-            </div>
-            <div class="video-thumbnail">
-                <a href="video.html?video=corporate-event-speakers">
-                    <img src="img/tn/horiztn/tn2.png" alt="Corporate Event Speakers Showcase" class="original-size-image">
-                </a>
-            </div>
-            <div class="video-thumbnail">
-                <a href="video.html?video=real-estate-promo">
-                    <img src="img/tn/horiztn/tn3.png" alt="Real Estate Property Promo" class="original-size-image">
-                </a>
-            </div>
-            <div class="video-thumbnail">
-                <a href="video.html?video=medical-surgery-promo">
-                    <img src="img/tn/horiztn/tn4.png" alt="Medical Surgery Device Promo" class="original-size-image">
-                </a>
-            </div>
-        </div>
-
-        <!-- New Image Section specifically for vertical orientation -->
-        <div id="images_vert" class="image-section">
-            <img src="img/1.jpg" alt="" style="width: 100%;">
-            <img src="img/2.jpg" alt="" style="width: 100%;">
-            <img src="img/3.jpg" alt="" style="width: 100%;">
-            <img src="img/mainhoriz_vert.jpg" alt="" style="width: 100%;">
-            <img src="img/4.jpg" alt="" style="width: 100%;">
-            <img src="img/5.jpg" alt="" style="width: 100%;">
-            <img src="img/6.jpg" alt="" style="width: 100%;">
-            <img src="img/7.jpg" alt="" style="width: 100%;">
-            <img src="img/8.jpg" alt="" style="width: 100%;">
-            <img src="img/mainhoriz_vert.jpg" alt="" style="width: 100%;">
-            <img src="img/9.jpg" alt="" style="width: 100%;">
-            <img src="img/10.jpg" alt="" style="width: 100%;">
-            <img src="img/11.jpg" alt="" style="width: 100%;">
-            <img src="img/12.jpg" alt="" style="width: 100%;">
-            <img src="img/13.jpg" alt="" style="width: 100%;">
-            <img src="img/mainhoriz_vert.jpg" alt="" style="width: 100%;">
-            <img src="img/14.jpg" alt="" style="width: 100%;">
-            <img src="img/15.jpg" alt="" style="width: 100%;">
-            <img src="img/16vert.jpg" alt="" style="width: 100%;">
-        </div>
-    </div>
-
-    <!-- Horizontal section for horizontal-only content -->
-    <div id="horizontal" class="content-section">
-        <!-- Top Section: Main Horizontal Image -->
-        <img src="img/mainhoriz.jpg" alt="Main Horizontal Image" style="width: 100%;">
-
-        <!-- Wrapper Section: Image and Thumbnails -->
-        <div class="video-wrapper">
-            <img src="img/1.png" alt="Background Image" style="width: 100%;">
-            <div class="thumbnail-grid">
-                <div class="thumbnail-item">
-                    <a href="video.html?video=corporate-motivation-awards" target="_blank">
-                        <img src="img/tn/horiztn/tn1.png" alt="Corporate Motivation & Awards Event" class="original-size-image">
-                    </a>
-                </div>
-                <div class="thumbnail-item">
-                    <a href="video.html?video=corporate-event-speakers" target="_blank">
-                        <img src="img/tn/horiztn/tn2.png" alt="Corporate Event Speakers Showcase" class="original-size-image">
-                    </a>
-                </div>
-                <div class="thumbnail-item">
-                    <a href="video.html?video=real-estate-promo" target="_blank">
-                        <img src="img/tn/horiztn/tn3.png" alt="Real Estate Property Promo" class="original-size-image">
-                    </a>
-                </div>
-                <div class="thumbnail-item">
-                    <a href="video.html?video=stucco-business-showcase" target="_blank">
-                        <img src="img/tn/horiztn/tn4.png" alt="Stucco Business Showcase" class="original-size-image">
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- New Image Container Section for horizontal orientation -->
-        <div id="images_horiz_container" style="width: 100%; margin-top: 40px;">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="grid">
-                        <div class="grid-item"><img src="img/1.jpg" alt="Image 1"></div>
-                        <div class="grid-item"><img src="img/2.jpg" alt="Image 2"></div>
-                        <div class="grid-item"><img src="img/3.jpg" alt="Image 3"></div>
-                        <div class="grid-item"><img src="img/4.jpg" alt="Image 4"></div>
-                        <div class="grid-item"><img src="img/5.jpg" alt="Image 5"></div>
-                        <div class="grid-item"><img src="img/6.jpg" alt="Image 6"></div>
-                        <div class="grid-item"><img src="img/7.jpg" alt="Image 7"></div>
-                        <div class="grid-item"><img src="img/8.jpg" alt="Image 8"></div>
-                        <div class="grid-item"><img src="img/9.jpg" alt="Image 9"></div>
-                        <div class="grid-item"><img src="img/10.jpg" alt="Image 10"></div>
-                        <div class="grid-item"><img src="img/11.jpg" alt="Image 11"></div>
-                        <div class="grid-item"><img src="img/12.jpg" alt="Image 12"></div>
-                        <div class="grid-item"><img src="img/13.jpg" alt="Image 13"></div>
-                        <div class="grid-item"><img src="img/14.jpg" alt="Image 14"></div>
-                        <div class="grid-item"><img src="img/15.jpg" alt="Image 15"></div>
-                        <div class="grid-item"><img src="img/16.jpg" alt="Image 16"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Additional content can follow here -->
     <script>
         $(window).on('load', function() {
             var $grid = $('.grid').imagesLoaded(function() {

@@ -1,7 +1,7 @@
 /* styles.css */
 body {
   font-family: sans-serif;
-  margin: 20px; /* Add some margin around the content */
+  margin: 20px;
 }
 
 h1 {
@@ -12,10 +12,19 @@ h2 {
   margin-top: 20px;
 }
 
+ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+}
+
+li {
+  margin-bottom: 10px; /* Add spacing between list items */
+}
+
 #compute, #storage, #database, #security {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-around; /* Distribute space evenly */
 }
 
 #compute div, #storage div, #database div, #security div {
@@ -31,10 +40,18 @@ textarea {
   height: 200px;
   margin-top: 20px;
   box-sizing: border-box; /* Include padding and border in width */
+  resize: none; /* Prevent user from resizing the textarea */
 }
 
-@media (max-width: 768px) {
+/* Media queries for responsiveness */
+@media (max-width: 768px) { /* Tablets and smaller */
   #compute div, #storage div, #database div, #security div {
-    width: 100%;
+    width: 100%; /* Full width on smaller screens */
+  }
+}
+
+@media (max-width: 480px) { /* Phones */
+  body {
+    font-size: 14px; /* Adjust font size for smaller screens */
   }
 }

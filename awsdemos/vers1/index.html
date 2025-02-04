@@ -1,4 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AWS Demo - Version 1</title>
+  <link rel="stylesheet" href="styles.css">  (Optional)
+</head>
+<body>
+  <h1>AWS Demo - Version 1</h1>
 
+  <p>This page demonstrates the functionality of a basic web application using several key AWS services.  It serves as a proof-of-concept and foundation for future development.</p>
 
+  <h2>Key Features Demonstrated:</h2>
 
-     awsdemos vers1
+  <ul>
+    <li><strong>Static Website Hosting:</strong>  The website files (HTML, CSS, JavaScript) are hosted on Amazon S3 and served via Amazon CloudFront CDN.</li>
+    <li><strong>Serverless Compute:</strong> Dynamic elements and API logic are handled by AWS Lambda functions.</li>
+    <li><strong>Relational Database:</strong> Data is stored and retrieved from an Amazon RDS for MySQL database.</li>
+    <li><strong>Identity and Access Management:</strong> User authentication and authorization are managed by Amazon Cognito.</li>
+    <li><strong>File Storage:</strong> User-uploaded files are stored securely in Amazon S3.</li>
+    <li><strong>Infrastructure as Code (YAML):</strong> A YAML configuration file representing the basic architecture is generated and displayed.</li>
+  </ul>
+
+  <h2>AWS Services Used:</h2>
+
+  <ul>
+    <li><strong>Compute:</strong> Amazon EC2 (example), AWS Lambda</li>
+    <li><strong>Storage:</strong> Amazon S3</li>
+    <li><strong>Database:</strong> Amazon RDS for MySQL</li>
+    <li><strong>Security:</strong> AWS IAM, Amazon Cognito</li>
+  </ul>
+
+  <h2>Basic Architecture (YAML):</h2>
+  <textarea id="yaml-output" rows="15" cols="80" readonly>
+    # YAML configuration will be displayed here
+  </textarea>
+
+  <script src="script.js"></script> (Optional)
+</body>
+</html>

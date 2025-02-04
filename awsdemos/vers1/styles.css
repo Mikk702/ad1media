@@ -1,1 +1,40 @@
+/* styles.css */
+body {
+  font-family: sans-serif;
+  margin: 20px; /* Add some margin around the content */
+}
 
+h1 {
+  text-align: center;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+#compute, #storage, #database, #security {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#compute div, #storage div, #database div, #security div {
+  width: 45%; /* Adjust as needed */
+  margin-bottom: 20px;
+  border: 1px solid #ccc; /* Add borders for visual separation */
+  padding: 10px;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+textarea {
+  width: 95%;
+  height: 200px;
+  margin-top: 20px;
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+@media (max-width: 768px) {
+  #compute div, #storage div, #database div, #security div {
+    width: 100%;
+  }
+}

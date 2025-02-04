@@ -1,19 +1,19 @@
 /* styles.css */
 body {
   font-family: sans-serif;
-  margin: 0; /* Remove default body margin */
-  padding: 0; /* Remove default body padding */
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 header {
   text-align: center;
   margin-bottom: 20px;
-  width: 100%; /* Ensure header takes full width */
+  width: 100%;
 }
 
 .top-banner {
-  width: 100%; /* Make banner 100% wide */
+  width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -35,6 +35,13 @@ ul {
 li {
   margin-bottom: 10px;
 }
+
+/* Add a wrapper div for the main content */
+#main-content {
+  padding: 0 10%; /* 10% padding on left and right */
+  box-sizing: border-box;  /* Include padding in width */
+}
+
 
 #compute, #storage, #database, #security {
   display: flex;

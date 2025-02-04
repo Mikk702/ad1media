@@ -2,6 +2,8 @@
 body {
   font-family: sans-serif;
   margin: 20px;
+  padding: 0 15%; /* 15% padding on left and right */
+  box-sizing: border-box;
 }
 
 h1 {
@@ -13,45 +15,53 @@ h2 {
 }
 
 ul {
-  list-style-type: none; /* Remove bullet points */
-  padding: 0; /* Remove default padding */
+  list-style-type: none;
+  padding: 0;
 }
 
 li {
-  margin-bottom: 10px; /* Add spacing between list items */
+  margin-bottom: 10px;
 }
 
 #compute, #storage, #database, #security {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; /* Distribute space evenly */
+  justify-content: space-around;
 }
 
 #compute div, #storage div, #database div, #security div {
-  width: 45%; /* Adjust as needed */
+  width: 45%;
   margin-bottom: 20px;
-  border: 1px solid #ccc; /* Add borders for visual separation */
+  border: 1px solid #ccc;
   padding: 10px;
-  box-sizing: border-box; /* Include padding in width calculation */
+  box-sizing: border-box;
+  text-align: center; /* Center the content within each box */
+}
+
+#compute img, #storage img, #database img, #security img {
+  max-width: 100%; /* Make images responsive */
+  height: auto;
+  display: block; /* Prevent image from affecting text flow */
+  margin: 10px auto; /* Center images horizontally */
 }
 
 textarea {
   width: 95%;
   height: 200px;
   margin-top: 20px;
-  box-sizing: border-box; /* Include padding and border in width */
-  resize: none; /* Prevent user from resizing the textarea */
+  box-sizing: border-box;
+  resize: none;
 }
 
 /* Media queries for responsiveness */
-@media (max-width: 768px) { /* Tablets and smaller */
+@media (max-width: 768px) {
   #compute div, #storage div, #database div, #security div {
-    width: 100%; /* Full width on smaller screens */
+    width: 100%;
   }
 }
 
-@media (max-width: 480px) { /* Phones */
+@media (max-width: 480px) {
   body {
-    font-size: 14px; /* Adjust font size for smaller screens */
+    font-size: 14px;
   }
 }

@@ -36,12 +36,10 @@ li {
   margin-bottom: 10px;
 }
 
-/* Add a wrapper div for the main content */
 #main-content {
-  padding: 0 10%; /* 10% padding on left and right */
-  box-sizing: border-box;  /* Include padding in width */
+  padding: 0 10%;
+  box-sizing: border-box;
 }
-
 
 #compute, #storage, #database, #security {
   display: flex;

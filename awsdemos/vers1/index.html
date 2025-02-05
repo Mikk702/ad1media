@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>AWS Demo - Version 1</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Architecture Diagram</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,97 +12,18 @@
     <img src="img/demo page top banner.jpg" alt="AWS Demo Banner" class="top-banner">
   </header>
 
-  <div id="main-content">
-    <h1>AWS Demo - Version 1</h1>
-
-    <p>This page demonstrates the functionality of a basic web application using several key AWS services. It serves as a proof-of-concept and foundation for future development.</p>
-
-    <h2>Key Features Demonstrated:</h2>
-
-    <ul>
-      <li><strong>Static Website Hosting:</strong> The website files (HTML, CSS, JavaScript) are hosted on Amazon S3 and served via Amazon CloudFront CDN.</li>
-      <li><strong>Serverless Compute:</strong> Dynamic elements and API logic are handled by AWS Lambda functions.</li>
-      <li><strong>Relational Database:</strong> Data is stored and retrieved from an Amazon RDS for MySQL database.</li>
-      <li><strong>Identity and Access Management:</strong> User authentication and authorization are managed by Amazon Cognito.</li>
-      <li><strong>File Storage:</strong> User-uploaded files are stored securely in Amazon S3.</li>
-      <li><strong>Infrastructure as Code (YAML):</strong> A YAML configuration file representing the basic architecture is generated and displayed.</li>
-    </ul>
-
-    <h2>AWS Services Used:</h2>
-
-    <ul>
-      <li><strong>Compute:</strong>
-        <div id="ec2">
-          <h3>Amazon EC2</h3>
-          <p></p>
-          <img src="img/ec2.png" alt="EC2 Logo" srcset="img/tn/ec2-small.png 300w, img/ec2.png 600w" sizes="(max-width: 600px) 100vw, 600px">
-        </div>
-        <div id="lambda">
-          <h3>AWS Lambda</h3>
-          <p></p>
-          <img src="img/lambda.png" alt="Lambda Logo" srcset="img/tn/lambda-small.png 300w, img/lambda.png 600w" sizes="(max-width: 600px) 100vw, 600px">
-        </div>
-      </li>
-      <li><strong>Storage:</strong>
-        <div id="s3">
-          <h3>Amazon S3</h3>
-          <p></p>
-          <img src="img/s3.png" alt="S3 Logo" srcset="img/tn/s3-small.png 300w, img/s3.png 600w" sizes="(max-width: 600px) 100vw, 600px">
-        </div>
-      </li>
-      <li><strong>Database:</strong>
-        <div id="rds">
-          <h3>Amazon RDS for MySQL</h3>
-          <p></p>
-          <img src="img/rds.png" alt="RDS Logo" srcset="img/tn/rds-small.png 300w, img/rds.png 600w" sizes="(max-width: 600px) 100vw, 600px">
-        </div>
-      </li>
-      <li><strong>Security:</strong>
-        <div id="iam">
-          <h3>AWS IAM</h3>
-          <p></p>
-          <img src="img/iam.png" alt="IAM Logo" srcset="img/tn/iam-small.png 300w, img/iam.png 600w" sizes="(max-width: 600px) 100vw, 600px">
-        </div>
-        <div id="cognito">
-          <h3>Amazon Cognito</h3>
-          <p></p>
-          <img src="img/cognito.png" alt="Cognito Logo" srcset="img/tn/cognito-small.png 300w, img/cognito.png 600w" sizes="(max-width: 600px) 100vw, 600px">
-        </div>
-      </li>
-    </ul>
-
-    <h2>Basic Architecture (YAML):</h2>
-    <textarea id="yaml-output" rows="15" cols="80" readonly>
-architecture:
-  compute:
-    - ec2:
-        instance_type: t2.micro
-        description: "Virtual servers in the cloud"
-    - lambda:
-        runtime: python3.9
-        description: "Serverless compute"
-  storage:
-    s3:
-      bucket_name: my-website-bucket
-      description: "Object storage"
-  database:
-    rds:
-      engine: mysql
-      description: "Relational database"
-  security:
-    iam:
-      description: "Identity and access management"
-  auth:
-    cognito:
-      description: "User authentication and authorization"
-</textarea>
-
-  </div>
+  <main>  <div id="main-content">
+      <h1>Static Website on S3 with CloudFront</h1>
+      <img src="img/static_website_architecture.png" alt="Architecture Diagram">
+      <p>
+        This diagram shows a simple static website architecture. The website files (HTML, CSS, JavaScript, images) are stored in an S3 bucket. CloudFront acts as a Content Delivery Network (CDN) to serve the website content to users globally. CloudFront caches the content closer to users, resulting in faster loading times and improved performance.
+      </p>
+    </div>
+  </main>
 
   <footer>
     <img src="img/demo page top banner.jpg" alt="AWS Demo Banner" class="bottom-banner">
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>

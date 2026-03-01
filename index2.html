@@ -3,29 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad1 Media - Video & Photo Editing - Content Creator Tutoring</title>
     <link rel="stylesheet" href="style.css">
-    <title>Ad1 Media</title>
 </head>
 <body>
-    <header>
-        <div class="desktop-banner">
-            <img src="mainhoriz.jpg" alt="Main Horizontal Banner">
+    <!-- Horizontal Content (Desktop/Tablet) -->
+    <div id="horizontal" class="content-section">
+        <!-- Top Section: Main Horizontal Image -->
+        <div class="top-section">
+            <img src="img/mainhoriz.jpg" alt="Main Horizontal Image" class="responsive-image">
         </div>
-    </header>
 
-    <div class="image-video-container" style="background-image: url('img/1.png');">
-        <video controls>
-            <source src="video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <!-- Video Container -->
+        <div class="image-video-container">
+            <div class="video-wrapper">
+                <video controls poster="img/tn/horiztn/customtn.png">
+                    <source src="https://ad1server.s3.us-east-2.amazonaws.com/video/demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
     </div>
 
-    <section class="mobile-section">
-        <img src="mainvert.png" alt="Main Vertical Banner">
-        <video controls>
-            <source src="video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </section>
+    <!-- Vertical Content (Mobile) -->
+    <div id="vertical" class="content-section">
+        <!-- Top Section: Main Vertical Image -->
+        <div class="top-section">
+            <img src="img/mainvert.png" alt="Main Vertical Image" class="responsive-image">
+        </div>
+
+        <!-- Video Player Only -->
+        <div class="video-wrapper">
+            <video controls poster="img/tn/horiztn/customtn.png">
+                <source src="https://ad1server.s3.us-east-2.amazonaws.com/video/demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 </body>
 </html>

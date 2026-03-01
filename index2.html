@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ad1media</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Ad1 Media</title>
 </head>
 <body>
     <header>
-        <img src="mainhoriz.jpg" alt="Main Horizontal Banner" class="banner" />
+        <div class="desktop-banner">
+            <img src="mainhoriz.jpg" alt="Main Horizontal Banner">
+        </div>
     </header>
-    <main>
-        <section class="middle-graphic">
-            <img src="1.png" alt="Middle Graphic" />
-        </section>
-        <section class="video-section">
-            <video controls>
-                <source src="video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 Ad1media</p>
-    </footer>
+
+    <div class="image-video-container" style="background-image: url('img/1.png');">
+        <video controls>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <section class="mobile-section">
+        <img src="mainvert.png" alt="Main Vertical Banner">
+        <video controls>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
 </body>
 </html>

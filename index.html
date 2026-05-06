@@ -11,11 +11,7 @@
             }
         }
         checkOrientation();
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(checkOrientation, 300);
-        });
+        window.addEventListener('resize', checkOrientation);
     </script>
     <title>Ad1 Media - Video & Photo Editing - Content Creator Tutoring</title>
     <link rel="stylesheet" href="styles.css">

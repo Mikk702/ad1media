@@ -354,7 +354,7 @@ body {
 }
 
 /* ── MOBILE (< 768px) ───────────────────────────────── */
-@media (max-aspect-ratio: 4/3) {
+@media (max-aspect-ratio: 3/4) {
     html, body {
         height: 100dvh;
         overflow: hidden;

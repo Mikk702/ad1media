@@ -73,6 +73,11 @@
         </div>
     </div>
     <script>
+        const demoVideo = document.getElementById('demo-video');
+        demoVideo.volume = 0.1;
+        demoVideo.addEventListener('loadedmetadata', () => { demoVideo.volume = 0.1; });
+        demoVideo.addEventListener('play', () => { demoVideo.volume = 0.1; });
+
         const v1 = document.getElementById('q3vid1');
         const v1Wrapper = document.querySelector('.q3-video-wrapper');
         const appsOuter = document.querySelector('.bullet-list-outer');

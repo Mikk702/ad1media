@@ -1,0 +1,491 @@
+/* ── RESET ──────────────────────────────────────────── */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'FreightNeo Pro', 'freight-neo-pro', serif;
+    font-weight: bold;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background: radial-gradient(ellipse at 30% 20%, #0e1a2e 0%, #080e1c 50%, #040810 100%);
+    color: #fff;
+}
+
+/* ── QUADRANT OVERLAY ───────────────────────────────── */
+.quadrant-overlay {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    grid-template-rows: 30% 70%;
+    pointer-events: none;
+    z-index: 1;
+    padding: 10px;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.quadrant {
+    position: relative;
+    border-radius: 18px;
+    background: rgba(10, 16, 35, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(20px);
+}
+
+.q1 { box-shadow: 0 0 30px rgba(0, 212, 255, 0.08), inset 0 1px 0 rgba(255,255,255,0.06); }
+.q2 { box-shadow: 0 0 30px rgba(0, 255, 136, 0.08), inset 0 1px 0 rgba(255,255,255,0.06); }
+.q3 { box-shadow: 0 0 30px rgba(168, 85, 247, 0.1), inset 0 1px 0 rgba(255,255,255,0.06); }
+.q4 { box-shadow: 0 0 30px rgba(0, 229, 200, 0.08), inset 0 1px 0 rgba(255,255,255,0.06); }
+
+/* ── Q1 ─────────────────────────────────────────────── */
+.quadrant-one {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    width: calc(45% - 15px);
+    height: calc(30% - 15px);
+    display: grid;
+    place-items: center;
+    z-index: 10;
+    pointer-events: none;
+}
+
+
+.q1-card {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(40px) saturate(200%) brightness(1.1);
+    -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.ad1-logo {
+    font-size: clamp(2rem, 7vw, 6.5rem);
+    font-weight: 800;
+    line-height: 1;
+    display: inline-block;
+    background: linear-gradient(135deg, #00d4ff 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.35));
+    letter-spacing: -0.02em;
+    transform: skewX(-18deg);
+}
+
+.q1-subtitle {
+    font-size: clamp(0.7rem, 1.8vw, 1.4rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transform: skewX(-18deg);
+    display: inline-block;
+}
+
+/* ── Q2 ─────────────────────────────────────────────── */
+.quadrant-two {
+    position: fixed;
+    left: calc(45% + 5px);
+    top: 10px;
+    width: calc(55% - 15px);
+    height: calc(30% - 15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.q2-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    width: 90%;
+    max-width: 90%;
+}
+
+.q2-title {
+    font-size: clamp(0.7rem, 3.5vw, 3.2rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    transform: skewX(-18deg);
+    display: block;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.q2-subtitle {
+    font-family: 'FreightNeo Pro', 'freight-neo-pro', serif;
+    font-size: clamp(0.7rem, 3vw, 2.8rem);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    transform: skewX(-18deg);
+    display: block;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 0.02em;
+}
+
+.q2-phone {
+    font-size: clamp(1rem, 3vw, 2.8rem);
+    font-weight: 600;
+    color: #00d4ff;
+    margin-top: 0.4rem;
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.45));
+    letter-spacing: 0.02em;
+    transform: skewX(-18deg);
+    display: inline-block;
+}
+
+/* ── Q3 ─────────────────────────────────────────────── */
+.quadrant-three {
+    position: fixed;
+    left: 10px;
+    top: calc(30% + 5px);
+    width: calc(45% - 15px);
+    height: calc(70% - 15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+@property --a {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.q3-content-box {
+    position: relative;
+    width: 95%;
+    aspect-ratio: 16 / 9;
+    max-height: 95%;
+    flex-shrink: 0;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.q3-video-wrapper {
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: opacity 0.8s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.q3-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+
+.bullet-list-outer {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 3px;
+    transition: opacity 0.6s ease;
+    background: conic-gradient(
+        from var(--a),
+        transparent 0deg,
+        transparent 160deg,
+        #a855f7 210deg,
+        #00d4ff 255deg,
+        #00ff88 295deg,
+        #00e5c8 330deg,
+        #00d4ff 355deg,
+        transparent 360deg
+    );
+    animation: spinBorder 2s linear infinite;
+}
+
+@keyframes spinBorder {
+    to { --a: 360deg; }
+}
+
+.bullet-list {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 1.25rem;
+    border-radius: 16px;
+    background: rgb(10, 16, 35);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+    overflow: hidden;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: clamp(0.75rem, 1.6vw, 1.3rem);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateX(-16px) skewX(-18deg);
+    animation: listReveal 0.7s ease-out forwards;
+}
+
+.list-item:nth-child(1) { color: #00d4ff; }
+.list-item:nth-child(2) { color: #a855f7; }
+.list-item:nth-child(3) { color: #00ff88; }
+.list-item:nth-child(4) { color: #00e5c8; }
+.list-item:nth-child(5) { color: #f59e0b; }
+.list-item:nth-child(6) { color: #ff6b9d; }
+
+.app-logo {
+    width: clamp(1rem, 2vw, 1.7rem);
+    height: clamp(1rem, 2vw, 1.7rem);
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.list-item:nth-child(1) { animation-delay: 0.2s; }
+.list-item:nth-child(2) { animation-delay: 0.55s; }
+.list-item:nth-child(3) { animation-delay: 0.9s; }
+.list-item:nth-child(4) { animation-delay: 1.25s; }
+.list-item:nth-child(5) { animation-delay: 1.6s; }
+.list-item:nth-child(6) { animation-delay: 1.95s; }
+
+@keyframes listReveal {
+    from { opacity: 0; transform: translateX(-16px) skewX(-18deg); }
+    to   { opacity: 1; transform: translateX(0) skewX(-18deg); }
+}
+
+/* ── Q4 ─────────────────────────────────────────────── */
+.quadrant-four {
+    position: fixed;
+    left: calc(45% + 5px);
+    top: calc(30% + 5px);
+    width: calc(55% - 15px);
+    height: calc(70% - 15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.video-wrapper {
+    width: 82%;
+    aspect-ratio: 16 / 9;
+    max-height: 82%;
+    border-radius: 14px;
+    overflow: hidden;
+    pointer-events: auto;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 50px rgba(0, 229, 200, 0.15),
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* hide mobile-only elements on desktop */
+.q1-mob-services,
+.q1-col-right { display: none; }
+
+.q1-col-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.q1-mob-phone {
+    font-family: 'FreightNeo Pro', 'freight-neo-pro', serif;
+    font-size: clamp(1rem, 4vw, 3.84rem);
+    font-weight: 600;
+    color: #fff;
+    transform: skewX(-18deg);
+    display: inline-block;
+}
+
+/* ── MOBILE (< 768px) ───────────────────────────────── */
+@media (max-aspect-ratio: 4/3) {
+    html, body {
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .quadrant-overlay,
+    .quadrant-two,
+    .quadrant-four { display: none; }
+
+    .quadrant-one {
+        position: relative;
+        left: auto; top: auto;
+        width: 100%;
+        flex: 0 0 34%;
+        box-sizing: border-box;
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+    }
+
+    .q1-card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .q1-col-left {
+        flex: 0 0 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        background: rgba(0, 212, 255, 0.04);
+        border-right: 2px solid rgba(255, 255, 255, 0.15);
+        border-radius: 16px 0 0 16px;
+    }
+
+    .q1-col-right {
+        flex: 0 0 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem;
+        background: rgba(168, 85, 247, 0.04);
+        border-radius: 0 16px 16px 0;
+        box-sizing: border-box;
+    }
+
+    .q1-subtitle { display: none; }
+
+    .q1-mob-phone {
+        display: inline-block;
+        font-size: clamp(0.8rem, 3vw, 1.4rem);
+        font-weight: 600;
+        color: #00d4ff;
+        filter: drop-shadow(0 0 8px rgba(0,212,255,0.45));
+        transform: skewX(-18deg);
+    }
+
+    .q1-mob-services {
+        display: inline-block;
+        font-size: clamp(0.6rem, 2.2vw, 0.95rem);
+        font-weight: 700;
+        color: rgba(255,255,255,0.85);
+        text-align: center;
+        transform: skewX(-18deg);
+        line-height: 1.5;
+    }
+
+    .quadrant-three {
+        position: relative;
+        left: auto; top: auto;
+        width: 100%;
+        flex: 1;
+        height: auto;
+        border-radius: 18px;
+        background: rgba(8, 14, 32, 0.78);
+        border: 1px solid rgba(255,255,255,0.07);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 0 30px rgba(168,85,247,0.1), inset 0 1px 0 rgba(255,255,255,0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bullet-list-outer,
+    .q3-video-wrapper {
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .q3-video {
+        width: 100%;
+        height: 100%;
+    }
+
+    .q1-mob-services {
+        display: inline-block;
+        font-size: clamp(0.6rem, 2.5vw, 0.95rem);
+        font-weight: 700;
+        color: rgba(255,255,255,0.8);
+        text-align: center;
+        transform: skewX(-18deg);
+        padding: 0 0.5rem;
+    }
+
+    .q1-mob-phone {
+        display: inline-block;
+        font-size: clamp(0.9rem, 3.5vw, 1.6rem);
+        font-weight: 600;
+        color: #00d4ff;
+        filter: drop-shadow(0 0 8px rgba(0,212,255,0.45));
+        transform: skewX(-18deg);
+    }
+}
+
+/* ── TABLET ─────────────────────────────────────────── */
+@media (min-aspect-ratio: 4/3) and (max-width: 1023px) {
+    .quadrant { border-width: 1px; }
+}

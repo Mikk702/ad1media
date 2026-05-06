@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        const THRESHOLD = 1.33;
+        function checkOrientation() {
+            if (window.innerWidth > window.innerHeight * THRESHOLD) {
+                window.location.replace('index.html');
+            }
+        }
+        checkOrientation();
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(checkOrientation, 300);
+        });
+    </script>
+    <title>Ad1 Media - Video & Photo Editing - Content Creator Tutoring</title>
+    <link rel="stylesheet" href="styles-vert.css">
+</head>
+<body>
+
+    <div class="v-top-row">
+        <section class="v-card-left">
+            <div class="v-logo">Ad1.tv</div>
+            <div class="v-phone">213 444-0024</div>
+        </section>
+        <section class="v-card-right">
+            <div class="v-services">Video &amp; Photo Editing</div>
+            <div class="v-services">Ai Imagery</div>
+            <div class="v-services">Content Creator Tutoring</div>
+        </section>
+    </div>
+
+    <section class="v-bottom">
+        <div class="q3-content-box">
+            <div class="q3-video-wrapper">
+                <video id="q3vid" class="q3-video" muted playsinline>
+                    <source src="vid/1.webm" type="video/webm">
+                </video>
+            </div>
+            <div class="bullet-list-outer">
+                <div class="bullet-list">
+                    <div class="list-item"><img src="img/logos/photoshop.png" alt="" class="app-logo">Photoshop</div>
+                    <div class="list-item"><img src="img/logos/premiere.png" alt="" class="app-logo">Premiere</div>
+                    <div class="list-item"><img src="img/logos/davinci.png" alt="" class="app-logo">Davinci Resolve</div>
+                    <div class="list-item"><img src="img/logos/comfyui.png" alt="" class="app-logo">Comfyui</div>
+                    <div class="list-item"><img src="img/logos/aiapps.png" alt="" class="app-logo">Ai Apps</div>
+                    <div class="list-item"><img src="img/logos/vibecoding.png" alt="" class="app-logo">Vibe Coding</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const vid = document.getElementById('q3vid');
+        const appsOuter = document.querySelector('.bullet-list-outer');
+        const items = document.querySelectorAll('.list-item');
+
+        function showApps() {
+            appsOuter.style.opacity = '1';
+            items.forEach(el => {
+                el.style.animation = 'none';
+                el.offsetHeight;
+                el.style.animation = '';
+            });
+            setTimeout(showVideo, 6000);
+        }
+
+        const vidWrapper = document.querySelector('.q3-video-wrapper');
+
+        function showVideo() {
+            appsOuter.style.opacity = '0';
+            setTimeout(() => {
+                vid.currentTime = 0;
+                vidWrapper.style.opacity = '1';
+                vid.play();
+            }, 600);
+        }
+
+        vid.addEventListener('ended', () => {
+            vidWrapper.style.opacity = '0';
+            setTimeout(showApps, 600);
+        });
+
+        vidWrapper.style.opacity = '0';
+        showApps();
+    </script>
+
+</body>
+</html>

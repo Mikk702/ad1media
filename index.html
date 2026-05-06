@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        const THRESHOLD = 1.33;
+        function checkOrientation() {
+            if (window.innerHeight > window.innerWidth * THRESHOLD) {
+                window.location.replace('index-vert.html');
+            }
+        }
+        checkOrientation();
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(checkOrientation, 300);
+        });
+    </script>
+    <title>Ad1 Media - Video & Photo Editing - Content Creator Tutoring</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quadrant-overlay" aria-hidden="true">
+        <div class="quadrant q1"></div>
+        <div class="quadrant q2"></div>
+        <div class="quadrant q3"></div>
+        <div class="quadrant q4"></div>
+    </div>
+
+    <div class="quadrant-one">
+        <div class="q1-card">
+            <div class="q1-col-left">
+                <div class="ad1-logo">Ad1.tv</div>
+                <div class="q1-mob-phone">213 444-0024</div>
+            </div>
+            <div class="q1-col-right">
+                <div class="q1-mob-services">Video &amp; Photo Editing &nbsp;·&nbsp; Ai Imagery &nbsp;·&nbsp; Content Creator Tutoring</div>
+            </div>
+        </div>
+    </div>
+    <div class="quadrant-two">
+        <div class="q2-content">
+            <div class="q2-title">Video &amp; Photo Editing &nbsp;·&nbsp; Ai Imagery</div>
+            <div class="q2-subtitle">Content Creator Tutoring</div>
+        </div>
+    </div>
+    <div class="quadrant-three">
+        <div class="q3-content-box">
+        <div class="q3-video-wrapper">
+            <video id="q3vid1" class="q3-video" muted playsinline>
+                <source src="vid/1.webm" type="video/webm">
+            </video>
+        </div>
+        <div class="bullet-list-outer">
+        <div class="bullet-list">
+            <div class="list-item"><img src="img/logos/photoshop.png" alt="" class="app-logo">Photoshop</div>
+            <div class="list-item"><img src="img/logos/premiere.png" alt="" class="app-logo">Premiere</div>
+            <div class="list-item"><img src="img/logos/davinci.png" alt="" class="app-logo">Davinci Resolve</div>
+            <div class="list-item"><img src="img/logos/comfyui.png" alt="" class="app-logo">Comfyui</div>
+            <div class="list-item"><img src="img/logos/aiapps.png" alt="" class="app-logo">Ai Apps</div>
+            <div class="list-item"><img src="img/logos/vibecoding.png" alt="" class="app-logo">Vibe Coding</div>
+        </div>
+        </div>
+        </div>
+    </div>
+    <div class="quadrant-four">
+        <div class="video-wrapper">
+            <video id="demo-video" controls poster="img/yt tn copy.png">
+                <source src="vid/demo.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <script>
+        const v1 = document.getElementById('q3vid1');
+        const v1Wrapper = document.querySelector('.q3-video-wrapper');
+        const appsOuter = document.querySelector('.bullet-list-outer');
+        const items = document.querySelectorAll('.list-item');
+
+        function showApps() {
+            appsOuter.style.opacity = '1';
+            items.forEach(el => {
+                el.style.animation = 'none';
+                el.offsetHeight;
+                el.style.animation = '';
+            });
+            setTimeout(showVideo, 6000);
+        }
+
+        function showVideo() {
+            appsOuter.style.opacity = '0';
+            setTimeout(() => {
+                v1.currentTime = 0;
+                v1Wrapper.style.opacity = '1';
+                v1.play();
+            }, 600);
+        }
+
+        v1.addEventListener('ended', () => {
+            v1Wrapper.style.opacity = '0';
+            setTimeout(showApps, 600);
+        });
+
+        v1Wrapper.style.opacity = '0';
+        showApps();
+
+    </script>
+</body>
+</html>

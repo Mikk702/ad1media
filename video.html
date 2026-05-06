@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad1.tv - Video and Photo Editing</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('img/bgmain.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .banner {
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto; /* Center the banner horizontally */
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        video {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+            border-radius: 40px; /* Rounded corners */
+        }
+
+        @media (max-width: 768px) {
+            .video-container {
+                grid-template-columns: 1fr; /* Single column for smaller screens */
+            }
+
+            .banner {
+                margin: 20px auto; /* Center the banner with spacing on smaller screens */
+            }
+
+            body {
+                padding-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Wrapped the banner image in a link to ad1.tv -->
+    <a href="index.html">
+        <img src="img/vidbannersmall.png" alt="Video Banner" class="banner">
+    </a>
+    <div class="video-container">
+        <video controls poster="https://ad1server.s3.us-east-2.amazonaws.com/video/tn/tn1.png">
+            <source src="https://ad1server.s3.us-east-2.amazonaws.com/video/1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video controls poster="https://ad1server.s3.us-east-2.amazonaws.com/video/tn/tn2.png">
+            <source src="https://ad1server.s3.us-east-2.amazonaws.com/video/2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video controls poster="https://ad1server.s3.us-east-2.amazonaws.com/video/tn/tn3.png">
+            <source src="https://ad1server.s3.us-east-2.amazonaws.com/video/3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video controls poster="https://ad1server.s3.us-east-2.amazonaws.com/video/tn/tn4.png">
+            <source src="https://ad1server.s3.us-east-2.amazonaws.com/video/4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</body>
+</html>

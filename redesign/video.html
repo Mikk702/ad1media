@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad1.tv - Video and Photo Editing</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('img/bgmain.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .banner {
+            width: 90%;
+            max-width: 600px;
+            margin: 0px 0;
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+            border-radius: 40px; /* Rounded corners */
+        }
+
+        @media (max-width: 768px) {
+            .video-container {
+                grid-template-columns: 1fr;
+            }
+            body {
+                padding-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Wrapped the banner image in a link to ad1.tv -->
+    <a href="https://ad1.tv">
+        <img src="img/vidbannersmall.png" alt="Video Banner" class="banner">
+    </a>
+    <div class="video-container">
+        <iframe src="https://drive.google.com/file/d/1Wyl2sBhZu_no6I7ej_6rzDVOyyY3WHUk/preview" allow="autoplay"></iframe>
+        <iframe src="https://drive.google.com/file/d/15eSN5zPwKNpBoXqRvk4WiJWjBnjyS470/preview" allow="autoplay"></iframe>
+        <iframe src="https://drive.google.com/file/d/1aTJJc0DFLYD5elpR26ZFrDVQmz4vw0ZD/preview" allow="autoplay"></iframe>
+        <iframe src="https://drive.google.com/file/d/1PyknQPcjYOpV3wrKhmPQwIlIYzAdX8AO/preview" allow="autoplay"></iframe>
+    </div>
+</body>
+</html>

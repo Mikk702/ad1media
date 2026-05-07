@@ -85,8 +85,10 @@ body {
 .scene.playing .arc1 { animation: drawArc   1.1s 0.40s ease-out    forwards; }
 .scene.playing .arc2 { animation: drawArc   1.1s 0.90s ease-out    forwards; }
 .scene.playing .arc3 { animation: drawArc   1.1s 1.40s ease-out    forwards; }
+.scene.playing .arc4 { animation: drawArc   1.1s 1.90s ease-out    forwards; }
 .scene.playing .arr1 { animation: arrowIn   0.5s 1.30s ease-out    forwards; }
 .scene.playing .arr2 { animation: arrowIn   0.5s 1.80s ease-out    forwards; }
+.scene.playing .arr3 { animation: arrowIn   0.5s 2.30s ease-out    forwards; }
 .scene.playing .pg   { animation: pulseGlow 2s   1.20s ease-in-out infinite; opacity:1; }
 
 /* ── SHARED ELEMENTS ────────────────────────── */
@@ -486,6 +488,28 @@ body {
         <div class="step-text">
           <div class="step-label">Learn at Your Pace</div>
           <div class="step-detail">Hands-on, your level, your goals</div>
+        </div>
+      </div>
+
+      <div class="anim arr3 connector">
+        <svg viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="8" y1="0" x2="8" y2="20" stroke="#f59e0b" stroke-width="1" opacity=".4"/>
+          <polyline points="3,14 8,20 13,14" stroke="#f59e0b" stroke-width="1" opacity=".4" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="anim fi4 step" style="--c:#f59e0b">
+        <div class="step-ring">
+          <svg viewBox="0 0 96 96" width="96" height="96">
+            <circle cx="48" cy="48" r="40" fill="none" stroke="rgba(245,158,11,.12)" stroke-width="3"/>
+            <circle cx="48" cy="48" r="40" fill="none" stroke="#f59e0b" stroke-width="2.5"
+              stroke-dasharray="251" class="arc4" stroke-linecap="round" transform="rotate(-90 48 48)"/>
+          </svg>
+          <div class="step-num">4</div>
+        </div>
+        <div class="step-text">
+          <div class="step-label">Create!</div>
+          <div class="step-detail">Put your new skills to work</div>
         </div>
       </div>
 

@@ -385,11 +385,18 @@ body {
 @keyframes hs-burst   { 0%{opacity:0;transform:scale(0) rotate(0deg)} 60%{opacity:1;transform:scale(1.1) rotate(200deg)} 100%{opacity:1;transform:scale(1) rotate(180deg)} }
 @keyframes hs-twinkle { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.2;transform:scale(0.4)} }
 
-.hs-step { font-size:clamp(0.75rem,2.5vh,1.1rem); letter-spacing:0.28em; text-transform:uppercase; font-weight:700; }
-.hs1-step { color:#00d4ff; animation:hs-fadeDown 0.5s 0.1s ease-out both; }
-.hs2-step { color:#a855f7; animation:hs-fadeDown 0.5s 0.1s ease-out both; }
-.hs3-step { color:#00ff88; animation:hs-fadeDown 0.5s 0.1s ease-out both; }
-.hs4-step { color:#f59e0b; animation:hs-fadeDown 0.5s 0.1s ease-out both; position:relative; }
+.hs-step {
+    font-size: clamp(2.4rem, 8vh, 5rem);
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 1;
+    filter: drop-shadow(0 0 18px currentColor);
+}
+.hs1-step { color:#00d4ff; animation:hs-fadeDown 0.6s 0.1s cubic-bezier(0.34,1.56,0.64,1) both; }
+.hs2-step { color:#a855f7; animation:hs-fadeDown 0.6s 0.1s cubic-bezier(0.34,1.56,0.64,1) both; }
+.hs3-step { color:#00ff88; animation:hs-fadeDown 0.6s 0.1s cubic-bezier(0.34,1.56,0.64,1) both; }
+.hs4-step { color:#f59e0b; animation:hs-fadeDown 0.6s 0.1s cubic-bezier(0.34,1.56,0.64,1) both; position:relative; }
 
 /* Screen 1 — Call */
 .hs-pulse-wrap { position:relative; display:flex; align-items:center; justify-content:center; }

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ad1.tv — Design Test</title>
+<style>
+@property --a { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+@keyframes spin { to { --a: 360deg; } }
+@keyframes fadeUp  { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+@keyframes slideIn { from { opacity:0; transform: translateX(-24px) skewX(-18deg); } to { opacity:1; transform: translateX(0) skewX(-18deg); } }
+@keyframes popIn   { from { opacity:0; transform: scale(0.8); } to { opacity:1; transform: scale(1); } }
+@keyframes barGrow { from { width: 0; } to { width: 100%; } }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: radial-gradient(ellipse at 30% 20%, #0e1a2e 0%, #080e1c 50%, #040810 100%);
+    min-height: 100vh;
+    color: #fff;
+    font-family: 'FreightNeo Pro', 'freight-neo-pro', serif;
+    padding: 48px 24px;
+}
+
+.page-label {
+    text-align: center;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 48px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 28px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.card-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.18);
+    margin-bottom: 16px;
+}
+
+/* ── CARD A — Big 1:1 Stat ───────────────── */
+.card-a {
+    background: rgba(10,16,35,0.9);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px;
+    padding: 48px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-height: 340px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0,212,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.stat-big {
+    font-size: clamp(5rem, 12vw, 9rem);
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #00d4ff 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 30px rgba(0,212,255,0.4));
+    letter-spacing: -0.04em;
+    transform: skewX(-18deg);
+    display: inline-block;
+    animation: fadeUp 0.6s ease-out both;
+}
+
+.stat-rule {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #00d4ff, #a855f7);
+    border-radius: 2px;
+    animation: barGrow 0.8s 0.4s ease-out both;
+}
+
+.stat-label {
+    font-size: clamp(0.9rem, 2vw, 1.4rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    animation: fadeUp 0.6s 0.3s ease-out both;
+}
+
+.platform-row {
+    display: flex;
+    gap: 10px;
+    animation: fadeUp 0.6s 0.5s ease-out both;
+}
+
+.platform-pill {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    border: 1px solid;
+}
+
+.pill-meet { color: #4fc3f7; border-color: rgba(79,195,247,0.4); background: rgba(79,195,247,0.08); }
+.pill-zoom { color: #a78bfa; border-color: rgba(167,139,250,0.4); background: rgba(167,139,250,0.08); }
+
+
+/* ── CARD B — Split Panel ────────────────── */
+.card-b {
+    background: rgba(10,16,35,0.9);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 340px;
+    display: flex;
+}
+
+.split-left {
+    flex: 0 0 45%;
+    background: linear-gradient(160deg, rgba(0,212,255,0.06) 0%, rgba(168,85,247,0.06) 100%);
+    border-right: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+    gap: 4px;
+}
+
+.split-word {
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    transform: skewX(-18deg);
+    display: block;
+}
+
+.split-word:nth-child(1) { color: #00d4ff; font-size: clamp(1rem, 2.5vw, 1.8rem); animation: slideIn 0.5s 0.1s ease-out both; opacity:0; }
+.split-word:nth-child(2) { color: #fff; animation: slideIn 0.5s 0.25s ease-out both; opacity:0; }
+.split-word:nth-child(3) { color: #a855f7; animation: slideIn 0.5s 0.4s ease-out both; opacity:0; }
+
+.split-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px 28px;
+    gap: 18px;
+}
+
+.split-headline {
+    font-size: clamp(0.9rem, 2vw, 1.35rem);
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.4;
+    animation: fadeUp 0.6s 0.3s ease-out both;
+    opacity: 0;
+}
+
+.split-sub {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+    animation: fadeUp 0.6s 0.45s ease-out both;
+    opacity: 0;
+}
+
+.split-platforms {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    animation: fadeUp 0.6s 0.6s ease-out both;
+    opacity: 0;
+}
+
+.platform-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.platform-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot-meet { background: #4fc3f7; box-shadow: 0 0 8px #4fc3f7; }
+.dot-zoom { background: #a78bfa; box-shadow: 0 0 8px #a78bfa; }
+
+
+/* ── CARD C — Infographic Tiles ──────────── */
+.card-c-outer {
+    position: relative;
+    border-radius: 20px;
+    padding: 3px;
+    background: conic-gradient(
+        from var(--a),
+        transparent 0deg, transparent 160deg,
+        #a855f7 210deg, #00d4ff 255deg,
+        #00ff88 295deg, #00e5c8 330deg,
+        #00d4ff 355deg, transparent 360deg
+    );
+    animation: spin 2s linear infinite;
+    min-height: 340px;
+}
+
+.card-c {
+    background: rgb(10,16,35);
+    border-radius: 18px;
+    height: 100%;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.c-headline {
+    font-size: clamp(0.85rem, 1.8vw, 1.2rem);
+    font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.c-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    flex: 1;
+}
+
+.c-tile {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-top: 2px solid var(--tc);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 10px;
+    gap: 6px;
+    opacity: 0;
+    animation: popIn 0.4s ease-out forwards;
+}
+
+.c-tile:nth-child(1) { --tc:#00d4ff; animation-delay:.1s; }
+.c-tile:nth-child(2) { --tc:#a855f7; animation-delay:.22s; }
+.c-tile:nth-child(3) { --tc:#00ff88; animation-delay:.34s; }
+.c-tile:nth-child(4) { --tc:#00e5c8; animation-delay:.46s; }
+
+.c-tile-stat {
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 900;
+    color: var(--tc);
+    line-height: 1;
+    filter: drop-shadow(0 0 10px var(--tc));
+}
+
+.c-tile-label {
+    font-size: clamp(0.5rem, 1vw, 0.72rem);
+    font-weight: 700;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+
+/* ── CARD D — Neon Headline Stack ────────── */
+.card-d {
+    background: rgba(10,16,35,0.9);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px;
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    min-height: 340px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-d::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff, #a855f7, transparent);
+}
+
+.d-line {
+    display: block;
+    font-weight: 900;
+    line-height: 1.05;
+    transform: skewX(-18deg);
+    opacity: 0;
+}
+
+.d-line:nth-child(1) { font-size: clamp(0.7rem, 1.5vw, 1rem); color: #00d4ff; letter-spacing: 0.2em; text-transform: uppercase; animation: slideIn 0.5s 0.1s ease-out forwards; }
+.d-line:nth-child(2) { font-size: clamp(2.5rem, 6vw, 5rem); color: #fff; letter-spacing: -0.02em; animation: slideIn 0.5s 0.25s ease-out forwards; }
+.d-line:nth-child(3) {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    background: linear-gradient(135deg, #00d4ff, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    filter: drop-shadow(0 0 20px rgba(0,212,255,0.3));
+    animation: slideIn 0.5s 0.4s ease-out forwards;
+}
+.d-line:nth-child(4) { font-size: clamp(1rem, 2.2vw, 1.8rem); color: rgba(255,255,255,0.55); font-weight: 600; margin-top: 10px; animation: slideIn 0.5s 0.55s ease-out forwards; }
+.d-line:nth-child(5) { font-size: clamp(0.65rem, 1.3vw, 1rem); color: rgba(255,255,255,0.3); font-weight: 600; letter-spacing: 0.1em; animation: slideIn 0.5s 0.7s ease-out forwards; }
+
+
+/* ── CARD E — Minimal Luxury ─────────────── */
+.card-e {
+    background: rgba(10,16,35,0.9);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-top: 3px solid #00d4ff;
+    border-radius: 20px;
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 340px;
+    position: relative;
+}
+
+.e-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #00d4ff;
+    font-weight: 700;
+    animation: fadeUp 0.5s 0.1s ease-out both;
+    opacity: 0;
+}
+
+.e-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.e-title {
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #fff;
+    animation: fadeUp 0.6s 0.2s ease-out both;
+    opacity: 0;
+}
+
+.e-title em {
+    font-style: normal;
+    color: #a855f7;
+}
+
+.e-sub {
+    font-size: clamp(0.8rem, 1.6vw, 1.1rem);
+    color: rgba(255,255,255,0.45);
+    font-weight: 500;
+    line-height: 1.5;
+    animation: fadeUp 0.6s 0.35s ease-out both;
+    opacity: 0;
+}
+
+.e-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    animation: fadeUp 0.6s 0.5s ease-out both;
+    opacity: 0;
+}
+
+.e-rule { flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+
+.e-platforms {
+    display: flex;
+    gap: 8px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+}
+
+.e-platforms span { color: rgba(255,255,255,0.55); }
+</style>
+</head>
+<body>
+
+<p class="page-label">Ad1.tv · Design Options · One on One Tutoring</p>
+
+<div class="grid">
+
+    <!-- A: Big Stat -->
+    <div>
+        <p class="card-label">Option A — Big Stat</p>
+        <div class="card-a">
+            <div class="stat-big">1:1</div>
+            <div class="stat-rule"></div>
+            <div class="stat-label">Personalized Tutoring Sessions</div>
+            <div class="platform-row">
+                <div class="platform-pill pill-meet">Google Meet</div>
+                <div class="platform-pill pill-zoom">Zoom</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- B: Split Panel -->
+    <div>
+        <p class="card-label">Option B — Split Panel</p>
+        <div class="card-b">
+            <div class="split-left">
+                <span class="split-word">One</span>
+                <span class="split-word">On</span>
+                <span class="split-word">One</span>
+            </div>
+            <div class="split-right">
+                <div class="split-headline">Personalized Tutoring Sessions</div>
+                <div class="split-sub">Live, screen-shared sessions tailored to your skill level and goals.</div>
+                <div class="split-platforms">
+                    <div class="platform-bar"><span class="platform-dot dot-meet"></span>Google Meet</div>
+                    <div class="platform-bar"><span class="platform-dot dot-zoom"></span>Zoom</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- C: Infographic Tiles -->
+    <div>
+        <p class="card-label">Option C — Infographic Tiles</p>
+        <div class="card-c-outer">
+            <div class="card-c">
+                <div class="c-headline">Personalized Tutoring Sessions</div>
+                <div class="c-grid">
+                    <div class="c-tile">
+                        <div class="c-tile-stat">1:1</div>
+                        <div class="c-tile-label">One on One</div>
+                    </div>
+                    <div class="c-tile">
+                        <div class="c-tile-stat">Live</div>
+                        <div class="c-tile-label">Real Time</div>
+                    </div>
+                    <div class="c-tile">
+                        <div class="c-tile-stat" style="font-size:1rem; letter-spacing:0.04em;">Google<br>Meet</div>
+                        <div class="c-tile-label">Platform</div>
+                    </div>
+                    <div class="c-tile">
+                        <div class="c-tile-stat" style="font-size:1.4rem;">Zoom</div>
+                        <div class="c-tile-label">Platform</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- D: Neon Headline Stack -->
+    <div>
+        <p class="card-label">Option D — Headline Stack</p>
+        <div class="card-d">
+            <span class="d-line">Personalized</span>
+            <span class="d-line">One</span>
+            <span class="d-line">On One</span>
+            <span class="d-line">Tutoring Sessions</span>
+            <span class="d-line">Google Meet &nbsp;·&nbsp; Zoom</span>
+        </div>
+    </div>
+
+    <!-- E: Minimal Luxury -->
+    <div>
+        <p class="card-label">Option E — Minimal</p>
+        <div class="card-e">
+            <div class="e-eyebrow">One on One · Personalized</div>
+            <div class="e-body">
+                <div class="e-title">Tutoring<br><em>Sessions</em></div>
+                <div class="e-sub">Via Google Meet or Zoom — live, screen-shared, and tailored to you.</div>
+            </div>
+            <div class="e-footer">
+                <div class="e-rule"></div>
+                <div class="e-platforms">
+                    <span>Google Meet</span>&nbsp;·&nbsp;<span>Zoom</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

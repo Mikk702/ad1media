@@ -3,236 +3,247 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Day to Night</title>
+<title>Day & Night</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body {
-    background: #000;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: sans-serif;
-}
-.wrap {
-    width: min(360px, 100vw);
-    aspect-ratio: 3/4;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 0 60px rgba(0,0,0,0.8);
-}
+body { background:#111; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+.wrap { width:min(360px,100vw); aspect-ratio:3/4; border-radius:24px; overflow:hidden; box-shadow:0 0 80px rgba(0,0,0,0.9); }
 svg { width:100%; height:100%; display:block; }
 
-/* ── TIMING: 12s loop ────────────────────────
+/* 14s loop
    0–30%  : full day
-   30–50% : sunset
-   50–70% : night arrives
-   70–88% : full night
-   88–100%: reset to dawn
-──────────────────────────────────────────── */
+   30–55% : dusk transition
+   55–80% : full night
+   80–100%: dawn back to day              */
 
-@keyframes skyDay    { 0%,28%{opacity:1} 48%,88%{opacity:0} 96%,100%{opacity:1} }
-@keyframes skySunset { 0%,25%{opacity:0} 36%,52%{opacity:1} 65%,100%{opacity:0} }
-@keyframes skyNight  { 0%,48%{opacity:0} 66%,84%{opacity:1} 96%,100%{opacity:0} }
+@keyframes skyDay    { 0%,28%{opacity:1} 52%,84%{opacity:0} 96%,100%{opacity:1} }
+@keyframes skyNight  { 0%,38%{opacity:0} 58%,78%{opacity:1} 94%,100%{opacity:0} }
+@keyframes sunFade   { 0%,26%{opacity:1} 50%,100%{opacity:0} }
+@keyframes moonFade  { 0%,44%{opacity:0} 62%,78%{opacity:1} 94%,100%{opacity:0} }
+@keyframes starsOp   { 0%,50%{opacity:0} 65%,78%{opacity:1} 94%,100%{opacity:0} }
+@keyframes nightEl   { 0%,52%{opacity:0} 68%,78%{opacity:1} 94%,100%{opacity:0} }
+@keyframes groundDay { 0%,28%{opacity:1} 54%,96%{opacity:0} 100%{opacity:1} }
+@keyframes groundNt  { 0%,50%{opacity:0} 68%,78%{opacity:1} 94%,100%{opacity:0} }
+@keyframes treeNt    { 0%,44%{opacity:0} 62%,78%{opacity:0.92} 94%,100%{opacity:0} }
 
-@keyframes groundDay   { 0%,28%{opacity:1} 52%,96%{opacity:0} 100%{opacity:1} }
-@keyframes groundNight { 0%,50%{opacity:0} 68%,84%{opacity:1} 96%,100%{opacity:0} }
+@keyframes cloudDrift { from{transform:translateX(440px)} to{transform:translateX(-220px)} }
 
-@keyframes sunAnim {
-  0%   { transform:translateY(0px);   opacity:1; }
-  28%  { transform:translateY(0px);   opacity:1; }
-  48%  { transform:translateY(90px);  opacity:0; }
-  96%  { transform:translateY(90px);  opacity:0; }
-  100% { transform:translateY(0px);   opacity:1; }
+@keyframes smokeRise {
+  0%  { transform:translateY(0) scaleX(0.6);  opacity:0;    }
+  18% { opacity:0.55; }
+  80% { opacity:0.22; }
+  100%{ transform:translateY(-72px) scaleX(2.4); opacity:0; }
 }
 
-@keyframes moonAnim {
-  0%,50%  { transform:translateY(110px); opacity:0; }
-  68%     { transform:translateY(0px);   opacity:1; }
-  84%     { transform:translateY(0px);   opacity:1; }
-  96%     { transform:translateY(-50px); opacity:0; }
-  100%    { transform:translateY(110px); opacity:0; }
-}
-
-@keyframes starsOp {
-  0%,52%   { opacity:0; }
-  70%,84%  { opacity:1; }
-  96%,100% { opacity:0; }
-}
-
-@keyframes twA { 0%,100%{opacity:1;   transform:scale(1);}   50%{opacity:0.15; transform:scale(0.5);} }
-@keyframes twB { 0%,100%{opacity:0.6; transform:scale(1);}   50%{opacity:1;    transform:scale(1.4);} }
-@keyframes twC { 0%,100%{opacity:0.9; transform:scale(1);}   33%{opacity:0.1;  transform:scale(0.6);} 66%{opacity:1; transform:scale(1.2);} }
-
-@keyframes raysRotate { to { transform:rotate(360deg); } }
-
-@keyframes cloudFloat1 { 0%,100%{transform:translateX(0)}  50%{transform:translateX(14px)} }
-@keyframes cloudFloat2 { 0%,100%{transform:translateX(0)}  50%{transform:translateX(-10px)} }
-@keyframes cloudDay    { 0%,26%{opacity:1} 50%,100%{opacity:0} }
-
-@keyframes sunGlowPulse { 0%,100%{opacity:0.35} 50%{opacity:0.65} }
-@keyframes moonGlowPulse{ 0%,100%{opacity:0.3}  50%{opacity:0.55} }
-
-@keyframes zFloat {
-  0%   { transform:translate(0,0);   opacity:0; }
-  10%  { opacity:1; }
-  100% { transform:translate(-8px,-28px); opacity:0; }
-}
+@keyframes twA { 0%,100%{opacity:1}   50%{opacity:0.1}  }
+@keyframes twB { 0%,100%{opacity:0.5} 50%{opacity:1}    }
+@keyframes twC { 0%,100%{opacity:0.8} 33%{opacity:0.05} 66%{opacity:1} }
+@keyframes raysRot { to{transform:rotate(360deg)} }
+@keyframes winPulse{ 0%,100%{opacity:0.88} 50%{opacity:1} }
 </style>
 </head>
 <body>
 <div class="wrap">
 <svg viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg">
 <defs>
-  <linearGradient id="gDay" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%"   stop-color="#4A90D9"/>
-    <stop offset="100%" stop-color="#A8D8F0"/>
+  <linearGradient id="gDay"    x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#5BA8E8"/>
+    <stop offset="100%" stop-color="#B8E8F8"/>
   </linearGradient>
-  <linearGradient id="gSunset" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%"   stop-color="#C0392B"/>
-    <stop offset="45%"  stop-color="#E87040"/>
-    <stop offset="100%" stop-color="#F5C842"/>
-  </linearGradient>
-  <linearGradient id="gNight" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%"   stop-color="#02050E"/>
-    <stop offset="100%" stop-color="#071428"/>
+  <linearGradient id="gNight"  x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#020510"/>
+    <stop offset="100%" stop-color="#071228"/>
   </linearGradient>
   <linearGradient id="gGrassD" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%"  stop-color="#57A639"/>
-    <stop offset="100%" stop-color="#3A7D26"/>
+    <stop offset="0%"   stop-color="#5CB85C"/>
+    <stop offset="100%" stop-color="#3D8B3D"/>
   </linearGradient>
   <linearGradient id="gGrassN" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%"  stop-color="#162B12"/>
-    <stop offset="100%" stop-color="#0A1A08"/>
+    <stop offset="0%"   stop-color="#152815"/>
+    <stop offset="100%" stop-color="#0A180A"/>
   </linearGradient>
-  <radialGradient id="rSun" cx="50%" cy="50%" r="50%">
-    <stop offset="0%"   stop-color="#FFE44D" stop-opacity="0.55"/>
+  <radialGradient id="rSunGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stop-color="#FFE44D" stop-opacity="0.45"/>
     <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
   </radialGradient>
-  <radialGradient id="rMoon" cx="50%" cy="50%" r="50%">
-    <stop offset="0%"   stop-color="#B8C8FF" stop-opacity="0.45"/>
+  <radialGradient id="rMoonGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stop-color="#B0C8FF" stop-opacity="0.4"/>
     <stop offset="100%" stop-color="#7090C0" stop-opacity="0"/>
   </radialGradient>
-  <!-- Crescent mask: moon circle minus offset inner circle -->
-  <mask id="crescentMask">
+  <radialGradient id="rWinGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stop-color="#FFD000" stop-opacity="0.8"/>
+    <stop offset="100%" stop-color="#FF8800" stop-opacity="0"/>
+  </radialGradient>
+  <!-- Crescent: cuts upper-right of moon circle leaving left crescent -->
+  <mask id="moonMask">
     <rect width="360" height="480" fill="white"/>
-    <circle cx="285" cy="158" r="65" fill="black"/>
+    <circle cx="105" cy="76" r="43" fill="black"/>
   </mask>
 </defs>
 
-<!-- ══ SKY ════════════════════════════════════ -->
-<rect width="360" height="480" fill="url(#gDay)"    style="animation:skyDay    12s linear infinite"/>
-<rect width="360" height="480" fill="url(#gSunset)" style="animation:skySunset 12s linear infinite; opacity:0"/>
-<rect width="360" height="480" fill="url(#gNight)"  style="animation:skyNight  12s linear infinite; opacity:0"/>
+<!-- ══ SKY ════════════════════════════════ -->
+<rect width="360" height="480" fill="url(#gDay)"   style="animation:skyDay   14s linear infinite"/>
+<rect width="360" height="480" fill="url(#gNight)" style="animation:skyNight 14s linear infinite; opacity:0"/>
 
-<!-- ══ STARS ══════════════════════════════════ -->
-<g style="animation:starsOp 12s linear infinite; opacity:0">
-  <!-- big bright stars -->
-  <circle cx="42"  cy="52"  r="2.8" fill="#fff" style="animation:twA 1.3s 0.0s ease-in-out infinite; transform-origin:42px 52px"/>
-  <circle cx="162" cy="38"  r="3.2" fill="#ffe" style="animation:twB 1.7s 0.5s ease-in-out infinite; transform-origin:162px 38px; filter:drop-shadow(0 0 4px #fff)"/>
-  <circle cx="308" cy="44"  r="2.5" fill="#fff" style="animation:twA 1.5s 1.1s ease-in-out infinite; transform-origin:308px 44px"/>
-  <!-- medium stars -->
-  <circle cx="90"  cy="28"  r="1.8" fill="#fff" style="animation:twC 2.0s 0.3s ease-in-out infinite; transform-origin:90px 28px"/>
-  <circle cx="130" cy="72"  r="1.6" fill="#fff" style="animation:twB 1.8s 0.8s ease-in-out infinite; transform-origin:130px 72px"/>
-  <circle cx="198" cy="62"  r="2.0" fill="#ffe" style="animation:twA 1.4s 0.2s ease-in-out infinite; transform-origin:198px 62px"/>
-  <circle cx="340" cy="80"  r="1.8" fill="#fff" style="animation:twC 1.6s 0.6s ease-in-out infinite; transform-origin:340px 80px"/>
-  <circle cx="56"  cy="108" r="1.5" fill="#fff" style="animation:twB 2.1s 1.4s ease-in-out infinite; transform-origin:56px 108px"/>
-  <circle cx="328" cy="116" r="1.6" fill="#fff" style="animation:twA 1.9s 0.9s ease-in-out infinite; transform-origin:328px 116px"/>
-  <!-- small stars -->
-  <circle cx="74"  cy="168" r="1.2" fill="#fff" style="animation:twC 1.5s 0.4s ease-in-out infinite; transform-origin:74px 168px"/>
-  <circle cx="225" cy="25"  r="1.4" fill="#fff" style="animation:twA 2.2s 1.2s ease-in-out infinite; transform-origin:225px 25px"/>
-  <circle cx="270" cy="90"  r="1.2" fill="#fff" style="animation:twB 1.6s 0.7s ease-in-out infinite; transform-origin:270px 90px"/>
-  <circle cx="30"  cy="140" r="1.0" fill="#fff" style="animation:twA 2.0s 1.6s ease-in-out infinite; transform-origin:30px 140px"/>
+<!-- ══ STARS ═══════════════════════════════ -->
+<g style="animation:starsOp 14s linear infinite; opacity:0">
+  <circle cx="168" cy="36"  r="2.6" fill="#fff" style="animation:twA 1.7s 0.0s infinite; transform-origin:168px 36px; filter:drop-shadow(0 0 3px #fff)"/>
+  <circle cx="238" cy="58"  r="1.9" fill="#fff" style="animation:twB 1.4s 0.5s infinite; transform-origin:238px 58px"/>
+  <circle cx="312" cy="28"  r="2.3" fill="#ffe" style="animation:twC 2.0s 0.2s infinite; transform-origin:312px 28px; filter:drop-shadow(0 0 3px #fff)"/>
+  <circle cx="198" cy="82"  r="1.6" fill="#fff" style="animation:twA 1.5s 0.9s infinite; transform-origin:198px 82px"/>
+  <circle cx="280" cy="95"  r="1.9" fill="#fff" style="animation:twB 1.9s 0.4s infinite; transform-origin:280px 95px"/>
+  <circle cx="148" cy="64"  r="1.5" fill="#fff" style="animation:twC 1.6s 1.1s infinite; transform-origin:148px 64px"/>
+  <circle cx="338" cy="72"  r="2.1" fill="#fff" style="animation:twA 2.2s 0.7s infinite; transform-origin:338px 72px"/>
+  <circle cx="258" cy="130" r="1.3" fill="#fff" style="animation:twB 1.8s 1.4s infinite; transform-origin:258px 130px"/>
+  <circle cx="188" cy="115" r="1.6" fill="#fff" style="animation:twC 1.4s 0.3s infinite; transform-origin:188px 115px"/>
+  <circle cx="350" cy="110" r="1.4" fill="#fff" style="animation:twA 1.6s 1.6s infinite; transform-origin:350px 110px"/>
 </g>
 
-<!-- ══ MOON ════════════════════════════════════ -->
-<g style="animation:moonAnim 12s linear infinite; opacity:0">
-  <!-- soft glow halo -->
-  <circle cx="250" cy="165" r="100" fill="url(#rMoon)" style="animation:moonGlowPulse 3s ease-in-out infinite"/>
-  <!-- crescent body -->
-  <circle cx="250" cy="165" r="75" fill="#FFFDE7" mask="url(#crescentMask)"/>
-  <!-- slight inner shadow to give depth -->
-  <circle cx="250" cy="165" r="75" fill="none" stroke="rgba(180,160,80,0.3)" stroke-width="3" mask="url(#crescentMask)"/>
-
-  <!-- SLEEPY FACE — positioned on left crescent (x~175-220) -->
-  <!-- left eye: closed arc (like a little squint) -->
-  <path d="M 185,153 Q 193,146 201,153" fill="none" stroke="#8B7030" stroke-width="3" stroke-linecap="round"/>
-  <!-- right eye: closed arc -->
-  <path d="M 201,147 Q 209,140 217,147" fill="none" stroke="#8B7030" stroke-width="3" stroke-linecap="round"/>
-  <!-- warm rosy cheeks -->
-  <ellipse cx="184" cy="168" rx="11" ry="7" fill="#FFAAAA" opacity="0.5"/>
-  <ellipse cx="215" cy="162" rx="10" ry="7" fill="#FFAAAA" opacity="0.45"/>
-  <!-- gentle sleepy smile -->
-  <path d="M 186,173 Q 200,183 214,173" fill="none" stroke="#8B7030" stroke-width="2.5" stroke-linecap="round"/>
-
-  <!-- ZZZ floating up -->
-  <text x="235" y="132" font-size="13" font-weight="bold" fill="#B8C8FF" opacity="0.75" font-family="Arial, sans-serif"
-    style="animation:zFloat 2.8s 0.0s ease-in-out infinite">z</text>
-  <text x="248" y="113" font-size="17" font-weight="bold" fill="#B8C8FF" opacity="0.5" font-family="Arial, sans-serif"
-    style="animation:zFloat 2.8s 0.9s ease-in-out infinite">z</text>
-  <text x="264" y="90" font-size="21" font-weight="bold" fill="#B8C8FF" opacity="0.3" font-family="Arial, sans-serif"
-    style="animation:zFloat 2.8s 1.8s ease-in-out infinite">z</text>
-</g>
-
-<!-- ══ SUN ═════════════════════════════════════ -->
-<g style="animation:sunAnim 12s linear infinite">
-  <!-- warm glow halo -->
-  <circle cx="180" cy="200" r="100" fill="url(#rSun)" style="animation:sunGlowPulse 2.5s ease-in-out infinite"/>
+<!-- ══ SUN (top-left, fades at dusk) ═══════ -->
+<g style="animation:sunFade 14s linear infinite">
+  <!-- glow -->
+  <circle cx="80" cy="88" r="78" fill="url(#rSunGlow)"/>
   <!-- rotating rays -->
-  <g style="transform-origin:180px 200px; animation:raysRotate 14s linear infinite">
-    <!-- 8 rays -->
-    <line x1="180" y1="128" x2="180" y2="112" stroke="#FFD700" stroke-width="7" stroke-linecap="round"/>
-    <line x1="180" y1="272" x2="180" y2="288" stroke="#FFD700" stroke-width="7" stroke-linecap="round"/>
-    <line x1="108" y1="200" x2="92"  y2="200" stroke="#FFD700" stroke-width="7" stroke-linecap="round"/>
-    <line x1="252" y1="200" x2="268" y2="200" stroke="#FFD700" stroke-width="7" stroke-linecap="round"/>
-    <line x1="129" y1="149" x2="118" y2="138" stroke="#FFD700" stroke-width="5.5" stroke-linecap="round"/>
-    <line x1="231" y1="251" x2="242" y2="262" stroke="#FFD700" stroke-width="5.5" stroke-linecap="round"/>
-    <line x1="231" y1="149" x2="242" y2="138" stroke="#FFD700" stroke-width="5.5" stroke-linecap="round"/>
-    <line x1="129" y1="251" x2="118" y2="262" stroke="#FFD700" stroke-width="5.5" stroke-linecap="round"/>
+  <g style="transform-origin:80px 88px; animation:raysRot 18s linear infinite">
+    <line x1="80" y1="34"  x2="80" y2="20"  stroke="#FFD700" stroke-width="6" stroke-linecap="round"/>
+    <line x1="80" y1="142" x2="80" y2="156" stroke="#FFD700" stroke-width="6" stroke-linecap="round"/>
+    <line x1="26" y1="88"  x2="12" y2="88"  stroke="#FFD700" stroke-width="6" stroke-linecap="round"/>
+    <line x1="134" y1="88" x2="148" y2="88" stroke="#FFD700" stroke-width="6" stroke-linecap="round"/>
+    <line x1="41"  y1="49" x2="31" y2="39"  stroke="#FFD700" stroke-width="5" stroke-linecap="round"/>
+    <line x1="119" y1="127" x2="129" y2="137" stroke="#FFD700" stroke-width="5" stroke-linecap="round"/>
+    <line x1="119" y1="49" x2="129" y2="39"  stroke="#FFD700" stroke-width="5" stroke-linecap="round"/>
+    <line x1="41" y1="127" x2="31" y2="137"  stroke="#FFD700" stroke-width="5" stroke-linecap="round"/>
   </g>
-  <!-- sun body -->
-  <circle cx="180" cy="200" r="62" fill="#FFD700" stroke="#FFA000" stroke-width="3.5"/>
-  <!-- HAPPY FACE -->
-  <!-- eyes: dark with sparkle -->
-  <circle cx="161" cy="190" r="9"   fill="#5D3A00"/>
-  <circle cx="199" cy="190" r="9"   fill="#5D3A00"/>
-  <circle cx="164" cy="186" r="3"   fill="#fff"/>
-  <circle cx="202" cy="186" r="3"   fill="#fff"/>
-  <!-- big happy smile -->
-  <path d="M 152,214 Q 180,242 208,214" fill="none" stroke="#5D3A00" stroke-width="5" stroke-linecap="round"/>
+  <!-- body -->
+  <circle cx="80" cy="88" r="46" fill="#FFD700" stroke="#FFA000" stroke-width="3.5"/>
+  <!-- happy face -->
+  <circle cx="65" cy="80" r="7.5" fill="#5D3A00"/>
+  <circle cx="95" cy="80" r="7.5" fill="#5D3A00"/>
+  <circle cx="68" cy="76" r="2.8" fill="#fff"/>
+  <circle cx="98" cy="76" r="2.8" fill="#fff"/>
+  <path d="M 58,100 Q 80,120 102,100" fill="none" stroke="#5D3A00" stroke-width="4.5" stroke-linecap="round"/>
+  <ellipse cx="54" cy="104" rx="13" ry="8" fill="#FF8A65" opacity="0.42"/>
+  <ellipse cx="106" cy="104" rx="13" ry="8" fill="#FF8A65" opacity="0.42"/>
+</g>
+
+<!-- ══ MOON (same position, fades in at night) ═ -->
+<g style="animation:moonFade 14s linear infinite; opacity:0">
+  <!-- glow -->
+  <circle cx="80" cy="88" r="82" fill="url(#rMoonGlow)"/>
+  <!-- crescent body -->
+  <circle cx="80" cy="88" r="50" fill="#FFFDE7" mask="url(#moonMask)"/>
+  <!-- SLEEPY FACE — on left crescent (x≈30–62 at center height) -->
+  <!-- left eye closed -->
+  <path d="M 34,80 Q 42,73 50,80" fill="none" stroke="#8B7030" stroke-width="2.8" stroke-linecap="round"/>
+  <!-- right eye closed -->
+  <path d="M 46,74 Q 54,68 62,74" fill="none" stroke="#8B7030" stroke-width="2.8" stroke-linecap="round"/>
   <!-- rosy cheeks -->
-  <ellipse cx="144" cy="218" rx="16" ry="10" fill="#FF8A65" opacity="0.4"/>
-  <ellipse cx="216" cy="218" rx="16" ry="10" fill="#FF8A65" opacity="0.4"/>
+  <ellipse cx="33" cy="91" rx="9" ry="6" fill="#FFAAAA" opacity="0.45"/>
+  <ellipse cx="60" cy="86" rx="8" ry="6" fill="#FFAAAA" opacity="0.4"/>
+  <!-- gentle smile -->
+  <path d="M 36,97 Q 48,107 60,97" fill="none" stroke="#8B7030" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- ZZZ drifting up-right -->
+  <text x="76"  y="62" font-size="12" font-weight="bold" fill="#B8C8FF" opacity="0.75" font-family="Arial,sans-serif">z</text>
+  <text x="89"  y="46" font-size="15" font-weight="bold" fill="#B8C8FF" opacity="0.5"  font-family="Arial,sans-serif">z</text>
+  <text x="104" y="28" font-size="18" font-weight="bold" fill="#B8C8FF" opacity="0.28" font-family="Arial,sans-serif">z</text>
 </g>
 
-<!-- ══ CLOUDS ══════════════════════════════════ -->
-<!-- Cloud 1 — big, foreground -->
-<g style="animation:cloudFloat1 7s ease-in-out infinite">
-  <g style="animation:cloudDay 12s linear infinite">
-    <ellipse cx="78"  cy="132" rx="48" ry="30" fill="#fff"/>
-    <ellipse cx="118" cy="120" rx="40" ry="28" fill="#fff"/>
-    <ellipse cx="154" cy="134" rx="36" ry="25" fill="#fff"/>
-    <ellipse cx="112" cy="146" rx="55" ry="20" fill="#fff"/>
-  </g>
+<!-- ══ CLOUDS (always drift, day & night) ══════ -->
+<!-- Cloud A — large, slow -->
+<g style="animation:cloudDrift 30s -10s linear infinite">
+  <ellipse cx="65"  cy="158" rx="52" ry="31" fill="#fff" opacity="0.94"/>
+  <ellipse cx="108" cy="145" rx="44" ry="30" fill="#fff" opacity="0.94"/>
+  <ellipse cx="148" cy="160" rx="40" ry="27" fill="#fff" opacity="0.94"/>
+  <ellipse cx="106" cy="174" rx="60" ry="21" fill="#fff" opacity="0.94"/>
 </g>
-<!-- Cloud 2 — smaller, background -->
-<g style="animation:cloudFloat2 9s ease-in-out infinite">
-  <g style="animation:cloudDay 12s linear infinite; opacity:0.8">
-    <ellipse cx="268" cy="105" rx="34" ry="22" fill="#fff"/>
-    <ellipse cx="302" cy="96"  rx="28" ry="20" fill="#fff"/>
-    <ellipse cx="332" cy="108" rx="26" ry="18" fill="#fff"/>
-    <ellipse cx="300" cy="118" rx="40" ry="15" fill="#fff"/>
-  </g>
+<!-- Cloud B — medium -->
+<g style="animation:cloudDrift 22s -14s linear infinite">
+  <ellipse cx="65"  cy="205" rx="36" ry="22" fill="#fff" opacity="0.86"/>
+  <ellipse cx="99"  cy="194" rx="30" ry="20" fill="#fff" opacity="0.86"/>
+  <ellipse cx="127" cy="207" rx="28" ry="18" fill="#fff" opacity="0.86"/>
+  <ellipse cx="97"  cy="217" rx="44" ry="15" fill="#fff" opacity="0.86"/>
+</g>
+<!-- Cloud C — small, brisk -->
+<g style="animation:cloudDrift 16s -6s linear infinite">
+  <ellipse cx="65"  cy="182" rx="26" ry="15" fill="#fff" opacity="0.76"/>
+  <ellipse cx="89"  cy="174" rx="22" ry="14" fill="#fff" opacity="0.76"/>
+  <ellipse cx="111" cy="183" rx="20" ry="13" fill="#fff" opacity="0.76"/>
+  <ellipse cx="88"  cy="191" rx="30" ry="11" fill="#fff" opacity="0.76"/>
 </g>
 
-<!-- ══ GROUND ══════════════════════════════════ -->
-<rect x="0"   y="400" width="360" height="80" fill="url(#gGrassD)" style="animation:groundDay   12s linear infinite"/>
-<rect x="0"   y="400" width="360" height="80" fill="url(#gGrassN)" style="animation:groundNight 12s linear infinite; opacity:0"/>
+<!-- ══ GROUND ═════════════════════════════ -->
+<rect x="0" y="420" width="360" height="60" fill="url(#gGrassD)" style="animation:groundDay 14s linear infinite"/>
+<rect x="0" y="420" width="360" height="60" fill="url(#gGrassN)" style="animation:groundNt  14s linear infinite; opacity:0"/>
 <!-- rolling hills -->
-<ellipse cx="100" cy="402" rx="155" ry="34" fill="#4CAF50" style="animation:groundDay   12s linear infinite"/>
-<ellipse cx="100" cy="402" rx="155" ry="34" fill="#162B12" style="animation:groundNight 12s linear infinite; opacity:0"/>
-<ellipse cx="290" cy="408" rx="140" ry="28" fill="#5CB85C" style="animation:groundDay   12s linear infinite"/>
-<ellipse cx="290" cy="408" rx="140" ry="28" fill="#1A341A" style="animation:groundNight 12s linear infinite; opacity:0"/>
+<ellipse cx="100" cy="422" rx="148" ry="22" fill="#57A639" style="animation:groundDay 14s linear infinite"/>
+<ellipse cx="100" cy="422" rx="148" ry="22" fill="#162B16" style="animation:groundNt  14s linear infinite; opacity:0"/>
+<ellipse cx="298" cy="426" rx="122" ry="18" fill="#5CB85C" style="animation:groundDay 14s linear infinite"/>
+<ellipse cx="298" cy="426" rx="122" ry="18" fill="#1A341A" style="animation:groundNt  14s linear infinite; opacity:0"/>
+
+<!-- ══ TREE (bottom left) ══════════════════ -->
+<!-- trunk -->
+<rect x="50" y="368" width="18" height="58" fill="#7B5B3A" rx="3"/>
+<!-- foliage — day -->
+<circle cx="59" cy="348" r="40" fill="#3A7D3A"/>
+<circle cx="40" cy="368" r="28" fill="#3A7D3A"/>
+<circle cx="78" cy="364" r="26" fill="#3A7D3A"/>
+<circle cx="59" cy="336" r="28" fill="#4A9A4A"/>
+<circle cx="43" cy="356" r="20" fill="#4A9A4A"/>
+<circle cx="75" cy="354" r="18" fill="#4A9A4A"/>
+<!-- foliage — night overlay -->
+<circle cx="59" cy="348" r="40" fill="#182E18" style="animation:treeNt 14s linear infinite; opacity:0"/>
+<circle cx="40" cy="368" r="28" fill="#182E18" style="animation:treeNt 14s linear infinite; opacity:0"/>
+<circle cx="78" cy="364" r="26" fill="#182E18" style="animation:treeNt 14s linear infinite; opacity:0"/>
+<circle cx="59" cy="336" r="28" fill="#0E200E" style="animation:treeNt 14s linear infinite; opacity:0"/>
+
+<!-- ══ HOUSE (bottom right) ═════════════════ -->
+<!-- chimney — behind roof so roof covers base -->
+<rect x="250" y="248" width="24" height="30" fill="#9E7B5A" rx="2"/>
+<!-- chimney cap -->
+<rect x="246" y="244" width="32" height="9"  fill="#8B6B4A" rx="2"/>
+
+<!-- roof -->
+<polygon points="206,320 356,320 281,258" fill="#7B3A1E"/>
+<line x1="206" y1="320" x2="281" y2="258" stroke="#5C2A14" stroke-width="1.5" opacity="0.5"/>
+<line x1="356" y1="320" x2="281" y2="258" stroke="#5C2A14" stroke-width="1.5" opacity="0.5"/>
+
+<!-- house body -->
+<rect x="216" y="320" width="134" height="106" fill="#C4855A" rx="2"/>
+<!-- shadow strip right side -->
+<rect x="330" y="320" width="20"  height="106" fill="rgba(0,0,0,0.1)" rx="2"/>
+
+<!-- day window (blue glass) -->
+<rect x="230" y="340" width="46" height="42" fill="#6A8FA8" rx="3" style="animation:sunFade 14s linear infinite"/>
+<!-- window frame -->
+<rect x="230" y="340" width="46" height="42" fill="none" stroke="#8B6B4A" stroke-width="3.5" rx="3"/>
+<line x1="253" y1="340" x2="253" y2="382" stroke="#8B6B4A" stroke-width="2"/>
+<line x1="230" y1="361" x2="276" y2="361" stroke="#8B6B4A" stroke-width="2"/>
+
+<!-- night window glow -->
+<rect x="218" y="328" width="70" height="66" fill="url(#rWinGlow)" rx="14" style="animation:nightEl 14s linear infinite; opacity:0; filter:blur(6px)"/>
+<rect x="230" y="340" width="46" height="42" fill="#FFDA6A" rx="3"           style="animation:nightEl 14s linear infinite; opacity:0"/>
+<!-- curtain lines on night window -->
+<line x1="242" y1="340" x2="242" y2="382" stroke="#E8B840" stroke-width="1.5" opacity="0.5" style="animation:nightEl 14s linear infinite; opacity:0"/>
+<line x1="264" y1="340" x2="264" y2="382" stroke="#E8B840" stroke-width="1.5" opacity="0.5" style="animation:nightEl 14s linear infinite; opacity:0"/>
+
+<!-- door -->
+<rect x="284" y="374" width="36" height="52" fill="#8B5E2E" rx="3"/>
+<rect x="284" y="374" width="36" height="52" fill="none" stroke="#7A5228" stroke-width="2" rx="3"/>
+<path d="M 302,374 A 18,12 0 0 1 302,374" fill="none"/>
+<!-- door arch top -->
+<path d="M 284,386 A 18,12 0 0 1 320,386" fill="#7A4E24" stroke="none"/>
+<!-- door knob -->
+<circle cx="315" cy="402" r="3.5" fill="#C4A44A"/>
+
+<!-- ══ SMOKE (night only) ═══════════════════ -->
+<g style="animation:nightEl 14s linear infinite; opacity:0">
+  <path d="M 262,244 C 256,232 270,220 264,205" fill="none" stroke="rgba(205,205,215,0.65)" stroke-width="7" stroke-linecap="round"
+    style="animation:smokeRise 7s 0.0s ease-in-out infinite"/>
+  <path d="M 262,244 C 269,231 258,218 265,203" fill="none" stroke="rgba(205,205,215,0.5)"  stroke-width="5" stroke-linecap="round"
+    style="animation:smokeRise 7s -2.4s ease-in-out infinite"/>
+  <path d="M 262,244 C 255,230 266,216 260,201" fill="none" stroke="rgba(205,205,215,0.38)" stroke-width="4" stroke-linecap="round"
+    style="animation:smokeRise 7s -4.8s ease-in-out infinite"/>
+</g>
 
 </svg>
 </div>

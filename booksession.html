@@ -437,12 +437,24 @@ const scenes = [...document.querySelectorAll('.scene')];
 const dots   = [...document.querySelectorAll('.dot')];
 let cur = 0;
 
+function resetAnims(scene) {
+    const els = scene.querySelectorAll('*');
+    els.forEach(el => { el.style.animation = 'none'; });
+    void scene.offsetHeight;
+    els.forEach(el => { el.style.animation = ''; });
+}
+
+// Reset all non-current scenes on load so they start blank
+scenes.forEach((s, i) => { if (i !== 0) resetAnims(s); });
+
 function go(dir) {
     const next = (cur + dir + scenes.length) % scenes.length;
     const outX = dir > 0 ? '-100%' : '100%';
     const inX  = dir > 0 ?  '100%' : '-100%';
 
+    // Position next scene off-screen, then reset its animations while hidden
     scenes[next].style.transform = `translateX(${inX})`;
+    resetAnims(scenes[next]);
 
     requestAnimationFrame(() => {
         scenes[cur].classList.add('sliding');
@@ -451,25 +463,14 @@ function go(dir) {
         scenes[next].style.transform = 'translateX(0)';
 
         setTimeout(() => {
-            scenes[cur].classList.remove('current','sliding');
+            scenes[cur].classList.remove('current', 'sliding');
             scenes[cur].style.transform = `translateX(${outX})`;
             scenes[next].classList.add('current');
             scenes[next].classList.remove('sliding');
             dots[cur].classList.remove('on');
             cur = next;
             dots[cur].classList.add('on');
-            replayScene(cur);
         }, 530);
-    });
-}
-
-function replayScene(i) {
-    const el = scenes[i];
-    const anims = el.querySelectorAll('[style*="animation"], .pulse-ring, .phone-icon, .s1-label, .s1-number, .s1-sub, .s2-step, .s2-headline, .s2-line, .s2-sub, .s3-step, .s3-split, .s3-icon, .s3-name, .s3-headline, .s3-sub, .s4-step, .s4-word, .s4-sub, .s4-pills, .bg-shape, .star');
-    anims.forEach(a => {
-        a.style.animation = 'none';
-        void a.offsetHeight;
-        a.style.animation = '';
     });
 }
 

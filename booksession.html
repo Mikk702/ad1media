@@ -418,16 +418,14 @@ body {
     </div>
   </div>
 
-  <!-- NAV -->
+  <!-- PROGRESS DOTS -->
   <div class="nav">
-    <button class="nav-btn" id="prev">&#8592;</button>
     <div class="nav-dots">
       <div class="dot on"></div>
       <div class="dot"></div>
       <div class="dot"></div>
       <div class="dot"></div>
     </div>
-    <button class="nav-btn" id="next">&#8594;</button>
   </div>
 
 </div>
@@ -444,27 +442,23 @@ function resetAnims(scene) {
     els.forEach(el => { el.style.animation = ''; });
 }
 
-// Reset all non-current scenes on load so they start blank
 scenes.forEach((s, i) => { if (i !== 0) resetAnims(s); });
 
-function go(dir) {
-    const next = (cur + dir + scenes.length) % scenes.length;
-    const outX = dir > 0 ? '-100%' : '100%';
-    const inX  = dir > 0 ?  '100%' : '-100%';
+function advance() {
+    const next = (cur + 1) % scenes.length;
 
-    // Position next scene off-screen, then reset its animations while hidden
-    scenes[next].style.transform = `translateX(${inX})`;
+    scenes[next].style.transform = 'translateX(100%)';
     resetAnims(scenes[next]);
 
     requestAnimationFrame(() => {
         scenes[cur].classList.add('sliding');
         scenes[next].classList.add('sliding');
-        scenes[cur].style.transform  = `translateX(${outX})`;
+        scenes[cur].style.transform  = 'translateX(-100%)';
         scenes[next].style.transform = 'translateX(0)';
 
         setTimeout(() => {
             scenes[cur].classList.remove('current', 'sliding');
-            scenes[cur].style.transform = `translateX(${outX})`;
+            scenes[cur].style.transform = 'translateX(-100%)';
             scenes[next].classList.add('current');
             scenes[next].classList.remove('sliding');
             dots[cur].classList.remove('on');
@@ -474,12 +468,7 @@ function go(dir) {
     });
 }
 
-document.getElementById('prev').onclick = () => go(-1);
-document.getElementById('next').onclick = () => go(1);
-document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight') go(1);
-    if (e.key === 'ArrowLeft')  go(-1);
-});
+setInterval(advance, 4000);
 </script>
 </body>
 </html>

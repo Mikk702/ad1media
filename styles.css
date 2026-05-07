@@ -292,14 +292,14 @@ body {
 }
 
 .inf-logo {
-    width: clamp(1.32rem, 2.65vw, 2.4rem);
-    height: clamp(1.32rem, 2.65vw, 2.4rem);
+    width: clamp(1.72rem, 3.45vw, 3.12rem);
+    height: clamp(1.72rem, 3.45vw, 3.12rem);
     object-fit: contain;
     flex-shrink: 0;
 }
 
 .inf-name {
-    font-size: clamp(0.6rem, 1.32vw, 1.13rem);
+    font-size: clamp(0.78rem, 1.72vw, 1.47rem);
     font-weight: 700;
     color: var(--c);
     text-transform: uppercase;
@@ -309,7 +309,7 @@ body {
 }
 
 .inf-tag {
-    font-size: clamp(0.46rem, 0.92vw, 0.77rem);
+    font-size: clamp(0.6rem, 1.2vw, 1rem);
     font-weight: 500;
     color: rgba(255,255,255,0.32);
     text-transform: uppercase;

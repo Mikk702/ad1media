@@ -343,8 +343,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    padding: 0.6rem 0.75rem;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    padding: 0.55rem 0.75rem 0.6rem;
     opacity: 0;
     transition: opacity 0.6s ease;
     overflow: hidden;
@@ -357,7 +358,6 @@ body {
     letter-spacing: 0.18em;
     text-transform: uppercase;
     opacity: 0;
-    margin-top: -30px;
 }
 
 .hiw-steps {
@@ -368,6 +368,7 @@ body {
     width: 100%;
     flex: 1;
     min-height: 0;
+    align-self: stretch;
 }
 
 .hiw-connector { display: none; }

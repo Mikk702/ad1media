@@ -53,8 +53,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 24px 24px;
+  justify-content: space-evenly;
+  padding: 28px 24px;
   opacity: 0;
   transition: opacity 0.55s ease;
   pointer-events: none;
@@ -117,7 +117,7 @@ body {
   opacity:0;
 }
 #s1 .logo {
-  font-size: clamp(6rem,21vw,9rem);
+  font-size: clamp(7rem,24vw,11rem);
   font-weight: 900;
   line-height: 1;
   background: linear-gradient(135deg,#00d4ff 0%,#a855f7 100%);
@@ -130,14 +130,14 @@ body {
   display: inline-block;
 }
 #s1 .tagline {
-  font-size: clamp(1.3rem,4vw,1.7rem);
+  font-size: clamp(1.5rem,5vw,2rem);
   font-weight: 700;
   color: rgba(255,255,255,.6);
   letter-spacing: .12em;
   text-transform: uppercase;
 }
 #s1 .phone {
-  font-size: clamp(1.9rem,6vw,2.6rem);
+  font-size: clamp(2.4rem,7.5vw,3.2rem);
   font-weight: 600;
   color: #fff;
   letter-spacing: .04em;
@@ -154,23 +154,24 @@ body {
 #s2 .svc-grid {
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  gap: 10px;
+  gap: 12px;
   width: 100%;
-  margin-top: 12px;
+  flex: 1;
 }
 #s2 .svc-tile {
   border: 1px solid rgba(255,255,255,.07);
-  border-top: 2px solid var(--c);
-  border-radius: 10px;
+  border-top: 3px solid var(--c);
+  border-radius: 12px;
   background: rgba(255,255,255,.03);
-  padding: 14px 8px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
+  justify-content: center;
+  gap: 10px;
 }
 #s2 .svc-name {
-  font-size: clamp(1.1rem,2.8vw,1.5rem);
+  font-size: clamp(1.3rem,3.5vw,1.8rem);
   font-weight: 700;
   color: var(--c);
   text-transform: uppercase;
@@ -179,7 +180,7 @@ body {
   line-height: 1.1;
 }
 #s2 .svc-tag {
-  font-size: clamp(.8rem,1.8vw,1.1rem);
+  font-size: clamp(.95rem,2.2vw,1.3rem);
   color: rgba(255,255,255,.3);
   text-transform: uppercase;
   letter-spacing: .07em;
@@ -190,7 +191,7 @@ body {
    SCENE 3 — TUTORING
 ───────────────────────────────────────────── */
 #s3 .stat {
-  font-size: clamp(7rem,24vw,10rem);
+  font-size: clamp(9rem,30vw,13rem);
   font-weight: 900;
   line-height: 1;
   background: linear-gradient(135deg,#00d4ff,#a855f7);
@@ -203,7 +204,7 @@ body {
   display: inline-block;
 }
 #s3 .oto {
-  font-size: clamp(2.2rem,7vw,3.2rem);
+  font-size: clamp(2.8rem,9vw,4rem);
   font-weight: 900;
   color: #fff;
   letter-spacing: -.01em;
@@ -211,7 +212,7 @@ body {
   display: inline-block;
 }
 #s3 .sub {
-  font-size: clamp(1.1rem,3.2vw,1.5rem);
+  font-size: clamp(1.4rem,4vw,1.9rem);
   font-weight: 600;
   color: rgba(255,255,255,.55);
   letter-spacing: .06em;
@@ -225,7 +226,7 @@ body {
   margin-top: 18px;
 }
 #s3 .pill {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -308,7 +309,7 @@ body {
    SCENE 5 — CTA
 ───────────────────────────────────────────── */
 #s5 .cta-head {
-  font-size: clamp(1.3rem,4vw,1.7rem);
+  font-size: clamp(1.6rem,5vw,2.1rem);
   font-weight: 700;
   color: rgba(255,255,255,.35);
   letter-spacing: .2em;
@@ -316,7 +317,7 @@ body {
   text-align: center;
 }
 #s5 .cta-main {
-  font-size: clamp(2.6rem,8vw,3.6rem);
+  font-size: clamp(3.2rem,10vw,4.4rem);
   font-weight: 900;
   color: #fff;
   letter-spacing: -.01em;
@@ -327,7 +328,7 @@ body {
   display: inline-block;
 }
 #s5 .cta-phone {
-  font-size: clamp(2.4rem,7.5vw,3.4rem);
+  font-size: clamp(3rem,9.5vw,4.2rem);
   font-weight: 600;
   color: #00d4ff;
   letter-spacing: .04em;
@@ -335,7 +336,7 @@ body {
   display: inline-block;
 }
 #s5 .cta-url {
-  font-size: clamp(1.6rem,5vw,2.2rem);
+  font-size: clamp(2rem,6.5vw,2.8rem);
   font-weight: 900;
   background: linear-gradient(135deg,#00d4ff,#a855f7);
   -webkit-background-clip: text;
@@ -347,7 +348,7 @@ body {
   margin-top: 6px;
 }
 #s5 .cta-sub {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: rgba(255,255,255,.28);
   letter-spacing: .12em;
   text-transform: uppercase;

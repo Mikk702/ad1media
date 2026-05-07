@@ -351,7 +351,7 @@ body {
 }
 
 .hiw-heading {
-    font-size: clamp(1.1rem, 2.4vw, 1.9rem);
+    font-size: clamp(0.88rem, 1.9vw, 1.52rem);
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.18em;
@@ -387,8 +387,8 @@ body {
 .hiw-ring {
     position: relative;
     flex-shrink: 0;
-    width: clamp(80px, 9vw, 130px);
-    height: clamp(80px, 9vw, 130px);
+    width: clamp(64px, 7.2vw, 104px);
+    height: clamp(64px, 7.2vw, 104px);
 }
 
 .hiw-num {
@@ -397,7 +397,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(1.8rem, 3.8vw, 3rem);
+    font-size: clamp(1.44rem, 3vw, 2.4rem);
     font-weight: 900;
     color: var(--c);
 }
@@ -407,7 +407,7 @@ body {
 .hiw-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 
 .hiw-step-label {
-    font-size: clamp(1.1rem, 2.3vw, 1.9rem);
+    font-size: clamp(0.88rem, 1.84vw, 1.52rem);
     font-weight: 700;
     color: var(--c);
     text-transform: uppercase;
@@ -416,7 +416,7 @@ body {
 }
 
 .hiw-step-detail {
-    font-size: clamp(0.85rem, 1.6vw, 1.3rem);
+    font-size: clamp(0.68rem, 1.28vw, 1.04rem);
     color: rgba(255,255,255,0.35);
     line-height: 1.3;
 }

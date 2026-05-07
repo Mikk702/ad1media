@@ -284,6 +284,7 @@ body {
     height: clamp(1rem, 2vw, 1.7rem);
     object-fit: contain;
     flex-shrink: 0;
+    transform: skewX(18deg);
 }
 
 .list-item:nth-child(1) { animation-delay: 0.2s; }

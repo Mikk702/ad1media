@@ -50,12 +50,39 @@
         </div>
         <div class="bullet-list-outer">
         <div class="bullet-list">
-            <div class="list-item"><img src="img/ps.png" alt="" class="app-logo">Photoshop</div>
-            <div class="list-item"><img src="img/pr.png" alt="" class="app-logo">Premiere</div>
-            <div class="list-item"><img src="img/dr.png" alt="" class="app-logo">Davinci Resolve</div>
-            <div class="list-item"><img src="img/logos/comfyui.png" alt="" class="app-logo">Comfyui</div>
-            <div class="list-item"><img src="img/logos/aiapps.png" alt="" class="app-logo">Ai Apps</div>
-            <div class="list-item"><img src="img/logos/vibecoding.png" alt="" class="app-logo">Vibe Coding</div>
+            <div class="inf-header">Tools We Teach</div>
+            <div class="inf-grid">
+                <div class="inf-tile" style="--c:#00d4ff">
+                    <img src="img/ps.png" alt="" class="inf-logo">
+                    <div class="inf-name">Photoshop</div>
+                    <div class="inf-tag">Photo &amp; Design</div>
+                </div>
+                <div class="inf-tile" style="--c:#a855f7">
+                    <img src="img/pr.png" alt="" class="inf-logo">
+                    <div class="inf-name">Premiere</div>
+                    <div class="inf-tag">Video Editing</div>
+                </div>
+                <div class="inf-tile" style="--c:#00ff88">
+                    <img src="img/dr.png" alt="" class="inf-logo">
+                    <div class="inf-name">DaVinci</div>
+                    <div class="inf-tag">Color Grading</div>
+                </div>
+                <div class="inf-tile" style="--c:#00e5c8">
+                    <img src="img/logos/comfyui.png" alt="" class="inf-logo">
+                    <div class="inf-name">ComfyUI</div>
+                    <div class="inf-tag">AI Imagery</div>
+                </div>
+                <div class="inf-tile" style="--c:#f59e0b">
+                    <img src="img/logos/aiapps.png" alt="" class="inf-logo">
+                    <div class="inf-name">AI Apps</div>
+                    <div class="inf-tag">Automation</div>
+                </div>
+                <div class="inf-tile" style="--c:#ff6b9d">
+                    <img src="img/logos/vibecoding.png" alt="" class="inf-logo">
+                    <div class="inf-name">Vibe Coding</div>
+                    <div class="inf-tag">Dev + AI</div>
+                </div>
+            </div>
         </div>
         </div>
         </div>
@@ -77,7 +104,7 @@
         const v1 = document.getElementById('q3vid1');
         const v1Wrapper = document.querySelector('.q3-video-wrapper');
         const appsOuter = document.querySelector('.bullet-list-outer');
-        const items = document.querySelectorAll('.list-item');
+        const items = document.querySelectorAll('.inf-tile');
 
         function showApps() {
             appsOuter.style.opacity = '1';

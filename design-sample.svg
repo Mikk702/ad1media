@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="44%" r="65%">
+    <stop offset="0%"   stop-color="#0d1a30"/>
+    <stop offset="55%"  stop-color="#080e1c"/>
+    <stop offset="100%" stop-color="#020508"/>
+  </radialGradient>
+
+  <radialGradient id="core-glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"  stop-color="#00d4ff" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+  </radialGradient>
+
+  <filter id="glow-lg" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="glow-sm" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="glow-txt" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+
+  <pattern id="grid" width="90" height="90" patternUnits="userSpaceOnUse">
+    <line x1="0" y1="0" x2="90" y2="0" stroke="#00d4ff" stroke-width="0.4" opacity="0.05"/>
+    <line x1="0" y1="0" x2="0" y2="90" stroke="#00d4ff" stroke-width="0.4" opacity="0.05"/>
+  </pattern>
+
+  <pattern id="scan" width="1" height="4" patternUnits="userSpaceOnUse">
+    <line x1="0" y1="0" x2="1080" y2="0" stroke="#00d4ff" stroke-width="0.3" opacity="0.03"/>
+  </pattern>
+</defs>
+
+<!-- ── BACKGROUND ───────────────────────────── -->
+<rect width="1080" height="1350" fill="url(#bg)"/>
+<rect width="1080" height="1350" fill="url(#grid)"/>
+<rect width="1080" height="1350" fill="url(#scan)"/>
+
+<!-- ── CORE RADIAL GLOW ─────────────────────── -->
+<ellipse cx="540" cy="570" rx="380" ry="380" fill="url(#core-glow)"/>
+
+<!-- ── RADAR RINGS ──────────────────────────── -->
+<circle cx="540" cy="570" r="70"  fill="none" stroke="#00d4ff" stroke-width="0.6" opacity="0.18"/>
+<circle cx="540" cy="570" r="140" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.22"/>
+<circle cx="540" cy="570" r="210" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.25"/>
+<circle cx="540" cy="570" r="290" fill="none" stroke="#00d4ff" stroke-width="1"   opacity="0.22"/>
+<circle cx="540" cy="570" r="380" fill="none" stroke="#a855f7" stroke-width="1"   opacity="0.2"/>
+<circle cx="540" cy="570" r="480" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.1"/>
+
+<!-- ── CROSSHAIRS ───────────────────────────── -->
+<line x1="540" y1="20"   x2="540" y2="1120" stroke="#00d4ff" stroke-width="0.5" opacity="0.1"/>
+<line x1="20"  y1="570"  x2="1060" y2="570" stroke="#00d4ff" stroke-width="0.5" opacity="0.1"/>
+
+<!-- ── DIAGONAL AXES ────────────────────────── -->
+<line x1="270" y1="300" x2="810" y2="840" stroke="#00d4ff" stroke-width="0.4" opacity="0.07"/>
+<line x1="810" y1="300" x2="270" y2="840" stroke="#00d4ff" stroke-width="0.4" opacity="0.07"/>
+
+<!-- ── ACTIVE ARC (top-right quadrant) ──────── -->
+<path d="M 540 280 A 290 290 0 0 1 790 420" fill="none" stroke="#00d4ff" stroke-width="2.5" opacity="0.9" filter="url(#glow-lg)"/>
+<path d="M 540 280 A 290 290 0 0 1 790 420" fill="none" stroke="#fff"    stroke-width="0.8" opacity="0.5"/>
+
+<!-- ── SWEEP LINE ────────────────────────────── -->
+<line x1="540" y1="570" x2="790" y2="420" stroke="#00d4ff" stroke-width="1.5" opacity="0.75" filter="url(#glow-sm)"/>
+
+<!-- ── SWEEP FILL (triangle glow) ───────────── -->
+<path d="M 540 570 L 540 280 A 290 290 0 0 1 790 420 Z" fill="#00d4ff" opacity="0.03"/>
+
+<!-- ── CENTER DOT ────────────────────────────── -->
+<circle cx="540" cy="570" r="10" fill="#00d4ff" opacity="0.25" filter="url(#glow-lg)"/>
+<circle cx="540" cy="570" r="4"  fill="#00d4ff" filter="url(#glow-sm)"/>
+<circle cx="540" cy="570" r="1.5" fill="#fff"/>
+
+<!-- ── BLIPS ─────────────────────────────────── -->
+<!-- Blip 01 — strong hit, top-right, ring 210 -->
+<circle cx="689" cy="421" r="6"   fill="#00ff88" filter="url(#glow-lg)"/>
+<circle cx="689" cy="421" r="2.5" fill="#fff"/>
+<circle cx="689" cy="421" r="14"  fill="none" stroke="#00ff88" stroke-width="0.8" opacity="0.4"/>
+
+<!-- Blip 02 — top, ring 290 -->
+<circle cx="622" cy="283" r="5"   fill="#00d4ff" filter="url(#glow-sm)"/>
+<circle cx="622" cy="283" r="2"   fill="#fff"/>
+
+<!-- Blip 03 — left, ring 380 -->
+<circle cx="178" cy="498" r="4"   fill="#a855f7" filter="url(#glow-sm)"/>
+<circle cx="178" cy="498" r="1.8" fill="#fff"/>
+
+<!-- Blip 04 — bottom-right, ring 210 -->
+<circle cx="695" cy="714" r="3.5" fill="#00e5c8" filter="url(#glow-sm)"/>
+<circle cx="695" cy="714" r="1.5" fill="#fff"/>
+
+<!-- Blip 05 — ring 140, lower-left -->
+<circle cx="437" cy="695" r="3"   fill="#f59e0b" filter="url(#glow-sm)"/>
+
+<!-- ── BLIP LABELS ───────────────────────────── -->
+<text x="706" y="416" font-family="'Courier New',monospace" font-size="11" fill="#00ff88" opacity="0.9" letter-spacing="1">01 · 14.3 km · 047°</text>
+<text x="636" y="278" font-family="'Courier New',monospace" font-size="11" fill="#00d4ff" opacity="0.75" letter-spacing="1">02 · 21.8 km · 022°</text>
+<text x="126" y="494" font-family="'Courier New',monospace" font-size="11" fill="#a855f7" opacity="0.75" letter-spacing="1" text-anchor="end">03 · 33.6 km · 271°</text>
+<text x="710" y="724" font-family="'Courier New',monospace" font-size="11" fill="#00e5c8" opacity="0.7" letter-spacing="1">04 · 15.2 km · 133°</text>
+
+<!-- ── DEGREE MARKERS ─────────────────────────── -->
+<!-- 000° -->
+<line x1="540" y1="88"  x2="540" y2="104" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+<text x="540" y="80" font-family="'Courier New',monospace" font-size="10" fill="#00d4ff" opacity="0.35" text-anchor="middle">000°</text>
+<!-- 090° -->
+<line x1="1022" y1="570" x2="1006" y2="570" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+<text x="1034" y="574" font-family="'Courier New',monospace" font-size="10" fill="#00d4ff" opacity="0.35">090°</text>
+<!-- 180° -->
+<line x1="540" y1="1052" x2="540" y2="1036" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+<text x="540" y="1068" font-family="'Courier New',monospace" font-size="10" fill="#00d4ff" opacity="0.35" text-anchor="middle">180°</text>
+<!-- 270° -->
+<line x1="58"  y1="570" x2="74" y2="570" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+<text x="46" y="574" font-family="'Courier New',monospace" font-size="10" fill="#00d4ff" opacity="0.35" text-anchor="end">270°</text>
+<!-- 045° -->
+<text x="830" y="290" font-family="'Courier New',monospace" font-size="9" fill="#00d4ff" opacity="0.2">045°</text>
+<!-- 135° -->
+<text x="830" y="870" font-family="'Courier New',monospace" font-size="9" fill="#00d4ff" opacity="0.2">135°</text>
+<!-- 225° -->
+<text x="210" y="870" font-family="'Courier New',monospace" font-size="9" fill="#00d4ff" opacity="0.2" text-anchor="end">225°</text>
+<!-- 315° -->
+<text x="210" y="290" font-family="'Courier New',monospace" font-size="9" fill="#00d4ff" opacity="0.2" text-anchor="end">315°</text>
+
+<!-- ── RANGE RINGS LABELS ──────────────────── -->
+<text x="544" y="497" font-family="'Courier New',monospace" font-size="9" fill="#00d4ff" opacity="0.28">70</text>
+<text x="544" y="427" font-family="'Courier New',monospace" font-size="9" fill="#00d4ff" opacity="0.28">140</text>
+<text x="544" y="357" font-family="'Courier New',monospace" font-size="9" fill="#00d4ff" opacity="0.28">210</text>
+<text x="544" y="277" font-family="'Courier New',monospace" font-size="9" fill="#00d4ff" opacity="0.28">290</text>
+<text x="544" y="188" font-family="'Courier New',monospace" font-size="9" fill="#a855f7" opacity="0.25">380</text>
+
+<!-- ── HEADER ──────────────────────────────── -->
+<text x="540" y="46" font-family="'Courier New',monospace" font-size="11" fill="#00d4ff" opacity="0.3" text-anchor="middle" letter-spacing="5">SIGNAL · DEEP FREQUENCY ANALYSIS · NODE 001</text>
+<line x1="60" y1="54" x2="1020" y2="54" stroke="#00d4ff" stroke-width="0.5" opacity="0.12"/>
+
+<!-- ── STATUS STRIP ───────────────────────── -->
+<rect x="60" y="1090" width="200" height="1" fill="#00d4ff" opacity="0.15"/>
+<text x="60"  y="1108" font-family="'Courier New',monospace" font-size="10" fill="#00d4ff" opacity="0.35" letter-spacing="1">STATUS · ACTIVE</text>
+<rect x="60"  y="1114" width="80" height="2" fill="#00ff88" opacity="0.6" filter="url(#glow-sm)"/>
+
+<text x="1020" y="1108" font-family="'Courier New',monospace" font-size="10" fill="#a855f7" opacity="0.35" text-anchor="end" letter-spacing="1">CONTACTS · 05</text>
+<rect x="880" y="1114" width="140" height="2" fill="#a855f7" opacity="0.5"/>
+
+<text x="540" y="1108" font-family="'Courier New',monospace" font-size="10" fill="#00d4ff" opacity="0.3" text-anchor="middle" letter-spacing="2">PWR 82.4 dB · FREQ 2.4 GHz</text>
+
+<!-- ── DIVIDER ────────────────────────────── -->
+<line x1="60" y1="1128" x2="1020" y2="1128" stroke="#00d4ff" stroke-width="0.5" opacity="0.15"/>
+
+<!-- ── MAIN TYPE — outline ghost (glow layer) -->
+<text x="54" y="1282"
+  font-family="Impact, 'Arial Black', sans-serif"
+  font-size="212" font-weight="900"
+  fill="#00d4ff" opacity="0.06"
+  letter-spacing="-6">SIGNAL</text>
+
+<!-- ── MAIN TYPE — outline stroke -->
+<text x="54" y="1282"
+  font-family="Impact, 'Arial Black', sans-serif"
+  font-size="212" font-weight="900"
+  fill="none"
+  stroke="#00d4ff" stroke-width="0.8"
+  opacity="0.45"
+  letter-spacing="-6">SIGNAL</text>
+
+<!-- ── MAIN TYPE — partial fill (left half visible) -->
+<clipPath id="left-half">
+  <rect x="0" y="0" width="350" height="1350"/>
+</clipPath>
+<text x="54" y="1282"
+  font-family="Impact, 'Arial Black', sans-serif"
+  font-size="212" font-weight="900"
+  fill="#00d4ff" opacity="0.55"
+  letter-spacing="-6"
+  clip-path="url(#left-half)"
+  filter="url(#glow-txt)">SIGNAL</text>
+
+<!-- ── SUBTITLE ───────────────────────────── -->
+<text x="540" y="1328"
+  font-family="'Courier New',monospace"
+  font-size="12" fill="#00d4ff" opacity="0.22"
+  text-anchor="middle" letter-spacing="7">DEEP SPACE MONITORING · SECTOR 7</text>
+
+<!-- ── CORNER COORDS ──────────────────────── -->
+<text x="60"   y="1348" font-family="'Courier New',monospace" font-size="9" fill="#a855f7" opacity="0.22" letter-spacing="1">34.0522° N  118.2437° W</text>
+<text x="1020" y="1348" font-family="'Courier New',monospace" font-size="9" fill="#a855f7" opacity="0.22" text-anchor="end" letter-spacing="1">UTC 2025-05-07 · 03:41:22</text>
+
+</svg>

@@ -271,7 +271,7 @@ body {
 }
 
 .hiw-heading {
-    font-size: clamp(1.1rem, 3.5vh, 1.8rem);
+    font-size: clamp(0.99rem, 3.15vh, 1.62rem);
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.18em;

@@ -541,7 +541,7 @@ body {
 }
 .hs4-sub {
     display:inline-flex; flex-direction:column;
-    font-size:clamp(1.32rem,4.2vh,2.64rem); font-weight:900; line-height:1.0; letter-spacing:-0.01em;
+    font-size:clamp(1.58rem,5vh,3.17rem); font-weight:900; line-height:1.0; letter-spacing:-0.01em;
     margin-top:clamp(30px,8vh,70px);
     background:linear-gradient(160deg,#f59e0b 0%,#ff6b9d 55%,#a855f7 100%);
     -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;

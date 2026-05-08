@@ -514,7 +514,7 @@ body {
 .hs3-name { font-size:clamp(1rem,3vh,1.5rem); font-weight:700; letter-spacing:0.08em; text-transform:uppercase; }
 .hs3-name.meet { color:#4fc3f7; animation:hs-slideL 0.5s 0.5s ease-out both; }
 .hs3-name.zoom { color:#a78bfa; animation:hs-slideR 0.5s 0.5s ease-out both; }
-.hs3-or { font-size:clamp(1.8rem,5vh,3rem); font-weight:900; color:rgba(255,255,255,0.15); }
+.hs3-or { font-size:clamp(1.8rem,5vh,3rem); font-weight:900; color:rgba(255,255,255,0.5); }
 .hs3-headline { font-size:clamp(1.8rem,5.5vh,3.2rem); font-weight:900; color:#fff; letter-spacing:-0.01em; text-align:center; animation:hs-fadeUp 0.6s 0.65s cubic-bezier(0.34,1.56,0.64,1) both; }
 
 /* Screen 4 — Create! */

@@ -119,51 +119,17 @@
             </div>
         </div>
         <div class="hiw-outer">
-            <div class="hiw-step-indicator" id="hiwStepLabel">Step 1</div>
             <div class="hiw-scene current" id="hiws1">
-                <div class="hs-pulse-wrap">
-                    <div class="hs-pulse-ring r1"></div>
-                    <div class="hs-pulse-ring r2"></div>
-                    <div class="hs-phone-icon">📞</div>
-                </div>
-                <div class="hs1-number"><a href="tel:+12134440024">213 444-0024</a></div>
-                <div class="hs-sub">Call or Text · Nationwide</div>
+                <div class="hiw-label" style="color:#00d4ff;filter:drop-shadow(0 0 30px #00d4ff)">Step 1</div>
             </div>
             <div class="hiw-scene" id="hiws2">
-                <div class="hs2-headline">Book a<br><em>Session</em></div>
-                <div class="hs2-line-wrap"><div class="hs2-line"></div></div>
-                <div class="hs2-sub">Pick a time that works for you</div>
+                <div class="hiw-label" style="color:#a855f7;filter:drop-shadow(0 0 30px #a855f7)">Step 2</div>
             </div>
             <div class="hiw-scene" id="hiws3">
-                <div class="hs3-split">
-                    <div class="hs3-platform">
-                        <div class="hs3-icon meet">📹</div>
-                        <div class="hs3-name meet">Google Meet</div>
-                    </div>
-                    <div class="hs3-or">or</div>
-                    <div class="hs3-platform">
-                        <div class="hs3-icon zoom">💻</div>
-                        <div class="hs3-name zoom">Zoom</div>
-                    </div>
-                </div>
-                <div class="hs3-headline">Live Screen-Share Session</div>
-                <div class="hs-sub">From anywhere · No travel</div>
+                <div class="hiw-label" style="color:#00ff88;filter:drop-shadow(0 0 30px #00ff88)">Step 3</div>
             </div>
             <div class="hiw-scene" id="hiws4">
-                <div class="hs-bg c1"></div><div class="hs-bg c2"></div>
-                <div class="hs-bg c3"></div><div class="hs-bg c4"></div>
-                <div class="hs-star s1"></div><div class="hs-star s2"></div>
-                <div class="hs-star s3"></div><div class="hs-star s4"></div>
-                <div class="hs4-word">Create!</div>
-                <div class="hs4-sub">Put your new skills to work</div>
-                <div class="hs4-pills">
-                    <div class="hs4-pill p1">Photoshop</div>
-                    <div class="hs4-pill p2">Premiere</div>
-                    <div class="hs4-pill p3">DaVinci</div>
-                    <div class="hs4-pill p4">ComfyUI</div>
-                    <div class="hs4-pill p5">AI Apps</div>
-                    <div class="hs4-pill p6">Vibe Coding</div>
-                </div>
+                <div class="hiw-label" style="color:#f59e0b;filter:drop-shadow(0 0 30px #f59e0b)">Step 4</div>
             </div>
         </div>
     </section>
@@ -173,9 +139,7 @@
         const vidWrapper = document.querySelector('.q3-video-wrapper');
         const appsOuter = document.querySelector('.bullet-list-outer');
         const hiwOuter = document.querySelector('.hiw-outer');
-        const hiwStepLabel = document.getElementById('hiwStepLabel');
         const items = document.querySelectorAll('.inf-tile');
-        const stepColors = ['#00d4ff', '#a855f7', '#00ff88', '#f59e0b'];
 
         function showApps() {
             hiwOuter.style.opacity = '0';
@@ -197,12 +161,6 @@
             }, 600);
         }
 
-        function resetHIWAnims(scene) {
-            scene.querySelectorAll('*').forEach(el => { el.style.animation = 'none'; });
-            void scene.offsetHeight;
-            scene.querySelectorAll('*').forEach(el => { el.style.animation = ''; });
-        }
-
         function showHIW() {
             hiwOuter.style.opacity = '1';
             const hiwScenes = hiwOuter.querySelectorAll('.hiw-scene');
@@ -212,10 +170,7 @@
                 s.classList.remove('current', 'sliding');
                 s.style.transform = i === 0 ? 'translateX(0)' : 'translateX(100%)';
             });
-            resetHIWAnims(hiwScenes[0]);
             hiwScenes[0].classList.add('current');
-            hiwStepLabel.textContent = 'Step 1';
-            hiwStepLabel.style.color = stepColors[0];
 
             function advanceHIW() {
                 const nextHIW = hiwCur + 1;
@@ -225,7 +180,6 @@
                     return;
                 }
                 hiwScenes[nextHIW].style.transform = 'translateX(100%)';
-                resetHIWAnims(hiwScenes[nextHIW]);
                 requestAnimationFrame(() => {
                     hiwScenes[hiwCur].classList.add('sliding');
                     hiwScenes[nextHIW].classList.add('sliding');
@@ -236,8 +190,6 @@
                         hiwScenes[nextHIW].classList.add('current');
                         hiwScenes[nextHIW].classList.remove('sliding');
                         hiwCur = nextHIW;
-                        hiwStepLabel.textContent = 'Step ' + (hiwCur + 1);
-                        hiwStepLabel.style.color = stepColors[hiwCur];
                         setTimeout(advanceHIW, 4000);
                     }, 530);
                 });

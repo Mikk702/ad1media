@@ -361,19 +361,31 @@ body {
     position: absolute;
     inset: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 0;
     will-change: transform;
     transform: translateX(100%);
 }
 .hiw-scene.current { transform: translateX(0); }
 .hiw-scene.sliding { transition: transform 0.52s cubic-bezier(0.77,0,0.175,1); }
-.hiw-label {
-    font-size: clamp(5rem, 18vh, 10rem);
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    white-space: nowrap;
+.hiw-word {
+    font-size: clamp(1.4rem, 4vh, 2.5rem);
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--c);
+    opacity: 0.7;
     line-height: 1;
+}
+.hiw-num {
+    font-size: clamp(10rem, 35vh, 20rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    color: var(--c);
+    filter: drop-shadow(0 0 40px var(--c));
+    line-height: 0.85;
 }
 
 @keyframes hs-pulse  { 0%,100%{transform:scale(1);opacity:0.6} 50%{transform:scale(1.7);opacity:0} }

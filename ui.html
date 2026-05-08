@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEXUS AI - Advanced Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffafd3",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#0d0d1a",
+                        "on-secondary-fixed": "#001a42",
+                        "primary-fixed": "#eaddff",
+                        "on-background": "#e3e0f3",
+                        "surface-container-highest": "#343342",
+                        "on-primary-container": "#ede0ff",
+                        "on-tertiary-container": "#ffdce9",
+                        "background": "#12121f",
+                        "surface-container-low": "#1a1a28",
+                        "on-error": "#690005",
+                        "surface-tint": "#d2bbff",
+                        "on-secondary-container": "#e6ecff",
+                        "on-tertiary": "#620040",
+                        "secondary-container": "#0566d9",
+                        "surface-bright": "#383846",
+                        "inverse-primary": "#732ee4",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#ccc3d8",
+                        "tertiary-container": "#ae397b",
+                        "surface-variant": "#343342",
+                        "on-tertiary-fixed": "#3d0026",
+                        "secondary": "#adc6ff",
+                        "inverse-surface": "#e3e0f3",
+                        "primary-fixed-dim": "#d2bbff",
+                        "primary": "#d2bbff",
+                        "surface-dim": "#12121f",
+                        "on-tertiary-fixed-variant": "#85145a",
+                        "on-surface": "#e3e0f3",
+                        "outline-variant": "#4a4455",
+                        "inverse-on-surface": "#2f2f3d",
+                        "on-secondary-fixed-variant": "#004395",
+                        "tertiary-fixed": "#ffd8e7",
+                        "surface-container-high": "#292937",
+                        "surface": "#12121f",
+                        "error-container": "#93000a",
+                        "primary-container": "#7c3aed",
+                        "on-primary": "#3f008e",
+                        "tertiary": "#ffafd3",
+                        "outline": "#958da1",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-secondary": "#002e6a",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-container": "#1e1e2c",
+                        "on-primary-fixed": "#25005a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "card-gap": "20px",
+                        "unit": "4px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "body-lg": ["Sora"],
+                        "headline-md": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "body-md": ["Sora"],
+                        "headline-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Sora', sans-serif; background-color: #12121f; }
+        .glass-panel {
+            backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .inner-glow {
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow-primary {
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+        }
+        .neon-text-primary {
+            text-shadow: 0 0 8px rgba(210, 187, 255, 0.5);
+        }
+        .active-nav-glow {
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/30 min-h-screen overflow-x-hidden pb-24 lg:pb-0 lg:pl-64">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center px-gutter py-unit h-16 w-full fixed top-0 z-50 bg-surface/30 dark:bg-surface-container/40 docked full-width top-0 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-headline-md tracking-tighter text-primary dark:text-primary-fixed">NEXUS AI</span>
+<div class="hidden md:flex items-center bg-white/5 rounded-full px-4 py-1.5 border border-white/10">
+<span class="material-symbols-outlined text-outline text-[20px] mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md text-on-surface w-48 lg:w-64" placeholder="Search analytics..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-white/5 transition-colors duration-300 p-2 rounded-full">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-white/5 transition-colors duration-300 p-2 rounded-full">settings</button>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-primary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQjMERQHWe5UUxSREmsTmAaRpn-lSZhmCf_-RvILRTI5F8P9RzOuqcTqIBF2CNSZV_OOO8XKajLiRax7BcCSbEk-wa4fRYsk5bZ3A0GbQB_HkPpElnNWRNYdblaXOmdIiwZCReutuPRu2wBWW5dtE5OgLkFiTGYvek2pR4rgpKSifon5E29X5_Fll-TR1_T5jFTqI1wZcMFV3vZIy4KdgIpo5UQBA35jDO2HEOrx4soiTRFa_RtbxQ2HjYHgFs--oYvSmGBpFAeODy"/>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-full p-container-padding z-40 bg-surface-container-low/50 dark:bg-surface-container-lowest/50 docked left-0 h-screen w-64 backdrop-blur-3xl border-r border-white/5 shadow-[4px_0_24px_rgba(0,0,0,0.5)] pt-20">
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">rocket_launch</span>
+</div>
+<div>
+<p class="font-headline-md text-label-md font-bold text-primary dark:text-primary-fixed">Project Nexus</p>
+<p class="text-[11px] text-outline">Enterprise Tier</p>
+</div>
+</div>
+<button class="w-full py-3 px-4 rounded-xl bg-primary-container text-on-primary-container font-label-md flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                New Initiative
+            </button>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-on-surface-variant hover:text-on-surface hover:bg-white/10 group" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-on-surface-variant hover:text-on-surface hover:bg-white/10 group" href="#">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span class="font-label-md">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary-container text-on-primary-container shadow-[0_0_15px_rgba(124,58,237,0.4)]" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-md">Insights</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-on-surface-variant hover:text-on-surface hover:bg-white/10 group" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-md">Messages</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-on-surface-variant hover:text-on-surface hover:bg-white/10 group" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-md">Archive</span>
+</a>
+</nav>
+<div class="mt-auto p-4 glass-panel rounded-2xl border-white/5">
+<p class="text-[12px] text-outline-variant mb-2">STORAGE STATUS</p>
+<div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden mb-2">
+<div class="h-full bg-gradient-to-r from-primary to-secondary w-[72%]"></div>
+</div>
+<p class="text-[11px] text-on-surface-variant">1.4 TB of 2.0 TB used</p>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="pt-24 px-gutter lg:px-container-padding pb-gutter max-w-7xl mx-auto">
+<!-- Dashboard Header -->
+<header class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-display-lg text-headline-lg lg:text-display-lg text-on-surface mb-2">Insights Dashboard</h1>
+<p class="text-on-surface-variant font-body-md max-w-lg">Advanced metrics and predictive modeling for Project Nexus ecosystem.</p>
+</div>
+<div class="flex gap-3">
+<div class="glass-panel px-4 py-2 rounded-xl flex items-center gap-2 border-white/10">
+<span class="material-symbols-outlined text-[18px] text-primary">calendar_today</span>
+<span class="text-label-md">Oct 12 - Oct 19</span>
+</div>
+<button class="glass-panel px-4 py-2 rounded-xl flex items-center gap-2 border-white/10 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span class="text-label-md">Filters</span>
+</button>
+</div>
+</header>
+<!-- Bento Grid Analytics -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-card-gap">
+<!-- Main Line Chart: Performance Metrics -->
+<section class="md:col-span-8 glass-panel rounded-[2rem] p-8 border-white/10 relative overflow-hidden">
+<div class="relative z-10 flex justify-between items-start mb-12">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1">Performance Metrics</h2>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary neon-glow-primary"></span>
+<p class="text-label-md text-outline">Real-time throughput (ms)</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-display-lg font-display-lg text-primary neon-text-primary">98.4%</p>
+<p class="text-label-md text-secondary">+2.4% vs last week</p>
+</div>
+</div>
+<!-- Simplified Neon Chart Placeholder -->
+<div class="h-64 w-full relative">
+<svg class="w-full h-full" viewbox="0 0 800 200">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#d2bbff" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#d2bbff" stop-opacity="0"></stop>
+</lineargradient>
+<filter id="glow">
+<fegaussianblur result="coloredBlur" stddeviation="3"></fegaussianblur>
+<femerge>
+<femergenode in="coloredBlur"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+</defs>
+<path d="M0,150 Q100,80 200,120 T400,60 T600,100 T800,40 L800,200 L0,200 Z" fill="url(#chartGradient)"></path>
+<path d="M0,150 Q100,80 200,120 T400,60 T600,100 T800,40" fill="none" filter="url(#glow)" stroke="#d2bbff" stroke-linecap="round" stroke-width="4"></path>
+<circle cx="400" cy="60" fill="#d2bbff" filter="url(#glow)" r="6"></circle>
+</svg>
+<!-- Floating Data Tooltip -->
+<div class="absolute top-4 left-1/2 -translate-x-1/2 glass-panel px-4 py-2 rounded-xl border-primary/30 backdrop-blur-3xl">
+<p class="text-label-md font-bold">Peak: 12.4ms</p>
+</div>
+</div>
+</section>
+<!-- User Growth Stats -->
+<section class="md:col-span-4 glass-panel rounded-[2rem] p-8 border-white/10 flex flex-col justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">User Growth</h2>
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<div>
+<p class="text-label-md text-outline">Total Active</p>
+<p class="text-headline-lg font-headline-lg">1,284,042</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-[32px]">trending_up</span>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<p class="text-label-md text-outline">New Monthly</p>
+<p class="text-headline-lg font-headline-lg">+12.5k</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[32px]">group_add</span>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<img class="w-full h-32 object-cover rounded-2xl opacity-60" data-alt="A futuristic global heatmap visualization on a dark background. Glowing nodes of purple and pink light represent user density across a stylized digital world map. The aesthetic is clean and high-tech, with a dark blue and violet color palette and soft ethereal light glows from the data points." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtqDexOqPZJPFkOtGTrHAgSe6a-EvDo5dwgzwf_BdG-ut1s2rxXnyKuNWvnYGSsypDOpRO23L7pFbgrWytoHjLYyaOqpFLo7VQboiED6Bn5gaGzxPpuwXbqmqlq0CZEmgwWjDoX02qo9pU9zY0oIJfnNOGsxXbd1Cvizirdk0PbaEY9XqVUuHpGwF3KRrNJopfPHVlkfkQtn40i_DWxugLv-9fNYctuerF-hWsH7H4PtdnSDtSuuBxFVdSlAAEtvJEhuHxsMOfL5Mj"/>
+</div>
+</section>
+<!-- Performance Comparison Cards -->
+<div class="md:col-span-3 glass-panel rounded-[1.5rem] p-6 border-white/5 inner-glow">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/20 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary">memory</span>
+</div>
+<p class="text-label-md text-outline mb-1">Compute Load</p>
+<div class="flex items-end gap-2">
+<span class="text-headline-lg font-headline-lg">42.8%</span>
+<span class="text-label-md text-error mb-1">↑ 5%</span>
+</div>
+</div>
+<div class="md:col-span-3 glass-panel rounded-[1.5rem] p-6 border-white/5 inner-glow">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/20 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-tertiary">database</span>
+</div>
+<p class="text-label-md text-outline mb-1">Storage Utility</p>
+<div class="flex items-end gap-2">
+<span class="text-headline-lg font-headline-lg">68.1%</span>
+<span class="text-label-md text-secondary mb-1">↓ 2%</span>
+</div>
+</div>
+<div class="md:col-span-6 glass-panel rounded-[1.5rem] p-6 border-white/5 inner-glow">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-label-md font-bold text-on-surface">System Health</h3>
+<span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-[10px] font-bold uppercase tracking-wider">Optimal</span>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<div class="h-12 rounded-lg bg-primary/20 border border-primary/30"></div>
+<div class="h-12 rounded-lg bg-primary/20 border border-primary/30"></div>
+<div class="h-12 rounded-lg bg-primary/40 border border-primary/50 shadow-[0_0_10px_rgba(210,187,255,0.3)]"></div>
+<div class="h-12 rounded-lg bg-primary/10 border border-primary/20"></div>
+</div>
+</div>
+<!-- Recent Activity Table -->
+<section class="md:col-span-12 glass-panel rounded-[2rem] p-8 border-white/10">
+<div class="flex justify-between items-center mb-8">
+<h2 class="font-headline-md text-headline-md text-on-surface">Recent Activity</h2>
+<button class="text-primary text-label-md hover:underline">Download CSV</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-separate border-spacing-y-3">
+<thead>
+<tr class="text-outline font-label-md">
+<th class="pb-4 px-4">Event Source</th>
+<th class="pb-4 px-4">Identifier</th>
+<th class="pb-4 px-4">Timestamp</th>
+<th class="pb-4 px-4">Status</th>
+<th class="pb-4 px-4">Load</th>
+</tr>
+</thead>
+<tbody>
+<tr class="glass-panel group hover:bg-white/5 transition-colors">
+<td class="py-4 px-4 rounded-l-xl">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]">dns</span>
+</div>
+<span class="text-label-md">API Gateway Alpha</span>
+</div>
+</td>
+<td class="py-4 px-4 text-on-surface-variant font-mono text-[13px]">#req_928347</td>
+<td class="py-4 px-4 text-outline text-[13px]">2 mins ago</td>
+<td class="py-4 px-4">
+<span class="flex items-center gap-2 text-[12px] text-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Success
+                                    </span>
+</td>
+<td class="py-4 px-4 rounded-r-xl">
+<div class="w-24 h-1.5 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[45%]"></div>
+</div>
+</td>
+</tr>
+<tr class="glass-panel group hover:bg-white/5 transition-colors">
+<td class="py-4 px-4 rounded-l-xl">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[18px]">cloud_upload</span>
+</div>
+<span class="text-label-md">Data Stream Beta</span>
+</div>
+</td>
+<td class="py-4 px-4 text-on-surface-variant font-mono text-[13px]">#stream_12399</td>
+<td class="py-4 px-4 text-outline text-[13px]">8 mins ago</td>
+<td class="py-4 px-4">
+<span class="flex items-center gap-2 text-[12px] text-primary">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Processing
+                                    </span>
+</td>
+<td class="py-4 px-4 rounded-r-xl">
+<div class="w-24 h-1.5 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[82%]"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="mt-20 border-t border-outline-variant/20 py-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-card-gap px-container-padding">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-headline-md text-headline-md text-on-surface">NEXUS AI</span>
+<p class="font-label-md text-on-surface-variant text-center md:text-left">© 2024 NEXUS ANALYTICS • POWERED BY QUANTUM UI</p>
+</div>
+<div class="flex gap-8">
+<a class="text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Security</a>
+<a class="text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">API Docs</a>
+<a class="text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Status</a>
+<a class="text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</footer>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 w-full h-20 flex justify-around items-center px-4 z-50 bg-surface-container-high/80 dark:bg-surface-container-highest/80 docked full-width bottom-0 rounded-t-xl backdrop-blur-2xl border-t border-white/10 shadow-[0_-8px_40px_rgba(0,0,0,0.6)]">
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px]">Explore</span>
+</a>
+<div class="relative -top-6">
+<button class="w-14 h-14 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center shadow-[0_0_20px_rgba(124,58,237,0.5)]">
+<span class="material-symbols-outlined text-white text-[32px]">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim scale-110" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-[10px]">Insights</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px]">Me</span>
+</a>
+</nav>
+<!-- Floating Action Element -->
+<div class="fixed bottom-24 right-8 z-40 hidden md:flex flex-col gap-4">
+<button class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-primary border-primary/30 hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">support_agent</span>
+</button>
+<button class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-secondary border-secondary/30 hover:bg-secondary/20 transition-all">
+<span class="material-symbols-outlined">chat</span>
+</button>
+</div>
+</body></html>

@@ -398,6 +398,14 @@ body {
 .hs3-step { color:#00ff88; animation:hs-fadeDown 0.6s 0.1s cubic-bezier(0.34,1.56,0.64,1) both; }
 .hs4-step { color:#f59e0b; animation:hs-fadeDown 0.6s 0.1s cubic-bezier(0.34,1.56,0.64,1) both; position:relative; }
 
+/* Screen 1 overrides — 3 items at 20 / 50 / 80% */
+#hiws1 {
+    justify-content: space-evenly;
+    padding: 4vh 28px 4vh;
+    gap: 0;
+}
+#hiws1 .hs-sub { display: none; }
+
 /* Screen 1 — Call */
 .hs-pulse-wrap { position:relative; display:flex; align-items:center; justify-content:center; }
 .hs-pulse-ring { position:absolute; border-radius:50%; border:2px solid #00d4ff; width:clamp(90px,15vh,130px); height:clamp(90px,15vh,130px); }
@@ -412,16 +420,16 @@ body {
     filter:drop-shadow(0 0 18px rgba(0,212,255,0.55));
 }
 .hs1-number {
-    font-size:clamp(2.2rem,7vh,4rem); font-weight:900; color:#00d4ff; letter-spacing:0.04em;
+    font-size:clamp(2.8rem,9vh,5.5rem); font-weight:900; color:#00d4ff; letter-spacing:0.04em;
     filter:drop-shadow(0 0 22px rgba(0,212,255,0.65));
     animation:hs-fadeUp 0.6s 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
 }
 .hs1-number a { color:inherit; text-decoration:none; }
-.hs-sub { font-size:clamp(0.85rem,2.5vh,1.2rem); color:rgba(255,255,255,0.35); letter-spacing:0.1em; text-transform:uppercase; text-align:center; animation:hs-fadeUp 0.5s 0.6s ease-out both; }
+.hs-sub { font-size:clamp(1rem,3vh,1.5rem); color:rgba(255,255,255,0.35); letter-spacing:0.1em; text-transform:uppercase; text-align:center; animation:hs-fadeUp 0.5s 0.6s ease-out both; }
 
 /* Screen 2 — Book */
 .hs2-headline {
-    font-size:clamp(2.8rem,9vh,5.5rem); font-weight:900; color:#fff;
+    font-size:clamp(3.5rem,11vh,7rem); font-weight:900; color:#fff;
     letter-spacing:-0.02em; line-height:1; text-align:center;
     animation:hs-fadeUp 0.6s 0.25s cubic-bezier(0.34,1.56,0.64,1) both;
 }
@@ -437,7 +445,7 @@ body {
     box-shadow:0 0 12px rgba(168,85,247,0.7);
     animation:hs-lineGrow 0.9s 0.55s cubic-bezier(0.4,0,0.2,1) both;
 }
-.hs2-sub { font-size:clamp(0.9rem,2.8vh,1.3rem); color:rgba(255,255,255,0.4); text-align:center; letter-spacing:0.06em; animation:hs-fadeUp 0.5s 0.75s ease-out both; }
+.hs2-sub { font-size:clamp(1.2rem,3.5vh,1.8rem); color:rgba(255,255,255,0.4); text-align:center; letter-spacing:0.06em; animation:hs-fadeUp 0.5s 0.75s ease-out both; }
 
 /* Screen 3 — Meet or Zoom */
 .hs3-split { display:flex; align-items:center; gap:clamp(18px,4vw,36px); animation:hs-fadeUp 0.6s 0.2s ease-out both; }
@@ -449,11 +457,11 @@ body {
 }
 .hs3-icon.meet { background:rgba(79,195,247,0.1); border-color:rgba(79,195,247,0.4); color:#4fc3f7; filter:drop-shadow(0 0 12px rgba(79,195,247,0.4)); animation:hs-slideL 0.6s 0.35s cubic-bezier(0.34,1.56,0.64,1) both; }
 .hs3-icon.zoom { background:rgba(167,139,250,0.1); border-color:rgba(167,139,250,0.4); color:#a78bfa; filter:drop-shadow(0 0 12px rgba(167,139,250,0.4)); animation:hs-slideR 0.6s 0.35s cubic-bezier(0.34,1.56,0.64,1) both; }
-.hs3-name { font-size:clamp(0.8rem,2.2vh,1.1rem); font-weight:700; letter-spacing:0.08em; text-transform:uppercase; }
+.hs3-name { font-size:clamp(1rem,3vh,1.5rem); font-weight:700; letter-spacing:0.08em; text-transform:uppercase; }
 .hs3-name.meet { color:#4fc3f7; animation:hs-slideL 0.5s 0.5s ease-out both; }
 .hs3-name.zoom { color:#a78bfa; animation:hs-slideR 0.5s 0.5s ease-out both; }
-.hs3-or { font-size:clamp(1.4rem,4vh,2.2rem); font-weight:900; color:rgba(255,255,255,0.15); }
-.hs3-headline { font-size:clamp(1.5rem,4.5vh,2.6rem); font-weight:900; color:#fff; letter-spacing:-0.01em; text-align:center; animation:hs-fadeUp 0.6s 0.65s cubic-bezier(0.34,1.56,0.64,1) both; }
+.hs3-or { font-size:clamp(1.8rem,5vh,3rem); font-weight:900; color:rgba(255,255,255,0.15); }
+.hs3-headline { font-size:clamp(1.8rem,5.5vh,3.2rem); font-weight:900; color:#fff; letter-spacing:-0.01em; text-align:center; animation:hs-fadeUp 0.6s 0.65s cubic-bezier(0.34,1.56,0.64,1) both; }
 
 /* Screen 4 — Create! */
 #hiws4 { overflow:hidden; }
@@ -468,16 +476,16 @@ body {
 .hs-star.s3 { width:9px;height:9px; background:#00ff88; bottom:28%;left:15%;animation:hs-popIn 0.5s 0.5s both,hs-twinkle 2.0s 0.8s infinite; }
 .hs-star.s4 { width:7px;height:7px; background:#f59e0b; bottom:22%;right:10%;animation:hs-popIn 0.5s 0.7s both,hs-twinkle 1.6s 1.4s infinite; }
 .hs4-word {
-    font-size:clamp(5rem,16vh,9rem); font-weight:900; line-height:1; letter-spacing:-0.03em;
+    font-size:clamp(6rem,20vh,11rem); font-weight:900; line-height:1; letter-spacing:-0.03em;
     background:linear-gradient(135deg,#f59e0b 0%,#ff6b9d 50%,#a855f7 100%);
     -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
     filter:drop-shadow(0 0 32px rgba(245,158,11,0.4));
     animation:hs-elastic 0.7s 0.25s cubic-bezier(0.34,1.56,0.64,1) both; position:relative;
 }
-.hs4-sub { font-size:clamp(0.9rem,2.8vh,1.3rem); color:rgba(255,255,255,0.4); letter-spacing:0.12em; text-transform:uppercase; animation:hs-fadeUp 0.5s 0.65s ease-out both; position:relative; }
-.hs4-pills { display:flex; gap:10px; animation:hs-fadeUp 0.5s 0.8s ease-out both; position:relative; flex-wrap:wrap; justify-content:center; }
+.hs4-sub { font-size:clamp(1.1rem,3.2vh,1.6rem); color:rgba(255,255,255,0.4); letter-spacing:0.12em; text-transform:uppercase; animation:hs-fadeUp 0.5s 0.65s ease-out both; position:relative; }
+.hs4-pills { display:flex; gap:12px; animation:hs-fadeUp 0.5s 0.8s ease-out both; position:relative; flex-wrap:wrap; justify-content:center; }
 .hs4-pills.r2 { animation-delay:0.95s; }
-.hs4-pill { font-size:clamp(0.65rem,2vh,1rem); font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:6px 16px; border-radius:100px; border:1px solid; }
+.hs4-pill { font-size:clamp(0.85rem,2.5vh,1.2rem); font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:8px 18px; border-radius:100px; border:1px solid; }
 .hs4-pill.p1 { color:#00d4ff; border-color:rgba(0,212,255,0.4);   background:rgba(0,212,255,0.08); }
 .hs4-pill.p2 { color:#a855f7; border-color:rgba(168,85,247,0.4);  background:rgba(168,85,247,0.08); }
 .hs4-pill.p3 { color:#00ff88; border-color:rgba(0,255,136,0.4);   background:rgba(0,255,136,0.08); }

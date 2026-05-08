@@ -445,7 +445,7 @@ body {
     filter:drop-shadow(0 0 18px rgba(0,212,255,0.55));
 }
 .hs1-number {
-    font-size:clamp(2.8rem,9vh,5.5rem); font-weight:900; color:#00d4ff; letter-spacing:0.04em;
+    font-size:clamp(1.8rem,6vh,3.5rem); font-weight:900; color:#00d4ff; letter-spacing:0.04em; white-space:nowrap;
     filter:drop-shadow(0 0 22px rgba(0,212,255,0.65));
     animation:hs-fadeUp 0.6s 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
 }
@@ -508,9 +508,8 @@ body {
     animation:hs-elastic 0.7s 0.25s cubic-bezier(0.34,1.56,0.64,1) both; position:relative;
 }
 .hs4-sub { font-size:clamp(1.1rem,3.2vh,1.6rem); color:rgba(255,255,255,0.4); letter-spacing:0.12em; text-transform:uppercase; animation:hs-fadeUp 0.5s 0.65s ease-out both; position:relative; }
-.hs4-pills { display:flex; gap:12px; animation:hs-fadeUp 0.5s 0.8s ease-out both; position:relative; flex-wrap:wrap; justify-content:center; }
-.hs4-pills.r2 { animation-delay:0.95s; }
-.hs4-pill { font-size:clamp(0.85rem,2.5vh,1.2rem); font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:8px 18px; border-radius:100px; border:1px solid; }
+.hs4-pills { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; width:90%; animation:hs-fadeUp 0.5s 0.8s ease-out both; position:relative; }
+.hs4-pill { font-size:clamp(0.7rem,2vh,1rem); font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:8px 10px; border-radius:100px; border:1px solid; text-align:center; white-space:nowrap; }
 .hs4-pill.p1 { color:#00d4ff; border-color:rgba(0,212,255,0.4);   background:rgba(0,212,255,0.08); }
 .hs4-pill.p2 { color:#a855f7; border-color:rgba(168,85,247,0.4);  background:rgba(168,85,247,0.08); }
 .hs4-pill.p3 { color:#00ff88; border-color:rgba(0,255,136,0.4);   background:rgba(0,255,136,0.08); }

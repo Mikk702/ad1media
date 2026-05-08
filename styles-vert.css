@@ -521,6 +521,7 @@ body {
 
 /* Screen 4 — Create! */
 #hiws4 { justify-content:space-between; padding: 4vh 0 6vh; overflow:hidden; }
+#hiws4 .hs4-word { margin-top: 5vh; }
 .hs-bg { position:absolute; border-radius:50%; border:1.5px solid; pointer-events:none; }
 .hs-bg.c1 { width:220px;height:220px; border-color:rgba(0,212,255,0.07);  top:-60px; right:-60px;  animation:hs-burst 0.8s 0.1s ease-out both; }
 .hs-bg.c2 { width:150px;height:150px; border-color:rgba(168,85,247,0.1);  bottom:-40px; left:-40px; animation:hs-burst 0.8s 0.2s ease-out both; }

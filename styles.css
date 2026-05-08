@@ -224,7 +224,15 @@ body {
     inset: 0;
     border-radius: 18px;
     padding: 3px;
+    background: rgb(10,16,35);
     transition: opacity 0.6s ease;
+}
+
+.spin-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    z-index: 0;
     background: conic-gradient(
         from var(--a),
         transparent 0deg,
@@ -236,11 +244,15 @@ body {
         #00d4ff 355deg,
         transparent 360deg
     );
-    animation: spinBorder 2s linear infinite;
+    opacity: 0;
 }
-
-@keyframes spinBorder {
-    to { --a: 360deg; }
+.spin-ring.active {
+    animation: spinTwiceFade 3s linear forwards;
+}
+@keyframes spinTwiceFade {
+    0%   { --a: 0deg;   opacity: 1; }
+    80%  { --a: 576deg; opacity: 1; }
+    100% { --a: 720deg; opacity: 0; }
 }
 
 .bullet-list {
@@ -340,24 +352,9 @@ body {
     inset: 0;
     border-radius: 18px;
     padding: 3px;
+    background: rgb(10,16,35);
     opacity: 0;
     transition: opacity 0.6s ease;
-    background: conic-gradient(
-        from var(--a),
-        transparent 0deg,
-        transparent 160deg,
-        #a855f7 210deg,
-        #00d4ff 255deg,
-        #00ff88 295deg,
-        #00e5c8 330deg,
-        #00d4ff 355deg,
-        transparent 360deg
-    );
-    animation: spinBorderOnce 2.5s linear forwards;
-}
-@keyframes spinBorderOnce {
-    from { --a: 0deg; }
-    to   { --a: 360deg; }
 }
 .hiw-inner {
     position: relative;

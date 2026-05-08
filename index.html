@@ -90,6 +90,7 @@
         </div>
         </div>
     <div class="bullet-list-outer">
+        <div class="spin-ring"></div>
         <div class="bullet-list">
             <div class="inf-header">Topics Covered</div>
             <div class="inf-grid">
@@ -127,6 +128,7 @@
         </div>
     </div>
     <div class="hiw-outer">
+        <div class="spin-ring"></div>
         <div class="hiw-inner">
         <div class="hiw-heading">How It Works</div>
         <div class="hiw-steps">
@@ -171,6 +173,14 @@
         const hiwOuter = document.querySelector('.hiw-outer');
         const items = document.querySelectorAll('.inf-tile');
 
+        function restartSpin(outer) {
+            const ring = outer.querySelector('.spin-ring');
+            if (!ring) return;
+            ring.classList.remove('active');
+            void ring.offsetHeight;
+            ring.classList.add('active');
+        }
+
         function showApps() {
             hiwOuter.style.opacity = '0';
             hiwOuter.classList.remove('playing');
@@ -180,6 +190,7 @@
                 el.offsetHeight;
                 el.style.animation = '';
             });
+            restartSpin(appsOuter);
             setTimeout(showVideo, 6000);
         }
 
@@ -197,6 +208,7 @@
             hiwOuter.classList.remove('playing');
             void hiwOuter.offsetHeight;
             hiwOuter.classList.add('playing');
+            restartSpin(hiwOuter);
             setTimeout(showApps, 10000);
         }
 

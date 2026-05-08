@@ -412,6 +412,7 @@ body {
     line-height: 1;
     text-align: center;
     pointer-events: none;
+    white-space: nowrap;
     color: #00d4ff;
     filter: drop-shadow(0 0 18px currentColor);
     transition: color 0.4s ease;

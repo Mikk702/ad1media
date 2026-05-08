@@ -398,10 +398,34 @@ body {
 .hs3-step { color:#00ff88; animation:hs-fadeDown 0.6s 0.1s cubic-bezier(0.34,1.56,0.64,1) both; }
 .hs4-step { color:#f59e0b; animation:hs-fadeDown 0.6s 0.1s cubic-bezier(0.34,1.56,0.64,1) both; position:relative; }
 
-/* Screen 1 overrides — 3 items at 20 / 50 / 80% */
+/* Fixed step indicator — stays put while scenes slide */
+.hiw-step-indicator {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    font-size: clamp(2.4rem, 8vh, 5rem);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    line-height: 1;
+    text-align: center;
+    pointer-events: none;
+    color: #00d4ff;
+    filter: drop-shadow(0 0 18px currentColor);
+    transition: color 0.4s ease;
+}
+
+@keyframes hs-stepPop {
+    from { opacity:0; transform: translateX(-50%) scale(0.7); }
+    to   { opacity:1; transform: translateX(-50%) scale(1); }
+}
+
+/* Screen 1 — 2 items (icon + number) at 50% and 80% */
 #hiws1 {
     justify-content: space-evenly;
-    padding: 4vh 28px 4vh;
+    padding: 36vh 28px 8vh;
     gap: 0;
 }
 #hiws1 .hs-sub { display: none; }

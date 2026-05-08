@@ -119,8 +119,8 @@
             </div>
         </div>
         <div class="hiw-outer">
+            <div class="hiw-step-indicator" id="hiwStepLabel">Step 1</div>
             <div class="hiw-scene current" id="hiws1">
-                <div class="hs-step hs1-step">Step 1</div>
                 <div class="hs-pulse-wrap">
                     <div class="hs-pulse-ring r1"></div>
                     <div class="hs-pulse-ring r2"></div>
@@ -130,13 +130,11 @@
                 <div class="hs-sub">Call or Text · Nationwide</div>
             </div>
             <div class="hiw-scene" id="hiws2">
-                <div class="hs-step hs2-step">Step 2</div>
                 <div class="hs2-headline">Book a<br><em>Session</em></div>
                 <div class="hs2-line-wrap"><div class="hs2-line"></div></div>
                 <div class="hs2-sub">Pick a time that works for you</div>
             </div>
             <div class="hiw-scene" id="hiws3">
-                <div class="hs-step hs3-step">Step 3</div>
                 <div class="hs3-split">
                     <div class="hs3-platform">
                         <div class="hs3-icon meet">📹</div>
@@ -156,7 +154,6 @@
                 <div class="hs-bg c3"></div><div class="hs-bg c4"></div>
                 <div class="hs-star s1"></div><div class="hs-star s2"></div>
                 <div class="hs-star s3"></div><div class="hs-star s4"></div>
-                <div class="hs-step hs4-step">Step 4</div>
                 <div class="hs4-word">Create!</div>
                 <div class="hs4-sub">Put your new skills to work</div>
                 <div class="hs4-pills">
@@ -178,7 +175,9 @@
         const vidWrapper = document.querySelector('.q3-video-wrapper');
         const appsOuter = document.querySelector('.bullet-list-outer');
         const hiwOuter = document.querySelector('.hiw-outer');
+        const hiwStepLabel = document.getElementById('hiwStepLabel');
         const items = document.querySelectorAll('.inf-tile');
+        const stepColors = ['#00d4ff', '#a855f7', '#00ff88', '#f59e0b'];
 
         function showApps() {
             hiwOuter.style.opacity = '0';
@@ -217,6 +216,8 @@
             });
             resetHIWAnims(hiwScenes[0]);
             hiwScenes[0].classList.add('current');
+            hiwStepLabel.textContent = 'Step 1';
+            hiwStepLabel.style.color = stepColors[0];
 
             function advanceHIW() {
                 const nextHIW = hiwCur + 1;
@@ -237,6 +238,8 @@
                         hiwScenes[nextHIW].classList.add('current');
                         hiwScenes[nextHIW].classList.remove('sliding');
                         hiwCur = nextHIW;
+                        hiwStepLabel.textContent = 'Step ' + (hiwCur + 1);
+                        hiwStepLabel.style.color = stepColors[hiwCur];
                         setTimeout(advanceHIW, 4000);
                     }, 530);
                 });

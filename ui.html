@@ -2,486 +2,488 @@
 <html class="dark" lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ad1.tv – Video & Photo Editing Tutoring</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ad1.tv – Video &amp; Photo Editing Tutoring</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<script>
 tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        "surface-container-lowest": "#0d0d1a",
-        "on-secondary-fixed": "#001a42",
-        "primary-fixed": "#b3f0ff",
-        "on-background": "#e3e0f3",
-        "surface-container-highest": "#343342",
-        "on-primary-container": "#00d4ff",
-        "background": "#12121f",
-        "surface-container-low": "#1a1a28",
-        "surface-tint": "#00d4ff",
-        "on-secondary-container": "#e6ecff",
-        "secondary-container": "#2d1060",
-        "surface-bright": "#383846",
-        "inverse-primary": "#006680",
-        "error": "#ffb4ab",
-        "on-surface-variant": "#ccc3d8",
-        "tertiary-container": "#003d20",
-        "surface-variant": "#343342",
-        "secondary": "#a855f7",
-        "inverse-surface": "#e3e0f3",
-        "primary-fixed-dim": "#00b8d9",
-        "primary": "#00d4ff",
-        "surface-dim": "#12121f",
-        "on-surface": "#e3e0f3",
-        "outline-variant": "#4a4455",
-        "inverse-on-surface": "#2f2f3d",
-        "tertiary-fixed": "#b3ffd6",
-        "surface-container-high": "#292937",
-        "surface": "#12121f",
-        "error-container": "#93000a",
-        "primary-container": "#003d52",
-        "on-primary": "#001f2a",
-        "tertiary": "#00ff88",
-        "outline": "#958da1",
-        "on-secondary": "#ffffff",
-        "secondary-fixed": "#d8e2ff",
-        "surface-container": "#1e1e2c",
-        "on-primary-fixed": "#001f2a"
-      },
-      borderRadius: { DEFAULT:"0.25rem", lg:"0.5rem", xl:"0.75rem", full:"9999px" },
-      spacing: { gutter:"16px", "card-gap":"20px", unit:"4px", "container-padding":"24px" },
-      fontFamily: {
-        "label-md":["Sora"], "headline-lg-mobile":["Sora"], "body-lg":["Sora"],
-        "headline-md":["Sora"], "display-lg":["Sora"], "body-md":["Sora"], "headline-lg":["Sora"]
-      },
-      fontSize: {
-        "label-md":   ["14px",{"lineHeight":"1.4","letterSpacing":"0.01em","fontWeight":"500"}],
-        "headline-lg-mobile":["28px",{"lineHeight":"1.2","fontWeight":"600"}],
-        "body-lg":    ["18px",{"lineHeight":"1.6","fontWeight":"400"}],
-        "headline-md":["24px",{"lineHeight":"1.3","fontWeight":"600"}],
-        "display-lg": ["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"700"}],
-        "body-md":    ["16px",{"lineHeight":"1.6","fontWeight":"400"}],
-        "headline-lg":["32px",{"lineHeight":"1.2","fontWeight":"600"}]
-      }
-    }
-  }
+  darkMode:"class",
+  theme:{ extend:{
+    colors:{
+      "background":"#12121f","surface":"#12121f",
+      "surface-container":"#1e1e2c","surface-container-low":"#1a1a28",
+      "surface-container-high":"#292937","surface-container-highest":"#343342",
+      "on-surface":"#e3e0f3","on-surface-variant":"#ccc3d8",
+      "outline":"#958da1","outline-variant":"#4a4455",
+      "primary":"#00d4ff","primary-container":"#003d52","on-primary":"#001f2a","on-primary-container":"#00d4ff",
+      "secondary":"#a855f7","secondary-container":"#2d1060","on-secondary":"#fff",
+      "tertiary":"#00ff88","tertiary-container":"#003d20",
+      "error":"#ffb4ab"
+    },
+    fontFamily:{ sans:["Sora","sans-serif"] },
+    borderRadius:{ DEFAULT:"0.25rem", lg:"0.5rem", xl:"0.75rem", full:"9999px" }
+  }}
 }
 </script>
 <style>
-  body { font-family:'Sora',sans-serif; background-color:#12121f; }
-  .glass-panel {
-    backdrop-filter: blur(24px);
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
-  }
-  .inner-glow { box-shadow: inset 0 1px 1px rgba(255,255,255,0.1); }
-  .neon-glow-primary { box-shadow: 0 0 20px rgba(0,212,255,0.4); }
-  .neon-glow-secondary { box-shadow: 0 0 20px rgba(168,85,247,0.4); }
-  .neon-glow-tertiary { box-shadow: 0 0 20px rgba(0,255,136,0.4); }
-  .neon-text-primary { text-shadow: 0 0 12px rgba(0,212,255,0.6); }
-  .neon-text-secondary { text-shadow: 0 0 12px rgba(168,85,247,0.6); }
-  .active-nav-glow { box-shadow: 0 0 15px rgba(0,212,255,0.4); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: 'Sora', sans-serif; background: #12121f; color: #e3e0f3; overflow: hidden; }
 
-  /* Animated neon wave */
-  @keyframes waveDrift { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-  .wave-anim { animation: waveDrift 12s linear infinite; }
+/* Glass panel */
+.glass {
+  backdrop-filter: blur(24px);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+}
+.glass-inner { box-shadow: inset 0 1px 1px rgba(255,255,255,0.08); }
 
-  /* Step number pulse */
-  @keyframes stepPulse { 0%,100%{box-shadow:0 0 0 0 rgba(0,212,255,0.4)} 50%{box-shadow:0 0 0 8px rgba(0,212,255,0)} }
+/* Neon glows */
+.glow-cyan   { box-shadow: 0 0 28px rgba(0,212,255,0.22),  inset 0 1px 0 rgba(255,255,255,0.07); }
+.glow-purple { box-shadow: 0 0 28px rgba(168,85,247,0.2),  inset 0 1px 0 rgba(255,255,255,0.07); }
+.glow-green  { box-shadow: 0 0 28px rgba(0,255,136,0.18),  inset 0 1px 0 rgba(255,255,255,0.07); }
+.glow-teal   { box-shadow: 0 0 28px rgba(0,229,200,0.18),  inset 0 1px 0 rgba(255,255,255,0.07); }
 
-  /* Tile hover lift */
-  .tool-tile { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-  .tool-tile:hover { transform: translateY(-3px); }
+.neon-text-cyan   { text-shadow: 0 0 14px rgba(0,212,255,0.65); }
+.neon-text-purple { text-shadow: 0 0 14px rgba(168,85,247,0.65); }
+.neon-text-green  { text-shadow: 0 0 14px rgba(0,255,136,0.65); }
 
-  video { width:100%; border-radius:1rem; display:block; }
+/* ── QUADRANT GRID ───────────────────────────── */
+.quad-grid {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  grid-template-rows: 30% 70%;
+  padding: 10px;
+  gap: 10px;
+}
+
+.quad-cell {
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Q1 — logo / phone ───────────────────────── */
+#q1 { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; }
+
+.ad1-logo {
+  font-size: clamp(2.2rem, 6vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #00d4ff 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 18px rgba(0,212,255,0.4));
+}
+
+.q1-phone {
+  font-size: clamp(0.8rem, 1.8vw, 1.5rem);
+  font-weight: 600;
+  color: #00d4ff;
+  text-shadow: 0 0 10px rgba(0,212,255,0.5);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 0.3em 1em;
+  border: 1px solid rgba(0,212,255,0.3);
+  border-radius: 999px;
+  background: rgba(0,212,255,0.07);
+  transition: background 0.2s;
+}
+.q1-phone:hover { background: rgba(0,212,255,0.15); }
+
+/* ── Q2 — services headline ──────────────────── */
+#q2 { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 0 5%; }
+
+.q2-title {
+  font-size: clamp(0.85rem, 2.8vw, 2.6rem);
+  font-weight: 700;
+  color: #e3e0f3;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.q2-sub {
+  font-size: clamp(0.7rem, 2.2vw, 2rem);
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.q2-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.3em 1em;
+  border-radius: 999px;
+  border: 1px solid rgba(0,255,136,0.3);
+  background: rgba(0,255,136,0.08);
+  color: #00ff88;
+  font-size: clamp(0.55rem, 1.1vw, 0.85rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(0,255,136,0.5);
+}
+.q2-badge::before { content:''; width:7px; height:7px; border-radius:50%; background:#00ff88; box-shadow:0 0 6px #00ff88; display:inline-block; animation: blink 2s ease infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* ── Q3 — cycling content ────────────────────── */
+#q3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.q3-box {
+  position: relative;
+  width: 95%;
+  aspect-ratio: 16/9;
+  max-height: 95%;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Video */
+.q3-video-wrapper {
+  position: absolute; inset: 0;
+  transition: opacity 0.8s ease;
+}
+.q3-video { width:100%; height:100%; object-fit:cover; display:block; }
+
+/* Apps card */
+.bullet-list-outer {
+  position: absolute; inset: 0;
+  border-radius: 14px;
+  padding: 3px;
+  background: #12121f;
+  transition: opacity 0.6s ease;
+}
+
+@property --a { syntax:'<angle>'; initial-value:0deg; inherits:false; }
+
+.spin-ring {
+  position: absolute; inset: 0; border-radius: 14px; z-index: 0; opacity: 0;
+  background: conic-gradient(from var(--a), transparent 0deg, transparent 160deg,
+    #a855f7 210deg, #00d4ff 255deg, #00ff88 295deg, #00e5c8 330deg, #00d4ff 355deg, transparent 360deg);
+}
+.spin-ring.active { animation: spinTwiceFade 3s linear forwards; }
+@keyframes spinTwiceFade { 0%{--a:0deg;opacity:1} 80%{--a:576deg;opacity:1} 100%{--a:720deg;opacity:0} }
+
+.bullet-list {
+  position: relative; z-index: 1;
+  width:100%; height:100%; border-radius:12px;
+  background: rgba(18,18,31,0.96);
+  padding: 0.65rem; display:flex; flex-direction:column; gap:0.45rem; overflow:hidden;
+}
+
+.inf-header {
+  font-size: clamp(0.38rem,0.85vw,0.65rem);
+  font-weight: 700; letter-spacing:0.22em; text-transform:uppercase;
+  color:#e3e0f3; text-align:center; flex-shrink:0;
+}
+
+.inf-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: clamp(0.2rem,0.5vw,0.45rem);
+  flex:1; min-height:0;
+}
+
+.inf-tile {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-top: 2px solid var(--c);
+  border-radius: 8px;
+  display: flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:0.18rem; padding:0.35rem 0.2rem;
+  opacity: 0; animation: tileReveal 0.4s ease-out forwards;
+  backdrop-filter: blur(8px);
+  transition: box-shadow 0.2s;
+}
+.inf-tile:hover { box-shadow: 0 0 14px var(--c); }
+
+@keyframes tileReveal {
+  from { opacity:0; transform:translateY(6px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.inf-logo { width:clamp(1.6rem,3.2vw,2.9rem); height:clamp(1.6rem,3.2vw,2.9rem); object-fit:contain; flex-shrink:0; }
+
+.inf-name {
+  font-size: clamp(0.62rem,1.38vw,1.18rem);
+  font-weight: 700; color:var(--c);
+  text-transform:uppercase; letter-spacing:0.04em; text-align:center;
+  text-shadow: 0 0 6px var(--c);
+}
+
+.inf-tag {
+  font-size: clamp(0.38rem,0.78vw,0.62rem);
+  color: rgba(255,255,255,0.38); text-align:center; letter-spacing:0.05em;
+}
+
+/* HIW outer */
+.hiw-outer {
+  position: absolute; inset: 0;
+  border-radius: 14px; padding: 3px;
+  background: #12121f;
+  opacity: 0; transition: opacity 0.6s ease;
+}
+.hiw-inner {
+  position:relative; z-index:1;
+  width:100%; height:100%; border-radius:12px;
+  background: rgba(18,18,31,0.96);
+  padding: 0.65rem;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:space-between;
+  overflow:hidden;
+}
+
+.hiw-heading {
+  font-size: clamp(0.38rem,0.85vw,0.65rem);
+  font-weight:700; letter-spacing:0.22em; text-transform:uppercase;
+  color:#e3e0f3; text-align:center; flex-shrink:0; opacity:0;
+}
+
+.hiw-steps {
+  display:grid; grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  gap:0.4rem; width:100%; flex:1; min-height:0;
+}
+
+.hiw-step {
+  border: 1px solid rgba(255,255,255,0.07);
+  border-left: 2px solid var(--c);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(8px);
+  display:flex; align-items:center; gap:0.4rem;
+  padding: 0.35rem 0.5rem;
+  opacity:0;
+}
+
+.hiw-ring {
+  flex-shrink:0;
+  width: clamp(28px,4.5vw,52px);
+  height: clamp(28px,4.5vw,52px);
+  position:relative;
+}
+.hiw-ring svg { position:absolute; inset:0; }
+.hiw-num {
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  font-size:clamp(0.55rem,1.1vw,0.95rem); font-weight:800; color:var(--c);
+}
+
+.hiw-arc { stroke-dashoffset:151; }
+.hiw-text { display:flex; flex-direction:column; gap:0.1rem; min-width:0; }
+.hiw-step-label { font-size:clamp(0.52rem,1vw,0.88rem); font-weight:700; color:var(--c); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.hiw-step-detail { font-size:clamp(0.38rem,0.72vw,0.6rem); color:rgba(255,255,255,0.38); line-height:1.3; }
+
+/* HIW playing animations */
+.hiw-outer.playing .hiw-heading { animation: hiwUp 0.5s 0.1s ease-out forwards; }
+.hiw-outer.playing .hiw-s1      { animation: hiwUp 0.5s 0.25s ease-out forwards; }
+.hiw-outer.playing .hiw-s1 .hiw-arc { animation: hiwDraw 0.9s 0.25s ease-out forwards; }
+.hiw-outer.playing .hiw-s2      { animation: hiwUp 0.5s 0.50s ease-out forwards; }
+.hiw-outer.playing .hiw-s2 .hiw-arc { animation: hiwDraw 0.9s 0.50s ease-out forwards; }
+.hiw-outer.playing .hiw-s3      { animation: hiwUp 0.5s 0.75s ease-out forwards; }
+.hiw-outer.playing .hiw-s3 .hiw-arc { animation: hiwDraw 0.9s 0.75s ease-out forwards; }
+.hiw-outer.playing .hiw-s4      { animation: hiwUp 0.5s 1.00s ease-out forwards; }
+.hiw-outer.playing .hiw-s4 .hiw-arc { animation: hiwDraw 0.9s 1.00s ease-out forwards; }
+
+@keyframes hiwUp   { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+@keyframes hiwDraw { from{stroke-dashoffset:151} to{stroke-dashoffset:0} }
+
+/* ── Q4 — demo video ─────────────────────────── */
+#q4 { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.6rem; padding:14px; }
+
+.q4-label {
+  font-size: clamp(0.5rem,1vw,0.8rem);
+  font-weight:600; letter-spacing:0.15em; text-transform:uppercase;
+  color:rgba(255,255,255,0.4);
+  display:flex; align-items:center; gap:0.4rem;
+}
+.q4-label::before { content:''; width:6px; height:6px; border-radius:50%; background:#a855f7; box-shadow:0 0 6px #a855f7; flex-shrink:0; }
+
+.video-wrapper {
+  width:100%; flex:1; min-height:0; border-radius:14px; overflow:hidden;
+  position:relative;
+}
+.video-wrapper video { width:100%; height:100%; object-fit:cover; border-radius:14px; display:block; }
 </style>
 </head>
-<body class="bg-background text-on-surface selection:bg-primary/30 min-h-screen overflow-x-hidden pb-24 lg:pb-0 lg:pl-64">
+<body>
 
-<!-- ─── Top Nav ─────────────────────────────────────────────────────── -->
-<nav class="flex justify-between items-center px-gutter py-unit h-16 w-full fixed top-0 z-50 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] bg-surface/30">
-  <div class="flex items-center gap-4">
-    <span class="text-headline-md font-bold tracking-tighter text-primary neon-text-primary">Ad1.tv</span>
-    <a href="tel:+12134440024" class="hidden md:flex items-center gap-2 bg-white/5 rounded-full px-4 py-1.5 border border-white/10 text-label-md text-on-surface-variant hover:text-primary transition-colors">
-      <span class="material-symbols-outlined text-[16px] text-primary">phone</span>
-      213&nbsp;444-0024
-    </a>
-  </div>
-  <div class="flex items-center gap-3">
-    <a href="tel:+12134440024" class="md:hidden material-symbols-outlined text-primary p-2">phone</a>
-    <button class="material-symbols-outlined text-on-surface-variant hover:bg-white/5 transition-colors p-2 rounded-full">notifications</button>
-    <a href="tel:+12134440024" class="hidden md:flex items-center gap-2 px-4 py-2 rounded-xl bg-primary-container text-primary font-label-md border border-primary/30 neon-glow-primary hover:scale-[1.02] transition-transform">
-      <span class="material-symbols-outlined text-[16px]">calendar_today</span>
-      Book a Session
-    </a>
-  </div>
-</nav>
+<!-- ── QUADRANT GRID ─────────────────────────────────────────────── -->
+<div class="quad-grid">
 
-<!-- ─── Sidebar ────────────────────────────────────────────────────── -->
-<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-full z-40 bg-surface-container-low/50 backdrop-blur-3xl border-r border-white/5 shadow-[4px_0_24px_rgba(0,0,0,0.5)] pt-20 w-64 p-container-padding">
-  <div class="mb-8 px-2">
-    <div class="flex items-center gap-3 mb-6">
-      <div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center neon-glow-primary">
-        <span class="material-symbols-outlined text-primary">play_circle</span>
-      </div>
-      <div>
-        <p class="text-label-md font-bold text-primary">Ad1 Media</p>
-        <p class="text-[11px] text-outline">Tutoring & Coaching</p>
-      </div>
-    </div>
-    <a href="tel:+12134440024" class="w-full py-3 px-4 rounded-xl bg-primary-container text-primary font-label-md flex items-center justify-center gap-2 neon-glow-primary hover:scale-[1.02] transition-transform border border-primary/30">
-      <span class="material-symbols-outlined text-[18px]">phone</span>
-      Call&nbsp;213&nbsp;444-0024
-    </a>
+  <!-- Q1: Logo + phone -->
+  <div id="q1" class="quad-cell glass glow-cyan">
+    <div class="ad1-logo">Ad1.tv</div>
+    <a href="tel:+12134440024" class="q1-phone">213&nbsp;444-0024</a>
   </div>
 
-  <nav class="space-y-1">
-    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-white/10 transition-all">
-      <span class="material-symbols-outlined">grid_view</span>
-      <span class="font-label-md">Overview</span>
-    </a>
-    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-white/10 transition-all">
-      <span class="material-symbols-outlined">movie</span>
-      <span class="font-label-md">Video Editing</span>
-    </a>
-    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-white/10 transition-all">
-      <span class="material-symbols-outlined">auto_awesome</span>
-      <span class="font-label-md">AI Imagery</span>
-    </a>
-    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-white/10 transition-all">
-      <span class="material-symbols-outlined">code</span>
-      <span class="font-label-md">Vibe Coding</span>
-    </a>
-    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary-container text-primary active-nav-glow border border-primary/20">
-      <span class="material-symbols-outlined">lightbulb</span>
-      <span class="font-label-md">How It Works</span>
-    </a>
-    <a href="tel:+12134440024" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-white/10 transition-all">
-      <span class="material-symbols-outlined">phone</span>
-      <span class="font-label-md">Contact</span>
-    </a>
-  </nav>
-
-  <div class="mt-auto p-4 glass-panel rounded-2xl border-white/5 text-center">
-    <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary text-[12px] font-bold">
-      <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
-      Nationwide · Online
-    </span>
-    <p class="text-[11px] text-on-surface-variant mt-2">Zoom &amp; Google Meet</p>
+  <!-- Q2: Services headline -->
+  <div id="q2" class="quad-cell glass glow-green">
+    <div class="q2-title">Video &amp; Photo Editing &nbsp;·&nbsp; Ai Imagery</div>
+    <div class="q2-sub">Content Creator Tutoring</div>
+    <div class="q2-badge">Nationwide · Online · Zoom &amp; Meet</div>
   </div>
-</aside>
 
-<!-- ─── Main ───────────────────────────────────────────────────────── -->
-<main class="pt-24 px-gutter lg:px-container-padding pb-gutter max-w-7xl mx-auto">
+  <!-- Q3: Cycling content (video → apps → HIW) -->
+  <div id="q3" class="quad-cell glass glow-purple" style="overflow:hidden;">
+    <div class="q3-box">
 
-  <!-- Page header -->
-  <header class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
-    <div>
-      <h1 class="font-display-lg text-headline-lg lg:text-display-lg text-on-surface mb-2">Learn to Create</h1>
-      <p class="text-on-surface-variant font-body-md max-w-lg">One-on-one tutoring in video editing, photo editing, AI imagery, and more.</p>
-    </div>
-    <div class="flex gap-3">
-      <div class="glass-panel px-4 py-2 rounded-xl flex items-center gap-2 border-white/10">
-        <span class="material-symbols-outlined text-[18px] text-tertiary">public</span>
-        <span class="text-label-md">Clients Nationwide</span>
-      </div>
-      <a href="tel:+12134440024" class="glass-panel px-4 py-2 rounded-xl flex items-center gap-2 border-white/10 hover:bg-white/10 transition-colors text-primary">
-        <span class="material-symbols-outlined text-[18px]">phone</span>
-        <span class="text-label-md">213 444-0024</span>
-      </a>
-    </div>
-  </header>
-
-  <!-- Bento Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-card-gap">
-
-    <!-- Hero card -->
-    <section class="md:col-span-8 glass-panel rounded-[2rem] p-8 border-white/10 relative overflow-hidden">
-      <div class="relative z-10 flex justify-between items-start mb-10">
-        <div>
-          <h2 class="font-headline-md text-headline-md text-on-surface mb-1">Video &amp; Photo Editing · AI Imagery</h2>
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-primary neon-glow-primary"></span>
-            <p class="text-label-md text-outline">One-on-one sessions · Your pace · Your goals</p>
-          </div>
-        </div>
-        <span class="px-3 py-1 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary text-[11px] font-bold uppercase tracking-wider">Nationwide</span>
-      </div>
-
-      <!-- Animated neon wave decoration -->
-      <div class="h-48 w-full relative overflow-hidden rounded-2xl bg-white/[0.02]">
-        <svg class="wave-anim absolute top-0 left-0 h-full" style="width:200%" viewBox="0 0 1600 200" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="wg1" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.18"/>
-              <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
-            </linearGradient>
-            <linearGradient id="wg2" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stop-color="#a855f7" stop-opacity="0.12"/>
-              <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
-            </linearGradient>
-            <filter id="wglow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          </defs>
-          <!-- Cyan wave -->
-          <path d="M0,120 Q200,60 400,100 T800,50 T1200,90 T1600,40 L1600,200 L0,200Z" fill="url(#wg1)"/>
-          <path d="M0,120 Q200,60 400,100 T800,50 T1200,90 T1600,40" fill="none" stroke="#00d4ff" stroke-width="2.5" stroke-linecap="round" filter="url(#wglow)" opacity="0.7"/>
-          <!-- Purple wave -->
-          <path d="M0,150 Q200,100 400,130 T800,80 T1200,120 T1600,70 L1600,200 L0,200Z" fill="url(#wg2)"/>
-          <path d="M0,150 Q200,100 400,130 T800,80 T1200,120 T1600,70" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-          <!-- Dots -->
-          <circle cx="400" cy="100" r="5" fill="#00d4ff" filter="url(#wglow)" opacity="0.9"/>
-          <circle cx="800" cy="50"  r="4" fill="#00d4ff" filter="url(#wglow)" opacity="0.8"/>
-          <circle cx="1200" cy="90" r="5" fill="#a855f7" opacity="0.8"/>
-          <!-- repeat for seamless loop -->
-          <path d="M800,120 Q1000,60 1200,100 T1600,50 T2000,90 T2400,40 L2400,200 L800,200Z" fill="url(#wg1)"/>
-          <path d="M800,120 Q1000,60 1200,100 T1600,50 T2000,90 T2400,40" fill="none" stroke="#00d4ff" stroke-width="2.5" stroke-linecap="round" filter="url(#wglow)" opacity="0.7"/>
-        </svg>
-        <!-- Overlay label -->
-        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 glass-panel px-4 py-2 rounded-xl border-primary/30">
-          <p class="text-label-md font-bold text-primary neon-text-primary">Learn at your own pace</p>
-        </div>
-      </div>
-
-      <p class="mt-6 text-body-md text-on-surface-variant max-w-lg">
-        Professional tutoring in Photoshop, Premiere Pro, DaVinci Resolve, ComfyUI, AI tools, and Vibe Coding — delivered live via Zoom or Google Meet.
-      </p>
-    </section>
-
-    <!-- CTA card -->
-    <section class="md:col-span-4 glass-panel rounded-[2rem] p-8 border-white/10 flex flex-col justify-between">
-      <div>
-        <h2 class="font-headline-md text-headline-md text-on-surface mb-6">Book a Session</h2>
-        <div class="mb-6">
-          <p class="text-[11px] text-outline uppercase tracking-widest mb-1">Call or Text</p>
-          <a href="tel:+12134440024" class="block text-[2.2rem] font-bold text-primary neon-text-primary leading-tight hover:opacity-80 transition-opacity">
-            213<br>444-0024
-          </a>
-        </div>
-        <p class="text-label-md text-on-surface-variant mb-6">Available nationwide · Zoom &amp; Google Meet · Flexible scheduling</p>
-      </div>
-      <div class="space-y-3">
-        <a href="tel:+12134440024" class="w-full py-3 px-4 rounded-xl bg-primary text-on-primary font-label-md flex items-center justify-center gap-2 neon-glow-primary hover:scale-[1.02] transition-transform">
-          <span class="material-symbols-outlined text-[18px]">phone</span>
-          Call Now
-        </a>
-        <a href="tel:+12134440024" class="w-full py-3 px-4 rounded-xl glass-panel border-white/10 font-label-md flex items-center justify-center gap-2 hover:bg-white/10 transition-colors text-on-surface">
-          <span class="material-symbols-outlined text-[18px] text-primary">calendar_today</span>
-          Book Online
-        </a>
-      </div>
-    </section>
-
-    <!-- App tiles — 6 tiles, 2 cols each on md -->
-    <div class="md:col-span-2 glass-panel rounded-[1.5rem] p-5 border-white/5 inner-glow tool-tile" style="border-color:rgba(0,212,255,0.15)">
-      <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background:rgba(0,212,255,0.12)">
-        <span class="material-symbols-outlined" style="color:#00d4ff">photo_camera</span>
-      </div>
-      <p class="text-label-md font-bold text-on-surface">Photoshop</p>
-      <p class="text-[11px] text-outline mt-0.5">Photo &amp; Design</p>
-    </div>
-    <div class="md:col-span-2 glass-panel rounded-[1.5rem] p-5 border-white/5 inner-glow tool-tile" style="border-color:rgba(168,85,247,0.15)">
-      <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background:rgba(168,85,247,0.12)">
-        <span class="material-symbols-outlined" style="color:#a855f7">movie</span>
-      </div>
-      <p class="text-label-md font-bold text-on-surface">Premiere</p>
-      <p class="text-[11px] text-outline mt-0.5">Video Editing</p>
-    </div>
-    <div class="md:col-span-2 glass-panel rounded-[1.5rem] p-5 border-white/5 inner-glow tool-tile" style="border-color:rgba(0,255,136,0.15)">
-      <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background:rgba(0,255,136,0.12)">
-        <span class="material-symbols-outlined" style="color:#00ff88">palette</span>
-      </div>
-      <p class="text-label-md font-bold text-on-surface">DaVinci</p>
-      <p class="text-[11px] text-outline mt-0.5">Color Grading</p>
-    </div>
-    <div class="md:col-span-2 glass-panel rounded-[1.5rem] p-5 border-white/5 inner-glow tool-tile" style="border-color:rgba(0,229,200,0.15)">
-      <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background:rgba(0,229,200,0.12)">
-        <span class="material-symbols-outlined" style="color:#00e5c8">smart_toy</span>
-      </div>
-      <p class="text-label-md font-bold text-on-surface">ComfyUI</p>
-      <p class="text-[11px] text-outline mt-0.5">AI Imagery</p>
-    </div>
-    <div class="md:col-span-2 glass-panel rounded-[1.5rem] p-5 border-white/5 inner-glow tool-tile" style="border-color:rgba(245,158,11,0.15)">
-      <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background:rgba(245,158,11,0.12)">
-        <span class="material-symbols-outlined" style="color:#f59e0b">psychology</span>
-      </div>
-      <p class="text-label-md font-bold text-on-surface">AI Apps</p>
-      <p class="text-[11px] text-outline mt-0.5">Automation</p>
-    </div>
-    <div class="md:col-span-2 glass-panel rounded-[1.5rem] p-5 border-white/5 inner-glow tool-tile" style="border-color:rgba(255,107,157,0.15)">
-      <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background:rgba(255,107,157,0.12)">
-        <span class="material-symbols-outlined" style="color:#ff6b9d">code</span>
-      </div>
-      <p class="text-label-md font-bold text-on-surface">Vibe Coding</p>
-      <p class="text-[11px] text-outline mt-0.5">Dev + AI</p>
-    </div>
-
-    <!-- How It Works — full width -->
-    <section class="md:col-span-12 glass-panel rounded-[2rem] p-8 border-white/10">
-      <div class="flex justify-between items-center mb-8">
-        <h2 class="font-headline-md text-headline-md text-on-surface">How It Works</h2>
-        <a href="tel:+12134440024" class="text-primary text-label-md hover:underline flex items-center gap-1">
-          <span class="material-symbols-outlined text-[16px]">phone</span>
-          Get Started
-        </a>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <!-- Step 1 -->
-        <div class="glass-panel rounded-2xl p-5 border-white/5 inner-glow flex flex-col gap-3">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-bold" style="background:rgba(0,212,255,0.15);color:#00d4ff;box-shadow:0 0 0 0 rgba(0,212,255,0.4);animation:stepPulse 2s ease infinite">1</div>
-          <div>
-            <p class="font-label-md font-bold text-on-surface">Call or Text</p>
-            <p class="text-[12px] text-on-surface-variant mt-1">Reach out anytime · Nationwide</p>
-          </div>
-          <a href="tel:+12134440024" class="text-[12px] font-bold mt-auto" style="color:#00d4ff">213 444-0024 →</a>
-        </div>
-        <!-- Step 2 -->
-        <div class="glass-panel rounded-2xl p-5 border-white/5 inner-glow flex flex-col gap-3">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-bold" style="background:rgba(168,85,247,0.15);color:#a855f7">2</div>
-          <div>
-            <p class="font-label-md font-bold text-on-surface">Book a Session</p>
-            <p class="text-[12px] text-on-surface-variant mt-1">Pick a time that works for you</p>
-          </div>
-          <span class="material-symbols-outlined text-[20px] mt-auto" style="color:#a855f7">calendar_today</span>
-        </div>
-        <!-- Step 3 -->
-        <div class="glass-panel rounded-2xl p-5 border-white/5 inner-glow flex flex-col gap-3">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-bold" style="background:rgba(0,255,136,0.15);color:#00ff88">3</div>
-          <div>
-            <p class="font-label-md font-bold text-on-surface">Meet or Zoom</p>
-            <p class="text-[12px] text-on-surface-variant mt-1">Live screen-share from anywhere</p>
-          </div>
-          <span class="material-symbols-outlined text-[20px] mt-auto" style="color:#00ff88">video_call</span>
-        </div>
-        <!-- Step 4 -->
-        <div class="glass-panel rounded-2xl p-5 border-white/5 inner-glow flex flex-col gap-3" style="background:rgba(245,158,11,0.04);border-color:rgba(245,158,11,0.2)">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-bold" style="background:rgba(245,158,11,0.15);color:#f59e0b">4</div>
-          <div>
-            <p class="font-label-md font-bold" style="color:#f59e0b">Create!</p>
-            <p class="text-[12px] text-on-surface-variant mt-1">Put your new skills to work</p>
-          </div>
-          <span class="material-symbols-outlined text-[20px] mt-auto" style="color:#f59e0b">star</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Demo video -->
-    <section class="md:col-span-6 glass-panel rounded-[2rem] p-6 border-white/10 flex flex-col gap-4">
-      <div class="flex justify-between items-center">
-        <h2 class="font-headline-md text-headline-md text-on-surface">Watch a Demo Session</h2>
-        <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider border border-primary/20">Live Preview</span>
-      </div>
-      <div class="rounded-2xl overflow-hidden">
-        <video controls poster="img/yt tn copy.png">
-          <source src="vid/demo.webm" type="video/webm">
-          Your browser does not support video.
+      <!-- Video -->
+      <div class="q3-video-wrapper">
+        <video id="q3vid1" class="q3-video" muted playsinline>
+          <source src="vid/1.webm" type="video/webm">
         </video>
       </div>
-    </section>
 
-    <!-- Services summary -->
-    <section class="md:col-span-6 glass-panel rounded-[2rem] p-8 border-white/10 flex flex-col justify-between">
-      <div>
-        <h2 class="font-headline-md text-headline-md text-on-surface mb-6">Topics Covered</h2>
-        <div class="space-y-3">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-primary text-[16px]">movie</span>
+      <!-- Topics Covered -->
+      <div class="bullet-list-outer">
+        <div class="spin-ring"></div>
+        <div class="bullet-list">
+          <div class="inf-header">Topics Covered</div>
+          <div class="inf-grid">
+            <div class="inf-tile" style="--c:#00d4ff">
+              <img src="img/ps.png" alt="" class="inf-logo">
+              <div class="inf-name">Photoshop</div>
+              <div class="inf-tag">Photo &amp; Design</div>
             </div>
-            <span class="text-label-md">Video Editing Tutoring</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-primary text-[16px]">photo_camera</span>
+            <div class="inf-tile" style="--c:#a855f7">
+              <img src="img/pr.png" alt="" class="inf-logo">
+              <div class="inf-name">Premiere</div>
+              <div class="inf-tag">Video Editing</div>
             </div>
-            <span class="text-label-md">Photo Editing &amp; Photoshop</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(0,255,136,0.1)">
-              <span class="material-symbols-outlined text-[16px]" style="color:#00ff88">palette</span>
+            <div class="inf-tile" style="--c:#00ff88">
+              <img src="img/dr.png" alt="" class="inf-logo">
+              <div class="inf-name">DaVinci</div>
+              <div class="inf-tag">Color Grading</div>
             </div>
-            <span class="text-label-md">DaVinci Resolve &amp; Color Grading</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(0,229,200,0.1)">
-              <span class="material-symbols-outlined text-[16px]" style="color:#00e5c8">smart_toy</span>
+            <div class="inf-tile" style="--c:#00e5c8">
+              <img src="img/cui.png" alt="" class="inf-logo">
+              <div class="inf-name">ComfyUI</div>
+              <div class="inf-tag">AI Imagery</div>
             </div>
-            <span class="text-label-md">AI Imagery with ComfyUI</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(245,158,11,0.1)">
-              <span class="material-symbols-outlined text-[16px]" style="color:#f59e0b">psychology</span>
+            <div class="inf-tile" style="--c:#f59e0b">
+              <img src="img/ai.png" alt="" class="inf-logo">
+              <div class="inf-name">AI Apps</div>
+              <div class="inf-tag">Automation</div>
             </div>
-            <span class="text-label-md">Vibe Coding &amp; AI Apps</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(255,107,157,0.1)">
-              <span class="material-symbols-outlined text-[16px]" style="color:#ff6b9d">group</span>
+            <div class="inf-tile" style="--c:#ff6b9d">
+              <img src="img/cld.png" alt="" class="inf-logo">
+              <div class="inf-name">Vibe Coding</div>
+              <div class="inf-tag">Dev + AI</div>
             </div>
-            <span class="text-label-md">Content Creator Coaching</span>
           </div>
         </div>
       </div>
-      <a href="tel:+12134440024" class="mt-6 w-full py-3 px-4 rounded-xl bg-primary-container border border-primary/30 text-primary font-label-md flex items-center justify-center gap-2 neon-glow-primary hover:scale-[1.02] transition-transform">
-        <span class="material-symbols-outlined text-[18px]">phone</span>
-        Book Your First Session
-      </a>
-    </section>
 
-  </div><!-- /bento grid -->
+      <!-- How It Works -->
+      <div class="hiw-outer">
+        <div class="spin-ring"></div>
+        <div class="hiw-inner">
+          <div class="hiw-heading">How It Works</div>
+          <div class="hiw-steps">
+            <div class="hiw-step hiw-s1" style="--c:#00d4ff">
+              <div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(0,212,255,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#00d4ff" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">1</div></div>
+              <div class="hiw-text"><div class="hiw-step-label">Book a Session</div><div class="hiw-step-detail">Pick a time that works for you</div></div>
+            </div>
+            <div class="hiw-step hiw-s2" style="--c:#a855f7">
+              <div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(168,85,247,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">2</div></div>
+              <div class="hiw-text"><div class="hiw-step-label">Join via Meet or Zoom</div><div class="hiw-step-detail">Screen share from anywhere</div></div>
+            </div>
+            <div class="hiw-step hiw-s3" style="--c:#00ff88">
+              <div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(0,255,136,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#00ff88" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">3</div></div>
+              <div class="hiw-text"><div class="hiw-step-label">Learn at Your Pace</div><div class="hiw-step-detail">Hands-on, your level, your goals</div></div>
+            </div>
+            <div class="hiw-step hiw-s4" style="--c:#f59e0b">
+              <div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(245,158,11,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">4</div></div>
+              <div class="hiw-text"><div class="hiw-step-label">Create!</div><div class="hiw-step-detail">Put your new skills to work</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <!-- Footer -->
-  <footer class="mt-20 border-t border-outline-variant/20 py-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-card-gap px-container-padding">
-    <div class="flex flex-col items-center md:items-start gap-1">
-      <span class="text-headline-md font-bold text-primary neon-text-primary">Ad1 Media</span>
-      <p class="text-label-md text-on-surface-variant">© 2025 Ad1 Media · ad1.tv</p>
     </div>
-    <div class="flex gap-6 flex-wrap justify-center">
-      <a href="tel:+12134440024" class="text-label-md text-on-surface-variant hover:text-primary transition-colors">Book a Session</a>
-      <a href="tel:+12134440024" class="text-label-md text-on-surface-variant hover:text-primary transition-colors">213 444-0024</a>
-      <a href="#" class="text-label-md text-on-surface-variant hover:text-primary transition-colors">About</a>
-    </div>
-  </footer>
-
-</main>
-
-<!-- ─── Mobile Bottom Nav ──────────────────────────────────────────── -->
-<nav class="lg:hidden fixed bottom-0 w-full h-20 flex justify-around items-center px-4 z-50 bg-surface-container-high/80 rounded-t-xl backdrop-blur-2xl border-t border-white/10 shadow-[0_-8px_40px_rgba(0,0,0,0.6)]">
-  <a href="#" class="flex flex-col items-center justify-center text-outline">
-    <span class="material-symbols-outlined">home</span>
-    <span class="text-[10px]">Home</span>
-  </a>
-  <a href="#" class="flex flex-col items-center justify-center text-outline">
-    <span class="material-symbols-outlined">grid_view</span>
-    <span class="text-[10px]">Topics</span>
-  </a>
-  <div class="relative -top-6">
-    <a href="tel:+12134440024" class="w-14 h-14 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center neon-glow-primary shadow-[0_0_20px_rgba(0,212,255,0.5)]">
-      <span class="material-symbols-outlined text-[#001f2a] text-[28px]">phone</span>
-    </a>
   </div>
-  <a href="#" class="flex flex-col items-center justify-center text-primary scale-110">
-    <span class="material-symbols-outlined">lightbulb</span>
-    <span class="text-[10px]">HIW</span>
-  </a>
-  <a href="tel:+12134440024" class="flex flex-col items-center justify-center text-outline">
-    <span class="material-symbols-outlined">person</span>
-    <span class="text-[10px]">Contact</span>
-  </a>
-</nav>
 
-<!-- ─── Floating Action Buttons ───────────────────────────────────── -->
-<div class="fixed bottom-24 right-8 z-40 hidden md:flex flex-col gap-4">
-  <a href="tel:+12134440024" class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-primary border-primary/30 hover:bg-primary/20 transition-all neon-glow-primary">
-    <span class="material-symbols-outlined">phone</span>
-  </a>
-  <button class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-secondary border-secondary/30 hover:bg-secondary/20 transition-all">
-    <span class="material-symbols-outlined">chat</span>
-  </button>
-</div>
+  <!-- Q4: Demo video -->
+  <div id="q4" class="quad-cell glass glow-teal">
+    <div class="q4-label">Demo Session</div>
+    <div class="video-wrapper">
+      <video id="demo-video" controls poster="img/yt tn copy.png">
+        <source src="vid/demo.webm" type="video/webm">
+      </video>
+    </div>
+  </div>
 
+</div><!-- /quad-grid -->
+
+<script>
+  const demoVideo = document.getElementById('demo-video');
+  demoVideo.volume = 0.1;
+  demoVideo.addEventListener('loadedmetadata', () => { demoVideo.volume = 0.1; });
+  demoVideo.addEventListener('play', () => { demoVideo.volume = 0.1; });
+
+  const v1 = document.getElementById('q3vid1');
+  const v1Wrapper = document.querySelector('.q3-video-wrapper');
+  const appsOuter = document.querySelector('.bullet-list-outer');
+  const hiwOuter  = document.querySelector('.hiw-outer');
+  const items     = document.querySelectorAll('.inf-tile');
+
+  function restartSpin(outer) {
+    const ring = outer.querySelector('.spin-ring');
+    if (!ring) return;
+    ring.classList.remove('active');
+    void ring.offsetHeight;
+    ring.classList.add('active');
+  }
+
+  function showApps() {
+    hiwOuter.style.opacity = '0';
+    hiwOuter.classList.remove('playing');
+    appsOuter.style.opacity = '1';
+    items.forEach(el => { el.style.animation='none'; el.offsetHeight; el.style.animation=''; });
+    restartSpin(appsOuter);
+    setTimeout(showVideo, 6000);
+  }
+
+  function showVideo() {
+    appsOuter.style.opacity = '0';
+    setTimeout(() => {
+      v1.currentTime = 0;
+      v1Wrapper.style.opacity = '1';
+      v1.play();
+    }, 600);
+  }
+
+  function showHIW() {
+    hiwOuter.style.opacity = '1';
+    hiwOuter.classList.remove('playing');
+    void hiwOuter.offsetHeight;
+    hiwOuter.classList.add('playing');
+    restartSpin(hiwOuter);
+    setTimeout(showApps, 10000);
+  }
+
+  v1.addEventListener('ended', () => {
+    v1Wrapper.style.opacity = '0';
+    setTimeout(showHIW, 600);
+  });
+
+  v1Wrapper.style.opacity = '0';
+  hiwOuter.style.opacity  = '0';
+  showApps();
+</script>
 </body>
 </html>

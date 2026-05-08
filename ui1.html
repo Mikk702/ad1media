@@ -1,489 +1,146 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
+
+<html lang="en"><head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ad1.tv – Video &amp; Photo Editing Tutoring</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IT Tech Support Toolkit Checklist</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script>
-tailwind.config = {
-  darkMode:"class",
-  theme:{ extend:{
-    colors:{
-      "background":"#12121f","surface":"#12121f",
-      "surface-container":"#1e1e2c","surface-container-low":"#1a1a28",
-      "surface-container-high":"#292937","surface-container-highest":"#343342",
-      "on-surface":"#e3e0f3","on-surface-variant":"#ccc3d8",
-      "outline":"#958da1","outline-variant":"#4a4455",
-      "primary":"#00d4ff","primary-container":"#003d52","on-primary":"#001f2a","on-primary-container":"#00d4ff",
-      "secondary":"#a855f7","secondary-container":"#2d1060","on-secondary":"#fff",
-      "tertiary":"#00ff88","tertiary-container":"#003d20",
-      "error":"#ffb4ab"
-    },
-    fontFamily:{ sans:["Sora","sans-serif"] },
-    borderRadius:{ DEFAULT:"0.25rem", lg:"0.5rem", xl:"0.75rem", full:"9999px" }
-  }}
-}
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; font-family: 'Sora', sans-serif; background: #12121f; color: #e3e0f3; overflow: hidden; }
-
-/* Glass panel */
-.glass {
-  backdrop-filter: blur(24px);
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.09);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
-}
-.glass-inner { box-shadow: inset 0 1px 1px rgba(255,255,255,0.08); }
-
-/* Neon glows */
-.glow-cyan   { box-shadow: 0 0 28px rgba(0,212,255,0.22),  inset 0 1px 0 rgba(255,255,255,0.07); }
-.glow-purple { box-shadow: 0 0 28px rgba(168,85,247,0.2),  inset 0 1px 0 rgba(255,255,255,0.07); }
-.glow-green  { box-shadow: 0 0 28px rgba(0,255,136,0.18),  inset 0 1px 0 rgba(255,255,255,0.07); }
-.glow-teal   { box-shadow: 0 0 28px rgba(0,229,200,0.18),  inset 0 1px 0 rgba(255,255,255,0.07); }
-
-.neon-text-cyan   { text-shadow: 0 0 14px rgba(0,212,255,0.65); }
-.neon-text-purple { text-shadow: 0 0 14px rgba(168,85,247,0.65); }
-.neon-text-green  { text-shadow: 0 0 14px rgba(0,255,136,0.65); }
-
-/* ── QUADRANT GRID ───────────────────────────── */
-.quad-grid {
-  position: fixed;
-  inset: 0;
-  display: grid;
-  grid-template-columns: 45% 55%;
-  grid-template-rows: 30% 70%;
-  padding: 10px;
-  gap: 10px;
-}
-
-.quad-cell {
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* ── Q1 — logo / phone ───────────────────────── */
-#q1 { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; }
-
-.ad1-logo {
-  font-size: clamp(2.2rem, 6vw, 5.5rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #00d4ff 0%, #a855f7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 18px rgba(0,212,255,0.4));
-}
-
-.q1-phone {
-  font-size: clamp(0.8rem, 1.8vw, 1.5rem);
-  font-weight: 600;
-  color: #00d4ff;
-  text-shadow: 0 0 10px rgba(0,212,255,0.5);
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  padding: 0.3em 1em;
-  border: 1px solid rgba(0,212,255,0.3);
-  border-radius: 999px;
-  background: rgba(0,212,255,0.07);
-  transition: background 0.2s;
-}
-.q1-phone:hover { background: rgba(0,212,255,0.15); }
-
-/* ── Q2 — services headline ──────────────────── */
-#q2 { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 0 5%; }
-
-.q2-title {
-  font-size: clamp(0.85rem, 2.8vw, 2.6rem);
-  font-weight: 700;
-  color: #e3e0f3;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.q2-sub {
-  font-size: clamp(0.7rem, 2.2vw, 2rem);
-  font-weight: 500;
-  color: rgba(255,255,255,0.55);
-  text-align: center;
-  white-space: nowrap;
-}
-
-.q2-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0.3em 1em;
-  border-radius: 999px;
-  border: 1px solid rgba(0,255,136,0.3);
-  background: rgba(0,255,136,0.08);
-  color: #00ff88;
-  font-size: clamp(0.55rem, 1.1vw, 0.85rem);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-shadow: 0 0 8px rgba(0,255,136,0.5);
-}
-.q2-badge::before { content:''; width:7px; height:7px; border-radius:50%; background:#00ff88; box-shadow:0 0 6px #00ff88; display:inline-block; animation: blink 2s ease infinite; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-/* ── Q3 — cycling content ────────────────────── */
-#q3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.q3-box {
-  position: relative;
-  width: 95%;
-  aspect-ratio: 16/9;
-  max-height: 95%;
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-/* Video */
-.q3-video-wrapper {
-  position: absolute; inset: 0;
-  transition: opacity 0.8s ease;
-}
-.q3-video { width:100%; height:100%; object-fit:cover; display:block; }
-
-/* Apps card */
-.bullet-list-outer {
-  position: absolute; inset: 0;
-  border-radius: 14px;
-  padding: 3px;
-  background: #12121f;
-  transition: opacity 0.6s ease;
-}
-
-@property --a { syntax:'<angle>'; initial-value:0deg; inherits:false; }
-
-.spin-ring {
-  position: absolute; inset: 0; border-radius: 14px; z-index: 0; opacity: 0;
-  background: conic-gradient(from var(--a), transparent 0deg, transparent 160deg,
-    #a855f7 210deg, #00d4ff 255deg, #00ff88 295deg, #00e5c8 330deg, #00d4ff 355deg, transparent 360deg);
-}
-.spin-ring.active { animation: spinTwiceFade 3s linear forwards; }
-@keyframes spinTwiceFade { 0%{--a:0deg;opacity:1} 80%{--a:576deg;opacity:1} 100%{--a:720deg;opacity:0} }
-
-.bullet-list {
-  position: relative; z-index: 1;
-  width:100%; height:100%; border-radius:12px;
-  background: rgba(18,18,31,0.96);
-  padding: 0.65rem; display:flex; flex-direction:column; gap:0.45rem; overflow:hidden;
-}
-
-.inf-header {
-  font-size: clamp(0.38rem,0.85vw,0.65rem);
-  font-weight: 700; letter-spacing:0.22em; text-transform:uppercase;
-  color:#e3e0f3; text-align:center; flex-shrink:0;
-}
-
-.inf-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: clamp(0.2rem,0.5vw,0.45rem);
-  flex:1; min-height:0;
-}
-
-.inf-tile {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-top: 2px solid var(--c);
-  border-radius: 8px;
-  display: flex; flex-direction:column; align-items:center; justify-content:center;
-  gap:0.18rem; padding:0.35rem 0.2rem;
-  opacity: 0; animation: tileReveal 0.4s ease-out forwards;
-  backdrop-filter: blur(8px);
-  transition: box-shadow 0.2s;
-}
-.inf-tile:hover { box-shadow: 0 0 14px var(--c); }
-
-@keyframes tileReveal {
-  from { opacity:0; transform:translateY(6px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-
-.inf-logo { width:clamp(1.6rem,3.2vw,2.9rem); height:clamp(1.6rem,3.2vw,2.9rem); object-fit:contain; flex-shrink:0; }
-
-.inf-name {
-  font-size: clamp(0.62rem,1.38vw,1.18rem);
-  font-weight: 700; color:var(--c);
-  text-transform:uppercase; letter-spacing:0.04em; text-align:center;
-  text-shadow: 0 0 6px var(--c);
-}
-
-.inf-tag {
-  font-size: clamp(0.38rem,0.78vw,0.62rem);
-  color: rgba(255,255,255,0.38); text-align:center; letter-spacing:0.05em;
-}
-
-/* HIW outer */
-.hiw-outer {
-  position: absolute; inset: 0;
-  border-radius: 14px; padding: 3px;
-  background: #12121f;
-  opacity: 0; transition: opacity 0.6s ease;
-}
-.hiw-inner {
-  position:relative; z-index:1;
-  width:100%; height:100%; border-radius:12px;
-  background: rgba(18,18,31,0.96);
-  padding: 0.65rem;
-  display:flex; flex-direction:column;
-  align-items:center; justify-content:space-between;
-  overflow:hidden;
-}
-
-.hiw-heading {
-  font-size: clamp(0.38rem,0.85vw,0.65rem);
-  font-weight:700; letter-spacing:0.22em; text-transform:uppercase;
-  color:#e3e0f3; text-align:center; flex-shrink:0; opacity:0;
-}
-
-.hiw-steps {
-  display:grid; grid-template-columns:1fr 1fr;
-  grid-template-rows:1fr 1fr;
-  gap:0.4rem; width:100%; flex:1; min-height:0;
-}
-
-.hiw-step {
-  border: 1px solid rgba(255,255,255,0.07);
-  border-left: 2px solid var(--c);
-  border-radius: 8px;
-  background: rgba(255,255,255,0.02);
-  backdrop-filter: blur(8px);
-  display:flex; align-items:center; gap:0.4rem;
-  padding: 0.35rem 0.5rem;
-  opacity:0;
-}
-
-.hiw-ring {
-  flex-shrink:0;
-  width: clamp(28px,4.5vw,52px);
-  height: clamp(28px,4.5vw,52px);
-  position:relative;
-}
-.hiw-ring svg { position:absolute; inset:0; }
-.hiw-num {
-  position:absolute; inset:0;
-  display:flex; align-items:center; justify-content:center;
-  font-size:clamp(0.55rem,1.1vw,0.95rem); font-weight:800; color:var(--c);
-}
-
-.hiw-arc { stroke-dashoffset:151; }
-.hiw-text { display:flex; flex-direction:column; gap:0.1rem; min-width:0; }
-.hiw-step-label { font-size:clamp(0.52rem,1vw,0.88rem); font-weight:700; color:var(--c); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.hiw-step-detail { font-size:clamp(0.38rem,0.72vw,0.6rem); color:rgba(255,255,255,0.38); line-height:1.3; }
-
-/* HIW playing animations */
-.hiw-outer.playing .hiw-heading { animation: hiwUp 0.5s 0.1s ease-out forwards; }
-.hiw-outer.playing .hiw-s1      { animation: hiwUp 0.5s 0.25s ease-out forwards; }
-.hiw-outer.playing .hiw-s1 .hiw-arc { animation: hiwDraw 0.9s 0.25s ease-out forwards; }
-.hiw-outer.playing .hiw-s2      { animation: hiwUp 0.5s 0.50s ease-out forwards; }
-.hiw-outer.playing .hiw-s2 .hiw-arc { animation: hiwDraw 0.9s 0.50s ease-out forwards; }
-.hiw-outer.playing .hiw-s3      { animation: hiwUp 0.5s 0.75s ease-out forwards; }
-.hiw-outer.playing .hiw-s3 .hiw-arc { animation: hiwDraw 0.9s 0.75s ease-out forwards; }
-.hiw-outer.playing .hiw-s4      { animation: hiwUp 0.5s 1.00s ease-out forwards; }
-.hiw-outer.playing .hiw-s4 .hiw-arc { animation: hiwDraw 0.9s 1.00s ease-out forwards; }
-
-@keyframes hiwUp   { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
-@keyframes hiwDraw { from{stroke-dashoffset:151} to{stroke-dashoffset:0} }
-
-/* ── Q4 — demo video ─────────────────────────── */
-#q4 { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.6rem; padding:14px; }
-
-.q4-label {
-  font-size: clamp(0.5rem,1vw,0.8rem);
-  font-weight:600; letter-spacing:0.15em; text-transform:uppercase;
-  color:rgba(255,255,255,0.4);
-  display:flex; align-items:center; gap:0.4rem;
-}
-.q4-label::before { content:''; width:6px; height:6px; border-radius:50%; background:#a855f7; box-shadow:0 0 6px #a855f7; flex-shrink:0; }
-
-.video-wrapper {
-  width:100%; flex:1; min-height:0; border-radius:14px; overflow:hidden;
-  position:relative;
-}
-.video-wrapper video { width:100%; height:100%; object-fit:cover; border-radius:14px; display:block; }
+    body { font-family: 'Inter', sans-serif; }
+    .font-mono-tech { font-family: 'JetBrains Mono', monospace; }
+    .bg-circuit-dark {
+      background-color: #050a12;
+      background-image:
+        radial-gradient(circle at 50% 50%, rgba(15,23,42,0.5) 0%, rgba(2,6,23,1) 100%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 H 90 V 90 H 10 Z' fill='none' stroke='rgba(34,211,238,0.05)' stroke-width='0.5'/%3E%3Cpath d='M0 50 H 100 M50 0 V 100' fill='none' stroke='rgba(34,211,238,0.03)' stroke-width='0.5'/%3E%3Ccircle cx='10' cy='10' r='1' fill='rgba(34,211,238,0.1)'/%3E%3Ccircle cx='90' cy='10' r='1' fill='rgba(34,211,238,0.1)'/%3E%3Ccircle cx='90' cy='90' r='1' fill='rgba(34,211,238,0.1)'/%3E%3Ccircle cx='10' cy='90' r='1' fill='rgba(34,211,238,0.1)'/%3E%3C/svg%3E");
+    }
+    .glass-card {
+      background: rgba(15,23,42,0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      border-color: rgba(34,211,238,0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(34,211,238,0.15);
+    }
+    .glow-path { stroke:#22d3ee; stroke-width:2; fill:none; filter:drop-shadow(0 0 5px #22d3ee); opacity:0.3; }
+    .glow-path-green { stroke:#4ade80; stroke-width:2; fill:none; filter:drop-shadow(0 0 5px #4ade80); opacity:0.3; }
+    @keyframes pulse-glow { 0%,100%{opacity:0.3} 50%{opacity:0.6} }
+    .animate-pulse-glow { animation: pulse-glow 3s infinite ease-in-out; }
 </style>
 </head>
-<body>
+<body class="bg-circuit-dark text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-white">
+<main class="relative max-w-6xl mx-auto px-4 py-12 flex flex-col items-center">
 
-<!-- ── QUADRANT GRID ─────────────────────────────────────────────── -->
-<div class="quad-grid">
-
-  <!-- Q1: Logo + phone -->
-  <div id="q1" class="quad-cell glass glow-cyan">
-    <div class="ad1-logo">Ad1.tv</div>
-    <a href="tel:+12134440024" class="q1-phone">213&nbsp;444-0024</a>
-  </div>
-
-  <!-- Q2: Services headline -->
-  <div id="q2" class="quad-cell glass glow-green">
-    <div class="q2-title">Video &amp; Photo Editing &nbsp;·&nbsp; Ai Imagery</div>
-    <div class="q2-sub">Content Creator Tutoring</div>
-    <div class="q2-badge">Nationwide · Online · Zoom &amp; Meet</div>
-  </div>
-
-  <!-- Q3: Cycling content (video → apps → HIW) -->
-  <div id="q3" class="quad-cell glass glow-purple" style="overflow:hidden;">
-    <div class="q3-box">
-
-      <!-- Video -->
-      <div class="q3-video-wrapper">
-        <video id="q3vid1" class="q3-video" muted playsinline>
-          <source src="vid/1.webm" type="video/webm">
-        </video>
-      </div>
-
-      <!-- Topics Covered -->
-      <div class="bullet-list-outer">
-        <div class="spin-ring"></div>
-        <div class="bullet-list">
-          <div class="inf-header">Topics Covered</div>
-          <div class="inf-grid">
-            <div class="inf-tile" style="--c:#00d4ff">
-              <img src="img/ps.png" alt="" class="inf-logo">
-              <div class="inf-name">Photoshop</div>
-              <div class="inf-tag">Photo &amp; Design</div>
-            </div>
-            <div class="inf-tile" style="--c:#a855f7">
-              <img src="img/pr.png" alt="" class="inf-logo">
-              <div class="inf-name">Premiere</div>
-              <div class="inf-tag">Video Editing</div>
-            </div>
-            <div class="inf-tile" style="--c:#00ff88">
-              <img src="img/dr.png" alt="" class="inf-logo">
-              <div class="inf-name">DaVinci</div>
-              <div class="inf-tag">Color Grading</div>
-            </div>
-            <div class="inf-tile" style="--c:#00e5c8">
-              <img src="img/cui.png" alt="" class="inf-logo">
-              <div class="inf-name">ComfyUI</div>
-              <div class="inf-tag">AI Imagery</div>
-            </div>
-            <div class="inf-tile" style="--c:#f59e0b">
-              <img src="img/ai.png" alt="" class="inf-logo">
-              <div class="inf-name">AI Apps</div>
-              <div class="inf-tag">Automation</div>
-            </div>
-            <div class="inf-tile" style="--c:#ff6b9d">
-              <img src="img/cld.png" alt="" class="inf-logo">
-              <div class="inf-name">Vibe Coding</div>
-              <div class="inf-tag">Dev + AI</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- How It Works -->
-      <div class="hiw-outer">
-        <div class="spin-ring"></div>
-        <div class="hiw-inner">
-          <div class="hiw-heading">How It Works</div>
-          <div class="hiw-steps">
-            <div class="hiw-step hiw-s1" style="--c:#00d4ff">
-              <div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(0,212,255,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#00d4ff" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">1</div></div>
-              <div class="hiw-text"><div class="hiw-step-label">Book a Session</div><div class="hiw-step-detail">Pick a time that works for you</div></div>
-            </div>
-            <div class="hiw-step hiw-s2" style="--c:#a855f7">
-              <div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(168,85,247,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">2</div></div>
-              <div class="hiw-text"><div class="hiw-step-label">Join via Meet or Zoom</div><div class="hiw-step-detail">Screen share from anywhere</div></div>
-            </div>
-            <div class="hiw-step hiw-s3" style="--c:#00ff88">
-              <div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(0,255,136,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#00ff88" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">3</div></div>
-              <div class="hiw-text"><div class="hiw-step-label">Learn at Your Pace</div><div class="hiw-step-detail">Hands-on, your level, your goals</div></div>
-            </div>
-            <div class="hiw-step hiw-s4" style="--c:#f59e0b">
-              <div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(245,158,11,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">4</div></div>
-              <div class="hiw-text"><div class="hiw-step-label">Create!</div><div class="hiw-step-detail">Put your new skills to work</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+  <header class="text-center mb-12">
+    <div class="inline-block px-4 py-1 border border-cyan-500/50 rounded-full mb-6">
+      <span class="text-cyan-400 text-xs font-bold tracking-[0.2em] uppercase">Field-Ready Checklist</span>
     </div>
-  </div>
-
-  <!-- Q4: Demo video -->
-  <div id="q4" class="quad-cell glass glow-teal">
-    <div class="q4-label">Demo Session</div>
-    <div class="video-wrapper">
-      <video id="demo-video" controls poster="img/yt tn copy.png">
-        <source src="vid/demo.webm" type="video/webm">
-      </video>
+    <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-white">
+      IT Tech Support <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">Toolkit</span>
+    </h1>
+    <p class="text-slate-400 text-xl font-medium">10 Portable Apps to Keep on Your USB Drive</p>
+    <div class="mt-8">
+      <span class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-bold px-6 py-2 rounded-md tracking-wider">THE 10 MUST-HAVES</span>
     </div>
+  </header>
+
+  <div class="relative w-full grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 z-10">
+
+    <!-- Left Column -->
+    <div class="flex flex-col gap-6 items-end">
+      <div class="glass-card w-full max-w-sm p-4 rounded-xl flex items-center gap-4 group">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-800 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold">1</div>
+        <div class="flex-grow"><h3 class="font-bold text-lg group-hover:text-cyan-400 transition-colors">HWiNFO</h3><p class="text-sm text-slate-400">hardware info</p></div>
+        <div class="p-2 bg-slate-800/50 rounded-lg text-cyan-400"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></div>
+      </div>
+      <div class="glass-card w-full max-w-sm p-4 rounded-xl flex items-center gap-4 group">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-800 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold">3</div>
+        <div class="flex-grow"><h3 class="font-bold text-lg group-hover:text-cyan-400 transition-colors">MemTest86</h3><p class="text-sm text-slate-400">RAM test</p></div>
+        <div class="p-2 bg-slate-800/50 rounded-lg text-emerald-400"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></div>
+      </div>
+      <div class="glass-card w-full max-w-sm p-4 rounded-xl flex items-center gap-4 group">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-800 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold">5</div>
+        <div class="flex-grow"><h3 class="font-bold text-lg group-hover:text-cyan-400 transition-colors">Autoruns</h3><p class="text-sm text-slate-400">startup control</p></div>
+        <div class="p-2 bg-slate-800/50 rounded-lg text-cyan-400"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></div>
+      </div>
+      <div class="glass-card w-full max-w-sm p-4 rounded-xl flex items-center gap-4 group">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-800 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold">7</div>
+        <div class="flex-grow"><h3 class="font-bold text-lg group-hover:text-cyan-400 transition-colors">RKill</h3><p class="text-sm text-slate-400">stop rogue processes</p></div>
+        <div class="p-2 bg-slate-800/50 rounded-lg text-red-400"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="flex flex-col gap-6 items-start">
+      <div class="glass-card w-full max-w-sm p-4 rounded-xl flex items-center gap-4 group">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-800 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold">2</div>
+        <div class="flex-grow"><h3 class="font-bold text-lg group-hover:text-emerald-400 transition-colors">CrystalDiskInfo</h3><p class="text-sm text-slate-400">drive health</p></div>
+        <div class="p-2 bg-slate-800/50 rounded-lg text-emerald-400"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></div>
+      </div>
+      <div class="glass-card w-full max-w-sm p-4 rounded-xl flex items-center gap-4 group">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-800 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold">4</div>
+        <div class="flex-grow"><h3 class="font-bold text-lg group-hover:text-emerald-400 transition-colors">NirSoft Suite</h3><p class="text-sm text-slate-400">quick utilities</p></div>
+        <div class="p-2 bg-slate-800/50 rounded-lg text-cyan-400"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></div>
+      </div>
+      <div class="glass-card w-full max-w-sm p-4 rounded-xl flex items-center gap-4 group">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-800 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold">6</div>
+        <div class="flex-grow"><h3 class="font-bold text-lg group-hover:text-emerald-400 transition-colors">Malwarebytes</h3><p class="text-sm text-slate-400">malware scan</p></div>
+        <div class="p-2 bg-slate-800/50 rounded-lg text-emerald-400"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></div>
+      </div>
+      <div class="glass-card w-full max-w-sm p-4 rounded-xl flex items-center gap-4 group">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-800 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold">8</div>
+        <div class="flex-grow"><h3 class="font-bold text-lg group-hover:text-emerald-400 transition-colors">Wireshark</h3><p class="text-sm text-slate-400">packet capture</p></div>
+        <div class="p-2 bg-slate-800/50 rounded-lg text-cyan-400"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.691.387a6 6 0 01-3.86.517l-2.387-.477a2 2 0 00-1.022.547l-1.162.872a.437.437 0 00.468.741l1.958-.391a2 2 0 011.286.172l.691.387a2 2 0 001.286.172l1.958-.391a.438.438 0 00.468-.741l-1.162-.872z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></div>
+      </div>
+      <div class="glass-card w-full max-w-sm p-4 rounded-xl flex items-center gap-4 group">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-800 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold">9</div>
+        <div class="flex-grow"><h3 class="font-bold text-lg group-hover:text-emerald-400 transition-colors">PuTTY</h3><p class="text-sm text-slate-400">SSH / serial</p></div>
+        <div class="p-2 bg-slate-800/50 rounded-lg text-slate-300"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></div>
+      </div>
+      <div class="glass-card w-full max-w-sm p-4 rounded-xl flex items-center gap-4 group">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-800 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold">10</div>
+        <div class="flex-grow"><h3 class="font-bold text-lg group-hover:text-emerald-400 transition-colors">AnyDesk</h3><p class="text-sm text-slate-400">remote support</p></div>
+        <div class="p-2 bg-slate-800/50 rounded-lg text-red-400"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></div>
+      </div>
+    </div>
+
+    <!-- Central Visual -->
+    <div class="absolute inset-0 -z-10 flex flex-col items-center justify-end pointer-events-none overflow-hidden pb-4">
+      <svg class="w-full h-full absolute inset-0 animate-pulse-glow" preserveAspectRatio="none" viewBox="0 0 1000 1000">
+        <path class="glow-path" d="M500,800 C400,800 200,600 100,150"/>
+        <path class="glow-path" d="M500,800 C400,800 200,700 100,300"/>
+        <path class="glow-path" d="M500,800 C400,800 250,750 100,450"/>
+        <path class="glow-path" d="M500,800 C450,800 300,800 100,600"/>
+        <path class="glow-path-green" d="M500,800 C600,800 800,600 900,100"/>
+        <path class="glow-path-green" d="M500,800 C600,800 800,700 900,230"/>
+        <path class="glow-path-green" d="M500,800 C600,800 850,750 900,360"/>
+        <path class="glow-path-green" d="M500,800 C600,800 850,780 900,490"/>
+        <path class="glow-path-green" d="M500,800 C600,800 850,800 900,620"/>
+        <path class="glow-path-green" d="M500,800 C550,800 850,820 900,750"/>
+      </svg>
+      <div class="relative transform hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-cyan-400 blur-[80px] opacity-20 rounded-full"></div>
+        <img alt="USB Flash Drive" class="w-64 md:w-80 h-auto drop-shadow-[0_20px_50px_rgba(34,211,238,0.3)]" src="https://lh3.googleusercontent.com/aida/ADBb0ujPYJkdkImFqAHXGvOQtTKgZPvVUiBE_XqJtum2HGFBDhXm4uVwsIwQ5xLgd6djyZWnmEpAa9fqAwELz2b9bRk7SiurZkELgEHJNoj5zgqwPM3E_ayhCaVFbUCok989C0frLQhcH2_r2DBIXIOlMtrdy7rzTSPdFKMBhBJAWZjLfIQXhCKZSeOed1CtBxu7240SA4U2MrK99ULKiH1MRNNuWz7KhOjzGhTUUJSjlW71UfsnJZzAP3NnlXzGTTyf3CtC9TUYE_wElPo"/>
+      </div>
+    </div>
+
   </div>
 
-</div><!-- /quad-grid -->
+  <footer class="mt-16 w-full flex flex-col items-center">
+    <div class="glass-card px-8 py-4 rounded-xl border border-emerald-500/20 max-w-2xl text-center">
+      <p class="text-lg font-semibold">
+        <span class="text-emerald-400 mr-2 font-bold tracking-wider">Tip:</span>
+        <span class="text-slate-200">Keep a <span class="bg-slate-800 px-2 py-0.5 rounded text-emerald-400 font-mono-tech">"$$"</span> folder for installers + logs</span>
+      </p>
+    </div>
+    <p class="mt-12 text-slate-500 text-sm font-medium tracking-wide uppercase">Save this pin for your next on-site call</p>
+  </footer>
 
-<script>
-  const demoVideo = document.getElementById('demo-video');
-  demoVideo.volume = 0.1;
-  demoVideo.addEventListener('loadedmetadata', () => { demoVideo.volume = 0.1; });
-  demoVideo.addEventListener('play', () => { demoVideo.volume = 0.1; });
-
-  const v1 = document.getElementById('q3vid1');
-  const v1Wrapper = document.querySelector('.q3-video-wrapper');
-  const appsOuter = document.querySelector('.bullet-list-outer');
-  const hiwOuter  = document.querySelector('.hiw-outer');
-  const items     = document.querySelectorAll('.inf-tile');
-
-  function restartSpin(outer) {
-    const ring = outer.querySelector('.spin-ring');
-    if (!ring) return;
-    ring.classList.remove('active');
-    void ring.offsetHeight;
-    ring.classList.add('active');
-  }
-
-  function showApps() {
-    hiwOuter.style.opacity = '0';
-    hiwOuter.classList.remove('playing');
-    appsOuter.style.opacity = '1';
-    items.forEach(el => { el.style.animation='none'; el.offsetHeight; el.style.animation=''; });
-    restartSpin(appsOuter);
-    setTimeout(showVideo, 6000);
-  }
-
-  function showVideo() {
-    appsOuter.style.opacity = '0';
-    setTimeout(() => {
-      v1.currentTime = 0;
-      v1Wrapper.style.opacity = '1';
-      v1.play();
-    }, 600);
-  }
-
-  function showHIW() {
-    hiwOuter.style.opacity = '1';
-    hiwOuter.classList.remove('playing');
-    void hiwOuter.offsetHeight;
-    hiwOuter.classList.add('playing');
-    restartSpin(hiwOuter);
-    setTimeout(showApps, 10000);
-  }
-
-  v1.addEventListener('ended', () => {
-    v1Wrapper.style.opacity = '0';
-    setTimeout(showHIW, 600);
-  });
-
-  v1Wrapper.style.opacity = '0';
-  hiwOuter.style.opacity  = '0';
-  showApps();
-</script>
-</body>
-</html>
+</main>
+</body></html>

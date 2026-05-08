@@ -371,22 +371,12 @@ body {
 }
 .hiw-scene.current { transform: translateX(0); }
 .hiw-scene.sliding { transition: transform 0.52s cubic-bezier(0.77,0,0.175,1); }
-.hiw-word {
-    font-size: clamp(1.4rem, 4vh, 2.5rem);
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--c);
-    opacity: 0.7;
-    line-height: 1;
-}
-.hiw-num {
-    font-size: clamp(10rem, 35vh, 20rem);
+.hiw-label {
+    font-size: clamp(2.4rem, 8vh, 4.5rem);
     font-weight: 900;
-    letter-spacing: -0.05em;
-    color: var(--c);
-    filter: drop-shadow(0 0 40px var(--c));
-    line-height: 0.85;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    line-height: 1;
 }
 
 @keyframes hs-pulse  { 0%,100%{transform:scale(1);opacity:0.6} 50%{transform:scale(1.7);opacity:0} }

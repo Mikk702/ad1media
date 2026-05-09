@@ -78,7 +78,7 @@ body {
 }
 
 .ad1-logo {
-    font-size: clamp(2rem, 7vw, 6.5rem);
+    font-size: clamp(2.4rem, 8.4vw, 7.8rem);
     font-weight: 800;
     line-height: 1;
     display: inline-block;
@@ -190,7 +190,7 @@ body {
     border: 1px solid rgba(0, 212, 255, 0.45);
     background: rgba(0, 212, 255, 0.07);
     color: rgba(0, 212, 255, 0.9);
-    font-size: clamp(0.54rem, 1.2vw, 0.984rem);
+    font-size: clamp(0.648rem, 1.44vw, 1.181rem);
     font-weight: 600;
     letter-spacing: 0.06em;
     white-space: nowrap;

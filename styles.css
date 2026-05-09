@@ -154,6 +154,23 @@ body {
     letter-spacing: 0.02em;
 }
 
+.q2-neon-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3em 1.2em;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 212, 255, 0.45);
+    background: rgba(0, 212, 255, 0.07);
+    color: rgba(0, 212, 255, 0.9);
+    font-size: clamp(0.45rem, 1vw, 0.82rem);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    box-shadow: 0 0 14px rgba(0, 212, 255, 0.2), inset 0 0 8px rgba(0, 212, 255, 0.05);
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
+    margin-top: 0.4rem;
+}
+
 .q2-phone {
     font-size: clamp(1rem, 3vw, 2.8rem);
     font-weight: 600;

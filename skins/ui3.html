@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ad1.tv</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Inter',sans-serif;overflow:hidden;color:#e2e8f0}
+
+/* ── Background ─────────────────────────────── */
+body{
+  background:#060612;
+  background-image:
+    radial-gradient(ellipse at 15% 40%, rgba(168,85,247,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 20%, rgba(0,212,255,0.14) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(124,58,237,0.2) 0%, transparent 60%);
+}
+
+/* Grid floor */
+body::before{
+  content:'';
+  position:fixed;
+  bottom:0;left:0;right:0;
+  height:45%;
+  background-image:
+    linear-gradient(rgba(168,85,247,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168,85,247,0.12) 1px, transparent 1px);
+  background-size:44px 44px;
+  transform:perspective(600px) rotateX(55deg);
+  transform-origin:bottom center;
+  pointer-events:none;
+  z-index:0;
+  mask-image:linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  -webkit-mask-image:linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+}
+
+/* ── Glass panel ─────────────────────────────── */
+.glass{
+  background:rgba(8,6,24,0.7);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.07);
+}
+
+/* Quad borders */
+.b-cyan   {border-color:rgba(0,212,255,0.3)!important; box-shadow:0 0 30px rgba(0,212,255,0.12), inset 0 1px 0 rgba(0,212,255,0.08);}
+.b-purple {border-color:rgba(168,85,247,0.3)!important; box-shadow:0 0 30px rgba(168,85,247,0.12), inset 0 1px 0 rgba(168,85,247,0.08);}
+.b-pink   {border-color:rgba(236,72,153,0.3)!important; box-shadow:0 0 30px rgba(236,72,153,0.1),  inset 0 1px 0 rgba(236,72,153,0.06);}
+.b-teal   {border-color:rgba(20,184,166,0.3)!important; box-shadow:0 0 30px rgba(20,184,166,0.12), inset 0 1px 0 rgba(20,184,166,0.08);}
+
+/* ── Neon pill button ────────────────────────── */
+.neon-pill{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:0.32em 1.1em;border-radius:999px;
+  font-size:clamp(0.6rem,1.4vw,1.1rem);font-weight:600;
+  text-decoration:none;letter-spacing:0.04em;
+  transition:all 0.2s;cursor:pointer;border:none;
+}
+.neon-pill-cyan{
+  background:linear-gradient(135deg,rgba(0,212,255,0.18),rgba(0,212,255,0.08));
+  border:1px solid rgba(0,212,255,0.5);
+  color:#00d4ff;
+  box-shadow:0 0 14px rgba(0,212,255,0.25), inset 0 1px 0 rgba(0,212,255,0.15);
+  text-shadow:0 0 8px rgba(0,212,255,0.7);
+}
+.neon-pill-cyan:hover{background:linear-gradient(135deg,rgba(0,212,255,0.32),rgba(0,212,255,0.14));box-shadow:0 0 24px rgba(0,212,255,0.45);}
+.neon-pill-solid{
+  background:linear-gradient(135deg,#7c3aed,#a855f7);
+  border:1px solid rgba(168,85,247,0.6);
+  color:#fff;
+  box-shadow:0 0 18px rgba(124,58,237,0.4);
+}
+.neon-pill-solid:hover{box-shadow:0 0 30px rgba(124,58,237,0.6);transform:translateY(-1px);}
+
+/* ── QUAD GRID ───────────────────────────────── */
+.quad-grid{
+  position:fixed;inset:0;
+  display:grid;
+  grid-template-columns:45% 55%;
+  grid-template-rows:30% 70%;
+  padding:10px;gap:10px;
+  z-index:1;
+}
+.quad-cell{border-radius:18px;position:relative;overflow:hidden;}
+
+/* ── Q1 ──────────────────────────────────────── */
+#q1{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;}
+
+.ad1-logo{
+  font-size:clamp(2rem,5.5vw,5rem);
+  font-weight:800;letter-spacing:-0.03em;line-height:1;
+  background:linear-gradient(135deg,#00d4ff 0%,#a855f7 50%,#ec4899 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 20px rgba(0,212,255,0.4));
+}
+
+/* ── Q2 ──────────────────────────────────────── */
+#q2{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.55rem;padding:0 5%;}
+
+.q2-title{
+  font-size:clamp(0.75rem,2.5vw,2.3rem);font-weight:700;
+  color:#f1f5f9;letter-spacing:-0.01em;line-height:1.2;
+  text-align:center;white-space:nowrap;
+}
+.q2-sub{
+  font-size:clamp(0.62rem,1.9vw,1.75rem);font-weight:400;
+  color:rgba(255,255,255,0.45);text-align:center;white-space:nowrap;
+}
+
+/* ── Q3 ──────────────────────────────────────── */
+#q3{display:flex;align-items:center;justify-content:center;}
+
+.q3-box{position:relative;width:95%;aspect-ratio:16/9;max-height:95%;border-radius:12px;overflow:hidden;}
+.q3-video-wrapper{position:absolute;inset:0;transition:opacity 0.8s ease;}
+.q3-video{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* Apps outer */
+.bullet-list-outer{position:absolute;inset:0;border-radius:18px;transition:opacity 0.6s ease;}
+@property --a{syntax:'<angle>';initial-value:0deg;inherits:false;}
+.spin-ring{
+  position:absolute;inset:0;border-radius:18px;z-index:0;opacity:0;
+  background:conic-gradient(from var(--a),transparent 0deg,transparent 160deg,
+    #a855f7 200deg,#00d4ff 250deg,#ec4899 300deg,#a855f7 350deg,transparent 360deg);
+}
+.spin-ring.active{animation:spinTwiceFade 3s linear forwards;}
+@keyframes spinTwiceFade{0%{--a:0deg;opacity:1}80%{--a:576deg;opacity:1}100%{--a:720deg;opacity:0}}
+
+.bullet-list{
+  position:absolute;inset:3px;z-index:1;border-radius:16px;
+  background:rgba(6,4,18,0.92);backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.06);
+  padding:0.7rem;display:flex;flex-direction:column;gap:0.4rem;overflow:hidden;
+}
+
+.inf-header{
+  font-size:clamp(0.35rem,0.8vw,0.6rem);font-weight:700;letter-spacing:0.22em;text-transform:uppercase;
+  background:linear-gradient(90deg,#00d4ff,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  text-align:center;flex-shrink:0;
+}
+
+.inf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(0.2rem,0.45vw,0.4rem);flex:1;min-height:0;}
+
+/* Neon pill tile — matches the input/field style in mockup */
+.inf-tile{
+  background:rgba(255,255,255,0.02);
+  border:1.5px solid var(--c);
+  border-radius:999px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:0.12rem;padding:0.3rem 0.2rem;
+  opacity:0;animation:tileReveal 0.4s ease-out forwards;
+  box-shadow:0 0 8px var(--c), inset 0 0 8px rgba(255,255,255,0.02);
+  transition:box-shadow 0.2s;
+}
+.inf-tile:hover{box-shadow:0 0 18px var(--c);}
+@keyframes tileReveal{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+.inf-logo{width:clamp(1.5rem,3vw,2.7rem);height:clamp(1.5rem,3vw,2.7rem);object-fit:contain;flex-shrink:0;}
+.inf-name{font-size:clamp(0.58rem,1.3vw,1.1rem);font-weight:700;color:var(--c);text-transform:uppercase;letter-spacing:0.04em;text-align:center;text-shadow:0 0 6px var(--c);}
+.inf-tag{font-size:clamp(0.35rem,0.72vw,0.58rem);color:rgba(255,255,255,0.3);text-align:center;letter-spacing:0.04em;}
+
+/* HIW */
+.hiw-outer{position:absolute;inset:0;border-radius:18px;opacity:0;transition:opacity 0.6s ease;}
+.hiw-inner{
+  position:absolute;inset:3px;z-index:1;border-radius:16px;
+  background:rgba(6,4,18,0.92);backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.06);
+  padding:0.7rem;display:flex;flex-direction:column;align-items:center;justify-content:space-between;overflow:hidden;
+}
+
+.hiw-heading{
+  font-size:clamp(0.35rem,0.8vw,0.6rem);font-weight:700;letter-spacing:0.22em;text-transform:uppercase;
+  background:linear-gradient(90deg,#00d4ff,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  text-align:center;flex-shrink:0;opacity:0;
+}
+.hiw-steps{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:0.38rem;width:100%;flex:1;min-height:0;}
+.hiw-step{
+  border:1.5px solid var(--c);border-radius:999px;
+  background:rgba(255,255,255,0.02);
+  box-shadow:0 0 8px var(--c), inset 0 0 6px rgba(255,255,255,0.02);
+  display:flex;align-items:center;gap:0.35rem;padding:0.3rem 0.5rem;opacity:0;
+}
+.hiw-ring{flex-shrink:0;width:clamp(26px,4.2vw,48px);height:clamp(26px,4.2vw,48px);position:relative;}
+.hiw-ring svg{position:absolute;inset:0;}
+.hiw-arc{stroke-dashoffset:151;}
+.hiw-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(0.52rem,1vw,0.9rem);font-weight:800;color:var(--c);}
+.hiw-text{display:flex;flex-direction:column;gap:0.08rem;min-width:0;}
+.hiw-step-label{font-size:clamp(0.5rem,0.95vw,0.85rem);font-weight:700;color:var(--c);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 0 5px var(--c);}
+.hiw-step-detail{font-size:clamp(0.35rem,0.68vw,0.58rem);color:rgba(255,255,255,0.3);line-height:1.3;}
+
+.hiw-outer.playing .hiw-heading{animation:hiwUp 0.5s 0.1s ease-out forwards;}
+.hiw-outer.playing .hiw-s1{animation:hiwUp 0.5s 0.25s ease-out forwards;}
+.hiw-outer.playing .hiw-s1 .hiw-arc{animation:hiwDraw 0.9s 0.25s ease-out forwards;}
+.hiw-outer.playing .hiw-s2{animation:hiwUp 0.5s 0.5s ease-out forwards;}
+.hiw-outer.playing .hiw-s2 .hiw-arc{animation:hiwDraw 0.9s 0.5s ease-out forwards;}
+.hiw-outer.playing .hiw-s3{animation:hiwUp 0.5s 0.75s ease-out forwards;}
+.hiw-outer.playing .hiw-s3 .hiw-arc{animation:hiwDraw 0.9s 0.75s ease-out forwards;}
+.hiw-outer.playing .hiw-s4{animation:hiwUp 0.5s 1s ease-out forwards;}
+.hiw-outer.playing .hiw-s4 .hiw-arc{animation:hiwDraw 0.9s 1s ease-out forwards;}
+@keyframes hiwUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes hiwDraw{from{stroke-dashoffset:151}to{stroke-dashoffset:0}}
+
+/* ── Q4 ──────────────────────────────────────── */
+#q4{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.55rem;padding:12px;}
+
+.q4-label{
+  font-size:clamp(0.42rem,0.88vw,0.68rem);font-weight:600;letter-spacing:0.16em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:5px;
+}
+.q4-label::before{content:'';width:5px;height:5px;border-radius:50%;background:#a855f7;box-shadow:0 0 6px #a855f7;flex-shrink:0;animation:blink 2s ease infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+
+.video-wrapper{width:100%;flex:1;min-height:0;border-radius:12px;overflow:hidden;border:1px solid rgba(168,85,247,0.2);box-shadow:0 0 20px rgba(168,85,247,0.1);}
+.video-wrapper video{width:100%;height:100%;object-fit:cover;border-radius:12px;display:block;}
+</style>
+</head>
+<body>
+<div class="quad-grid">
+
+  <!-- Q1 -->
+  <div id="q1" class="quad-cell glass b-cyan">
+    <div class="ad1-logo">Ad1.tv</div>
+    <a href="tel:+12134440024" class="neon-pill neon-pill-cyan">213&nbsp;444-0024</a>
+  </div>
+
+  <!-- Q2 -->
+  <div id="q2" class="quad-cell glass b-purple">
+    <div class="q2-title">Video &amp; Photo Editing &nbsp;·&nbsp; Ai Imagery</div>
+    <div class="q2-sub">Content Creator Tutoring</div>
+    <div style="display:flex;gap:0.5rem;margin-top:0.3rem;flex-wrap:wrap;justify-content:center;">
+      <a href="tel:+12134440024" class="neon-pill neon-pill-solid">Book a Session</a>
+      <span class="neon-pill neon-pill-cyan" style="font-size:clamp(0.5rem,1.1vw,0.85rem);">Nationwide &bull; Zoom &bull; Meet</span>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div id="q3" class="quad-cell glass b-purple" style="position:relative;">
+    <div class="q3-box">
+      <div class="q3-video-wrapper">
+        <video id="q3vid1" class="q3-video" muted playsinline>
+          <source src="../vid/1.webm" type="video/webm">
+        </video>
+      </div>
+    </div>
+
+    <div class="bullet-list-outer">
+      <div class="spin-ring"></div>
+      <div class="bullet-list">
+        <div class="inf-header">Topics Covered</div>
+        <div class="inf-grid">
+          <div class="inf-tile" style="--c:#00d4ff"><img src="../img/ps.png"  alt="" class="inf-logo"><div class="inf-name">Photoshop</div><div class="inf-tag">Photo &amp; Design</div></div>
+          <div class="inf-tile" style="--c:#a855f7"><img src="../img/pr.png"  alt="" class="inf-logo"><div class="inf-name">Premiere</div><div class="inf-tag">Video Editing</div></div>
+          <div class="inf-tile" style="--c:#00ff88"><img src="../img/dr.png"  alt="" class="inf-logo"><div class="inf-name">DaVinci</div><div class="inf-tag">Color Grading</div></div>
+          <div class="inf-tile" style="--c:#00e5c8"><img src="../img/cui.png" alt="" class="inf-logo"><div class="inf-name">ComfyUI</div><div class="inf-tag">AI Imagery</div></div>
+          <div class="inf-tile" style="--c:#f59e0b"><img src="../img/ai.png"  alt="" class="inf-logo"><div class="inf-name">AI Apps</div><div class="inf-tag">Automation</div></div>
+          <div class="inf-tile" style="--c:#ec4899"><img src="../img/cld.png" alt="" class="inf-logo"><div class="inf-name">Vibe Coding</div><div class="inf-tag">Dev + AI</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hiw-outer">
+      <div class="spin-ring"></div>
+      <div class="hiw-inner">
+        <div class="hiw-heading">How It Works</div>
+        <div class="hiw-steps">
+          <div class="hiw-step hiw-s1" style="--c:#00d4ff"><div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(0,212,255,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#00d4ff" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">1</div></div><div class="hiw-text"><div class="hiw-step-label">Book a Session</div><div class="hiw-step-detail">Pick a time that works</div></div></div>
+          <div class="hiw-step hiw-s2" style="--c:#a855f7"><div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(168,85,247,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">2</div></div><div class="hiw-text"><div class="hiw-step-label">Join via Meet or Zoom</div><div class="hiw-step-detail">Screen share anywhere</div></div></div>
+          <div class="hiw-step hiw-s3" style="--c:#00ff88"><div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(0,255,136,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#00ff88" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">3</div></div><div class="hiw-text"><div class="hiw-step-label">Learn at Your Pace</div><div class="hiw-step-detail">Hands-on, your goals</div></div></div>
+          <div class="hiw-step hiw-s4" style="--c:#f59e0b"><div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(245,158,11,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">4</div></div><div class="hiw-text"><div class="hiw-step-label">Create!</div><div class="hiw-step-detail">Put your skills to work</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div id="q4" class="quad-cell glass b-teal">
+    <div class="q4-label">Demo Session</div>
+    <div class="video-wrapper">
+      <video id="demo-video" controls poster="../img/yt tn copy.png">
+        <source src="../vid/demo.webm" type="video/webm">
+      </video>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const demoVideo=document.getElementById('demo-video');
+  demoVideo.volume=0.1;
+  demoVideo.addEventListener('loadedmetadata',()=>{demoVideo.volume=0.1;});
+  demoVideo.addEventListener('play',()=>{demoVideo.volume=0.1;});
+
+  const v1=document.getElementById('q3vid1');
+  const v1Wrap=document.querySelector('.q3-video-wrapper');
+  const appsOut=document.querySelector('.bullet-list-outer');
+  const hiwOut=document.querySelector('.hiw-outer');
+  const tiles=document.querySelectorAll('.inf-tile');
+
+  function restartSpin(el){const r=el.querySelector('.spin-ring');if(!r)return;r.classList.remove('active');void r.offsetHeight;r.classList.add('active');}
+
+  function showApps(){
+    hiwOut.style.opacity='0';hiwOut.classList.remove('playing');
+    appsOut.style.opacity='1';
+    tiles.forEach(t=>{t.style.animation='none';t.offsetHeight;t.style.animation='';});
+    restartSpin(appsOut);
+    setTimeout(showVideo,6000);
+  }
+  function showVideo(){
+    appsOut.style.opacity='0';
+    setTimeout(()=>{v1.currentTime=0;v1Wrap.style.opacity='1';v1.play();},600);
+  }
+  function showHIW(){
+    hiwOut.style.opacity='1';hiwOut.classList.remove('playing');
+    void hiwOut.offsetHeight;hiwOut.classList.add('playing');
+    restartSpin(hiwOut);
+    setTimeout(showApps,10000);
+  }
+  v1.addEventListener('ended',()=>{v1Wrap.style.opacity='0';setTimeout(showHIW,600);});
+  v1Wrap.style.opacity='0';hiwOut.style.opacity='0';
+  showApps();
+</script>
+</body>
+</html>

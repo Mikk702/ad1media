@@ -159,8 +159,9 @@ body {
     border: 1px solid rgba(0, 255, 136, 0.45);
     background: rgba(0, 255, 136, 0.07);
     color: rgba(0, 255, 136, 0.9);
+    font-family: 'FreightNeo Pro', 'freight-neo-pro', serif;
     font-size: clamp(0.54rem, 1.2vw, 0.984rem);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.06em;
     white-space: nowrap;
     box-shadow: 0 0 14px rgba(0, 255, 136, 0.2), inset 0 0 8px rgba(0, 255, 136, 0.05);
@@ -186,8 +187,9 @@ body {
     border: 1px solid rgba(0, 212, 255, 0.45);
     background: rgba(0, 212, 255, 0.07);
     color: #fff;
+    font-family: 'FreightNeo Pro', 'freight-neo-pro', serif;
     font-size: clamp(0.972rem, 2.16vw, 1.772rem);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.06em;
     white-space: nowrap;
     box-shadow: 0 0 14px rgba(0, 212, 255, 0.2), inset 0 0 8px rgba(0, 212, 255, 0.05);

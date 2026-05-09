@@ -157,18 +157,33 @@ body {
 .q2-neon-badge {
     display: inline-flex;
     align-items: center;
-    padding: 0.3em 1.2em;
+    gap: 0.5em;
+    padding: 0.36em 1.44em;
     border-radius: 999px;
     border: 1px solid rgba(0, 212, 255, 0.45);
     background: rgba(0, 212, 255, 0.07);
     color: rgba(0, 212, 255, 0.9);
-    font-size: clamp(0.45rem, 1vw, 0.82rem);
+    font-size: clamp(0.54rem, 1.2vw, 0.984rem);
     font-weight: 600;
     letter-spacing: 0.06em;
     white-space: nowrap;
     box-shadow: 0 0 14px rgba(0, 212, 255, 0.2), inset 0 0 8px rgba(0, 212, 255, 0.05);
     text-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
     margin-top: 0.4rem;
+}
+.q2-neon-badge::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00ff88;
+    box-shadow: 0 0 6px #00ff88;
+    flex-shrink: 0;
+    animation: neon-badge-blink 2s ease infinite;
+}
+@keyframes neon-badge-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
 }
 
 .q2-phone {

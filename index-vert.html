@@ -93,6 +93,7 @@
             </div>
         </div>
         <div class="bullet-list-outer">
+            <div class="spin-ring"></div>
             <div class="bullet-list">
                 <div class="inf-grid">
                     <div class="inf-tile" style="--c:#00d4ff">
@@ -187,6 +188,7 @@
 
         <!-- Intro screen — same style as apps panel -->
         <div id="motion-outer" class="motion-screen">
+            <div class="spin-ring"></div>
             <div class="motion-inner">
                 <div class="motion-logo">Ad1.tv</div>
                 <div class="motion-services-list">
@@ -201,12 +203,18 @@
     </section>
 
     <script>
-        const vid = document.getElementById('q3vid');
-        const vidWrapper = document.querySelector('.q3-video-wrapper');
         const appsOuter = document.querySelector('.bullet-list-outer');
         const hiwOuter = document.querySelector('.hiw-outer');
         const motionOuter = document.getElementById('motion-outer');
         const items = document.querySelectorAll('.inf-tile');
+
+        function restartSpin(outer) {
+            const ring = outer.querySelector('.spin-ring');
+            if (!ring) return;
+            ring.classList.remove('active');
+            void ring.offsetHeight;
+            ring.classList.add('active');
+        }
 
         function showApps() {
             motionOuter.style.opacity = '0';
@@ -218,16 +226,8 @@
                 el.offsetHeight;
                 el.style.animation = '';
             });
-            setTimeout(showVideo, 6000);
-        }
-
-        function showVideo() {
-            appsOuter.style.opacity = '0';
-            setTimeout(() => {
-                vid.currentTime = 0;
-                vidWrapper.style.opacity = '1';
-                vid.play();
-            }, 600);
+            restartSpin(appsOuter);
+            setTimeout(showHIW, 6000);
         }
 
         function showHIW() {
@@ -269,13 +269,17 @@
         function showMotion() {
             appsOuter.style.opacity = '0';
             hiwOuter.style.opacity = '0';
-            vidWrapper.style.opacity = '0';
+            const logo = motionOuter.querySelector('.motion-logo');
             const motionItems = motionOuter.querySelectorAll('.motion-service');
+            logo.style.animation = 'none';
+            void logo.offsetHeight;
+            logo.style.animation = '';
             motionItems.forEach(el => {
                 el.style.animation = 'none';
                 el.offsetHeight;
                 el.style.animation = '';
             });
+            restartSpin(motionOuter);
             motionOuter.style.opacity = '1';
             motionOuter.style.pointerEvents = 'auto';
             setTimeout(() => {
@@ -285,12 +289,6 @@
             }, 7000);
         }
 
-        vid.addEventListener('ended', () => {
-            vidWrapper.style.opacity = '0';
-            setTimeout(showHIW, 600);
-        });
-
-        vidWrapper.style.opacity = '0';
         hiwOuter.style.opacity = '0';
         showMotion();
     </script>

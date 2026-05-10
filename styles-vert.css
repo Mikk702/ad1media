@@ -664,3 +664,36 @@ body {
     transform: skewX(-18deg);
     filter: drop-shadow(0 0 8px var(--c));
 }
+
+/* ── WELCOME SCREEN (hiws0) ─────────────────────────── */
+.hswelcome-title {
+    background: linear-gradient(135deg, #00d4ff 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 18px rgba(0, 212, 255, 0.4));
+    animation: hs-fadeDown 0.6s 0.1s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.hswelcome-words {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: clamp(0.4rem, 2vh, 1rem);
+}
+
+.hswelcome-word {
+    font-size: clamp(2.8rem, 11vh, 5.5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    display: inline-block;
+    transform: skewX(-18deg);
+    opacity: 0;
+}
+
+.hswelcome-word.w1 { color: #00d4ff; filter: drop-shadow(0 0 18px rgba(0,212,255,0.65));  animation: hs-fadeUp 0.5s 0.4s  cubic-bezier(0.34,1.56,0.64,1) both; }
+.hswelcome-word.w2 { color: #a855f7; filter: drop-shadow(0 0 18px rgba(168,85,247,0.65)); animation: hs-fadeUp 0.5s 0.7s  cubic-bezier(0.34,1.56,0.64,1) both; }
+.hswelcome-word.w3 { color: #00ff88; filter: drop-shadow(0 0 18px rgba(0,255,136,0.65));  animation: hs-fadeUp 0.5s 1.0s  cubic-bezier(0.34,1.56,0.64,1) both; }
+.hswelcome-word.w4 { color: #fff;    filter: drop-shadow(0 0 12px rgba(255,255,255,0.3)); animation: hs-fadeUp 0.5s 1.3s  cubic-bezier(0.34,1.56,0.64,1) both; transform: none; }

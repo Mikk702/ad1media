@@ -203,6 +203,8 @@
     </section>
 
     <script>
+        const vid = document.getElementById('q3vid');
+        const vidWrapper = document.querySelector('.q3-video-wrapper');
         const appsOuter = document.querySelector('.bullet-list-outer');
         const hiwOuter = document.querySelector('.hiw-outer');
         const motionOuter = document.getElementById('motion-outer');
@@ -227,7 +229,16 @@
                 el.style.animation = '';
             });
             restartSpin(appsOuter);
-            setTimeout(showHIW, 6000);
+            setTimeout(showVideo, 6000);
+        }
+
+        function showVideo() {
+            appsOuter.style.opacity = '0';
+            setTimeout(() => {
+                vid.currentTime = 0;
+                vidWrapper.style.opacity = '1';
+                vid.play();
+            }, 600);
         }
 
         function showHIW() {
@@ -269,6 +280,7 @@
         function showMotion() {
             appsOuter.style.opacity = '0';
             hiwOuter.style.opacity = '0';
+            vidWrapper.style.opacity = '0';
             const logo = motionOuter.querySelector('.motion-logo');
             const motionItems = motionOuter.querySelectorAll('.motion-service');
             logo.style.animation = 'none';
@@ -289,6 +301,12 @@
             }, 7000);
         }
 
+        vid.addEventListener('ended', () => {
+            vidWrapper.style.opacity = '0';
+            setTimeout(showHIW, 600);
+        });
+
+        vidWrapper.style.opacity = '0';
         hiwOuter.style.opacity = '0';
         showMotion();
     </script>

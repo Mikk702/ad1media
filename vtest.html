@@ -251,13 +251,12 @@
         }
 
         shirldemo.addEventListener('ended', () => {
+            smWrapper.style.transition = 'none';
+            smWrapper.style.opacity = '1';
+            smvid.currentTime = 0;
+            smvid.play();
+            shirlVidWrap.style.transition = 'none';
             shirlVidWrap.style.opacity = '0';
-            shirlBox.style.opacity     = '0';
-            setTimeout(() => {
-                smWrapper.style.opacity = '1';
-                smvid.currentTime = 0;
-                smvid.play();
-            }, 600);
         });
 
         smvid.addEventListener('ended', () => {

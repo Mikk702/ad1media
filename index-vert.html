@@ -351,6 +351,16 @@
             hiwOuter.style.opacity          = '0';
             shirlBox.style.opacity          = '0';
             smWrapper.style.opacity         = '0';
+            const logo = motionOuter.querySelector('.motion-logo');
+            const motionItems = motionOuter.querySelectorAll('.motion-service');
+            logo.style.animation = 'none';
+            void logo.offsetHeight;
+            logo.style.animation = '';
+            motionItems.forEach(el => {
+                el.style.animation = 'none';
+                el.offsetHeight;
+                el.style.animation = '';
+            });
             restartSpin(motionOuter);
             motionOuter.style.opacity       = '1';
             motionOuter.style.pointerEvents = 'auto';

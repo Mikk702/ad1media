@@ -86,17 +86,17 @@
 
     <section class="v-bottom">
         <!-- shirl.png zoom-in → shirl.webm → sm.webm, inside the 9:16 content box -->
-        <div class="q3-content-box" id="shirl-box" style="opacity:0;transition:opacity 0.6s ease;">
-            <div id="shirl-img-wrap" style="position:absolute;inset:0;opacity:0;transition:opacity 0.3s ease;">
+        <div class="q3-content-box" id="shirl-box" style="opacity:0;">
+            <div id="shirl-img-wrap" style="position:absolute;inset:0;opacity:0;">
                 <img id="shirl-img" src="vid/shirl.png"
                      style="width:100%;height:100%;object-fit:cover;transform:scale(0);display:block;">
             </div>
-            <div id="shirl-vid-wrap" style="position:absolute;inset:0;opacity:0;transition:opacity 0.3s ease;">
+            <div id="shirl-vid-wrap" style="position:absolute;inset:0;opacity:0;">
                 <video id="shirldemo" class="q3-video" muted playsinline>
                     <source src="vid/shirl.webm" type="video/webm">
                 </video>
             </div>
-            <div id="sm-wrapper" style="position:absolute;inset:0;opacity:0;transition:opacity 0.6s ease;">
+            <div id="sm-wrapper" style="position:absolute;inset:0;opacity:0;">
                 <video id="smvid" class="q3-video" muted playsinline>
                     <source src="vid/sm.webm" type="video/webm">
                 </video>
@@ -246,8 +246,10 @@
         }
 
         function showApps() {
+            motionOuter.style.transition = 'none';
             motionOuter.style.opacity = '0';
             motionOuter.style.pointerEvents = 'none';
+            hiwOuter.style.transition = 'none';
             hiwOuter.style.opacity = '0';
             shirlBox.style.opacity = '0';
             smWrapper.style.opacity = '0';
@@ -349,8 +351,9 @@
             function advanceHIW() {
                 const nextHIW = hiwCur + 1;
                 if (nextHIW >= hiwScenes.length) {
+                    hiwOuter.style.transition = 'none';
                     hiwOuter.style.opacity = '0';
-                    setTimeout(showMotion, 600);
+                    showMotion();
                     return;
                 }
                 hiwScenes[nextHIW].style.transform = 'translateX(100%)';
@@ -374,6 +377,7 @@
         function showMotion() {
             appsOuter.style.transition      = 'none';
             appsOuter.style.opacity         = '0';
+            hiwOuter.style.transition       = 'none';
             hiwOuter.style.opacity          = '0';
             shirlBox.style.opacity          = '0';
             smWrapper.style.opacity         = '0';
@@ -391,9 +395,10 @@
             motionOuter.style.opacity       = '1';
             motionOuter.style.pointerEvents = 'auto';
             setTimeout(() => {
+                motionOuter.style.transition    = 'none';
                 motionOuter.style.opacity       = '0';
                 motionOuter.style.pointerEvents = 'none';
-                setTimeout(showApps, 600);
+                showApps();
             }, 7000);
         }
 

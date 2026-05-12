@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        const THRESHOLD = 1.33;
+        function checkOrientation() {
+            if (window.innerWidth > window.innerHeight * THRESHOLD) {
+                window.location.replace('index.html');
+            }
+        }
+        checkOrientation();
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(checkOrientation, 300);
+        });
+    </script>
+    <title>Ad1 Media – Vert Test</title>
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon" href="img/favicon.png">
+    <link rel="stylesheet" href="styles-vert.css">
+</head>
+<body>
+
+    <div class="v-top-row">
+        <section class="v-card-left">
+            <div class="v-logo">Ad1.tv</div>
+            <div class="v-phone"><a href="tel:+12134440024" style="color:inherit;text-decoration:none;">213 444-0024</a></div>
+        </section>
+        <section class="v-card-right">
+            <div class="v-services">Video &amp; Photo Editing</div>
+            <div class="v-services">Ai Imagery</div>
+            <div class="v-services">Content Creator Tutoring</div>
+        </section>
+    </div>
+
+    <section class="v-bottom">
+
+        <!-- shirl.png zoom-in → shirl.webm, inside the 9:16 content box -->
+        <div class="q3-content-box" id="shirl-box" style="opacity:0;transition:opacity 0.6s ease;">
+            <div id="shirl-img-wrap" style="position:absolute;inset:0;opacity:0;transition:opacity 0.3s ease;">
+                <img id="shirl-img" src="vid/shirl.png"
+                     style="width:100%;height:100%;object-fit:cover;transform:scale(0);display:block;">
+            </div>
+            <div id="shirl-vid-wrap" style="position:absolute;inset:0;opacity:0;transition:opacity 0.3s ease;">
+                <video id="shirldemo" class="q3-video" muted playsinline>
+                    <source src="vid/shirl.webm" type="video/webm">
+                </video>
+            </div>
+        </div>
+
+        <!-- sm.webm — fills the full v-bottom -->
+        <div id="sm-wrapper" style="position:absolute;inset:0;z-index:5;opacity:0;transition:opacity 0.6s ease;">
+            <video id="smvid" muted playsinline
+                   style="width:100%;height:100%;object-fit:cover;display:block;">
+                <source src="vid/sm.webm" type="video/webm">
+            </video>
+        </div>
+
+        <div class="bullet-list-outer">
+            <div class="spin-ring"></div>
+            <div class="bullet-list">
+                <div class="inf-grid">
+                    <div class="inf-tile" style="--c:#00d4ff">
+                        <img src="img/ps.png" alt="" class="inf-logo">
+                        <div class="inf-name">Photoshop</div>
+                        <div class="inf-tag">Photo &amp; Design</div>
+                    </div>
+                    <div class="inf-tile" style="--c:#a855f7">
+                        <img src="img/pr.png" alt="" class="inf-logo">
+                        <div class="inf-name">Premiere</div>
+                        <div class="inf-tag">Video Editing</div>
+                    </div>
+                    <div class="inf-tile" style="--c:#00ff88">
+                        <img src="img/dr.png" alt="" class="inf-logo">
+                        <div class="inf-name">DaVinci</div>
+                        <div class="inf-tag">Color Grading</div>
+                    </div>
+                    <div class="inf-tile" style="--c:#00e5c8">
+                        <img src="img/cui.png" alt="" class="inf-logo">
+                        <div class="inf-name">ComfyUI</div>
+                        <div class="inf-tag">AI Imagery</div>
+                    </div>
+                    <div class="inf-tile" style="--c:#f59e0b">
+                        <img src="img/ai.png" alt="" class="inf-logo">
+                        <div class="inf-name">AI Apps</div>
+                        <div class="inf-tag">Automation</div>
+                    </div>
+                    <div class="inf-tile" style="--c:#ff6b9d">
+                        <img src="img/cld.png" alt="" class="inf-logo">
+                        <div class="inf-name">Vibe Coding</div>
+                        <div class="inf-tag">Dev + AI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hiw-outer">
+            <div class="hiw-scene current" id="hiws0">
+                <div class="hiw-label hswelcome-title">Ad1.tv</div>
+                <div class="hiw-center">
+                    <div class="hswelcome-words">
+                        <span class="hswelcome-word w1">Personal</span>
+                        <span class="hswelcome-word w2">Tutoring</span>
+                        <span class="hswelcome-word w3">Sessions</span>
+                        <span class="hswelcome-word w4"><a href="tel:+12134440024" style="color:inherit;text-decoration:none;">213 444-0024</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hiw-scene" id="hiws1">
+                <div class="hiw-label" style="color:#00d4ff;filter:drop-shadow(0 0 20px #00d4ff)">Step 1</div>
+                <div class="hiw-center">
+                    <div class="hs1-group">
+                        <div class="hs-pulse-wrap">
+                            <div class="hs-pulse-ring r1"></div>
+                            <div class="hs-pulse-ring r2"></div>
+                            <div class="hs-phone-icon">📞</div>
+                        </div>
+                        <div class="hs1-number"><a href="tel:+12134440024">213 444-0024</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hiw-scene" id="hiws2">
+                <div class="hiw-label" style="color:#a855f7;filter:drop-shadow(0 0 20px #a855f7)">Step 2</div>
+                <div class="hiw-center">
+                    <div class="hs1-group">
+                        <div class="hs2-headline">Book a<br><em>Session</em></div>
+                        <div class="hs2-line-wrap"><div class="hs2-line"></div></div>
+                        <div class="hs2-sub">Pick a time that works for you</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hiw-scene" id="hiws3">
+                <div class="hiw-label" style="color:#00ff88;filter:drop-shadow(0 0 20px #00ff88)">Step 3</div>
+                <div class="hiw-center">
+                    <div class="hs1-group">
+                        <div class="hs3-split">
+                            <div class="hs3-platform">
+                                <div class="hs3-icon meet">🖥️</div>
+                                <div class="hs3-name meet">Meet</div>
+                            </div>
+                            <div class="hs3-or">or</div>
+                            <div class="hs3-platform">
+                                <div class="hs3-icon zoom">🖥️</div>
+                                <div class="hs3-name zoom">Zoom</div>
+                            </div>
+                        </div>
+                        <div class="hs3-tagline">Screenshare and Voice</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hiw-scene" id="hiws4">
+                <div class="hiw-label" style="color:#f59e0b;filter:drop-shadow(0 0 20px #f59e0b)">Step 4</div>
+                <div class="hs4-word">Create!</div>
+                <div class="hs4-sub">
+                    <span>Put</span>
+                    <span>your</span>
+                    <span>new</span>
+                    <span>skills</span>
+                    <span>to</span>
+                    <span>work!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Intro screen -->
+        <div id="motion-outer" class="motion-screen">
+            <div class="spin-ring"></div>
+            <div class="motion-inner">
+                <div class="motion-logo">Ad1.tv</div>
+                <div class="motion-services-list">
+                    <div class="motion-service" style="--c:#00d4ff"><div class="motion-dot"></div><span class="motion-name">Video Editing</span></div>
+                    <div class="motion-service" style="--c:#a855f7"><div class="motion-dot"></div><span class="motion-name">Photo Editing</span></div>
+                    <div class="motion-service" style="--c:#00e5c8"><div class="motion-dot"></div><span class="motion-name">Ai Imagery</span></div>
+                    <div class="motion-service" style="--c:#f59e0b"><div class="motion-dot"></div><span class="motion-name">Tutoring</span></div>
+                    <div class="motion-service" style="--c:#ff6b9d"><div class="motion-dot"></div><span class="motion-name">Vibe Coding</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const appsOuter  = document.querySelector('.bullet-list-outer');
+        const hiwOuter   = document.querySelector('.hiw-outer');
+        const motionOuter = document.getElementById('motion-outer');
+        const items      = document.querySelectorAll('.inf-tile');
+
+        const shirlBox     = document.getElementById('shirl-box');
+        const shirlImgWrap = document.getElementById('shirl-img-wrap');
+        const shirlImg     = document.getElementById('shirl-img');
+        const shirlVidWrap = document.getElementById('shirl-vid-wrap');
+        const shirldemo    = document.getElementById('shirldemo');
+        const smWrapper    = document.getElementById('sm-wrapper');
+        const smvid        = document.getElementById('smvid');
+
+        function restartSpin(outer) {
+            const ring = outer.querySelector('.spin-ring');
+            if (!ring) return;
+            ring.classList.remove('active');
+            void ring.offsetHeight;
+            ring.classList.add('active');
+        }
+
+        function showApps() {
+            motionOuter.style.opacity = '0';
+            motionOuter.style.pointerEvents = 'none';
+            hiwOuter.style.opacity = '0';
+            shirlBox.style.opacity = '0';
+            smWrapper.style.opacity = '0';
+            appsOuter.style.opacity = '1';
+            items.forEach(el => {
+                el.style.animation = 'none';
+                el.offsetHeight;
+                el.style.animation = '';
+            });
+            restartSpin(appsOuter);
+            setTimeout(showShirl, 6000);
+        }
+
+        function showShirl() {
+            appsOuter.style.opacity = '0';
+
+            // Reset state for clean replay
+            shirlImg.style.transition = 'none';
+            shirlImg.style.transform  = 'scale(0)';
+            shirlImgWrap.style.opacity = '0';
+            shirlVidWrap.style.opacity = '0';
+            shirlBox.style.opacity     = '0';
+
+            // After apps fade: show shirl.png and zoom it in
+            setTimeout(() => {
+                shirlBox.style.opacity     = '1';
+                shirlImgWrap.style.opacity = '1';
+                void shirlImg.offsetHeight;
+                shirlImg.style.transition = 'transform 0.85s cubic-bezier(0.34,1.56,0.64,1)';
+                shirlImg.style.transform  = 'scale(1)';
+            }, 600);
+
+            // When zoom lands, swap to shirl.webm
+            setTimeout(() => {
+                shirlImgWrap.style.opacity = '0';
+                shirlVidWrap.style.opacity = '1';
+                shirldemo.currentTime = 0;
+                shirldemo.play();
+            }, 600 + 900);
+        }
+
+        shirldemo.addEventListener('ended', () => {
+            shirlVidWrap.style.opacity = '0';
+            shirlBox.style.opacity     = '0';
+            setTimeout(() => {
+                smWrapper.style.opacity = '1';
+                smvid.currentTime = 0;
+                smvid.play();
+            }, 600);
+        });
+
+        smvid.addEventListener('ended', () => {
+            smWrapper.style.opacity = '0';
+            setTimeout(showHIW, 600);
+        });
+
+        function showHIW() {
+            hiwOuter.style.opacity = '1';
+            const hiwScenes = hiwOuter.querySelectorAll('.hiw-scene');
+            let hiwCur = 0;
+
+            hiwScenes.forEach((s, i) => {
+                s.classList.remove('current', 'sliding');
+                s.style.transform = i === 0 ? 'translateX(0)' : 'translateX(100%)';
+            });
+            hiwScenes[0].classList.add('current');
+
+            function advanceHIW() {
+                const nextHIW = hiwCur + 1;
+                if (nextHIW >= hiwScenes.length) {
+                    hiwOuter.style.opacity = '0';
+                    setTimeout(showMotion, 600);
+                    return;
+                }
+                hiwScenes[nextHIW].style.transform = 'translateX(100%)';
+                requestAnimationFrame(() => {
+                    hiwScenes[hiwCur].classList.add('sliding');
+                    hiwScenes[nextHIW].classList.add('sliding');
+                    hiwScenes[hiwCur].style.transform  = 'translateX(-100%)';
+                    hiwScenes[nextHIW].style.transform = 'translateX(0)';
+                    setTimeout(() => {
+                        hiwScenes[hiwCur].classList.remove('current', 'sliding');
+                        hiwScenes[nextHIW].classList.add('current');
+                        hiwScenes[nextHIW].classList.remove('sliding');
+                        hiwCur = nextHIW;
+                        setTimeout(advanceHIW, 4000);
+                    }, 530);
+                });
+            }
+            setTimeout(advanceHIW, 4000);
+        }
+
+        function showMotion() {
+            appsOuter.style.opacity    = '0';
+            hiwOuter.style.opacity     = '0';
+            shirlBox.style.opacity     = '0';
+            smWrapper.style.opacity    = '0';
+            const logo = motionOuter.querySelector('.motion-logo');
+            const motionItems = motionOuter.querySelectorAll('.motion-service');
+            logo.style.animation = 'none';
+            void logo.offsetHeight;
+            logo.style.animation = '';
+            motionItems.forEach(el => {
+                el.style.animation = 'none';
+                el.offsetHeight;
+                el.style.animation = '';
+            });
+            restartSpin(motionOuter);
+            motionOuter.style.opacity      = '1';
+            motionOuter.style.pointerEvents = 'auto';
+            setTimeout(() => {
+                motionOuter.style.opacity      = '0';
+                motionOuter.style.pointerEvents = 'none';
+                setTimeout(showApps, 600);
+            }, 7000);
+        }
+
+        hiwOuter.style.opacity = '0';
+        showMotion();
+    </script>
+
+</body>
+</html>

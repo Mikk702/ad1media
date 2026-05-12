@@ -260,8 +260,9 @@
         });
 
         smvid.addEventListener('ended', () => {
+            smWrapper.style.transition = 'none';
             smWrapper.style.opacity = '0';
-            setTimeout(showHIW, 600);
+            showHIW();
         });
 
         function showHIW() {

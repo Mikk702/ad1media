@@ -626,7 +626,7 @@ body {
     left: 1.2rem;
     right: 1.2rem;
     top: 28%;
-    bottom: 1rem;
+    bottom: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -656,7 +656,7 @@ body {
 }
 
 .motion-name {
-    font-size: clamp(1.6rem, 7vh, 3rem);
+    font-size: clamp(1.2rem, 5.5vh, 2.4rem);
     font-weight: 900;
     color: var(--c);
     letter-spacing: -0.01em;

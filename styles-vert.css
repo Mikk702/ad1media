@@ -696,4 +696,4 @@ body {
 .hswelcome-word.w1 { color: #00d4ff; filter: drop-shadow(0 0 18px rgba(0,212,255,0.65));  animation: hs-fadeUp 0.5s 0.4s  cubic-bezier(0.34,1.56,0.64,1) both; }
 .hswelcome-word.w2 { color: #a855f7; filter: drop-shadow(0 0 18px rgba(168,85,247,0.65)); animation: hs-fadeUp 0.5s 0.7s  cubic-bezier(0.34,1.56,0.64,1) both; }
 .hswelcome-word.w3 { color: #00ff88; filter: drop-shadow(0 0 18px rgba(0,255,136,0.65));  animation: hs-fadeUp 0.5s 1.0s  cubic-bezier(0.34,1.56,0.64,1) both; }
-.hswelcome-word.w4 { color: #fff;    filter: drop-shadow(0 0 12px rgba(255,255,255,0.3)); animation: hs-fadeUp 0.5s 1.3s  cubic-bezier(0.34,1.56,0.64,1) both; transform: none; font-size: clamp(2.38rem, 9.35vh, 4.675rem); }
+.hswelcome-word.w4 { color: #fff;    filter: drop-shadow(0 0 12px rgba(255,255,255,0.3)); animation: hs-fadeUp 0.5s 1.3s  cubic-bezier(0.34,1.56,0.64,1) both; transform: none; font-size: clamp(2.02rem, 7.95vh, 3.97rem); }

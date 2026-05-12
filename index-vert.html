@@ -85,10 +85,20 @@
     </div>
 
     <section class="v-bottom">
-        <div class="q3-content-box">
-            <div class="q3-video-wrapper">
-                <video id="q3vid" class="q3-video" muted playsinline>
-                    <source src="vid/1vert.webm" type="video/webm">
+        <!-- shirl.png zoom-in → shirl.webm → sm.webm, inside the 9:16 content box -->
+        <div class="q3-content-box" id="shirl-box" style="opacity:0;transition:opacity 0.6s ease;">
+            <div id="shirl-img-wrap" style="position:absolute;inset:0;opacity:0;transition:opacity 0.3s ease;">
+                <img id="shirl-img" src="vid/shirl.png"
+                     style="width:100%;height:100%;object-fit:cover;transform:scale(0);display:block;">
+            </div>
+            <div id="shirl-vid-wrap" style="position:absolute;inset:0;opacity:0;transition:opacity 0.3s ease;">
+                <video id="shirldemo" class="q3-video" muted playsinline>
+                    <source src="vid/shirl.webm" type="video/webm">
+                </video>
+            </div>
+            <div id="sm-wrapper" style="position:absolute;inset:0;opacity:0;transition:opacity 0.6s ease;">
+                <video id="smvid" class="q3-video" muted playsinline>
+                    <source src="vid/sm.webm" type="video/webm">
                 </video>
             </div>
         </div>
@@ -214,12 +224,18 @@
     </section>
 
     <script>
-        const vid = document.getElementById('q3vid');
-        const vidWrapper = document.querySelector('.q3-video-wrapper');
-        const appsOuter = document.querySelector('.bullet-list-outer');
-        const hiwOuter = document.querySelector('.hiw-outer');
+        const appsOuter   = document.querySelector('.bullet-list-outer');
+        const hiwOuter    = document.querySelector('.hiw-outer');
         const motionOuter = document.getElementById('motion-outer');
-        const items = document.querySelectorAll('.inf-tile');
+        const items       = document.querySelectorAll('.inf-tile');
+
+        const shirlBox     = document.getElementById('shirl-box');
+        const shirlImgWrap = document.getElementById('shirl-img-wrap');
+        const shirlImg     = document.getElementById('shirl-img');
+        const shirlVidWrap = document.getElementById('shirl-vid-wrap');
+        const shirldemo    = document.getElementById('shirldemo');
+        const smWrapper    = document.getElementById('sm-wrapper');
+        const smvid        = document.getElementById('smvid');
 
         function restartSpin(outer) {
             const ring = outer.querySelector('.spin-ring');
@@ -233,6 +249,8 @@
             motionOuter.style.opacity = '0';
             motionOuter.style.pointerEvents = 'none';
             hiwOuter.style.opacity = '0';
+            shirlBox.style.opacity = '0';
+            smWrapper.style.opacity = '0';
             appsOuter.style.opacity = '1';
             items.forEach(el => {
                 el.style.animation = 'none';
@@ -240,17 +258,55 @@
                 el.style.animation = '';
             });
             restartSpin(appsOuter);
-            setTimeout(showVideo, 6000);
+            setTimeout(showShirl, 6000);
         }
 
-        function showVideo() {
+        function showShirl() {
             appsOuter.style.opacity = '0';
+
+            // Reset state for clean replay
+            shirlImg.style.transition  = 'none';
+            shirlImg.style.transform   = 'scale(0)';
+            shirlImgWrap.style.opacity = '0';
+            shirlVidWrap.style.opacity = '0';
+            shirlBox.style.opacity     = '0';
+
+            // After apps fade: show shirl.png and zoom it in
             setTimeout(() => {
-                vid.currentTime = 0;
-                vidWrapper.style.opacity = '1';
-                vid.play();
+                shirlBox.style.opacity     = '1';
+                shirlImgWrap.style.opacity = '1';
+                void shirlImg.offsetHeight;
+                shirlImg.style.transition = 'transform 0.85s linear';
+                shirlImg.style.transform  = 'scale(1)';
             }, 600);
+
+            // When zoom lands: start video behind image, snap image away on first painted frame
+            setTimeout(() => {
+                shirldemo.currentTime = 0;
+                shirlVidWrap.style.transition = 'none';
+                shirlVidWrap.style.opacity    = '1';
+                shirldemo.play();
+                shirldemo.addEventListener('timeupdate', () => {
+                    shirlImgWrap.style.transition = 'none';
+                    shirlImgWrap.style.opacity    = '0';
+                }, { once: true });
+            }, 600 + 900);
         }
+
+        shirldemo.addEventListener('ended', () => {
+            smWrapper.style.transition    = 'none';
+            smWrapper.style.opacity       = '1';
+            smvid.currentTime = 0;
+            smvid.play();
+            shirlVidWrap.style.transition = 'none';
+            shirlVidWrap.style.opacity    = '0';
+        });
+
+        smvid.addEventListener('ended', () => {
+            smWrapper.style.transition = 'none';
+            smWrapper.style.opacity    = '0';
+            showHIW();
+        });
 
         function showHIW() {
             hiwOuter.style.opacity = '1';
@@ -274,7 +330,7 @@
                 requestAnimationFrame(() => {
                     hiwScenes[hiwCur].classList.add('sliding');
                     hiwScenes[nextHIW].classList.add('sliding');
-                    hiwScenes[hiwCur].style.transform = 'translateX(-100%)';
+                    hiwScenes[hiwCur].style.transform  = 'translateX(-100%)';
                     hiwScenes[nextHIW].style.transform = 'translateX(0)';
                     setTimeout(() => {
                         hiwScenes[hiwCur].classList.remove('current', 'sliding');
@@ -289,9 +345,10 @@
         }
 
         function showMotion() {
-            appsOuter.style.opacity = '0';
-            hiwOuter.style.opacity = '0';
-            vidWrapper.style.opacity = '0';
+            appsOuter.style.opacity         = '0';
+            hiwOuter.style.opacity          = '0';
+            shirlBox.style.opacity          = '0';
+            smWrapper.style.opacity         = '0';
             const logo = motionOuter.querySelector('.motion-logo');
             const motionItems = motionOuter.querySelectorAll('.motion-service');
             logo.style.animation = 'none';
@@ -303,21 +360,15 @@
                 el.style.animation = '';
             });
             restartSpin(motionOuter);
-            motionOuter.style.opacity = '1';
+            motionOuter.style.opacity       = '1';
             motionOuter.style.pointerEvents = 'auto';
             setTimeout(() => {
-                motionOuter.style.opacity = '0';
+                motionOuter.style.opacity       = '0';
                 motionOuter.style.pointerEvents = 'none';
                 setTimeout(showApps, 600);
             }, 7000);
         }
 
-        vid.addEventListener('ended', () => {
-            vidWrapper.style.opacity = '0';
-            setTimeout(showHIW, 600);
-        });
-
-        vidWrapper.style.opacity = '0';
         hiwOuter.style.opacity = '0';
         showMotion();
     </script>

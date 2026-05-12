@@ -272,25 +272,35 @@
             shirlVidWrap.style.opacity = '0';
             shirlBox.style.opacity     = '0';
 
-            // Show shirl.png and zoom it in
+            // Show shirl.png and zoom it in; prime video first frame during zoom
             setTimeout(() => {
                 shirlBox.style.opacity     = '1';
                 shirlImgWrap.style.opacity = '1';
                 void shirlImg.offsetHeight;
                 shirlImg.style.transition = 'transform 0.85s linear';
                 shirlImg.style.transform  = 'scale(1)';
+                // Seek + decode frame 0 so it's GPU-ready before zoom ends
+                shirldemo.currentTime = 0;
+                shirldemo.play().then(() => { shirldemo.pause(); shirldemo.currentTime = 0; }).catch(() => {});
             }, 600);
 
-            // When zoom lands: start video behind image, snap image away on first painted frame
+            // When zoom lands: play video, remove image only after frame is composited
             setTimeout(() => {
-                shirldemo.currentTime = 0;
                 shirlVidWrap.style.transition = 'none';
                 shirlVidWrap.style.opacity    = '1';
+                shirldemo.currentTime = 0;
                 shirldemo.play();
-                shirldemo.addEventListener('timeupdate', () => {
-                    shirlImgWrap.style.transition = 'none';
-                    shirlImgWrap.style.opacity    = '0';
-                }, { once: true });
+                const removeImg = () => {
+                    requestAnimationFrame(() => {
+                        shirlImgWrap.style.transition = 'none';
+                        shirlImgWrap.style.opacity    = '0';
+                    });
+                };
+                if ('requestVideoFrameCallback' in shirldemo) {
+                    shirldemo.requestVideoFrameCallback(removeImg);
+                } else {
+                    shirldemo.addEventListener('timeupdate', removeImg, { once: true });
+                }
             }, 600 + 900);
         }
 

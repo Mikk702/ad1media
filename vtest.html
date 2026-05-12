@@ -259,13 +259,28 @@
             }, 600 + 900);
         }
 
+        // Prime sm.webm first frame as soon as shirl.webm starts playing
+        shirldemo.addEventListener('playing', () => {
+            smvid.currentTime = 0;
+            smvid.play().then(() => { smvid.pause(); smvid.currentTime = 0; }).catch(() => {});
+        }, { once: true });
+
         shirldemo.addEventListener('ended', () => {
             smWrapper.style.transition = 'none';
-            smWrapper.style.opacity = '1';
+            smWrapper.style.opacity    = '1';
             smvid.currentTime = 0;
             smvid.play();
-            shirlVidWrap.style.transition = 'none';
-            shirlVidWrap.style.opacity = '0';
+            const cutShirl = () => {
+                requestAnimationFrame(() => {
+                    shirlVidWrap.style.transition = 'none';
+                    shirlVidWrap.style.opacity    = '0';
+                });
+            };
+            if ('requestVideoFrameCallback' in smvid) {
+                smvid.requestVideoFrameCallback(cutShirl);
+            } else {
+                smvid.addEventListener('timeupdate', cutShirl, { once: true });
+            }
         });
 
         smvid.addEventListener('ended', () => {

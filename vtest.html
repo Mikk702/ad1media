@@ -237,12 +237,16 @@
                 shirlImg.style.transform  = 'scale(1)';
             }, 600);
 
-            // When zoom lands, swap to shirl.webm
+            // When zoom lands: start video behind the image, snap image away on first painted frame
             setTimeout(() => {
-                shirlImgWrap.style.opacity = '0';
-                shirlVidWrap.style.opacity = '1';
                 shirldemo.currentTime = 0;
+                shirlVidWrap.style.transition = 'none';
+                shirlVidWrap.style.opacity = '1';
                 shirldemo.play();
+                shirldemo.addEventListener('timeupdate', () => {
+                    shirlImgWrap.style.transition = 'none';
+                    shirlImgWrap.style.opacity = '0';
+                }, { once: true });
             }, 600 + 900);
         }
 

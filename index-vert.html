@@ -262,7 +262,8 @@
         }
 
         function showShirl() {
-            appsOuter.style.opacity = '0';
+            appsOuter.style.transition = 'none';
+            appsOuter.style.opacity    = '0';
 
             // Reset state for clean replay
             shirlImg.style.transition  = 'none';
@@ -271,7 +272,7 @@
             shirlVidWrap.style.opacity = '0';
             shirlBox.style.opacity     = '0';
 
-            // After apps fade: show shirl.png and zoom it in
+            // Show shirl.png and zoom it in
             setTimeout(() => {
                 shirlBox.style.opacity     = '1';
                 shirlImgWrap.style.opacity = '1';
@@ -345,6 +346,7 @@
         }
 
         function showMotion() {
+            appsOuter.style.transition      = 'none';
             appsOuter.style.opacity         = '0';
             hiwOuter.style.opacity          = '0';
             shirlBox.style.opacity          = '0';

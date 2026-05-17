@@ -94,9 +94,14 @@
     </div>
     <div class="quadrant-three">
         <div class="q3-content-box">
-        <div class="q3-video-wrapper">
+        <div class="q3-video-wrapper" id="v1wrap">
             <video id="q3vid1" class="q3-video" muted playsinline>
                 <source src="vid/1.webm" type="video/webm">
+            </video>
+        </div>
+        <div class="q3-video-wrapper" id="v2wrap" style="opacity:0;">
+            <video id="q3vid2" class="q3-video" muted playsinline>
+                <source src="vid/ad1tvairporthoriz.webm" type="video/webm">
             </video>
         </div>
         </div>
@@ -179,7 +184,9 @@
         demoVideo.addEventListener('play', () => { demoVideo.volume = 0.1; });
 
         const v1 = document.getElementById('q3vid1');
-        const v1Wrapper = document.querySelector('.q3-video-wrapper');
+        const v2 = document.getElementById('q3vid2');
+        const v1Wrap = document.getElementById('v1wrap');
+        const v2Wrap = document.getElementById('v2wrap');
         const appsOuter = document.querySelector('.bullet-list-outer');
         const hiwOuter = document.querySelector('.hiw-outer');
         const items = document.querySelectorAll('.inf-tile');
@@ -192,9 +199,16 @@
             ring.classList.add('active');
         }
 
+        function cut(el, val) {
+            el.style.transition = 'none';
+            el.style.opacity = val;
+        }
+
         function showApps() {
-            hiwOuter.style.opacity = '0';
+            cut(hiwOuter, '0');
             hiwOuter.classList.remove('playing');
+            cut(v1Wrap, '0');
+            cut(v2Wrap, '0');
             appsOuter.style.opacity = '1';
             items.forEach(el => {
                 el.style.animation = 'none';
@@ -202,17 +216,38 @@
                 el.style.animation = '';
             });
             restartSpin(appsOuter);
-            setTimeout(showVideo, 6000);
+            setTimeout(showVideo1, 6000);
         }
 
-        function showVideo() {
-            appsOuter.style.opacity = '0';
-            setTimeout(() => {
-                v1.currentTime = 0;
-                v1Wrapper.style.opacity = '1';
-                v1.play();
-            }, 600);
+        function showVideo1() {
+            cut(appsOuter, '0');
+            v1.currentTime = 0;
+            cut(v1Wrap, '1');
+            v1.play();
+            // Prime v2 so it's ready when v1 ends
+            v1.addEventListener('playing', () => {
+                v2.currentTime = 0;
+                v2.play().then(() => { v2.pause(); v2.currentTime = 0; }).catch(() => {});
+            }, { once: true });
         }
+
+        v1.addEventListener('ended', () => {
+            // Hard cut v1→v2 on first composited frame
+            v2.currentTime = 0;
+            cut(v2Wrap, '1');
+            v2.play();
+            const cutV1 = () => requestAnimationFrame(() => cut(v1Wrap, '0'));
+            if ('requestVideoFrameCallback' in v2) {
+                v2.requestVideoFrameCallback(cutV1);
+            } else {
+                v2.addEventListener('timeupdate', cutV1, { once: true });
+            }
+        });
+
+        v2.addEventListener('ended', () => {
+            cut(v2Wrap, '0');
+            showHIW();
+        });
 
         function showHIW() {
             hiwOuter.style.opacity = '1';
@@ -223,12 +258,8 @@
             setTimeout(showApps, 10000);
         }
 
-        v1.addEventListener('ended', () => {
-            v1Wrapper.style.opacity = '0';
-            setTimeout(showHIW, 600);
-        });
-
-        v1Wrapper.style.opacity = '0';
+        cut(v1Wrap, '0');
+        cut(v2Wrap, '0');
         hiwOuter.style.opacity = '0';
         showApps();
 

@@ -95,12 +95,12 @@
     <div class="quadrant-three">
         <div class="q3-content-box">
         <div class="q3-video-wrapper" id="v1wrap">
-            <video id="q3vid1" class="q3-video" muted playsinline>
+            <video id="q3vid1" class="q3-video" playsinline>
                 <source src="vid/1.webm" type="video/webm">
             </video>
         </div>
         <div class="q3-video-wrapper" id="v2wrap" style="opacity:0;">
-            <video id="q3vid2" class="q3-video" muted playsinline>
+            <video id="q3vid2" class="q3-video" playsinline>
                 <source src="vid/ad1tvairporthoriz.webm" type="video/webm">
             </video>
         </div>
@@ -188,11 +188,16 @@
         v1.volume = 0.7;
         v2.volume = 0.7;
 
-        // Unmute on first interaction — browsers block autoplay with audio
-        const unmute = () => {
-            v1.muted = false;
-            v2.muted = false;
-        };
+        function tryUnmutedPlay(vid) {
+            vid.muted = false;
+            return vid.play().catch(() => {
+                vid.muted = true;
+                return vid.play();
+            });
+        }
+
+        // Unmute both on first interaction in case browser forced muted autoplay
+        const unmute = () => { v1.muted = false; v2.muted = false; };
         document.addEventListener('click',      unmute, { once: true });
         document.addEventListener('touchstart', unmute, { once: true });
         const v1Wrap = document.getElementById('v1wrap');
@@ -233,7 +238,7 @@
             cut(appsOuter, '0');
             v1.currentTime = 0;
             cut(v1Wrap, '1');
-            v1.play();
+            tryUnmutedPlay(v1);
             // Prime v2 so it's ready when v1 ends
             v1.addEventListener('playing', () => {
                 v2.currentTime = 0;
@@ -245,7 +250,7 @@
             // Hard cut v1→v2 on first composited frame
             v2.currentTime = 0;
             cut(v2Wrap, '1');
-            v2.play();
+            tryUnmutedPlay(v2);
             const cutV1 = () => requestAnimationFrame(() => cut(v1Wrap, '0'));
             if ('requestVideoFrameCallback' in v2) {
                 v2.requestVideoFrameCallback(cutV1);

@@ -95,12 +95,12 @@
     <div class="quadrant-three">
         <div class="q3-content-box">
         <div class="q3-video-wrapper" id="v1wrap">
-            <video id="q3vid1" class="q3-video" muted playsinline>
+            <video id="q3vid1" class="q3-video" playsinline>
                 <source src="vid/1.webm" type="video/webm">
             </video>
         </div>
         <div class="q3-video-wrapper" id="v2wrap" style="opacity:0;">
-            <video id="q3vid2" class="q3-video" muted playsinline>
+            <video id="q3vid2" class="q3-video" playsinline>
                 <source src="vid/ad1tvairporthoriz.webm" type="video/webm">
             </video>
         </div>
@@ -185,6 +185,8 @@
 
         const v1 = document.getElementById('q3vid1');
         const v2 = document.getElementById('q3vid2');
+        v1.volume = 0.7;
+        v2.volume = 0.7;
         const v1Wrap = document.getElementById('v1wrap');
         const v2Wrap = document.getElementById('v2wrap');
         const appsOuter = document.querySelector('.bullet-list-outer');

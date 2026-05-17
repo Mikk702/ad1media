@@ -93,6 +93,9 @@
         </div>
     </div>
     <div class="quadrant-three">
+        <!-- Q3 controls -->
+        <button id="q3-unmute" title="Mute / Unmute" style="position:absolute;top:12px;left:12px;z-index:30;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;pointer-events:auto;">🔇</button>
+        <button id="q3-playpause" title="Play / Pause" style="position:absolute;bottom:12px;left:12px;z-index:30;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;pointer-events:auto;">⏸</button>
         <div class="q3-content-box">
         <div class="q3-video-wrapper" id="v1wrap">
             <video id="q3vid1" class="q3-video" playsinline>
@@ -188,18 +191,36 @@
         v1.volume = 0.7;
         v2.volume = 0.7;
 
+        let activeVid = v1;
+
+        const btnMute = document.getElementById('q3-unmute');
+        const btnPlay = document.getElementById('q3-playpause');
+
+        function updateMuteBtn() {
+            btnMute.textContent = v1.muted ? '🔇' : '🔊';
+        }
+        function updatePlayBtn() {
+            btnPlay.textContent = activeVid.paused ? '▶' : '⏸';
+        }
+
+        btnMute.addEventListener('click', () => {
+            const m = !v1.muted;
+            v1.muted = m; v2.muted = m;
+            updateMuteBtn();
+        });
+
+        btnPlay.addEventListener('click', () => {
+            if (activeVid.paused) { activeVid.play(); } else { activeVid.pause(); }
+            updatePlayBtn();
+        });
+
         function tryUnmutedPlay(vid) {
             vid.muted = false;
             return vid.play().catch(() => {
                 vid.muted = true;
                 return vid.play();
-            });
+            }).then(updateMuteBtn);
         }
-
-        // Unmute both on first interaction in case browser forced muted autoplay
-        const unmute = () => { v1.muted = false; v2.muted = false; };
-        document.addEventListener('click',      unmute, { once: true });
-        document.addEventListener('touchstart', unmute, { once: true });
         const v1Wrap = document.getElementById('v1wrap');
         const v2Wrap = document.getElementById('v2wrap');
         const appsOuter = document.querySelector('.bullet-list-outer');
@@ -236,9 +257,10 @@
 
         function showVideo1() {
             cut(appsOuter, '0');
+            activeVid = v1;
             v1.currentTime = 0;
             cut(v1Wrap, '1');
-            tryUnmutedPlay(v1);
+            tryUnmutedPlay(v1).then(updatePlayBtn);
             // Prime v2 so it's ready when v1 ends
             v1.addEventListener('playing', () => {
                 v2.currentTime = 0;
@@ -248,9 +270,10 @@
 
         v1.addEventListener('ended', () => {
             // Hard cut v1→v2 on first composited frame
+            activeVid = v2;
             v2.currentTime = 0;
             cut(v2Wrap, '1');
-            tryUnmutedPlay(v2);
+            tryUnmutedPlay(v2).then(updatePlayBtn);
             const cutV1 = () => requestAnimationFrame(() => cut(v1Wrap, '0'));
             if ('requestVideoFrameCallback' in v2) {
                 v2.requestVideoFrameCallback(cutV1);

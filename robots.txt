@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /skins/
+Disallow: /awsdemos/
+
+Sitemap: https://ad1.tv/sitemap.xml

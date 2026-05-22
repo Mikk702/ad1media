@@ -133,6 +133,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin: 0;
 }
 
 .q2-subtitle {
@@ -148,6 +149,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     letter-spacing: 0.02em;
+    margin: 0;
 }
 
 .q2-neon-badge {

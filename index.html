@@ -196,6 +196,12 @@
         const btnMute = document.getElementById('q3-unmute');
         const btnPlay = document.getElementById('q3-playpause');
 
+        function setQ3Controls(show) {
+            btnMute.style.display = show ? 'flex' : 'none';
+            btnPlay.style.display = show ? 'flex' : 'none';
+        }
+        setQ3Controls(false);
+
         function updateMuteBtn() {
             btnMute.textContent = v1.muted ? '🔇' : '🔊';
         }
@@ -260,6 +266,7 @@
             activeVid = v1;
             v1.currentTime = 0;
             cut(v1Wrap, '1');
+            setQ3Controls(true);
             tryUnmutedPlay(v1).then(updatePlayBtn);
             // Prime v2 so it's ready when v1 ends
             v1.addEventListener('playing', () => {
@@ -288,6 +295,7 @@
         });
 
         function showHIW() {
+            setQ3Controls(false);
             hiwOuter.style.opacity = '1';
             hiwOuter.classList.remove('playing');
             void hiwOuter.offsetHeight;

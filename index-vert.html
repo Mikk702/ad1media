@@ -88,6 +88,15 @@
     <section class="v-bottom">
         <!-- shirl.png zoom-in → shirl.webm → sm.webm, inside the 9:16 content box -->
         <div class="q3-content-box" id="shirl-box" style="opacity:0;">
+            <!-- Controls -->
+            <button id="vert-unmute" title="Mute / Unmute" style="position:absolute;top:12px;left:12px;z-index:30;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;pointer-events:auto;">🔇</button>
+            <button id="vert-playpause" title="Play / Pause" style="position:absolute;bottom:12px;left:12px;z-index:30;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;pointer-events:auto;">⏸</button>
+            <!-- Office video (3rd in rotation) -->
+            <div id="office-wrapper" style="position:absolute;inset:0;opacity:0;">
+                <video id="officevid" class="q3-video" muted playsinline>
+                    <source src="vid/ad1tvofficevert.webm" type="video/webm">
+                </video>
+            </div>
             <div id="shirl-img-wrap" style="position:absolute;inset:0;opacity:0;">
                 <img id="shirl-img" src="vid/shirl.png"
                      style="width:100%;height:100%;object-fit:cover;transform:scale(0);display:block;">
@@ -237,6 +246,29 @@
         const shirldemo    = document.getElementById('shirldemo');
         const smWrapper    = document.getElementById('sm-wrapper');
         const smvid        = document.getElementById('smvid');
+        const officeWrapper = document.getElementById('office-wrapper');
+        const officevid     = document.getElementById('officevid');
+        const btnVertMute   = document.getElementById('vert-unmute');
+        const btnVertPlay   = document.getElementById('vert-playpause');
+
+        let vertMuted   = true;
+        let currentVid  = null;
+
+        function setVertMute(muted) {
+            vertMuted = muted;
+            [officevid, shirldemo, smvid].forEach(v => v.muted = muted);
+            btnVertMute.textContent = muted ? '🔇' : '🔊';
+        }
+        function updateVertPlayBtn() {
+            if (!currentVid) return;
+            btnVertPlay.textContent = currentVid.paused ? '▶' : '⏸';
+        }
+        btnVertMute.addEventListener('click', () => setVertMute(!vertMuted));
+        btnVertPlay.addEventListener('click', () => {
+            if (!currentVid) return;
+            if (currentVid.paused) { currentVid.play(); } else { currentVid.pause(); }
+            updateVertPlayBtn();
+        });
 
         function restartSpin(outer) {
             const ring = outer.querySelector('.spin-ring');
@@ -261,8 +293,46 @@
                 el.style.animation = '';
             });
             restartSpin(appsOuter);
-            setTimeout(showShirl, 6000);
+            setTimeout(showOffice, 6000);
         }
+
+        function showOffice() {
+            appsOuter.style.transition = 'none';
+            appsOuter.style.opacity    = '0';
+            shirlImgWrap.style.opacity = '0';
+            shirlVidWrap.style.opacity = '0';
+            smWrapper.style.opacity    = '0';
+            officeWrapper.style.transition = 'none';
+            officeWrapper.style.opacity    = '0';
+            shirlBox.style.opacity = '1';
+
+            officevid.muted       = vertMuted;
+            officevid.currentTime = 0;
+            officevid.play().catch(() => {
+                officevid.muted = true;
+                vertMuted = true;
+                officevid.play();
+            }).then(() => {
+                btnVertMute.textContent = officevid.muted ? '🔇' : '🔊';
+                vertMuted = officevid.muted;
+                updateVertPlayBtn();
+            });
+            officeWrapper.style.opacity = '1';
+            currentVid = officevid;
+            updateVertPlayBtn();
+            // Pre-load shirl so transition is clean
+            officevid.addEventListener('playing', () => {
+                shirldemo.currentTime = 0;
+                shirldemo.play().then(() => { shirldemo.pause(); shirldemo.currentTime = 0; }).catch(() => {});
+            }, { once: true });
+        }
+
+        officevid.addEventListener('ended', () => {
+            officeWrapper.style.transition = 'none';
+            officeWrapper.style.opacity    = '0';
+            currentVid = null;
+            showShirl();
+        });
 
         function showShirl() {
             appsOuter.style.transition = 'none';
@@ -291,8 +361,11 @@
             setTimeout(() => {
                 shirlVidWrap.style.transition = 'none';
                 shirlVidWrap.style.opacity    = '1';
+                shirldemo.muted       = vertMuted;
                 shirldemo.currentTime = 0;
                 shirldemo.play();
+                currentVid = shirldemo;
+                updateVertPlayBtn();
                 const removeImg = () => {
                     requestAnimationFrame(() => {
                         shirlImgWrap.style.transition = 'none';
@@ -316,8 +389,11 @@
         shirldemo.addEventListener('ended', () => {
             smWrapper.style.transition = 'none';
             smWrapper.style.opacity    = '1';
+            smvid.muted       = vertMuted;
             smvid.currentTime = 0;
             smvid.play();
+            currentVid = smvid;
+            updateVertPlayBtn();
             // Cut shirl only after sm frame is composited
             const cutShirl = () => {
                 requestAnimationFrame(() => {
@@ -335,6 +411,8 @@
         smvid.addEventListener('ended', () => {
             smWrapper.style.transition = 'none';
             smWrapper.style.opacity    = '0';
+            shirlBox.style.opacity     = '0';
+            currentVid = null;
             showHIW();
         });
 

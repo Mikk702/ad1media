@@ -1,0 +1,33 @@
+# Ad1.tv
+
+Ad1.tv is a private online tutoring service for video editing, photo editing, and AI imagery. All sessions are one-on-one, conducted live via Zoom or Google Meet, and available to clients nationwide across the United States. No travel required.
+
+## Contact
+Phone: 213-444-0024
+Website: https://ad1.tv
+
+## Services
+- Adobe Photoshop tutoring — photo editing, compositing, digital design
+- Adobe Premiere Pro tutoring — video editing, color correction, post-production
+- DaVinci Resolve tutoring — color grading, video editing, audio post
+- ComfyUI tutoring — AI image generation workflows and pipelines
+- AI apps and automation tutoring — practical AI tools for creative workflows
+- Vibe coding tutoring — AI-assisted development for creative professionals who want to build simple tools without a traditional engineering background
+
+## How It Works
+1. Book a session by phone: 213-444-0024
+2. Join via Zoom or Google Meet at the scheduled time
+3. Screen share your own software and learn hands-on at your own pace
+4. Apply new skills to your real projects immediately
+
+## Who This Is For
+Content creators, photographers, videographers, filmmakers, designers, and anyone looking to learn video editing, photo editing, or AI image generation tools. All skill levels welcome. Curriculum is tailored to each student's goals.
+
+## Coverage
+Nationwide — United States. All sessions are remote and online.
+
+## Pricing
+Mid-range ($$). Contact for current rates.
+
+## Topics Covered
+Adobe Photoshop, Adobe Premiere Pro, DaVinci Resolve, ComfyUI, AI image generation, AI automation tools, vibe coding, content creator workflows, color grading, photo retouching, video post-production.

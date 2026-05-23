@@ -263,6 +263,12 @@
             if (!currentVid) return;
             btnVertPlay.textContent = currentVid.paused ? '▶' : '⏸';
         }
+        function setControlsVisible(show) {
+            btnVertMute.style.display = show ? 'flex' : 'none';
+            btnVertPlay.style.display = show ? 'flex' : 'none';
+        }
+        setControlsVisible(false);
+
         btnVertMute.addEventListener('click', () => setVertMute(!vertMuted));
         btnVertPlay.addEventListener('click', () => {
             if (!currentVid) return;
@@ -317,6 +323,7 @@
             });
             officeWrapper.style.opacity = '1';
             currentVid = officevid;
+            setControlsVisible(true);
             updateVertPlayBtn();
             // Pre-load shirl so transition is clean
             officevid.addEventListener('playing', () => {
@@ -328,6 +335,7 @@
         officevid.addEventListener('ended', () => {
             officeWrapper.style.transition = 'none';
             officeWrapper.style.opacity    = '0';
+            setControlsVisible(false);
             currentVid = null;
             showShirl();
         });

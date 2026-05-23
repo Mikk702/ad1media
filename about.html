@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script data-goatcounter="https://ad1.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+    <script>
+        const THRESHOLD = 1.33;
+        function checkOrientation() {
+            if (window.innerHeight > window.innerWidth * THRESHOLD) {
+                window.location.replace('index-vert.html');
+            }
+        }
+        checkOrientation();
+        window.addEventListener('resize', checkOrientation);
+    </script>
+    <title>About | Video &amp; Photo Editing Tutoring with Industry Professionals | Ad1.tv</title>
+
+    <!-- SEO -->
+    <meta name="description" content="One-on-one online tutoring sessions with industry professionals. Learn video editing, photo editing, and generative AI — beginner to advanced. Photoshop, Premiere, CapCut, DaVinci Resolve, ComfyUI, and more.">
+    <meta name="robots" content="noindex, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://ad1.tv/about.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://ad1.tv/about.html">
+    <meta property="og:title"       content="About | Video &amp; Photo Editing Tutoring with Industry Professionals | Ad1.tv">
+    <meta property="og:description" content="One-on-one online tutoring sessions with industry professionals. Learn video editing, photo editing, and generative AI — beginner to advanced.">
+    <meta property="og:image"       content="https://ad1.tv/img/og-preview.jpg">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="About | Video &amp; Photo Editing Tutoring | Ad1.tv">
+    <meta name="twitter:description" content="One-on-one online tutoring with industry professionals. Beginner to advanced. Photoshop, Premiere, CapCut, DaVinci, ComfyUI and more.">
+    <meta name="twitter:image"       content="https://ad1.tv/img/og-preview.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who teaches at Ad1.tv?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All Ad1.tv tutoring sessions are led by industry professionals with hands-on experience in video editing, photo editing, and generative AI tools."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long are Ad1.tv tutoring sessions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sessions are 90 minutes. Once a week is recommended to give students time to practice and absorb new skills between sessions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What skill level do I need to start tutoring at Ad1.tv?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "None. Ad1.tv teaches beginner through advanced students. Every lesson is tailored to where the student currently is and what they want to accomplish."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What software does Ad1.tv teach?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ad1.tv offers tutoring in Adobe Photoshop, Adobe Premiere Pro, CapCut, DaVinci Resolve, ComfyUI, AI apps and automation, and vibe coding. Sessions cover video editing, photo editing, generative AI imagery, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I learn generative AI image tools like ComfyUI online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Ad1.tv teaches generative AI workflows including ComfyUI for AI image generation. Sessions are one-on-one and conducted live via Zoom or Google Meet, so you learn by doing in real time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Ad1.tv available nationwide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All sessions are online via Zoom or Google Meet. Ad1.tv serves clients across the United States — location is never a barrier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I book a session with Ad1.tv?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Call Ad1.tv at 213-444-0024 to schedule your first session."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon" href="img/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html, body { height: auto !important; }
+        body { min-height: 100vh; }
+        .quadrant-overlay { position: absolute !important; height: 100vh !important; }
+
+        .scroll-hint {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            color: rgba(255,255,255,0.25);
+            font-size: 1.5rem;
+            pointer-events: none;
+            animation: scrollBounce 2.2s ease infinite;
+            transition: opacity 0.4s;
+        }
+        .scroll-hint.hidden { opacity: 0; }
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0);   opacity: 0.25; }
+            50%       { transform: translateX(-50%) translateY(8px); opacity: 0.6;  }
+        }
+
+        .quadrant-five {
+            position: relative;
+            margin-top: 100vh;
+            z-index: 20;
+            background: linear-gradient(180deg, #04080f 0%, #080e1c 100%);
+            border-top: 1px solid rgba(0, 212, 255, 0.12);
+        }
+        .q5-inner {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 72px 40px 88px;
+        }
+        .q5-eyebrow {
+            font-size: clamp(0.6rem, 0.9vw, 0.75rem);
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(0, 212, 255, 0.6);
+            margin: 0 0 16px;
+        }
+        .q5-main-heading {
+            font-size: clamp(1.4rem, 3vw, 2.4rem);
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 56px;
+            transform: skewX(-18deg);
+            display: inline-block;
+            line-height: 1.2;
+        }
+        .q5-block {
+            margin-bottom: 44px;
+            padding-bottom: 44px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .q5-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .q5-block h3 {
+            font-size: clamp(0.9rem, 1.6vw, 1.25rem);
+            font-weight: 700;
+            color: #00d4ff;
+            margin: 0 0 14px;
+            letter-spacing: 0.01em;
+            line-height: 1.3;
+        }
+        .q5-block p {
+            font-size: clamp(0.82rem, 1.1vw, 1rem);
+            color: rgba(255,255,255,0.6);
+            line-height: 1.75;
+            margin: 0;
+            font-weight: 500;
+        }
+        .q5-cta {
+            margin-top: 64px;
+            padding: 32px 36px;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.18);
+            border-radius: 14px;
+            text-align: center;
+        }
+        .q5-cta p {
+            font-size: clamp(0.85rem, 1.2vw, 1rem);
+            color: rgba(255,255,255,0.55);
+            margin: 0 0 10px;
+        }
+        .q5-cta a {
+            font-size: clamp(1.1rem, 2vw, 1.6rem);
+            font-weight: 700;
+            color: #00d4ff;
+            text-decoration: none;
+            filter: drop-shadow(0 0 10px rgba(0,212,255,0.4));
+            letter-spacing: 0.04em;
+        }
+    </style>
+</head>
+<body>
+    <div class="quadrant-overlay" aria-hidden="true">
+        <div class="quadrant q1"></div>
+        <div class="quadrant q2"></div>
+        <div class="quadrant q3"></div>
+        <div class="quadrant q4"></div>
+    </div>
+
+    <div class="quadrant-one">
+        <div class="q1-card">
+            <div class="q1-col-left">
+                <div class="ad1-logo">Ad1.tv</div>
+                <div class="q1-phone-badge"><a href="tel:+12134440024" style="color:inherit;text-decoration:none;">213 444-0024</a></div>
+            </div>
+            <div class="q1-col-right">
+                <div class="q1-mob-services">Video &amp; Photo Editing &nbsp;·&nbsp; Ai Imagery &nbsp;·&nbsp; Content Creator Tutoring</div>
+            </div>
+        </div>
+    </div>
+    <div class="quadrant-two">
+        <div class="q2-content">
+            <h1 class="q2-title">Video &amp; Photo Editing &nbsp;·&nbsp; Ai Imagery</h1>
+            <h2 class="q2-subtitle">Content Creator Tutoring</h2>
+            <div class="q2-neon-badge">Online &nbsp;·&nbsp; Nationwide &nbsp;·&nbsp; Via Google Meet or Zoom</div>
+        </div>
+    </div>
+    <div class="quadrant-three">
+        <button id="q3-unmute" title="Mute / Unmute" style="position:absolute;top:12px;left:12px;z-index:30;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;pointer-events:auto;">🔇</button>
+        <button id="q3-playpause" title="Play / Pause" style="position:absolute;bottom:12px;left:12px;z-index:30;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;pointer-events:auto;">⏸</button>
+        <div class="q3-content-box">
+        <div class="q3-video-wrapper" id="v1wrap">
+            <video id="q3vid1" class="q3-video" playsinline>
+                <source src="vid/1.webm" type="video/webm">
+            </video>
+        </div>
+        <div class="q3-video-wrapper" id="v2wrap" style="opacity:0;">
+            <video id="q3vid2" class="q3-video" playsinline>
+                <source src="vid/ad1tvairporthoriz.webm" type="video/webm">
+            </video>
+        </div>
+        </div>
+    <div class="bullet-list-outer">
+        <div class="spin-ring"></div>
+        <div class="bullet-list">
+            <div class="inf-header">Topics Covered</div>
+            <div class="inf-grid">
+                <div class="inf-tile" style="--c:#00d4ff">
+                    <img src="img/ps.png" alt="Adobe Photoshop" class="inf-logo">
+                    <div class="inf-name">Photoshop</div>
+                    <div class="inf-tag">Photo &amp; Design</div>
+                </div>
+                <div class="inf-tile" style="--c:#a855f7">
+                    <img src="img/pr.png" alt="Adobe Premiere Pro" class="inf-logo">
+                    <div class="inf-name">Premiere</div>
+                    <div class="inf-tag">Video Editing</div>
+                </div>
+                <div class="inf-tile" style="--c:#00ff88">
+                    <img src="img/dr.png" alt="DaVinci Resolve" class="inf-logo">
+                    <div class="inf-name">DaVinci</div>
+                    <div class="inf-tag">Color Grading</div>
+                </div>
+                <div class="inf-tile" style="--c:#00e5c8">
+                    <img src="img/cui.png" alt="ComfyUI" class="inf-logo">
+                    <div class="inf-name">ComfyUI</div>
+                    <div class="inf-tag">AI Imagery</div>
+                </div>
+                <div class="inf-tile" style="--c:#f59e0b">
+                    <img src="img/ai.png" alt="AI Apps and Automation" class="inf-logo">
+                    <div class="inf-name">AI Apps</div>
+                    <div class="inf-tag">Automation</div>
+                </div>
+                <div class="inf-tile" style="--c:#ff6b9d">
+                    <img src="img/cld.png" alt="Vibe Coding" class="inf-logo">
+                    <div class="inf-name">Vibe Coding</div>
+                    <div class="inf-tag">Dev + AI</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hiw-outer">
+        <div class="spin-ring"></div>
+        <div class="hiw-inner">
+        <div class="hiw-heading">How It Works</div>
+        <div class="hiw-steps">
+            <div class="hiw-step hiw-s1" style="--c:#00d4ff">
+                <div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(0,212,255,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#00d4ff" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">1</div></div>
+                <div class="hiw-text"><div class="hiw-step-label">Book a Session</div><div class="hiw-step-detail">Pick a time that works for you</div></div>
+            </div>
+            <div class="hiw-step hiw-s2" style="--c:#a855f7">
+                <div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(168,85,247,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">2</div></div>
+                <div class="hiw-text"><div class="hiw-step-label">Join via Meet or Zoom</div><div class="hiw-step-detail">Screen share from anywhere</div></div>
+            </div>
+            <div class="hiw-step hiw-s3" style="--c:#00ff88">
+                <div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(0,255,136,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#00ff88" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">3</div></div>
+                <div class="hiw-text"><div class="hiw-step-label">Learn at Your Pace</div><div class="hiw-step-detail">Hands-on, your level, your goals</div></div>
+            </div>
+            <div class="hiw-step hiw-s4" style="--c:#f59e0b">
+                <div class="hiw-ring"><svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(245,158,11,.12)" stroke-width="2.5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="151" class="hiw-arc" stroke-linecap="round" transform="rotate(-90 30 30)"/></svg><div class="hiw-num">4</div></div>
+                <div class="hiw-text"><div class="hiw-step-label">Create!</div><div class="hiw-step-detail">Put your new skills to work</div></div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="quadrant-four">
+        <div class="video-wrapper">
+            <video id="demo-video" controls poster="img/yt tn copy.png">
+                <source src="vid/demo.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <div class="scroll-hint" id="scrollHint">&#8595;</div>
+
+    <!-- Q5 -->
+    <section class="quadrant-five">
+        <div class="q5-inner">
+            <div class="q5-eyebrow">About</div>
+            <h2 class="q5-main-heading">Tutoring for the Creative Professional</h2>
+
+            <div class="q5-block">
+                <h3>Who teaches at Ad1.tv?</h3>
+                <p>All Ad1.tv sessions are led by industry professionals with real-world experience in video editing, photo editing, and generative AI. You are learning directly from someone who works in the field.</p>
+            </div>
+
+            <div class="q5-block">
+                <h3>How long are sessions, and how often should I attend?</h3>
+                <p>Sessions are 90 minutes. Once a week is recommended — enough time in each session to go deep, and enough time between sessions to practice and absorb what was covered before the next one.</p>
+            </div>
+
+            <div class="q5-block">
+                <h3>What skill level do I need to start?</h3>
+                <p>None. Ad1.tv teaches beginners through advanced students. Every lesson is built around where you are right now and where you want to go. There is no curriculum you have to follow — it is your session, focused on your goals.</p>
+            </div>
+
+            <div class="q5-block">
+                <h3>What software does Ad1.tv teach?</h3>
+                <p>Lessons are available in Adobe Photoshop, Adobe Premiere Pro, CapCut, DaVinci Resolve, ComfyUI, AI apps and automation tools, and vibe coding. Whether you are editing video, retouching photos, or building generative AI workflows, there is a session for you.</p>
+            </div>
+
+            <div class="q5-block">
+                <h3>Can I learn generative AI tools like ComfyUI online?</h3>
+                <p>Yes. Ad1.tv teaches generative AI imagery workflows including ComfyUI. Sessions are conducted live and one-on-one via Zoom or Google Meet, so you learn by doing in real time with an instructor guiding you through your own setup.</p>
+            </div>
+
+            <div class="q5-block">
+                <h3>Is Ad1.tv available if I am not in Los Angeles?</h3>
+                <p>Yes. All sessions are online via Zoom or Google Meet. Ad1.tv serves clients nationwide across the United States. Your location does not matter.</p>
+            </div>
+
+            <div class="q5-cta">
+                <p>Ready to start? Book a session by phone.</p>
+                <a href="tel:+12134440024">213 444-0024</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const demoVideo = document.getElementById('demo-video');
+        demoVideo.volume = 0.1;
+        demoVideo.addEventListener('loadedmetadata', () => { demoVideo.volume = 0.1; });
+        demoVideo.addEventListener('play', () => { demoVideo.volume = 0.1; });
+
+        const v1 = document.getElementById('q3vid1');
+        const v2 = document.getElementById('q3vid2');
+        v1.volume = 0.7;
+        v2.volume = 0.7;
+
+        let activeVid = v1;
+
+        const btnMute = document.getElementById('q3-unmute');
+        const btnPlay = document.getElementById('q3-playpause');
+
+        function setQ3Controls(show) {
+            btnMute.style.display = show ? 'flex' : 'none';
+            btnPlay.style.display = show ? 'flex' : 'none';
+        }
+        setQ3Controls(false);
+
+        function updateMuteBtn() { btnMute.textContent = v1.muted ? '🔇' : '🔊'; }
+        function updatePlayBtn() { btnPlay.textContent = activeVid.paused ? '▶' : '⏸'; }
+
+        btnMute.addEventListener('click', () => {
+            const m = !v1.muted; v1.muted = m; v2.muted = m; updateMuteBtn();
+        });
+        btnPlay.addEventListener('click', () => {
+            if (activeVid.paused) { activeVid.play(); } else { activeVid.pause(); }
+            updatePlayBtn();
+        });
+
+        function tryUnmutedPlay(vid) {
+            vid.muted = false;
+            return vid.play().catch(() => { vid.muted = true; return vid.play(); }).then(updateMuteBtn);
+        }
+
+        const v1Wrap = document.getElementById('v1wrap');
+        const v2Wrap = document.getElementById('v2wrap');
+        const appsOuter = document.querySelector('.bullet-list-outer');
+        const hiwOuter = document.querySelector('.hiw-outer');
+        const items = document.querySelectorAll('.inf-tile');
+
+        function restartSpin(outer) {
+            const ring = outer.querySelector('.spin-ring');
+            if (!ring) return;
+            ring.classList.remove('active'); void ring.offsetHeight; ring.classList.add('active');
+        }
+        function cut(el, val) { el.style.transition = 'none'; el.style.opacity = val; }
+
+        function showApps() {
+            cut(hiwOuter, '0'); hiwOuter.classList.remove('playing');
+            cut(v1Wrap, '0'); cut(v2Wrap, '0');
+            appsOuter.style.opacity = '1';
+            items.forEach(el => { el.style.animation = 'none'; el.offsetHeight; el.style.animation = ''; });
+            restartSpin(appsOuter);
+            setTimeout(showVideo1, 6000);
+        }
+        function showVideo1() {
+            cut(appsOuter, '0'); activeVid = v1; v1.currentTime = 0;
+            cut(v1Wrap, '1'); setQ3Controls(true);
+            tryUnmutedPlay(v1).then(updatePlayBtn);
+            v1.addEventListener('playing', () => {
+                v2.currentTime = 0; v2.play().then(() => { v2.pause(); v2.currentTime = 0; }).catch(() => {});
+            }, { once: true });
+        }
+        v1.addEventListener('ended', () => {
+            activeVid = v2; v2.currentTime = 0; cut(v2Wrap, '1');
+            tryUnmutedPlay(v2).then(updatePlayBtn);
+            const cutV1 = () => requestAnimationFrame(() => cut(v1Wrap, '0'));
+            if ('requestVideoFrameCallback' in v2) { v2.requestVideoFrameCallback(cutV1); }
+            else { v2.addEventListener('timeupdate', cutV1, { once: true }); }
+        });
+        v2.addEventListener('ended', () => { cut(v2Wrap, '0'); showHIW(); });
+        function showHIW() {
+            setQ3Controls(false); hiwOuter.style.opacity = '1';
+            hiwOuter.classList.remove('playing'); void hiwOuter.offsetHeight;
+            hiwOuter.classList.add('playing'); restartSpin(hiwOuter);
+            setTimeout(showApps, 10000);
+        }
+        cut(v1Wrap, '0'); cut(v2Wrap, '0'); hiwOuter.style.opacity = '0'; showApps();
+
+        const scrollHint = document.getElementById('scrollHint');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) scrollHint.classList.add('hidden');
+            else scrollHint.classList.remove('hidden');
+        }, { passive: true });
+    </script>
+</body>
+</html>

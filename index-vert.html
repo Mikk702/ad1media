@@ -310,11 +310,9 @@
             officevid.currentTime = 0;
             officevid.play().catch(() => {
                 officevid.muted = true;
-                vertMuted = true;
-                officevid.play();
+                return officevid.play();
             }).then(() => {
                 btnVertMute.textContent = officevid.muted ? '🔇' : '🔊';
-                vertMuted = officevid.muted;
                 updateVertPlayBtn();
             });
             officeWrapper.style.opacity = '1';

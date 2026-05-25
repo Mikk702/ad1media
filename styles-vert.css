@@ -371,15 +371,21 @@ body {
     inset: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 4vh;
-    gap: 0;
     will-change: transform;
     transform: translateX(100%);
 }
 .hiw-scene.current { transform: translateX(0); }
 .hiw-scene.sliding { transition: transform 0.52s cubic-bezier(0.77,0,0.175,1); }
+
+.hiw-cell {
+    flex: 0 0 33.333%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+}
 .hiw-label {
     font-size: clamp(2.4rem, 8vh, 4.5rem);
     font-weight: 900;
@@ -484,7 +490,6 @@ body {
 }
 .hs1-number {
     font-size: clamp(1.6rem,5vh,3rem); font-weight:900; color:#fff; letter-spacing:0.06em; white-space:nowrap;
-    margin-top: 15%;
     text-align: center;
     animation:hs-fadeUp 0.6s 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
 }
@@ -525,12 +530,11 @@ body {
 .hs3-name.meet { color:#4fc3f7; }
 .hs3-name.zoom { color:#a78bfa; }
 .hs3-or { font-size:clamp(1.6rem,4.5vh,2.5rem); font-weight:900; color:rgba(255,255,255,0.5); flex-shrink:0; }
-.hs3-tagline { font-size:clamp(1.1rem,3.2vh,1.8rem); color:rgba(255,255,255,0.4); letter-spacing:0.08em; text-align:center; margin-top:clamp(20px,4vh,40px); }
+.hs3-tagline { font-size:clamp(1.1rem,3.2vh,1.8rem); color:rgba(255,255,255,0.4); letter-spacing:0.08em; text-align:center; }
 .hs3-headline { font-size:clamp(1.8rem,5.5vh,3.2rem); font-weight:900; color:#fff; letter-spacing:-0.01em; text-align:center; animation:hs-fadeUp 0.6s 0.65s cubic-bezier(0.34,1.56,0.64,1) both; }
 
 /* Screen 4 — Create! */
-#hiws4 { justify-content:space-between; padding: 4vh 0 6vh; overflow:hidden; }
-#hiws4 .hs4-word { margin-top: 5vh; }
+#hiws4 { overflow:hidden; }
 .hs-bg { position:absolute; border-radius:50%; border:1.5px solid; pointer-events:none; }
 .hs-bg.c1 { width:220px;height:220px; border-color:rgba(0,212,255,0.07);  top:-60px; right:-60px;  animation:hs-burst 0.8s 0.1s ease-out both; }
 .hs-bg.c2 { width:150px;height:150px; border-color:rgba(168,85,247,0.1);  bottom:-40px; left:-40px; animation:hs-burst 0.8s 0.2s ease-out both; }
@@ -542,7 +546,7 @@ body {
 .hs-star.s3 { width:9px;height:9px; background:#00ff88; bottom:28%;left:15%;animation:hs-popIn 0.5s 0.5s both,hs-twinkle 2.0s 0.8s infinite; }
 .hs-star.s4 { width:7px;height:7px; background:#f59e0b; bottom:22%;right:10%;animation:hs-popIn 0.5s 0.7s both,hs-twinkle 1.6s 1.4s infinite; }
 .hs4-word {
-    font-size:clamp(4.4rem,14.5vh,8.8rem); font-weight:900; line-height:1; letter-spacing:-0.03em;
+    font-size:clamp(2.8rem,9vh,5.5rem); font-weight:900; line-height:1; letter-spacing:-0.03em;
     background:linear-gradient(135deg,#f59e0b 0%,#ff6b9d 50%,#a855f7 100%);
     -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
     filter:drop-shadow(0 0 32px rgba(245,158,11,0.4));
@@ -550,7 +554,7 @@ body {
 }
 .hs4-sub {
     display:inline-flex; flex-direction:column;
-    font-size:clamp(1rem, 5vh, 2.5rem); font-weight:900; line-height:1.0; letter-spacing:-0.01em;
+    font-size:clamp(0.9rem, 3vh, 1.6rem); font-weight:900; line-height:1.0; letter-spacing:-0.01em;
     margin-top:clamp(8px,2vh,20px);
     background:linear-gradient(160deg,#f59e0b 0%,#ff6b9d 55%,#a855f7 100%);
     -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
@@ -681,7 +685,7 @@ body {
 }
 
 .hswelcome-word {
-    font-size: clamp(2.8rem, 11vh, 5.5rem);
+    font-size: clamp(1.6rem, 6vh, 3rem);
     font-weight: 900;
     line-height: 1;
     letter-spacing: -0.02em;

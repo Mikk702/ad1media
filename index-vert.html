@@ -80,7 +80,7 @@
     </div>
 
     <section class="v-bottom">
-        <!-- shirl.png zoom-in → shirl.webm → sm.webm, inside the 9:16 content box -->
+        <!-- shirl.png zoom-in → shirl.webm, inside the 9:16 content box -->
         <div class="q3-content-box" id="shirl-box" style="opacity:0;">
             <!-- Controls -->
             <button id="vert-unmute" title="Mute / Unmute" style="position:absolute;top:12px;left:12px;z-index:30;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;pointer-events:auto;">🔇</button>
@@ -98,11 +98,6 @@
             <div id="shirl-vid-wrap" style="position:absolute;inset:0;opacity:0;">
                 <video id="shirldemo" class="q3-video" muted playsinline>
                     <source src="vid/shirl.webm" type="video/webm">
-                </video>
-            </div>
-            <div id="sm-wrapper" style="position:absolute;inset:0;opacity:0;">
-                <video id="smvid" class="q3-video" muted playsinline>
-                    <source src="vid/sm.webm" type="video/webm">
                 </video>
             </div>
         </div>
@@ -238,8 +233,6 @@
         const shirlImg     = document.getElementById('shirl-img');
         const shirlVidWrap = document.getElementById('shirl-vid-wrap');
         const shirldemo    = document.getElementById('shirldemo');
-        const smWrapper    = document.getElementById('sm-wrapper');
-        const smvid        = document.getElementById('smvid');
         const officeWrapper = document.getElementById('office-wrapper');
         const officevid     = document.getElementById('officevid');
         const btnVertMute   = document.getElementById('vert-unmute');
@@ -250,7 +243,7 @@
 
         function setVertMute(muted) {
             vertMuted = muted;
-            [officevid, shirldemo, smvid].forEach(v => v.muted = muted);
+            [officevid, shirldemo].forEach(v => v.muted = muted);
             btnVertMute.textContent = muted ? '🔇' : '🔊';
         }
         function updateVertPlayBtn() {
@@ -285,7 +278,6 @@
             hiwOuter.style.transition = 'none';
             hiwOuter.style.opacity = '0';
             shirlBox.style.opacity = '0';
-            smWrapper.style.opacity = '0';
             appsOuter.style.opacity = '1';
             items.forEach(el => {
                 el.style.animation = 'none';
@@ -301,7 +293,6 @@
             appsOuter.style.opacity    = '0';
             shirlImgWrap.style.opacity = '0';
             shirlVidWrap.style.opacity = '0';
-            smWrapper.style.opacity    = '0';
             officeWrapper.style.transition = 'none';
             officeWrapper.style.opacity    = '0';
             shirlBox.style.opacity = '1';
@@ -380,38 +371,10 @@
             }, 600 + 900);
         }
 
-        // Prime sm.webm first frame as soon as shirl.webm starts playing
-        shirldemo.addEventListener('playing', () => {
-            smvid.currentTime = 0;
-            smvid.play().then(() => { smvid.pause(); smvid.currentTime = 0; }).catch(() => {});
-        }, { once: true });
-
         shirldemo.addEventListener('ended', () => {
-            smWrapper.style.transition = 'none';
-            smWrapper.style.opacity    = '1';
-            smvid.muted       = vertMuted;
-            smvid.currentTime = 0;
-            smvid.play();
-            currentVid = smvid;
-            updateVertPlayBtn();
-            // Cut shirl only after sm frame is composited
-            const cutShirl = () => {
-                requestAnimationFrame(() => {
-                    shirlVidWrap.style.transition = 'none';
-                    shirlVidWrap.style.opacity    = '0';
-                });
-            };
-            if ('requestVideoFrameCallback' in smvid) {
-                smvid.requestVideoFrameCallback(cutShirl);
-            } else {
-                smvid.addEventListener('timeupdate', cutShirl, { once: true });
-            }
-        });
-
-        smvid.addEventListener('ended', () => {
-            smWrapper.style.transition = 'none';
-            smWrapper.style.opacity    = '0';
-            shirlBox.style.opacity     = '0';
+            shirlVidWrap.style.transition = 'none';
+            shirlVidWrap.style.opacity    = '0';
+            shirlBox.style.opacity        = '0';
             currentVid = null;
             showHIW();
         });
@@ -459,7 +422,6 @@
             hiwOuter.style.transition       = 'none';
             hiwOuter.style.opacity          = '0';
             shirlBox.style.opacity          = '0';
-            smWrapper.style.opacity         = '0';
             const logo = motionOuter.querySelector('.motion-logo');
             const motionItems = motionOuter.querySelectorAll('.motion-service');
             logo.style.animation = 'none';
